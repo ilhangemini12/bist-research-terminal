@@ -16,13 +16,14 @@ is_demo='DEMO' in latest.get('mode','')
 summary=latest.get('summary',{})
 verified=0 if is_demo else int(summary.get('verified_price_count',0) or 0)
 expected_date=None if is_demo else latest.get('data_as_of',{}).get('prices')
+dashboard_url='https://ilhangemini12.github.io/bist-research-terminal/'
 report={
   'project':'bist-research-terminal',
   'generated_at':datetime.now(timezone.utc).isoformat(),
   'mode':latest.get('mode'),
   'repository_url':'https://github.com/ilhangemini12/bist-research-terminal',
-  'dashboard_url':None,
-  'expected_dashboard_url':'https://ilhangemini12.github.io/bist-research-terminal/',
+  'dashboard_url':dashboard_url,
+  'expected_dashboard_url':dashboard_url,
   'live_market_status':{
     'expected_market_date':expected_date,
     'last_verified_market_date': expected_date if verified > 0 else None,
@@ -31,7 +32,7 @@ report={
     'unverified_price_count':0 if is_demo else summary.get('unverified_price_count',0),
     'reason':(
       'Bundled dataset is synthetic demo fixture; no live market date is claimed.' if is_demo
-      else ('Live pipeline has VERIFIED_2X prices.' if verified > 0 else 'Live pipeline ran, but no price met the two-independent-upstream VERIFIED_2X contract.')
+      else ('Live pipeline has VERIFIED_2X prices.' if verified > 0 else 'Live pipeline ran, but no current-day price met the two-independent-upstream VERIFIED_2X contract.')
     )
   },
   'demo_fixture':{'tracked_stocks':summary.get('tracked_stocks',0),'verified_fixture_rows':summary.get('verified_price_count',0)} if is_demo else None,
@@ -42,7 +43,6 @@ report={
   'presets':list(yaml.safe_load((ROOT/'config/presets.yaml').read_text())['presets']),
   'verification_evidence':{'closed_day_sample':'2026-09-30','tickers':['THYAO','ASELS','AKBNK'],'status':'VERIFIED_2X','max_diff_pct':0.0},
   'known_limitations':[
-    'GitHub Pages requires a one-time repository-level enablement before the deployment workflow can publish the dashboard.',
     'Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.',
     'Full KAP financial-statement taxonomy normalization and 12–20-quarter population across all issuer types is not complete.',
     'Historical point-in-time index universes are not fully populated; affected backtests must retain BACKTEST BIASED.',

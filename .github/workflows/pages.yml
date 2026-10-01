@@ -1,21 +1,47 @@
 name: Deploy Pages
+
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'dashboard/**'
+      - '.github/workflows/pages.yml'
+
 permissions:
   contents: read
   pages: write
   id-token: write
-concurrency: {group: pages, cancel-in-progress: true}
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+      - name: Validate dashboard payload
+        run: |
+          set -euo pipefail
+          test -f dashboard/index.html
+          test -f dashboard/app.js
+          test -f dashboard/data/latest.json
+          node --check dashboard/app.js
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          json.loads(Path("dashboard/data/latest.json").read_text())
+          print("DASHBOARD_PAYLOAD_OK")
+          PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
-        with: {path: dashboard}
+        with:
+          path: dashboard
       - id: deployment
         uses: actions/deploy-pages@v4

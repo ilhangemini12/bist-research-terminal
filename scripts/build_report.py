@@ -42,10 +42,15 @@ report={
   'js_formula_tests':'dashboard/tests/formula.test.js',
   'presets':list(yaml.safe_load((ROOT/'config/presets.yaml').read_text())['presets']),
   'verification_evidence':{'closed_day_sample':'2026-09-30','tickers':['THYAO','ASELS','AKBNK'],'status':'VERIFIED_2X','max_diff_pct':0.0},
+  'point_in_time_universe':{
+    'snapshot_date':latest.get('universe',{}).get('snapshot_date'),
+    'history_status':latest.get('universe',{}).get('history_status'),
+    'history_rows':latest.get('universe',{}).get('history_rows',0),
+  },
   'known_limitations':[
     'Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.',
-    'Full KAP financial-statement taxonomy normalization and 12–20-quarter population across all issuer types is not complete.',
-    'Historical point-in-time index universes are not fully populated; affected backtests must retain BACKTEST BIASED.',
+    'Structured 12–20-quarter financial coverage remains unavailable in the zero-cost build: SPK public services expose metadata/PDF documents, while KAP structured REST access requires licensed authorization; missing values remain N/A.',
+    'Point-in-time index membership snapshots accumulate from 2026-10-01 onward; periods before the first snapshot remain unavailable and affected backtests must retain BACKTEST BIASED.',
     'Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries.'
   ],
   'stress_coverage':[

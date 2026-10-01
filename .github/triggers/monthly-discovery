@@ -1,2 +1,1 @@
-triggered-by: chatgpt-validation
-purpose: live official source discovery smoke test
+validation-r2-after-concurrency-fix

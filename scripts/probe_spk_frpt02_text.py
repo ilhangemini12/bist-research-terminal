@@ -1,75 +1,42 @@
-"""One-off SPK FRPT02 PDF structure probe.
-
-Fetches one documented public SPK financial-statement PDF into memory, checks
-text-layer quality, and prints only bounded line contexts needed to design a safe
-normalizer. No PDF bytes are persisted or committed.
-"""
+"""One-off live validation of the production SPK PDF financial parser."""
 from __future__ import annotations
 
-import base64
-from io import BytesIO
 from pathlib import Path
-import re
 import sys
-
-from pypdf import PdfReader
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"src"))
+
+from bist_terminal.financials.spk_pdf import parse_pdf_base64
 from bist_terminal.providers.spk import SPKRegistryProvider
 
-REPORT_ID = 1986
-TERMS = [
-    "TOPLAM VARLIKLAR",
-    "TOPLAM KAYNAKLAR",
-    "TOPLAM ÖZKAYNAKLAR",
-    "ÖZKAYNAKLAR",
-    "HASILAT",
-    "BRÜT KAR",
-    "BRÜT KÂR",
-    "FAALİYET KARI",
-    "FAALİYET KÂRI",
-    "DÖNEM KARI",
-    "DÖNEM KÂRI",
-    "NET DÖNEM KARI",
-    "NET DÖNEM KÂRI",
-    "NAKİT VE NAKİT BENZERLERİ",
-]
-
-def clean(s: str) -> str:
-    return re.sub(r"\s+"," ",s or "").strip()
+REPORT_ID=1986
 
 def main():
     detail=SPKRegistryProvider().financial_report(REPORT_ID)
-    raw=base64.b64decode(detail["fileData"],validate=True)
-    if not raw.startswith(b"%PDF"):
-        raise RuntimeError("SPK financial report is not a PDF")
-    reader=PdfReader(BytesIO(raw))
-    contexts=[]
-    all_text=[]
-    image_pages=0
-    for pno,page in enumerate(reader.pages,1):
-        txt=page.extract_text() or ""
-        all_text.append(txt)
-        try:
-            if getattr(page,"images",None) and len(page.images):
-                image_pages += 1
-        except Exception:
-            pass
-        lines=[clean(x) for x in txt.splitlines() if clean(x)]
-        for i,line in enumerate(lines):
-            up=line.upper()
-            if any(term in up for term in TERMS):
-                before=lines[max(0,i-1)] if i else ""
-                after=lines[i+1] if i+1 < len(lines) else ""
-                contexts.append((pno,before,line,after))
-    normalized=clean("\n".join(all_text))
-    print("SPK_FRPT02_STRUCTURE_PROBE_OK")
-    print(f"SPK_FRPT02_META id={detail.get('id')} companyCode={detail.get('companyCode')} subject={detail.get('subject')} date={detail.get('date')}")
-    print(f"SPK_FRPT02_PDF bytes={len(raw)} pages={len(reader.pages)} nonempty_text_pages={sum(bool(clean(x)) for x in all_text)} image_pages={image_pages} chars={len(normalized)}")
-    print(f"SPK_FRPT02_CONTEXT_COUNT {len(contexts)}")
-    for pno,before,line,after in contexts[:60]:
-        print(f"SPK_FRPT02_CONTEXT page={pno} :: PRE={before[:300]} || HIT={line[:700]} || POST={after[:300]}")
+    out=parse_pdf_base64(detail["fileData"],metadata={
+        "report_id":detail.get("id"),
+        "company_code":detail.get("companyCode"),
+        "subject":detail.get("subject"),
+        "publication_date":detail.get("date"),
+    })
+    print("SPK_PRODUCTION_PARSER_PROBE_OK")
+    print(f"SPK_PRODUCTION_PARSER_STATUS status={out['status']} score={out['quality_score']} pages={out['pdf_pages']} text_pages={out['text_pages']}")
+    print(f"SPK_PRODUCTION_PARSER_PERIODS {out['periods']}")
+    print(f"SPK_PRODUCTION_PARSER_PAGES {out['statement_pages']}")
+    print(f"SPK_PRODUCTION_PARSER_CHECKS {out['checks']}")
+    for period in out["periods"][:3]:
+        facts=out["facts_by_period"].get(period,{})
+        selected={k:facts.get(k) for k in [
+            "total_assets","equity","total_sources","current_assets","current_liabilities",
+            "cash","inventories","revenue","gross_profit","operating_profit","pretax_income",
+            "net_income","cash_from_operations"
+        ] if k in facts}
+        print(f"SPK_PRODUCTION_PARSER_FACTS period={period} {selected}")
+    if out["status"] != "PARSED_HIGH_CONFIDENCE":
+        raise RuntimeError(f"production parser did not reach high confidence: {out['status']} score={out['quality_score']}")
+    if out["checks"].get("balance_identity_ok") is not True:
+        raise RuntimeError("balance identity check failed")
 
 if __name__=="__main__":
     main()

@@ -37,6 +37,7 @@ def main():
         status_counts=Counter()
         period_counts=Counter()
         source_period_counts=Counter()
+        review_details=[]
         for ticker,period,scope,payload in rows:
             if ticker not in periods_by:
                 continue
@@ -52,6 +53,18 @@ def main():
             source_period_counts[key]+=1
             if status=='PARSED_HIGH_CONFIDENCE':
                 high_by[ticker].add(str(period))
+            elif status=='PARSED_REVIEW_REQUIRED' and len(review_details)<120:
+                review_details.append({
+                    'ticker':ticker,
+                    'report_period':str(period),
+                    'archive_year':p.get('archive_year'),
+                    'archive_period':p.get('archive_period'),
+                    'quality_score':p.get('quality_score'),
+                    'statement_scope':p.get('statement_scope'),
+                    'matched_statement_tables':p.get('matched_statement_tables'),
+                    'fact_keys':sorted((p.get('facts') or {}).keys()),
+                    'source_file':p.get('source_file'),
+                })
 
         all_counts=[len(periods_by[t]) for t in tickers]
         high_counts=[len(high_by[t]) for t in tickers]
@@ -75,6 +88,7 @@ def main():
             'distinct_report_periods':sorted(period_counts),
             'report_period_company_counts':dict(sorted(period_counts.items())),
             'archive_period_row_counts':dict(sorted(source_period_counts.items())),
+            'review_required_examples':review_details,
             'period_depth':{
                 'all_min':min(all_counts) if all_counts else 0,
                 'all_median':statistics.median(all_counts) if all_counts else 0,

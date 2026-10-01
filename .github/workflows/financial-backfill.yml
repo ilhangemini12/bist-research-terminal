@@ -38,7 +38,7 @@ jobs:
           pytest -q tests/test_kap_bulk_financials.py tests/test_fundamental.py
       - name: Ingest KAP financial archive
         run: |
-          python scripts/bootstrap_financials.py             --year "${{ inputs.year || '2025' }}"             --period "${{ inputs.period || '4' }}"             --tickers "${{ inputs.tickers || 'THYAO,ASELS,AKBNK,PETKM' }}"
+          python scripts/bootstrap_financials.py             --year "${{ inputs.year || '2025' }}"             --period "${{ inputs.period || '4' }}"             --tickers "${{ inputs.tickers }}"
       - name: Commit normalized financial state
         run: |
           set -euo pipefail

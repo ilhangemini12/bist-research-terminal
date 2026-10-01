@@ -5,6 +5,7 @@ from collections import Counter
 import datetime
 import sys
 import yaml
+import runpy
 from datetime import timezone
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -97,3 +98,6 @@ def main():
 
 if __name__=='__main__':
     main()
+    print('HISTORICAL_CROSSCHECK_SMOKE_START')
+    runpy.run_path(str(ROOT/'scripts/verify_bist_yahoo_sample.py'),run_name='__main__')
+    print('HISTORICAL_CROSSCHECK_SMOKE_DONE')

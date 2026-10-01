@@ -7,3 +7,5 @@ data/cache/*
 data/parquet/*
 !data/cache/.gitkeep
 !data/parquet/.gitkeep
+!data/parquet/daily_ohlcv.parquet
+!data/parquet/corporate_actions.parquet

@@ -5,6 +5,8 @@ import json, re, subprocess, yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 latest=json.loads((ROOT/'dashboard/data/latest.json').read_text())
+financial_depth_path=ROOT/'artifacts/financial_depth_report.json'
+financial_depth=json.loads(financial_depth_path.read_text()) if financial_depth_path.exists() else {}
 providers=yaml.safe_load((ROOT/'config/source_catalog.yaml').read_text())['providers']
 statuses=Counter(p['status'] for p in providers)
 try:
@@ -38,6 +40,7 @@ report={
   'demo_fixture':{'tracked_stocks':summary.get('tracked_stocks',0),'verified_fixture_rows':summary.get('verified_price_count',0)} if is_demo else None,
   'financial_coverage_percent_live':0 if is_demo else summary.get('financial_coverage_pct',0),
   'financial_high_confidence_count':0 if is_demo else summary.get('financial_high_confidence_count',0),
+  'financial_quarter_depth':financial_depth.get('standalone_quarter_depth',{}),
   'technical_coverage_percent_live':0 if is_demo else summary.get('technical_coverage_pct',0),
   'technical_rsi14_count':0 if is_demo else summary.get('technical_rsi14_count',0),
   'source_catalog':{'discovered_or_catalogued':len(providers),'status_counts':dict(sorted(statuses.items()))},
@@ -52,8 +55,8 @@ report={
   },
   'known_limitations':[
     'Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.',
-    'KAP public bulk financial downloads now provide normalized high-confidence annual financials for most of the configured universe; full 12–20-quarter history is still being accumulated and missing/review-required issuers remain N/A.',
-    'Five-year OHLCV/technical coverage is populated incrementally in bounded batches; tickers without sufficient durable history keep technical fields N/A until their batch completes.',
+    'KAP public bulk financial downloads provide normalized high-confidence financials for most of the configured universe; standalone-quarter depth is checkpointed separately and missing/review-required issuers remain N/A.',
+    'Five-year OHLCV backfill is complete for the current configured universe; technical fields still remain N/A for any ticker without sufficient valid observations.',
     'Point-in-time index membership snapshots accumulate from 2026-10-01 onward; periods before the first snapshot remain unavailable and affected backtests must retain BACKTEST BIASED.',
     'Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries.'
   ],

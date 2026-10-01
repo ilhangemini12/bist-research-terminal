@@ -13,33 +13,39 @@ try:
 except Exception:
     collected=None
 is_demo='DEMO' in latest.get('mode','')
+summary=latest.get('summary',{})
+verified=0 if is_demo else int(summary.get('verified_price_count',0) or 0)
+expected_date=None if is_demo else latest.get('data_as_of',{}).get('prices')
 report={
   'project':'bist-research-terminal',
   'generated_at':datetime.now(timezone.utc).isoformat(),
   'mode':latest.get('mode'),
-  'repository_url':None,
+  'repository_url':'https://github.com/ilhangemini12/bist-research-terminal',
   'dashboard_url':None,
+  'expected_dashboard_url':'https://ilhangemini12.github.io/bist-research-terminal/',
   'live_market_status':{
-    'last_verified_market_date': None if is_demo else latest.get('data_as_of',{}).get('prices'),
-    'tracked_live_tickers': 0 if is_demo else latest.get('summary',{}).get('tracked_stocks',0),
-    'verified_price_count': 0 if is_demo else latest.get('summary',{}).get('verified_price_count',0),
-    'unverified_price_count': 0 if is_demo else latest.get('summary',{}).get('unverified_price_count',0),
-    'reason':'Bundled dataset is synthetic demo fixture; no live market date is claimed.' if is_demo else 'Live pipeline output.'
+    'expected_market_date':expected_date,
+    'last_verified_market_date': expected_date if verified > 0 else None,
+    'tracked_live_tickers': 0 if is_demo else summary.get('tracked_stocks',0),
+    'verified_price_count':verified,
+    'unverified_price_count':0 if is_demo else summary.get('unverified_price_count',0),
+    'reason':(
+      'Bundled dataset is synthetic demo fixture; no live market date is claimed.' if is_demo
+      else ('Live pipeline has VERIFIED_2X prices.' if verified > 0 else 'Live pipeline ran, but no price met the two-independent-upstream VERIFIED_2X contract.')
+    )
   },
-  'demo_fixture':{'tracked_stocks':latest.get('summary',{}).get('tracked_stocks',0),'verified_fixture_rows':latest.get('summary',{}).get('verified_price_count',0)} if is_demo else None,
-  'financial_coverage_percent_live':0 if is_demo else latest.get('summary',{}).get('financial_coverage_pct',0),
+  'demo_fixture':{'tracked_stocks':summary.get('tracked_stocks',0),'verified_fixture_rows':summary.get('verified_price_count',0)} if is_demo else None,
+  'financial_coverage_percent_live':0 if is_demo else summary.get('financial_coverage_pct',0),
   'source_catalog':{'discovered_or_catalogued':len(providers),'status_counts':dict(sorted(statuses.items()))},
   'python_tests_collected':collected,
   'js_formula_tests':'dashboard/tests/formula.test.js',
   'presets':list(yaml.safe_load((ROOT/'config/presets.yaml').read_text())['presets']),
   'known_limitations':[
-    'Connected GitHub tool can write to an existing repository but cannot create the new repository in this session.',
-    'GitHub Pages is not live until ilhangemini12/bist-research-terminal exists and this build is pushed.',
+    'GitHub Pages requires a one-time repository-level enablement before the deployment workflow can publish the dashboard.',
     'Live VERIFIED_2X coverage remains zero until a second current, free, terms-compatible independent price lineage is approved.',
     'Full KAP financial-statement taxonomy normalization and 12–20-quarter population across all issuer types is not complete.',
     'Historical point-in-time index universes are not fully populated; affected backtests must retain BACKTEST BIASED.',
-    'Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries.',
-    'Local sandbox lacks duckdb/pyarrow; the storage module is compiled/tested structurally and GitHub Actions installs declared dependencies.'
+    'Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries.'
   ],
   'stress_coverage':[
     'primary/secondary provider down','HTTP 403','HTTP 429 bounded retry','timeout','malformed payload/HTML','schema change',

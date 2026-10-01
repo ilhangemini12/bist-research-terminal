@@ -1,3 +1,3 @@
 offset=105
 limit=50
-checkpoint=sequential-r1
+checkpoint=sharded-r1

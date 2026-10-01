@@ -52,7 +52,7 @@ jobs:
       - name: Validate financial parser
         run: |
           python -m compileall -q src scripts
-          pytest -q tests/test_kap_bulk_financials.py tests/test_financial_files.py tests/test_fundamental.py
+          pytest -q tests/test_kap_bulk_financials.py tests/test_financial_files.py tests/test_financial_quarterly.py tests/test_financial_history.py tests/test_fundamental.py
       - name: Resolve bounded backfill request
         id: request
         shell: bash

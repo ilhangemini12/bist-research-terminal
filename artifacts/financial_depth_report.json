@@ -1,0 +1,348 @@
+{
+  "generated_at": "2026-10-01T20:38:11.808323+00:00",
+  "tracked_tickers": 323,
+  "financial_rows": 298,
+  "status_counts": {
+    "PARSED_HIGH_CONFIDENCE": 292,
+    "PARSED_REVIEW_REQUIRED": 6
+  },
+  "distinct_report_periods": [
+    "2025-12-31",
+    "2026-01-31",
+    "2026-03-31",
+    "2026-04-30",
+    "2026-05-31",
+    "2026-06-30"
+  ],
+  "report_period_company_counts": {
+    "2025-12-31": 292,
+    "2026-01-31": 1,
+    "2026-03-31": 1,
+    "2026-04-30": 1,
+    "2026-05-31": 1,
+    "2026-06-30": 2
+  },
+  "archive_period_row_counts": {
+    "2025-4": 298
+  },
+  "period_depth": {
+    "all_min": 0,
+    "all_median": 1,
+    "all_max": 1,
+    "high_conf_min": 0,
+    "high_conf_median": 1,
+    "high_conf_max": 1,
+    "tickers_with_at_least": {
+      "1": 292,
+      "4": 0,
+      "8": 0,
+      "12": 0,
+      "16": 0,
+      "20": 0
+    },
+    "pct_with_at_least_12_high_conf": 0.0,
+    "pct_with_at_least_20_high_conf": 0.0
+  },
+  "lowest_depth": [
+    {
+      "ticker": "A1CAP",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ALBRK",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ALBTN",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "BETAE",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "EKDMR",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "GARAN",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "GENKM",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "GOLDA",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "HALKB",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "INFO",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ISATR",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ISBTR",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ISCTR",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ISMEN",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ISVEA",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "KARCL",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "KPEKS",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "KRDMA",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "KRDMB",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "NETGL",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ORZAX",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "QUICK",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "SARAE",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "SOHOE",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "TKNKA",
+      "all_periods": 0,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "AGESA",
+      "all_periods": 1,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "AKGRT",
+      "all_periods": 1,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ANHYT",
+      "all_periods": 1,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ANSGR",
+      "all_periods": 1,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "RAYSG",
+      "all_periods": 1,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "TURSG",
+      "all_periods": 1,
+      "high_conf_periods": 0
+    },
+    {
+      "ticker": "ACSEL",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ADEL",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AEFES",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AFYON",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AGHOL",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AGROT",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AHGAZ",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AKBNK",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AKCNS",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AKFYE",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AKHAN",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AKSA",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AKSEN",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ALARK",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ALCAR",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ALKA",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ALKIM",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ALKLC",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ALTNY",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ANGEN",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ARCLK",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ARMGD",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ARTMS",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ASELS",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ASTOR",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ASUZU",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ATAKP",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AVOD",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AYGAZ",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    }
+  ]
+}

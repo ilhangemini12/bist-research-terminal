@@ -13,13 +13,14 @@ sys.path.insert(0,str(ROOT/'src'))
 
 from bist_terminal.providers.bist_universe import BistIndexUniverseProvider, enabled_indices
 from bist_terminal.storage.duckdb_store import DuckDBStore
+from bist_terminal.storage.financial_files import financial_parquet_files
 
 
 def main():
     store=DuckDBStore(ROOT/'data/bist.duckdb')
     try:
-        parquet=ROOT/'data/parquet/financials.parquet'
-        store.import_parquet('financials',parquet)
+        for parquet in financial_parquet_files(ROOT):
+            store.import_parquet('financials',parquet)
         rows=store.con.execute(
             'select ticker, report_period, statement_scope, payload from financials order by ticker, report_period'
         ).fetchall()

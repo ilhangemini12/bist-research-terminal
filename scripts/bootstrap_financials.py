@@ -1,10 +1,13 @@
-"""Persist normalized KAP bulk financial statements for the configured BIST universe."""
+"""Persist normalized KAP financial statements using immutable checkpoint shards."""
 from __future__ import annotations
 
 from argparse import ArgumentParser
 from datetime import datetime, timezone
 from pathlib import Path
+import json
 import sys
+
+import pandas as pd
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
@@ -12,6 +15,19 @@ sys.path.insert(0,str(ROOT/'src'))
 from bist_terminal.financials.kap_bulk import KapBulkFinancialProvider
 from bist_terminal.providers.bist_universe import BistIndexUniverseProvider, enabled_indices
 from bist_terminal.storage.duckdb_store import DuckDBStore
+from bist_terminal.storage.financial_files import financial_parquet_files, financial_shard_path
+
+
+def restore_financial_state(store):
+    restored=0
+    for parquet in financial_parquet_files(ROOT):
+        added=store.import_parquet('financials',parquet)
+        restored+=added
+        print(
+            f'FINANCIAL_STATE_RESTORED file={parquet.name} '
+            f'rows_added={added} total={store.table_count("financials")}'
+        )
+    return restored
 
 
 def main():
@@ -21,6 +37,7 @@ def main():
     ap.add_argument('--tickers',default='')
     ap.add_argument('--offset',type=int,default=0)
     ap.add_argument('--limit',type=int,default=0)
+    ap.add_argument('--force',action='store_true')
     args=ap.parse_args()
 
     universe=BistIndexUniverseProvider(
@@ -35,10 +52,17 @@ def main():
         if args.limit>0:
             tickers=tickers[:args.limit]
 
+    if not tickers:
+        print(f'KAP_FIN_BOOTSTRAP_DONE requested=0 parsed=0 review=0 missing=0 failed=0 year={args.year} period={args.period}')
+        return
+
+    shard=financial_shard_path(ROOT,args.year,args.period,args.offset,len(tickers))
+    if shard.exists() and not args.force:
+        print(f'FINANCIAL_SHARD_EXISTS file={shard.name}; immutable checkpoint kept, no rewrite')
+        return
+
     store=DuckDBStore(ROOT/'data/bist.duckdb')
-    parquet=ROOT/'data/parquet/financials.parquet'
-    restored=store.import_parquet('financials',parquet)
-    print(f'FINANCIAL_STATE_RESTORED rows_added={restored} total={store.table_count("financials")}')
+    restore_financial_state(store)
 
     provider=KapBulkFinancialProvider()
     archive=provider.download_archive(args.year,args.period)
@@ -46,6 +70,7 @@ def main():
 
     parsed=0; missing=0; review=0; failed=0
     stamp=datetime.now(timezone.utc).isoformat()
+    new_rows=[]
     try:
         for ticker in tickers:
             try:
@@ -66,14 +91,16 @@ def main():
                     'upstream_vendor':provider.upstream_vendor,
                     'retrieved_at':stamp,
                 }
-                store.upsert_financial({
+                row={
                     'ticker':ticker,
                     'report_period':result['current_period'],
                     'publication_date':None,
                     'statement_scope':result.get('statement_scope') or 'UNKNOWN',
-                    'payload':payload,
+                    'payload':json.dumps(payload,ensure_ascii=False),
                     'source_url':archive.source_url,
-                })
+                }
+                store.upsert_financial({**row,'payload':payload})
+                new_rows.append(row)
                 parsed+=1
                 keys=sorted(result.get('facts',{}))
                 print(
@@ -83,10 +110,20 @@ def main():
             except Exception as exc:
                 failed+=1
                 print(f'KAP_FIN_DEGRADED ticker={ticker} {type(exc).__name__}: {exc}')
-        store.export_parquet('financials',parquet)
+
+        if new_rows:
+            shard.parent.mkdir(parents=True,exist_ok=True)
+            pd.DataFrame(
+                new_rows,
+                columns=['ticker','report_period','publication_date','statement_scope','payload','source_url'],
+            ).to_parquet(shard,index=False)
+            print(f'FINANCIAL_SHARD_WRITTEN file={shard.name} rows={len(new_rows)}')
+        else:
+            print('FINANCIAL_STATE_UNCHANGED no shard write')
         print(
             f'KAP_FIN_BOOTSTRAP_DONE requested={len(tickers)} parsed={parsed} '
-            f'review={review} missing={missing} failed={failed} total_rows={store.table_count("financials")}'
+            f'review={review} missing={missing} failed={failed} total_rows={store.table_count("financials")} '
+            f'year={args.year} period={args.period}'
         )
     finally:
         store.close()

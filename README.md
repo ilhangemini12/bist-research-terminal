@@ -50,7 +50,7 @@ Two websites using the same upstream count as one lineage. A single official EOD
 
 SPK, TSPB, KAP and Borsa İstanbul are preferred for official registries, company/report/disclosure metadata, index membership, calendars and reference data. Free display access is **not** treated as permission for automated ingestion. Login walls, CAPTCHA, 403/429 and disallowed paths trip the provider circuit breaker rather than triggering bypass attempts.
 
-The current price candidate is Yahoo Finance. Because a second current, free, terms-compatible independent price lineage has not yet been approved, a real live run can legitimately report zero `VERIFIED_2X` prices. That is preferable to false verification.
+The active price lineages are the official Borsa Istanbul Equity Market EOD bulletin and Yahoo Finance daily history/latest data. A current-day run can still legitimately report zero `VERIFIED_2X` before the official EOD bulletin is published. Closed-day cross-checks on 2026-09-30 for THYAO, ASELS and AKBNK matched exactly and produced `VERIFIED_2X`.
 
 ## Run locally
 
@@ -85,11 +85,11 @@ config/ tests/ stress_tests/ dashboard/ docs/ scripts/ data/ artifacts/ .github/
 
 ## GitHub deployment
 
-The workflows are ready, but the connected GitHub integration cannot create a repository. After an empty `ilhangemini12/bist-research-terminal` repository exists, the project can be pushed there and `pages.yml` can publish `dashboard/` through GitHub Pages. Until that repository exists, neither a repository URL nor a Pages URL should be represented as live.
+The repository is live at `https://github.com/ilhangemini12/bist-research-terminal` and the data/update workflows are running successfully. GitHub Pages still requires one repository-level Pages enablement action that the connected GitHub App cannot perform; `pages.yml` is ready to publish `dashboard/` immediately after that setting is enabled.
 
 ## Known limitations
 
-- A second approved, independent, zero-cost live/EOD price lineage is intentionally not faked; live `VERIFIED_2X` coverage can therefore be zero.
+- Current-day `VERIFIED_2X` coverage can be zero before Borsa Istanbul publishes the official EOD bulletin; closed-day BIST-vs-Yahoo verification is implemented and validated.
 - Full KAP financial-statement taxonomy normalization across issuer types is not complete yet; SPK/KAP report metadata are preserved without inventing missing line items.
 - Historical point-in-time index universes are not fully populated. Backtests that rely on today’s universe must retain the survivorship-bias warning.
 - Broker target/model-portfolio PDF discovery and normalization remain partial and must respect each source’s access/usage terms.

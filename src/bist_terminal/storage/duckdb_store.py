@@ -165,6 +165,23 @@ class DuckDBStore:
         ).fetchone()
         return row[0] if row and row[0] else None
 
+    def history_frame(self, ticker: str, provider_id: str = 'yahoo_chart'):
+        """Return normalized OHLCV history in calculation-engine column names."""
+        return self.con.execute(
+            '''select
+                 trade_date as "Date",
+                 open as "Open",
+                 high as "High",
+                 low as "Low",
+                 close as "Close",
+                 adjusted_close as "Adjusted Close",
+                 volume as "Volume"
+               from daily_ohlcv
+               where ticker=? and provider_id=?
+               order by trade_date''',
+            [ticker, provider_id],
+        ).df()
+
     def table_count(self, table: str) -> int:
         if table not in TABLES:
             raise ValueError('invalid table')

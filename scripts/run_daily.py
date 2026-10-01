@@ -3,6 +3,7 @@ from pathlib import Path
 from dataclasses import asdict
 from collections import Counter
 import datetime
+import math
 import sys
 import yaml
 from datetime import timezone
@@ -19,6 +20,7 @@ from bist_terminal.exports.static import write_latest
 from bist_terminal.quality.market_calendar import load_calendar, latest_expected_trade_date, is_trading_day
 from bist_terminal.storage.duckdb_store import DuckDBStore
 from bist_terminal.calculations.fundamental import safe_div
+from bist_terminal.calculations.technical import add_indicators
 
 
 def load_runtime():
@@ -73,7 +75,7 @@ def provider_health(chain, attempts_by_ticker):
 def restore_durable_state(store):
     """Restore Git-tracked Parquet state into the ephemeral Actions DuckDB."""
     restored = {}
-    for table in ['prices', 'price_verification', 'index_membership_current', 'index_membership_history', 'financials']:
+    for table in ['prices', 'price_verification', 'index_membership_current', 'index_membership_history', 'financials', 'daily_ohlcv', 'corporate_actions']:
         parquet = ROOT / f'data/parquet/{table}.parquet'
         restored[table] = store.import_parquet(table, parquet)
         if parquet.exists():
@@ -144,6 +146,7 @@ def main():
     storage_status = 'ACTIVE'
     snapshot_rows = 0
     financial_latest = {}
+    technical_covered = 0
 
     try:
         store = DuckDBStore(ROOT / 'data/bist.duckdb')
@@ -225,11 +228,71 @@ def main():
                 'net_income_growth_yoy': yoy('net_income'),
             }
 
+        technical = {}
+        history_rows = 0
+        if store:
+            try:
+                history = store.history_frame(ticker)
+                history_rows = len(history)
+                if history_rows >= 20:
+                    ind = add_indicators(history)
+                    last = ind.iloc[-1]
+                    def num(name):
+                        value = last.get(name)
+                        if value is None:
+                            return None
+                        try:
+                            out = float(value)
+                        except (TypeError, ValueError):
+                            return None
+                        return out if math.isfinite(out) else None
+                    technical = {
+                        'rsi7': num('RSI7'),
+                        'rsi14': num('RSI14'),
+                        'rsi21': num('RSI21'),
+                        'sma5': num('SMA5'),
+                        'sma10': num('SMA10'),
+                        'sma20': num('SMA20'),
+                        'sma50': num('SMA50'),
+                        'sma100': num('SMA100'),
+                        'sma200': num('SMA200'),
+                        'ema12': num('EMA12'),
+                        'ema20': num('EMA20'),
+                        'ema26': num('EMA26'),
+                        'ema50': num('EMA50'),
+                        'ema200': num('EMA200'),
+                        'macd': num('MACD'),
+                        'macd_signal': num('MACD_SIGNAL'),
+                        'macd_hist': num('MACD_HIST'),
+                        'atr14': num('ATR14'),
+                        'bb_mid': num('BB_MID'),
+                        'bb_upper': num('BB_UPPER'),
+                        'bb_lower': num('BB_LOWER'),
+                        'adx': num('ADX'),
+                        'plus_di': num('PLUS_DI'),
+                        'minus_di': num('MINUS_DI'),
+                        'roc5': num('ROC5'),
+                        'roc20': num('ROC20'),
+                        'obv': num('OBV'),
+                        'volume_ma20': num('VOLUME_MA20'),
+                        'volume_ratio': num('VOLUME_RATIO'),
+                        'hvol20': num('HVOL20'),
+                        'hvol60': num('HVOL60'),
+                        'hvol252': num('HVOL252'),
+                        'dist_52w_high': num('DIST_52W_HIGH'),
+                        'dist_52w_low': num('DIST_52W_LOW'),
+                    }
+                    if technical.get('rsi14') is not None:
+                        technical_covered += 1
+            except Exception as exc:
+                print(f'TECHNICAL_DEGRADED {ticker} {type(exc).__name__}: {exc}')
+
         rows.append({
             'ticker': ticker,
             'indices': sorted(ticker_indices.get(ticker, [])),
             'sector': sector_for(ticker),
             'price': vr.verified_price,
+            'close': vr.verified_price,
             'price_status': vr.status,
             'verification_reason': vr.reason,
             'trade_date': vr.trade_date,
@@ -251,7 +314,9 @@ def main():
             'operating_profit_ttm': facts.get('operating_profit') if financial_ok and annual else None,
             'net_income_ttm': facts.get('net_income') if financial_ok and annual else None,
             'cash_from_operations_ttm': facts.get('cash_from_operations') if financial_ok and annual else None,
+            'technical_history_rows': history_rows,
             **derived,
+            **technical,
         })
 
     if store:
@@ -314,6 +379,8 @@ def main():
             'unverified_price_count': len(rows) - verified,
             'financial_high_confidence_count': financial_covered,
             'financial_coverage_pct': round((financial_covered / len(rows) * 100), 1) if rows else 0,
+            'technical_rsi14_count': technical_covered,
+            'technical_coverage_pct': round((technical_covered / len(rows) * 100), 1) if rows else 0,
         },
         'universe': {
             'indices': index_codes,
@@ -326,7 +393,7 @@ def main():
     })
     print(
         f'LIVE_PIPELINE_OK expected={expected} tracked={len(rows)} '
-        f'verified={verified} unverified={len(rows)-verified} financials={financial_covered}/{len(rows)} universe={universe_status}'
+        f'verified={verified} unverified={len(rows)-verified} financials={financial_covered}/{len(rows)} technical={technical_covered}/{len(rows)} universe={universe_status}'
     )
 
 

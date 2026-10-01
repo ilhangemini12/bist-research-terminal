@@ -85,6 +85,45 @@ class DuckDBStore:
             [row.get(k) for k in ['ticker','action_date','action_type','amount','split_ratio','provider_id','source_url','retrieved_at']],
         )
 
+    def upsert_financial(self, row: dict):
+        payload = row.get('payload')
+        if not isinstance(payload, str):
+            payload = json.dumps(payload or {}, ensure_ascii=False)
+        self.con.execute(
+            '''insert or replace into financials values (?,?,?,?,?,?)''',
+            [
+                row.get('ticker'), row.get('report_period'), row.get('publication_date'),
+                row.get('statement_scope') or 'UNKNOWN', payload, row.get('source_url'),
+            ],
+        )
+
+    def latest_financial_payloads(self) -> dict[str, dict]:
+        rows = self.con.execute('''
+          select ticker, report_period, publication_date, statement_scope, payload, source_url
+          from (
+            select *, row_number() over (
+              partition by ticker order by cast(report_period as date) desc, publication_date desc nulls last
+            ) as rn
+            from financials
+          )
+          where rn=1
+        ''').fetchall()
+        out = {}
+        for ticker, report_period, publication_date, scope, payload, source_url in rows:
+            if isinstance(payload, str):
+                try:
+                    payload = json.loads(payload)
+                except json.JSONDecodeError:
+                    payload = {}
+            out[ticker] = {
+                'report_period': str(report_period),
+                'publication_date': str(publication_date) if publication_date else None,
+                'statement_scope': scope,
+                'payload': payload or {},
+                'source_url': source_url,
+            }
+        return out
+
     def replace_current_membership(self, index_code: str, rows: list[dict], retrieved_at: str):
         self.con.execute('delete from index_membership_current where index_code=?', [index_code])
         for r in rows:

@@ -14,3 +14,5 @@ data/parquet/*
 !data/parquet/index_membership_current.parquet
 !data/parquet/index_membership_history.parquet
 !data/parquet/financials.parquet
+!data/parquet/history/
+!data/parquet/history/*.parquet

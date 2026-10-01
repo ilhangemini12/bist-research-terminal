@@ -1,0 +1,87 @@
+name: Bootstrap source tree
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'bootstrap/source.zip'
+      - '.github/workflows/bootstrap-upload.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bootstrap-source-tree
+  cancel-in-progress: false
+
+jobs:
+  unpack-test-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate bootstrap bundle checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "e5c116b912159a7df0c69c46cc7fd265123b7812106cc457fda218dd9ecf122a  bootstrap/source.zip" | sha256sum -c -
+
+      - name: Unpack source tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/bist-src
+          mkdir -p /tmp/bist-src
+          unzip -q bootstrap/source.zip -d /tmp/bist-src
+          rsync -a /tmp/bist-src/ ./
+          rm -rf bootstrap
+          rm -f .github/workflows/bootstrap-upload.yml
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Python unit and stress tests
+        run: python -m pytest -q
+
+      - name: JavaScript safe-formula tests
+        run: node dashboard/tests/formula.test.js
+
+      - name: Compile and workflow syntax checks
+        shell: bash
+        run: |
+          python -m compileall -q src scripts tests stress_tests
+          python - <<'PY'
+          import pathlib, yaml
+          for path in pathlib.Path('.github/workflows').glob('*.yml'):
+              yaml.safe_load(path.read_text())
+          print('WORKFLOW_YAML_OK')
+          PY
+
+      - name: Commit validated source tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No source changes to commit."
+            exit 0
+          fi
+          git commit -m "feat: bootstrap validated BIST Research Terminal V2"
+          git push origin HEAD:main

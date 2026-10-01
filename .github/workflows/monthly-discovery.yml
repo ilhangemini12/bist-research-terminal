@@ -1,6 +1,10 @@
 name: Monthly Source Discovery
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/monthly-discovery'
   schedule:
     - cron: '15 6 1 * *'
 permissions:

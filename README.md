@@ -50,7 +50,7 @@ Two websites using the same upstream count as one lineage. A single official EOD
 
 ## Source policy
 
-SPK, TSPB, KAP and Borsa İstanbul are preferred official/reference sources. Free display access is **not** treated as permission for automated ingestion. A live SPK schema probe confirmed that its public financial-report detail returns PDF/base64 documents rather than normalized statement line items. KAP public pages remain reference-only for automated purposes in this build; the structured KAP REST data service is catalogued separately as licensed/API-key access. Login walls, CAPTCHA, 403/429 and disallowed paths trip the provider circuit breaker rather than triggering bypass attempts.
+SPK, TSPB, KAP and Borsa İstanbul are preferred official/reference sources. Free display access is **not** treated as blanket permission for automated ingestion. A live SPK schema probe confirmed that its public financial-report detail returns PDF/base64 documents rather than normalized statement line items. KAP's documented public bulk financial-table download is used as a separate bounded provider: raw ZIP/XLS payloads stay transient, only normalized statement facts and provenance are persisted. The licensed structured KAP REST data service remains catalogued separately as paid/licensed access. Login walls, CAPTCHA, 403/429 and disallowed paths trip the provider circuit breaker rather than triggering bypass attempts.
 
 The active price lineages are the official Borsa Istanbul Equity Market EOD bulletin and Yahoo Finance daily history/latest data. A current-day run can still legitimately report zero `VERIFIED_2X` before the official EOD bulletin is published. Closed-day cross-checks on 2026-09-30 for THYAO, ASELS and AKBNK matched exactly and produced `VERIFIED_2X`.
 
@@ -96,7 +96,7 @@ The Pages workflow validates `dashboard/index.html`, JavaScript syntax and `dash
 ## Known limitations
 
 - Current-day `VERIFIED_2X` coverage can be zero before Borsa Istanbul publishes the official EOD bulletin; closed-day BIST-vs-Yahoo verification is implemented and validated.
-- Structured 12–20-quarter financial coverage is not fabricated: SPK public services expose report metadata/PDF documents, while structured KAP REST access requires licensed authorization. Missing ratios stay N/A until a permitted structured source exists.
+- KAP public bulk downloads now provide broad normalized financial coverage; the validated 2025 annual backfill parsed 298 of 323 requested tickers, with 292 marked high-confidence. Full 12–20-quarter history is not complete yet, so unavailable periods/issuers and ratios requiring missing inputs stay N/A.
 - Point-in-time index memberships now accumulate from 2026-10-01 onward. Earlier historical memberships remain unavailable, so backtests covering pre-snapshot periods retain the survivorship-bias warning.
 - Broker target/model-portfolio PDF discovery and normalization remain partial and must respect each source’s access/usage terms.
 - `scripts/generate_demo_data.py` remains only as a test/demo utility; the published dashboard dataset is produced by the live pipeline.

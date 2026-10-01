@@ -4,12 +4,12 @@ price_verification:
   verified_status: VERIFIED_2X
 
 providers:
-  # Free/keyless candidate. Undocumented endpoint: keep fallback/circuit-breaker enabled.
+  bist_daily_bulletin:
+    enabled: true
+    role: official_price_anchor
   yahoo_chart:
     enabled: true
     role: price_candidate
-  # Intentionally disabled: İş Yatırım robots.txt disallows /_layouts/ and current
-  # usage terms restrict copying/distribution of site content. Do not automate it.
   isyatirim_public:
     enabled: false
     role: price_candidate

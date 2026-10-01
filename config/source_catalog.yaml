@@ -68,6 +68,29 @@ providers:
     last_checked: 2026-10-01
     status: DISABLED
 
+  - provider_id: kap_bulk_financials
+    institution: Kamuyu Aydinlatma Platformu
+    platform_name: KAP public bulk financial table downloads
+    website: https://www.kap.org.tr/tr
+    source_type: official_bulk_financial_statements
+    official_or_secondary: official
+    free: true
+    login_required: false
+    live_or_delayed: periodic
+    delay_minutes: null
+    fields_available: [balance_sheet, income_statement, cash_flow, presentation_currency, statement_scope, current_period, previous_period]
+    historical_data: true
+    financial_data: true
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: false
+    robots_status: DOCUMENTED_PUBLIC_DOWNLOAD
+    terms_status: KAP_GUIDE_DOCUMENTED_BULK_DOWNLOAD_RAW_FILES_NOT_REDISTRIBUTED
+    upstream_vendor: KAP / MKK
+    last_checked: 2026-10-01
+    status: ACTIVE
+
   - provider_id: kap_rest_api
     institution: Kamuyu Aydinlatma Platformu
     platform_name: KAP Veri Yayin Servisi REST API

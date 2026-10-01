@@ -1,5 +1,5 @@
 name: Bootstrap source tree
-# bootstrap revision: sha-verified-text-parts
+# bootstrap revision: sha-verified-text-parts-r2
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
           echo "Base64 length: $actual_len"
           test "$actual_len" -eq 173416
           base64 --decode /tmp/source.b64 > /tmp/source.zip
-          echo "37c7dfd3d4940253815aebe8120156912020371181859450d8518ea7d7ad0340  /tmp/source.zip" | sha256sum -c -
+          echo "37c7df418506054a9951688112664cc75008998070ba573be720b70273f90340  /tmp/source.zip" | sha256sum -c -
           unzip -tq /tmp/source.zip
 
       - name: Unpack source tree

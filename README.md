@@ -1,6 +1,7 @@
 # BIST Research Terminal V2
 
 ![Daily Update](https://img.shields.io/badge/Daily%20Update-GitHub%20Actions%20ready-2563eb)
+![Pages](https://img.shields.io/badge/GitHub%20Pages-live-16a34a)
 ![Data Quality](https://img.shields.io/badge/Data%20Quality-VERIFIED__2X%20default-0f766e)
 ![Tests](https://img.shields.io/badge/Tests-unit%20%2B%20stress-7c3aed)
 ![Cost](https://img.shields.io/badge/Default%20cost-%240%2Fmonth-16a34a)
@@ -9,7 +10,7 @@
 
 A personal BIST research terminal built around one non-negotiable rule: **provenance first, calculations local, stale/conflicting/single-source prices never masquerade as verified data**.
 
-> Current build: the research core, static dashboard, Excel exporter, dynamic BIST universe loader, source catalog, strategy engine and CI workflows are implemented and locally tested. The bundled browser data is explicitly labelled `DEMO_FIXTURE_NOT_LIVE`. A live price is promoted to `VERIFIED_2X` only when at least two independent upstream lineages agree for the same normalized trade date/state.
+> Current build: the live research pipeline, static dashboard, Excel exporter, dynamic BIST universe loader, source catalog, strategy engine and CI workflows are running on GitHub Actions. The dashboard is published at https://ilhangemini12.github.io/bist-research-terminal/. A live price is promoted to `VERIFIED_2X` only when at least two independent upstream lineages agree for the same normalized trade date/state.
 
 ## Implemented core
 
@@ -28,7 +29,7 @@ A personal BIST research terminal built around one non-negotiable rule: **proven
 - DuckDB + Parquet storage layer with incremental architecture; CSV/JSON reserved for exports/snapshots.
 - Static GitHub Pages dashboard: Light/Dark/System, accent color, density, verified-only filter, watch-style scanner, custom formulas, settings JSON import/export, widget visibility/reordering/sizing, table column visibility/order/width, multi-sort and configurable tabs.
 - Excel snapshot with every requested sheet name, including Data Quality, Source Status and Sources.
-- GitHub Actions definitions for weekday post-close update, monthly source discovery and Pages deployment.
+- GitHub Actions definitions for weekday post-close update, monthly source discovery, incremental history and Pages deployment.
 
 ## Zero-cost policy
 
@@ -85,7 +86,11 @@ config/ tests/ stress_tests/ dashboard/ docs/ scripts/ data/ artifacts/ .github/
 
 ## GitHub deployment
 
-The repository is live at `https://github.com/ilhangemini12/bist-research-terminal` and the data/update workflows are running successfully. GitHub Pages still requires one repository-level Pages enablement action that the connected GitHub App cannot perform; `pages.yml` is ready to publish `dashboard/` immediately after that setting is enabled.
+Repository: https://github.com/ilhangemini12/bist-research-terminal
+
+Live dashboard: https://ilhangemini12.github.io/bist-research-terminal/
+
+The Pages workflow validates `dashboard/index.html`, JavaScript syntax and `dashboard/data/latest.json` before uploading and deploying. Changes under `dashboard/**` automatically trigger a fresh Pages deployment.
 
 ## Known limitations
 
@@ -93,7 +98,7 @@ The repository is live at `https://github.com/ilhangemini12/bist-research-termin
 - Full KAP financial-statement taxonomy normalization across issuer types is not complete yet; SPK/KAP report metadata are preserved without inventing missing line items.
 - Historical point-in-time index universes are not fully populated. Backtests that rely on today’s universe must retain the survivorship-bias warning.
 - Broker target/model-portfolio PDF discovery and normalization remain partial and must respect each source’s access/usage terms.
-- The included browser fixture is synthetic and exists only to exercise UI behavior; it is not market data.
+- `scripts/generate_demo_data.py` remains only as a test/demo utility; the published dashboard dataset is produced by the live pipeline.
 
 ## Transparency rule
 

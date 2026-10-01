@@ -20,6 +20,13 @@ def main():
     tickers=u.tickers[args.offset:args.offset+args.limit]; store=DuckDBStore(ROOT/'data/bist.duckdb'); p=YahooChartProvider(); retrieved=datetime.now(timezone.utc).isoformat()
     done=0
     try:
+        # GitHub runners are ephemeral. Restore committed Parquet state into the
+        # transient DuckDB before calculating each ticker's incremental start date.
+        for table in ['daily_ohlcv','corporate_actions']:
+            parquet=ROOT/f'data/parquet/{table}.parquet'
+            restored=store.import_parquet(table,parquet)
+            if parquet.exists():
+                print(f'HISTORY_STATE_RESTORED table={table} rows_added={restored} total={store.table_count(table)}')
         for t in tickers:
             last=store.latest_history_date(t,p.provider_id); start=(last+timedelta(days=1)) if last else (end-timedelta(days=365*5+5))
             if start>end: continue

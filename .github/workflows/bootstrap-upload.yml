@@ -1,4 +1,5 @@
 name: Bootstrap source tree
+# bootstrap revision: sha-verified-text-parts
 
 on:
   push:

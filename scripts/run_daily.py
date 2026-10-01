@@ -18,6 +18,7 @@ from bist_terminal.quality.price_verification import verify_prices
 from bist_terminal.exports.static import write_latest
 from bist_terminal.quality.market_calendar import load_calendar, latest_expected_trade_date, is_trading_day
 from bist_terminal.storage.duckdb_store import DuckDBStore
+from bist_terminal.calculations.fundamental import safe_div
 
 
 def load_runtime():
@@ -72,7 +73,7 @@ def provider_health(chain, attempts_by_ticker):
 def restore_durable_state(store):
     """Restore Git-tracked Parquet state into the ephemeral Actions DuckDB."""
     restored = {}
-    for table in ['prices', 'price_verification', 'index_membership_current', 'index_membership_history']:
+    for table in ['prices', 'price_verification', 'index_membership_current', 'index_membership_history', 'financials']:
         parquet = ROOT / f'data/parquet/{table}.parquet'
         restored[table] = store.import_parquet(table, parquet)
         if parquet.exists():
@@ -120,15 +121,34 @@ def main():
     chain = FallbackChain(providers, failure_threshold=threshold)
     tolerance = float(runtime.get('price_verification', {}).get('tolerance_pct', 0.15))
 
+    ticker_indices = {}
+    for code, members in universe.members.items():
+        for member in members:
+            ticker_indices.setdefault(member['symbol'], []).append(code)
+
+    def sector_for(ticker):
+        memberships = set(ticker_indices.get(ticker, []))
+        if 'XBANK' in memberships:
+            return 'Bank'
+        if 'XSGRT' in memberships:
+            return 'Insurance'
+        if 'XAKUR' in memberships:
+            return 'Brokerage'
+        if 'XUSIN' in memberships:
+            return 'Industrials'
+        return 'Other'
+
     rows = []
     attempts = {}
     store = None
     storage_status = 'ACTIVE'
     snapshot_rows = 0
+    financial_latest = {}
 
     try:
         store = DuckDBStore(ROOT / 'data/bist.duckdb')
         restore_durable_state(store)
+        financial_latest = store.latest_financial_payloads()
         stamp = datetime.datetime.now(timezone.utc).isoformat()
         for code, members in universe.members.items():
             normalized = [
@@ -173,8 +193,42 @@ def main():
                 'reason': vr.reason,
                 'verified_at': datetime.datetime.now(timezone.utc).isoformat(),
             })
+        fin = financial_latest.get(ticker, {})
+        fin_payload = fin.get('payload') or {}
+        facts = fin_payload.get('facts') or {}
+        previous_facts = fin_payload.get('previous_facts') or {}
+        financial_status = fin_payload.get('status')
+        financial_ok = financial_status == 'PARSED_HIGH_CONFIDENCE' and bool(facts)
+        annual = str(fin_payload.get('archive_period') or '') == '4'
+
+        def yoy(metric):
+            cur = facts.get(metric)
+            prev = previous_facts.get(metric)
+            if cur is None or prev is None or prev <= 0:
+                return None
+            return cur / prev - 1
+
+        derived = {}
+        if financial_ok and annual:
+            derived = {
+                'roe': safe_div(facts.get('net_income'), facts.get('equity')),
+                'roa': safe_div(facts.get('net_income'), facts.get('assets')),
+                'gross_margin': safe_div(facts.get('gross_profit'), facts.get('revenue')),
+                'operating_margin': safe_div(facts.get('operating_profit'), facts.get('revenue')),
+                'current_ratio': safe_div(facts.get('current_assets'), facts.get('current_liabilities')),
+                'quick_ratio': safe_div(
+                    (facts.get('current_assets') - (facts.get('inventories') or 0))
+                    if facts.get('current_assets') is not None else None,
+                    facts.get('current_liabilities'),
+                ),
+                'revenue_growth_yoy': yoy('revenue'),
+                'net_income_growth_yoy': yoy('net_income'),
+            }
+
         rows.append({
             'ticker': ticker,
+            'indices': sorted(ticker_indices.get(ticker, [])),
+            'sector': sector_for(ticker),
             'price': vr.verified_price,
             'price_status': vr.status,
             'verification_reason': vr.reason,
@@ -182,6 +236,22 @@ def main():
             'sources': vr.sources,
             'source_lineage': vr.upstreams,
             'max_diff_pct': vr.max_diff_pct,
+            'financial_report_period': fin.get('report_period'),
+            'financial_status': financial_status,
+            'financial_quality_score': fin_payload.get('quality_score'),
+            'financial_source_url': fin.get('source_url'),
+            'assets': facts.get('assets') if financial_ok else None,
+            'equity': facts.get('equity') if financial_ok else None,
+            'cash': facts.get('cash') if financial_ok else None,
+            'current_assets': facts.get('current_assets') if financial_ok else None,
+            'current_liabilities': facts.get('current_liabilities') if financial_ok else None,
+            'inventories': facts.get('inventories') if financial_ok else None,
+            'revenue_ttm': facts.get('revenue') if financial_ok and annual else None,
+            'gross_profit_ttm': facts.get('gross_profit') if financial_ok and annual else None,
+            'operating_profit_ttm': facts.get('operating_profit') if financial_ok and annual else None,
+            'net_income_ttm': facts.get('net_income') if financial_ok and annual else None,
+            'cash_from_operations_ttm': facts.get('cash_from_operations') if financial_ok and annual else None,
+            **derived,
         })
 
     if store:
@@ -202,6 +272,9 @@ def main():
         history_count = 0
 
     verified = sum(r['price_status'] == 'VERIFIED_2X' for r in rows)
+    financial_covered = sum(r.get('financial_status') == 'PARSED_HIGH_CONFIDENCE' for r in rows)
+    financial_periods = [r.get('financial_report_period') for r in rows if r.get('financial_status') == 'PARSED_HIGH_CONFIDENCE' and r.get('financial_report_period')]
+    financial_as_of = max(financial_periods) if financial_periods else 'N/A'
     sources = [
         {
             'provider': 'bist_index_components',
@@ -216,12 +289,21 @@ def main():
             'message': storage_status,
         },
     ] + provider_health(chain, attempts)
+    sources.append({
+        'provider': 'kap_bulk_financials',
+        'status': 'ACTIVE' if financial_covered else 'DEGRADED',
+        'upstream': 'KAP / MKK',
+        'successes': financial_covered,
+        'failures': len(rows) - financial_covered,
+        'skipped_after_circuit': 0,
+        'message': f'Latest normalized high-confidence financial coverage: {financial_covered}/{len(rows)}',
+    })
 
     write_latest({
         'mode': 'LIVE_PIPELINE',
         'data_as_of': {
             'prices': expected,
-            'financials': 'SPK metadata/PDF only; structured KAP REST requires licensed access',
+            'financials': financial_as_of,
             'targets': 'terms-compatible discovery partial',
         },
         'stocks': rows,
@@ -230,6 +312,8 @@ def main():
             'tracked_stocks': len(rows),
             'verified_price_count': verified,
             'unverified_price_count': len(rows) - verified,
+            'financial_high_confidence_count': financial_covered,
+            'financial_coverage_pct': round((financial_covered / len(rows) * 100), 1) if rows else 0,
         },
         'universe': {
             'indices': index_codes,
@@ -242,7 +326,7 @@ def main():
     })
     print(
         f'LIVE_PIPELINE_OK expected={expected} tracked={len(rows)} '
-        f'verified={verified} unverified={len(rows)-verified} universe={universe_status}'
+        f'verified={verified} unverified={len(rows)-verified} financials={financial_covered}/{len(rows)} universe={universe_status}'
     )
 
 

@@ -38,6 +38,8 @@ report={
   'demo_fixture':{'tracked_stocks':summary.get('tracked_stocks',0),'verified_fixture_rows':summary.get('verified_price_count',0)} if is_demo else None,
   'financial_coverage_percent_live':0 if is_demo else summary.get('financial_coverage_pct',0),
   'financial_high_confidence_count':0 if is_demo else summary.get('financial_high_confidence_count',0),
+  'technical_coverage_percent_live':0 if is_demo else summary.get('technical_coverage_pct',0),
+  'technical_rsi14_count':0 if is_demo else summary.get('technical_rsi14_count',0),
   'source_catalog':{'discovered_or_catalogued':len(providers),'status_counts':dict(sorted(statuses.items()))},
   'python_tests_collected':collected,
   'js_formula_tests':'dashboard/tests/formula.test.js',
@@ -51,6 +53,7 @@ report={
   'known_limitations':[
     'Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.',
     'KAP public bulk financial downloads now provide normalized high-confidence annual financials for most of the configured universe; full 12–20-quarter history is still being accumulated and missing/review-required issuers remain N/A.',
+    'Five-year OHLCV/technical coverage is populated incrementally in bounded batches; tickers without sufficient durable history keep technical fields N/A until their batch completes.',
     'Point-in-time index membership snapshots accumulate from 2026-10-01 onward; periods before the first snapshot remain unavailable and affected backtests must retain BACKTEST BIASED.',
     'Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries.'
   ],

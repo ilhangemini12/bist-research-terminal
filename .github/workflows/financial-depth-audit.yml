@@ -1,0 +1,35 @@
+name: Financial Depth Audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/financial-depth-audit'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: 'pip'}
+      - run: pip install -r requirements.txt
+      - name: Validate and audit
+        run: |
+          python -m compileall -q scripts/audit_financial_depth.py
+          python scripts/audit_financial_depth.py
+      - name: Commit audit checkpoint
+        run: |
+          set -euo pipefail
+          git config user.name "bist-research-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add artifacts/financial_depth_report.json
+          if git diff --cached --quiet; then
+            echo "No audit changes to commit."
+            exit 0
+          fi
+          git commit -m "report: financial depth audit"
+          git pull --rebase origin main
+          git push origin HEAD:main

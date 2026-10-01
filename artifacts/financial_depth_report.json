@@ -1,37 +1,44 @@
 {
-  "generated_at": "2026-10-01T20:38:11.808323+00:00",
+  "generated_at": "2026-10-01T20:47:58.486964+00:00",
   "tracked_tickers": 323,
-  "financial_rows": 298,
+  "financial_rows": 593,
   "status_counts": {
-    "PARSED_HIGH_CONFIDENCE": 292,
-    "PARSED_REVIEW_REQUIRED": 6
+    "PARSED_HIGH_CONFIDENCE": 574,
+    "PARSED_REVIEW_REQUIRED": 19
   },
   "distinct_report_periods": [
+    "2025-09-30",
+    "2025-10-31",
     "2025-12-31",
     "2026-01-31",
+    "2026-02-28",
     "2026-03-31",
     "2026-04-30",
     "2026-05-31",
     "2026-06-30"
   ],
   "report_period_company_counts": {
-    "2025-12-31": 292,
-    "2026-01-31": 1,
-    "2026-03-31": 1,
+    "2025-09-30": 289,
+    "2025-10-31": 1,
+    "2025-12-31": 293,
+    "2026-01-31": 2,
+    "2026-02-28": 1,
+    "2026-03-31": 3,
     "2026-04-30": 1,
     "2026-05-31": 1,
     "2026-06-30": 2
   },
   "archive_period_row_counts": {
+    "2025-3": 295,
     "2025-4": 298
   },
   "period_depth": {
     "all_min": 0,
-    "all_median": 1,
-    "all_max": 1,
+    "all_median": 2,
+    "all_max": 2,
     "high_conf_min": 0,
-    "high_conf_median": 1,
-    "high_conf_max": 1,
+    "high_conf_median": 2,
+    "high_conf_max": 2,
     "tickers_with_at_least": {
       "1": 292,
       "4": 0,
@@ -171,83 +178,33 @@
     },
     {
       "ticker": "AGESA",
-      "all_periods": 1,
+      "all_periods": 2,
       "high_conf_periods": 0
     },
     {
       "ticker": "AKGRT",
-      "all_periods": 1,
+      "all_periods": 2,
       "high_conf_periods": 0
     },
     {
       "ticker": "ANHYT",
-      "all_periods": 1,
+      "all_periods": 2,
       "high_conf_periods": 0
     },
     {
       "ticker": "ANSGR",
-      "all_periods": 1,
+      "all_periods": 2,
       "high_conf_periods": 0
     },
     {
       "ticker": "RAYSG",
-      "all_periods": 1,
+      "all_periods": 2,
       "high_conf_periods": 0
     },
     {
       "ticker": "TURSG",
-      "all_periods": 1,
+      "all_periods": 2,
       "high_conf_periods": 0
-    },
-    {
-      "ticker": "ACSEL",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "ADEL",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AEFES",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AFYON",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AGHOL",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AGROT",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AHGAZ",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AKBNK",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AKCNS",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AKFYE",
-      "all_periods": 1,
-      "high_conf_periods": 1
     },
     {
       "ticker": "AKHAN",
@@ -255,94 +212,144 @@
       "high_conf_periods": 1
     },
     {
-      "ticker": "AKSA",
+      "ticker": "FRMPL",
       "all_periods": 1,
       "high_conf_periods": 1
+    },
+    {
+      "ticker": "MEYSU",
+      "all_periods": 1,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "AKBNK",
+      "all_periods": 2,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ICBCT",
+      "all_periods": 2,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "RODRG",
+      "all_periods": 2,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "SKBNK",
+      "all_periods": 2,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "TSKB",
+      "all_periods": 2,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "VAKBN",
+      "all_periods": 2,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "YKBNK",
+      "all_periods": 2,
+      "high_conf_periods": 1
+    },
+    {
+      "ticker": "ACSEL",
+      "all_periods": 2,
+      "high_conf_periods": 2
+    },
+    {
+      "ticker": "ADEL",
+      "all_periods": 2,
+      "high_conf_periods": 2
+    },
+    {
+      "ticker": "AEFES",
+      "all_periods": 2,
+      "high_conf_periods": 2
+    },
+    {
+      "ticker": "AFYON",
+      "all_periods": 2,
+      "high_conf_periods": 2
+    },
+    {
+      "ticker": "AGHOL",
+      "all_periods": 2,
+      "high_conf_periods": 2
+    },
+    {
+      "ticker": "AGROT",
+      "all_periods": 2,
+      "high_conf_periods": 2
+    },
+    {
+      "ticker": "AHGAZ",
+      "all_periods": 2,
+      "high_conf_periods": 2
+    },
+    {
+      "ticker": "AKCNS",
+      "all_periods": 2,
+      "high_conf_periods": 2
+    },
+    {
+      "ticker": "AKFYE",
+      "all_periods": 2,
+      "high_conf_periods": 2
+    },
+    {
+      "ticker": "AKSA",
+      "all_periods": 2,
+      "high_conf_periods": 2
     },
     {
       "ticker": "AKSEN",
-      "all_periods": 1,
-      "high_conf_periods": 1
+      "all_periods": 2,
+      "high_conf_periods": 2
     },
     {
       "ticker": "ALARK",
-      "all_periods": 1,
-      "high_conf_periods": 1
+      "all_periods": 2,
+      "high_conf_periods": 2
     },
     {
       "ticker": "ALCAR",
-      "all_periods": 1,
-      "high_conf_periods": 1
+      "all_periods": 2,
+      "high_conf_periods": 2
     },
     {
       "ticker": "ALKA",
-      "all_periods": 1,
-      "high_conf_periods": 1
+      "all_periods": 2,
+      "high_conf_periods": 2
     },
     {
       "ticker": "ALKIM",
-      "all_periods": 1,
-      "high_conf_periods": 1
+      "all_periods": 2,
+      "high_conf_periods": 2
     },
     {
       "ticker": "ALKLC",
-      "all_periods": 1,
-      "high_conf_periods": 1
+      "all_periods": 2,
+      "high_conf_periods": 2
     },
     {
       "ticker": "ALTNY",
-      "all_periods": 1,
-      "high_conf_periods": 1
+      "all_periods": 2,
+      "high_conf_periods": 2
     },
     {
       "ticker": "ANGEN",
-      "all_periods": 1,
-      "high_conf_periods": 1
+      "all_periods": 2,
+      "high_conf_periods": 2
     },
     {
       "ticker": "ARCLK",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "ARMGD",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "ARTMS",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "ASELS",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "ASTOR",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "ASUZU",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "ATAKP",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AVOD",
-      "all_periods": 1,
-      "high_conf_periods": 1
-    },
-    {
-      "ticker": "AYGAZ",
-      "all_periods": 1,
-      "high_conf_periods": 1
+      "all_periods": 2,
+      "high_conf_periods": 2
     }
   ]
 }

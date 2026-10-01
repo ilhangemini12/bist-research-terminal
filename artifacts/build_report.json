@@ -1,6 +1,6 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-01T20:24:50.211781+00:00",
+  "generated_at": "2026-10-01T20:59:31.841564+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
@@ -16,6 +16,23 @@
   "demo_fixture": null,
   "financial_coverage_percent_live": 90.4,
   "financial_high_confidence_count": 292,
+  "financial_quarter_depth": {
+    "min": 0,
+    "median": 4,
+    "max": 4,
+    "tickers_with_at_least": {
+      "1": 292,
+      "4": 276,
+      "8": 0,
+      "12": 0,
+      "16": 0,
+      "20": 0
+    },
+    "pct_with_at_least_12": 0.0,
+    "pct_with_at_least_20": 0.0,
+    "ttm_4q_ready_count": 276,
+    "ttm_4q_ready_pct": 85.4
+  },
   "technical_coverage_percent_live": 99.7,
   "technical_rsi14_count": 322,
   "source_catalog": {
@@ -28,7 +45,7 @@
       "PAID_SOURCE_SKIPPED": 5
     }
   },
-  "python_tests_collected": 81,
+  "python_tests_collected": 87,
   "js_formula_tests": "dashboard/tests/formula.test.js",
   "presets": [
     "VALUE",
@@ -66,8 +83,8 @@
   },
   "known_limitations": [
     "Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.",
-    "KAP public bulk financial downloads now provide normalized high-confidence annual financials for most of the configured universe; full 12–20-quarter history is still being accumulated and missing/review-required issuers remain N/A.",
-    "Five-year OHLCV/technical coverage is populated incrementally in bounded batches; tickers without sufficient durable history keep technical fields N/A until their batch completes.",
+    "KAP public bulk financial downloads provide normalized high-confidence financials for most of the configured universe; standalone-quarter depth is checkpointed separately and missing/review-required issuers remain N/A.",
+    "Five-year OHLCV backfill is complete for the current configured universe; technical fields still remain N/A for any ticker without sufficient valid observations.",
     "Point-in-time index membership snapshots accumulate from 2026-10-01 onward; periods before the first snapshot remain unavailable and affected backtests must retain BACKTEST BIASED.",
     "Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries."
   ],

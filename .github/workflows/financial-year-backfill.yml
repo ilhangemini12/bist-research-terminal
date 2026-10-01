@@ -1,0 +1,86 @@
+name: Financial Year Backfill
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "KAP archive year"
+        required: true
+        default: "2024"
+      periods:
+        description: "Space-separated KAP periods, e.g. 1 2 3 4"
+        required: true
+        default: "1 2 3 4"
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/financial-year-backfill'
+permissions:
+  contents: write
+concurrency:
+  group: bist-financial-sharded-writer
+  cancel-in-progress: false
+jobs:
+  backfill-year:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Sync latest main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout main
+          git merge --ff-only origin/main
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: 'pip'}
+      - run: pip install -r requirements.txt
+      - name: Validate financial checkpoint code
+        run: |
+          python -m compileall -q src scripts
+          pytest -q tests/test_kap_bulk_financials.py tests/test_financial_files.py tests/test_financial_quarterly.py tests/test_financial_history.py tests/test_fundamental.py
+      - name: Resolve year request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            YEAR=2024; PERIODS="1 2 3 4"
+            while IFS='=' read -r key value; do
+              case "$key" in
+                year) YEAR="$value" ;;
+                periods) PERIODS="$value" ;;
+              esac
+            done < .github/triggers/financial-year-backfill
+          else
+            YEAR="${{ inputs.year }}"
+            PERIODS="${{ inputs.periods }}"
+          fi
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+          echo "periods=$PERIODS" >> "$GITHUB_OUTPUT"
+          echo "FINANCIAL_YEAR_REQUEST year=$YEAR periods=$PERIODS"
+      - name: Backfill and checkpoint each period
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "bist-research-bot"
+          git config user.email "actions@users.noreply.github.com"
+          YEAR="${{ steps.request.outputs.year }}"
+          for PERIOD in ${{ steps.request.outputs.periods }}; do
+            echo "FINANCIAL_YEAR_PERIOD_START year=$YEAR period=$PERIOD"
+            git fetch origin main
+            git pull --rebase origin main
+            python scripts/bootstrap_financials.py --year "$YEAR" --period "$PERIOD" --offset 0 --limit 0
+            git add data/parquet/financials/*.parquet || true
+            if git diff --cached --quiet; then
+              echo "FINANCIAL_YEAR_PERIOD_NOOP year=$YEAR period=$PERIOD"
+            else
+              git commit -m "data: financial shard $YEAR-$PERIOD full universe"
+              git pull --rebase origin main
+              git push origin HEAD:main
+              echo "FINANCIAL_YEAR_PERIOD_CHECKPOINT_OK year=$YEAR period=$PERIOD"
+            fi
+          done
+          echo "FINANCIAL_YEAR_BACKFILL_DONE year=$YEAR"

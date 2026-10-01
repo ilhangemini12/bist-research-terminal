@@ -68,28 +68,28 @@ providers:
     last_checked: 2026-10-01
     status: ACTIVE
 
-  - provider_id: bist_official
+  - provider_id: bist_daily_bulletin
     institution: Borsa Istanbul
-    platform_name: Borsa Istanbul Daily Bulletin / DataStore
-    website: https://www.borsaistanbul.com/en/data/daily-bulletin
-    source_type: exchange_reference
+    platform_name: Borsa Istanbul Equity Market Daily Bulletin
+    website: https://www.borsaistanbul.com/data/thb/
+    source_type: official_eod_price
     official_or_secondary: official
-    free: partial
-    login_required: varies
-    live_or_delayed: eod_or_licensed
+    free: true
+    login_required: false
+    live_or_delayed: eod
     delay_minutes: null
-    fields_available: [calendar, bulletins, corporate_actions, reference_data]
-    historical_data: paid_or_datastore
+    fields_available: [trade_date, ticker, open, low, high, close, volume, turnover, session_close]
+    historical_data: daily_bulletin_archive
     financial_data: false
     research_reports: false
     target_prices: false
     model_portfolio: false
     news: false
-    robots_status: REVIEW_REQUIRED
-    terms_status: REALTIME_REDISTRIBUTION_LICENSE_REQUIRED
+    robots_status: PUBLIC_FILE_PATH_VALIDATED
+    terms_status: OFFICIAL_EOD_BULLETIN_USED_AS_PRICE_ANCHOR_NOT_REALTIME_REDISTRIBUTION
     upstream_vendor: Borsa Istanbul
     last_checked: 2026-10-01
-    status: DEGRADED
+    status: ACTIVE
 
   - provider_id: bist_index_components
     institution: Borsa Istanbul

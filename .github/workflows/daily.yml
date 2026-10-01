@@ -34,6 +34,16 @@ jobs:
         run: python scripts/build_excel_snapshot.py
       - name: Build current status report
         run: python scripts/build_report.py
+      - name: Upload daily research artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: BIST-Research-Latest
+          path: |
+            artifacts/BIST_Research_Latest.xlsx
+            artifacts/build_report.json
+            dashboard/data/latest.json
+          if-no-files-found: error
+          retention-days: 14
       - name: Commit refreshed static data and artifact
         run: |
           set -euo pipefail

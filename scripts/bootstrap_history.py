@@ -31,10 +31,9 @@ def main():
             last=store.latest_history_date(t,p.provider_id); start=(last+timedelta(days=1)) if last else (end-timedelta(days=365*5+5))
             if start>end: continue
             try:
-                df=p.get_history(t,start.isoformat(),end.isoformat())
+                df,acts=p.get_history_bundle(t,start.isoformat(),end.isoformat())
                 for r in df.to_dict('records'):
                     store.upsert_ohlcv({'ticker':t,'trade_date':r['Date'],'open':r['Open'],'high':r['High'],'low':r['Low'],'close':r['Close'],'adjusted_close':r['Adjusted Close'],'volume':r['Volume'],'provider_id':r['provider_id'],'upstream_vendor':r['upstream_vendor'],'source_url':r['source_url'],'retrieved_at':retrieved})
-                acts=p.get_corporate_actions(t,start.isoformat(),end.isoformat())
                 for r in acts.to_dict('records'):
                     store.upsert_corporate_action({'ticker':t,'action_date':r['date'],'action_type':r['action_type'],'amount':r.get('amount'),'split_ratio':r.get('split_ratio'),'provider_id':r['provider_id'],'source_url':r['source_url'],'retrieved_at':retrieved})
                 if len(df) or len(acts):

@@ -32,7 +32,7 @@ def decode(raw: bytes) -> str:
             return raw.decode(enc)
         except UnicodeDecodeError:
             continue
-    raise UnicodeDecodeError("unknown",b"",0,1,"unable to decode bulletin")
+    raise RuntimeError("unable to decode bulletin")
 
 def main():
     d=previous_trade_date()
@@ -57,12 +57,28 @@ def main():
                 rows=list(csv.reader(StringIO(text),delimiter=";"))
                 nonempty=[row for row in rows if any(str(v).strip() for v in row)]
                 widths=sorted({len(row) for row in nonempty})
-                first=nonempty[0][:25] if nonempty else []
-                thy=[row for row in nonempty if any("THYAO" in str(v).upper() for v in row)]
-                print(f"BIST_BULLETIN_CSV name={name} rows={len(nonempty)} widths={widths[:12]} first={first}")
-                if thy:
-                    print(f"BIST_BULLETIN_THYAO_FOUND name={name} row_width={len(thy[0])} sample={thy[0][:25]}")
-                parsed.append((name,len(nonempty),len(thy)))
+                header=[str(x).strip() for x in nonempty[0]] if nonempty else []
+                print(f"BIST_BULLETIN_CSV name={name} rows={len(nonempty)} widths={widths[:12]}")
+                print("BIST_BULLETIN_HEADERS "+ " | ".join(f"{i}:{v}" for i,v in enumerate(header)))
+                if header:
+                    h={name:i for i,name in enumerate(header)}
+                    code_i=h.get("ISLEM  KODU",h.get("ISLEM KODU",1))
+                    selected=[
+                        "TARIH","ISLEM  KODU","BULTEN ADI","ENSTRUMAN GRUBU","ENSTRUMAN TIPI",
+                        "ONCEKI KAPANIS FIYATI","ACILIS FIYATI","EN DUSUK FIYAT","EN YUKSEK FIYAT",
+                        "KAPANIS FIYATI","KAPANIS SEANSI FIYATI","DEGISIM (%)",
+                        "AGIRLIKLI ORTALAMA FIYAT","ISLEM MIKTARI","ISLEM HACMI"
+                    ]
+                    thy=[row for row in nonempty[1:] if len(row)>code_i and str(row[code_i]).upper().startswith("THYAO")]
+                    print(f"BIST_BULLETIN_THYAO_ROWS count={len(thy)} codes={[row[code_i] for row in thy]}")
+                    for row in thy[:20]:
+                        vals={}
+                        for key in selected:
+                            i=h.get(key)
+                            if i is not None and i < len(row):
+                                vals[key]=row[i]
+                        print(f"BIST_BULLETIN_THYAO_DETAIL {vals}")
+                parsed.append((name,len(nonempty)))
             successes.append((suffix,url,names,parsed))
     print(f"BIST_BULLETIN_PROBE_DONE successes={len(successes)}")
     if not successes:

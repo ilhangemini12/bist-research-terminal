@@ -52,6 +52,14 @@ class DuckDBStore:
     def table_count(self,table:str)->int:
         if table not in {'prices','price_verification','daily_ohlcv','corporate_actions','index_membership_current','financials','provider_health'}: raise ValueError('invalid table')
         return int(self.con.execute(f'select count(*) from {table}').fetchone()[0])
+    def import_parquet(self,table,path):
+        if table not in {'prices','price_verification','daily_ohlcv','corporate_actions','index_membership_current','financials','provider_health'}: raise ValueError('invalid table')
+        p=Path(path)
+        if not p.exists() or p.stat().st_size == 0:
+            return 0
+        before=self.table_count(table)
+        self.con.execute(f"insert or replace into {table} select * from read_parquet(?)",[str(p)])
+        return self.table_count(table)-before
     def export_parquet(self,table,path):
         if table not in {'prices','price_verification','daily_ohlcv','corporate_actions','index_membership_current','financials','provider_health'}: raise ValueError('invalid table')
         Path(path).parent.mkdir(parents=True,exist_ok=True); self.con.execute(f"copy {table} to ? (format parquet, compression zstd)",[str(path)])

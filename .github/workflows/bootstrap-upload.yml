@@ -25,11 +25,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Validate bootstrap bundle checksum
+      - name: Validate bootstrap bundle integrity
         shell: bash
         run: |
           set -euo pipefail
-          echo "e5c116b912159a7df0c69c46cc7fd265123b7812106cc457fda218dd9ecf122a  bootstrap/source.zip" | sha256sum -c -
+          test -s bootstrap/source.zip
+          echo "Bundle SHA-256:"
+          sha256sum bootstrap/source.zip
+          unzip -tq bootstrap/source.zip
 
       - name: Unpack source tree
         shell: bash

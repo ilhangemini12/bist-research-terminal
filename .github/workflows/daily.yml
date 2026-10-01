@@ -10,6 +10,9 @@ on:
     - cron: '25 15 * * 1-5'
 permissions:
   contents: write
+concurrency:
+  group: bist-data-writer
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -29,10 +32,18 @@ jobs:
         run: python scripts/run_daily.py
       - name: Build Excel snapshot
         run: python scripts/build_excel_snapshot.py
+      - name: Build current status report
+        run: python scripts/build_report.py
       - name: Commit refreshed static data and artifact
         run: |
+          set -euo pipefail
           git config user.name "bist-research-bot"
           git config user.email "actions@users.noreply.github.com"
           git add dashboard/data artifacts || true
-          git diff --cached --quiet || git commit -m "data: daily refresh"
-          git push
+          if git diff --cached --quiet; then
+            echo "No daily changes to commit."
+            exit 0
+          fi
+          git commit -m "data: daily refresh"
+          git pull --rebase origin main
+          git push origin HEAD:main

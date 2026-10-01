@@ -1,6 +1,6 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-01T13:29:17.122161+00:00",
+  "generated_at": "2026-10-01T13:34:17.822756+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": null,
@@ -18,9 +18,8 @@
   "source_catalog": {
     "discovered_or_catalogued": 17,
     "status_counts": {
-      "ACTIVE": 5,
+      "ACTIVE": 6,
       "BLOCKED": 1,
-      "DEGRADED": 1,
       "DISABLED": 3,
       "LOGIN_REQUIRED": 3,
       "PAID_SOURCE_SKIPPED": 4
@@ -47,9 +46,19 @@
     "VK_RSI_DIP_RECOVERY",
     "VK_TREND_MOMENTUM"
   ],
+  "verification_evidence": {
+    "closed_day_sample": "2026-09-30",
+    "tickers": [
+      "THYAO",
+      "ASELS",
+      "AKBNK"
+    ],
+    "status": "VERIFIED_2X",
+    "max_diff_pct": 0.0
+  },
   "known_limitations": [
     "GitHub Pages requires a one-time repository-level enablement before the deployment workflow can publish the dashboard.",
-    "Live VERIFIED_2X coverage remains zero until a second current, free, terms-compatible independent price lineage is approved.",
+    "Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.",
     "Full KAP financial-statement taxonomy normalization and 12–20-quarter population across all issuer types is not complete.",
     "Historical point-in-time index universes are not fully populated; affected backtests must retain BACKTEST BIASED.",
     "Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries."

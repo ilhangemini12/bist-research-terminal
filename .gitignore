@@ -9,3 +9,7 @@ data/parquet/*
 !data/parquet/.gitkeep
 !data/parquet/daily_ohlcv.parquet
 !data/parquet/corporate_actions.parquet
+!data/parquet/prices.parquet
+!data/parquet/price_verification.parquet
+!data/parquet/index_membership_current.parquet
+!data/parquet/index_membership_history.parquet

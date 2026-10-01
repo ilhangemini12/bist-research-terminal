@@ -1,3 +1,3 @@
 offset=105
 limit=50
-checkpoint=retry-after-binary-rebase-bypass
+checkpoint=sequential-r1

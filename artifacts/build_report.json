@@ -1,9 +1,9 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-01T13:52:41.256014+00:00",
+  "generated_at": "2026-10-01T14:07:00.710341+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
-  "dashboard_url": null,
+  "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "expected_dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "live_market_status": {
     "expected_market_date": "2026-10-01",
@@ -11,7 +11,7 @@
     "tracked_live_tickers": 324,
     "verified_price_count": 0,
     "unverified_price_count": 324,
-    "reason": "Live pipeline ran, but no price met the two-independent-upstream VERIFIED_2X contract."
+    "reason": "Live pipeline ran, but no current-day price met the two-independent-upstream VERIFIED_2X contract."
   },
   "demo_fixture": null,
   "financial_coverage_percent_live": 0,
@@ -57,7 +57,6 @@
     "max_diff_pct": 0.0
   },
   "known_limitations": [
-    "GitHub Pages requires a one-time repository-level enablement before the deployment workflow can publish the dashboard.",
     "Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.",
     "Full KAP financial-statement taxonomy normalization and 12–20-quarter population across all issuer types is not complete.",
     "Historical point-in-time index universes are not fully populated; affected backtests must retain BACKTEST BIASED.",

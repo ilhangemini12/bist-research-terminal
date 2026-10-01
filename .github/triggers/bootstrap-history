@@ -1,3 +1,3 @@
 offset=105
 limit=50
-checkpoint=sharded-isolated-r2
+checkpoint=immutable-shard-r1

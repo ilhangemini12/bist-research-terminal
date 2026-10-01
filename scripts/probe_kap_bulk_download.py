@@ -1,87 +1,68 @@
-"""Bounded static-code probe for KAP public financial-download UI call sites.
+"""Discover KAP public financial-table period codes from first-party UI config.
 
-Fetches only first-party static JS bundles and searches for *usages* of the exported
-financial-download route constants and related parameter names. No KAP data endpoint
-is invoked here.
+This probe fetches only the public KAP page and its own static JS. It does not call
+financial data/download endpoints.
 """
 from __future__ import annotations
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse
-import re
-import requests
+from urllib.parse import urljoin,urlparse
+import html,re,requests
 
 PAGE="https://www.kap.org.tr/tr"
 UA={"User-Agent":"bist-research-terminal/0.4 (+research; bounded endpoint discovery)"}
-NEEDLES=[
-    "DOWNLOAD_FINANCIAL_TABLE",
-    "GET_HOME_FINANCIAL_CHECK_FILE_EXIST",
-    "GET_HOME_FINANCIAL_DOWNLOAD",
-    "GET_HOME_FINANCIAL_LIST_EXCEL_MEMBERS",
-    "checkFileExist",
-    "download-file",
-    "listCompanyExcelMembers",
-    "financialTable/download",
-]
-PARAM_NEEDLES=[
-    "year","period","periodType","term","member","memberIds","company","companyId",
-    "language","lang","consolidated","financialTable"
-]
-MAX_TOTAL=8_000_000
 
-def bounded_context(text:str,pos:int,before:int=2600,after:int=4200)->str:
-    return text[max(0,pos-before):min(len(text),pos+after)].replace("\n"," ")
+def snippets(text, needles, before=1200, after=2200, max_hits=30):
+    out=[]; seen=set()
+    for needle in needles:
+        start=0
+        while len(out)<max_hits:
+            pos=text.lower().find(needle.lower(),start)
+            if pos<0: break
+            ctx=text[max(0,pos-before):min(len(text),pos+after)].replace("\n"," ")
+            key=ctx[:500]
+            if key not in seen:
+                seen.add(key); out.append((needle,pos,ctx))
+            start=pos+len(needle)
+    return out
 
 def main():
-    s=requests.Session()
-    r=s.get(PAGE,timeout=30,headers=UA); r.raise_for_status()
-    soup=BeautifulSoup(r.text,"html.parser")
+    s=requests.Session(); r=s.get(PAGE,timeout=30,headers=UA); r.raise_for_status()
+    page=r.text
+    print(f"KAP_PERIOD_PAGE status={r.status_code} bytes={len(r.content)}")
+    page_hits=snippets(page,[
+        "homeFinancialConstants","financialReport","period","periods",
+        "3 Aylık","6 Aylık","9 Aylık","Yıllık","Tüm"
+    ],before=700,after=1400,max_hits=15)
+    for needle,pos,ctx in page_hits:
+        print(f"KAP_PERIOD_PAGE_HIT needle={needle} pos={pos}")
+        print("KAP_PERIOD_PAGE_CODE",html.unescape(ctx))
+
+    soup=BeautifulSoup(page,"html.parser")
     scripts=[]
     for tag in soup.find_all("script",src=True):
         u=urljoin(r.url,tag["src"])
         if urlparse(u).netloc.endswith("kap.org.tr") and u not in scripts:
             scripts.append(u)
-    print(f"KAP_CALLSITE_SCRIPTS count={len(scripts)}")
-    total=0
-    emitted=0
-    declaration_bundle=None
+    emitted=0; total=0
     for u in scripts[:25]:
-        rr=s.get(u,timeout=30,headers=UA)
-        total+=len(rr.content)
-        if rr.status_code!=200:
-            continue
+        rr=s.get(u,timeout=30,headers=UA); total+=len(rr.content)
+        if rr.status_code!=200: continue
         txt=rr.text
-        if '"DOWNLOAD_FINANCIAL_TABLE"' in txt and '"api/financialTable/download"' in txt:
-            declaration_bundle=u
-        positions=[]
-        for needle in NEEDLES:
-            start=0
-            while True:
-                pos=txt.find(needle,start)
-                if pos<0: break
-                positions.append((pos,needle))
-                start=pos+len(needle)
-        # Emit only likely call sites; skip the pure route-declaration module unless
-        # the same bundle has additional references away from the declaration.
-        for pos,needle in sorted(set(positions)):
-            ctx=bounded_context(txt,pos)
-            low=ctx.lower()
-            score=sum(1 for k in ("fetch(","axios","method:","params:","body:","post(","get(","request","query") if k in low)
-            param_hits=[p for p in PARAM_NEEDLES if p.lower() in low]
-            is_decl = '"api/financialtable/download"' in low and 'e.s(["download_financial_table"' in low
-            if is_decl and score==0:
-                continue
-            if score==0 and len(param_hits)<2:
-                continue
+        # Focus on the home-financial component/config only.
+        if not any(n in txt for n in ("homeFinancialConstants","DOWNLOAD_FINANCIAL_TABLE","warnCompanyChoiseForAllPeriod")):
+            continue
+        for needle,pos,ctx in snippets(txt,[
+            "homeFinancialConstants","defaults?.period","defaults:{",
+            "periods","periodList","M?.code","warnCompanyChoiseForAllPeriod"
+        ],before=1800,after=4200,max_hits=20):
             emitted+=1
-            print(f"KAP_CALLSITE hit={emitted} needle={needle} bundle={u} pos={pos} score={score} params={param_hits}")
-            print("KAP_CALLSITE_CODE",ctx)
-            if emitted>=24:
-                break
-        if emitted>=24 or total>=MAX_TOTAL:
-            break
-    print(f"KAP_CALLSITE_DONE emitted={emitted} total_bytes={total} declaration_bundle={declaration_bundle}")
-    if emitted==0:
-        raise RuntimeError("no likely KAP financial download call sites found")
+            print(f"KAP_PERIOD_JS_HIT hit={emitted} needle={needle} bundle={u} pos={pos}")
+            print("KAP_PERIOD_JS_CODE",ctx)
+            if emitted>=20: break
+        if emitted>=20: break
+    print(f"KAP_PERIOD_DONE page_hits={len(page_hits)} js_hits={emitted} total_bytes={total}")
+    if not page_hits and not emitted:
+        raise RuntimeError("period configuration not found")
 
 if __name__=="__main__":
     main()

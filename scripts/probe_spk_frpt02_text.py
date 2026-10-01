@@ -8,13 +8,17 @@ from __future__ import annotations
 
 import base64
 from io import BytesIO
+from pathlib import Path
 import re
+import sys
 
 from pypdf import PdfReader
 
-from src.bist_terminal.providers.spk import SPKRegistryProvider
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"src"))
+from bist_terminal.providers.spk import SPKRegistryProvider
 
-REPORT_ID = 1986  # FRPT02 sample observed from documented public metadata endpoint
+REPORT_ID = 1986
 
 def main():
     detail=SPKRegistryProvider().financial_report(REPORT_ID)

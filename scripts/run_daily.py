@@ -24,6 +24,7 @@ from bist_terminal.storage.financial_files import financial_parquet_files
 from bist_terminal.calculations.fundamental import safe_div
 from bist_terminal.calculations.technical import add_indicators
 from bist_terminal.financials.quarterly import standalone_quarters, ttm_from_quarters
+from bist_terminal.financials.kap_bulk import notification_id_from_source_file
 
 
 def load_runtime():
@@ -220,6 +221,10 @@ def main():
             })
         fin = financial_latest.get(ticker, {})
         fin_payload = fin.get('payload') or {}
+        financial_notification_id = fin_payload.get('notification_id') or notification_id_from_source_file(fin_payload.get('source_file'))
+        financial_notification_url = fin_payload.get('notification_url') or (
+            f'https://www.kap.org.tr/tr/Bildirim/{financial_notification_id}' if financial_notification_id else None
+        )
         facts = fin_payload.get('facts') or {}
         previous_facts = fin_payload.get('previous_facts') or {}
         financial_status = fin_payload.get('status')
@@ -329,6 +334,8 @@ def main():
             'financial_status': financial_status,
             'financial_quality_score': fin_payload.get('quality_score'),
             'financial_source_url': fin.get('source_url'),
+            'financial_notification_id': financial_notification_id,
+            'financial_notification_url': financial_notification_url,
             'assets': facts.get('assets') if financial_ok else None,
             'equity': facts.get('equity') if financial_ok else None,
             'cash': facts.get('cash') if financial_ok else None,

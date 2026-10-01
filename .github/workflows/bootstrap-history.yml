@@ -9,7 +9,7 @@ on:
       limit:
         description: "Bounded ticker batch size"
         required: true
-        default: "25"
+        default: "50"
   push:
     branches: [main]
     paths:
@@ -17,19 +17,42 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: bist-data-writer
+  group: bist-history-writer
   cancel-in-progress: false
 jobs:
   bootstrap:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12', cache: 'pip'}
       - run: pip install -r requirements.txt
-      - run: python -m compileall -q src scripts
-      - run: python scripts/bootstrap_history.py --offset "${{ inputs.offset || '0' }}" --limit "${{ inputs.limit || '5' }}"
+      - name: Validate history code
+        run: |
+          python -m compileall -q src scripts
+          pytest -q tests/test_yahoo_history.py tests/test_duckdb_persistence.py tests/test_technical.py
+      - name: Resolve bounded history request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            OFFSET=0; LIMIT=50
+            while IFS='=' read -r key value; do
+              case "$key" in
+                offset) OFFSET="$value" ;;
+                limit) LIMIT="$value" ;;
+              esac
+            done < .github/triggers/bootstrap-history
+          else
+            OFFSET="${{ inputs.offset }}"; LIMIT="${{ inputs.limit }}"
+          fi
+          echo "offset=$OFFSET" >> "$GITHUB_OUTPUT"
+          echo "limit=$LIMIT" >> "$GITHUB_OUTPUT"
+          echo "HISTORY_REQUEST offset=$OFFSET limit=$LIMIT"
+      - name: Fetch incremental history
+        run: python scripts/bootstrap_history.py --offset "${{ steps.request.outputs.offset }}" --limit "${{ steps.request.outputs.limit }}"
       - name: Commit incremental history state
         run: |
           set -euo pipefail
@@ -40,6 +63,6 @@ jobs:
             echo "No history changes to commit."
             exit 0
           fi
-          git commit -m "data: bootstrap history batch ${{ inputs.offset || '0' }}"
+          git commit -m "data: bootstrap history offset ${{ steps.request.outputs.offset }}"
           git pull --rebase origin main
           git push origin HEAD:main

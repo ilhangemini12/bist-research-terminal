@@ -16,6 +16,9 @@ on:
       - '.github/triggers/bootstrap-history'
 permissions:
   contents: write
+concurrency:
+  group: bist-data-writer
+  cancel-in-progress: false
 jobs:
   bootstrap:
     runs-on: ubuntu-latest
@@ -27,10 +30,16 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m compileall -q src scripts
       - run: python scripts/bootstrap_history.py --offset "${{ inputs.offset || '0' }}" --limit "${{ inputs.limit || '5' }}"
-      - name: Commit incremental state
+      - name: Commit incremental history state
         run: |
+          set -euo pipefail
           git config user.name "bist-research-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data || true
-          git diff --cached --quiet || git commit -m "data: bootstrap history batch ${{ inputs.offset || '0' }}"
-          git push
+          git add data/parquet/daily_ohlcv.parquet data/parquet/corporate_actions.parquet || true
+          if git diff --cached --quiet; then
+            echo "No history changes to commit."
+            exit 0
+          fi
+          git commit -m "data: bootstrap history batch ${{ inputs.offset || '0' }}"
+          git pull --rebase origin main
+          git push origin HEAD:main

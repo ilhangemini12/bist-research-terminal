@@ -22,6 +22,7 @@ from bist_terminal.storage.duckdb_store import DuckDBStore
 from bist_terminal.storage.history_files import history_parquet_files
 from bist_terminal.storage.financial_files import financial_parquet_files
 from bist_terminal.calculations.fundamental import safe_div
+from bist_terminal.calculations.growth import yoy_from_quarters, ttm_growth
 from bist_terminal.calculations.technical import add_indicators
 from bist_terminal.financials.quarterly import standalone_quarters, ttm_from_quarters
 from bist_terminal.financials.kap_bulk import notification_id_from_source_file
@@ -233,6 +234,14 @@ def main():
         quarters = standalone_quarters(financial_history.get(ticker, []))
         qttm = ttm_from_quarters(quarters)
         flow_facts = qttm if qttm else (facts if financial_ok and annual else {})
+        revenue_q=[q['facts'].get('revenue') for q in quarters]
+        net_income_q=[q['facts'].get('net_income') for q in quarters]
+        quarterly_growth={
+            'revenue_quarter_yoy':yoy_from_quarters(revenue_q),
+            'net_income_quarter_yoy':yoy_from_quarters(net_income_q),
+            'revenue_ttm_growth':ttm_growth(revenue_q),
+            'net_income_ttm_growth':ttm_growth(net_income_q),
+        }
         ttm_status = 'TTM_4Q' if qttm else ('ANNUAL_FALLBACK' if financial_ok and annual else 'INSUFFICIENT_QUARTERS')
 
         def yoy(metric):
@@ -352,6 +361,7 @@ def main():
             'cash_from_operations_ttm': flow_facts.get('cash_from_operations') if financial_ok else None,
             'technical_history_rows': history_rows,
             **derived,
+            **quarterly_growth,
             **technical,
         })
 

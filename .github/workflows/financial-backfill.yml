@@ -1,0 +1,54 @@
+name: Financial Backfill
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "KAP financial archive year"
+        required: true
+        default: "2025"
+      period:
+        description: "1=3M, 2=6M, 3=9M, 4=FY"
+        required: true
+        default: "4"
+      tickers:
+        description: "Optional comma-separated smoke subset; blank = configured universe"
+        required: false
+        default: ""
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/financial-backfill'
+permissions:
+  contents: write
+concurrency:
+  group: bist-financial-writer
+  cancel-in-progress: false
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: 'pip'}
+      - run: pip install -r requirements.txt
+      - name: Validate financial parser
+        run: |
+          python -m compileall -q src scripts
+          pytest -q tests/test_kap_bulk_financials.py tests/test_fundamental.py
+      - name: Ingest KAP financial archive
+        run: |
+          python scripts/bootstrap_financials.py             --year "${{ inputs.year || '2025' }}"             --period "${{ inputs.period || '4' }}"             --tickers "${{ inputs.tickers || 'THYAO,ASELS,AKBNK,PETKM' }}"
+      - name: Commit normalized financial state
+        run: |
+          set -euo pipefail
+          git config user.name "bist-research-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/parquet/financials.parquet
+          if git diff --cached --quiet; then
+            echo "No financial changes to commit."
+            exit 0
+          fi
+          git commit -m "data: financial backfill ${{ inputs.year || '2025' }}-${{ inputs.period || '4' }}"
+          git pull --rebase origin main
+          git push origin HEAD:main

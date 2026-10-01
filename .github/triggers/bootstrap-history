@@ -1,2 +1,1 @@
-triggered-by: chatgpt-validation
-purpose: bounded 5-ticker history smoke test
+validation-r2-persist-parquet-state

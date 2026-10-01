@@ -1,8 +1,8 @@
-"""One-off SPK FRPT02 PDF text-layer probe.
+"""One-off SPK FRPT02 PDF structure probe.
 
-Fetches one documented public SPK financial-statement PDF into memory, measures
-whether a usable text layer exists, prints only structural/text-quality metadata,
-and never writes or commits the PDF bytes.
+Fetches one documented public SPK financial-statement PDF into memory, checks
+text-layer quality, and prints only bounded line contexts needed to design a safe
+normalizer. No PDF bytes are persisted or committed.
 """
 from __future__ import annotations
 
@@ -19,38 +19,57 @@ sys.path.insert(0,str(ROOT/"src"))
 from bist_terminal.providers.spk import SPKRegistryProvider
 
 REPORT_ID = 1986
+TERMS = [
+    "TOPLAM VARLIKLAR",
+    "TOPLAM KAYNAKLAR",
+    "TOPLAM ÖZKAYNAKLAR",
+    "ÖZKAYNAKLAR",
+    "HASILAT",
+    "BRÜT KAR",
+    "BRÜT KÂR",
+    "FAALİYET KARI",
+    "FAALİYET KÂRI",
+    "DÖNEM KARI",
+    "DÖNEM KÂRI",
+    "NET DÖNEM KARI",
+    "NET DÖNEM KÂRI",
+    "NAKİT VE NAKİT BENZERLERİ",
+]
+
+def clean(s: str) -> str:
+    return re.sub(r"\s+"," ",s or "").strip()
 
 def main():
     detail=SPKRegistryProvider().financial_report(REPORT_ID)
-    assert detail.get("mimeType") == "application/pdf"
     raw=base64.b64decode(detail["fileData"],validate=True)
     if not raw.startswith(b"%PDF"):
         raise RuntimeError("SPK financial report is not a PDF")
     reader=PdfReader(BytesIO(raw))
-    texts=[]
+    contexts=[]
+    all_text=[]
     image_pages=0
-    for page in reader.pages:
-        txt=(page.extract_text() or "").strip()
-        texts.append(txt)
+    for pno,page in enumerate(reader.pages,1):
+        txt=page.extract_text() or ""
+        all_text.append(txt)
         try:
             if getattr(page,"images",None) and len(page.images):
                 image_pages += 1
         except Exception:
             pass
-    joined="\n".join(texts)
-    normalized=re.sub(r"\s+"," ",joined).strip()
-    finance_terms=[
-        term for term in [
-            "finansal durum","kar veya zarar","nakit akış","özkaynak","hasılat",
-            "dönen varlık","toplam varlık","toplam yükümlülük","net dönem"
-        ] if term.casefold() in normalized.casefold()
-    ]
-    nonempty=sum(bool(t) for t in texts)
-    print("SPK_FRPT02_PROBE_OK")
+        lines=[clean(x) for x in txt.splitlines() if clean(x)]
+        for i,line in enumerate(lines):
+            up=line.upper()
+            if any(term in up for term in TERMS):
+                before=lines[max(0,i-1)] if i else ""
+                after=lines[i+1] if i+1 < len(lines) else ""
+                contexts.append((pno,before,line,after))
+    normalized=clean("\n".join(all_text))
+    print("SPK_FRPT02_STRUCTURE_PROBE_OK")
     print(f"SPK_FRPT02_META id={detail.get('id')} companyCode={detail.get('companyCode')} subject={detail.get('subject')} date={detail.get('date')}")
-    print(f"SPK_FRPT02_PDF bytes={len(raw)} pages={len(reader.pages)} nonempty_text_pages={nonempty} image_pages={image_pages}")
-    print(f"SPK_FRPT02_TEXT chars={len(normalized)} finance_terms={finance_terms}")
-    print("SPK_FRPT02_SAMPLE", normalized[:1200].replace("\n"," "))
+    print(f"SPK_FRPT02_PDF bytes={len(raw)} pages={len(reader.pages)} nonempty_text_pages={sum(bool(clean(x)) for x in all_text)} image_pages={image_pages} chars={len(normalized)}")
+    print(f"SPK_FRPT02_CONTEXT_COUNT {len(contexts)}")
+    for pno,before,line,after in contexts[:60]:
+        print(f"SPK_FRPT02_CONTEXT page={pno} :: PRE={before[:300]} || HIT={line[:700]} || POST={after[:300]}")
 
 if __name__=="__main__":
     main()

@@ -16,3 +16,5 @@ data/parquet/*
 !data/parquet/financials.parquet
 !data/parquet/history/
 !data/parquet/history/*.parquet
+!data/parquet/financials/
+!data/parquet/financials/*.parquet

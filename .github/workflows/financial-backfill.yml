@@ -10,8 +10,16 @@ on:
         description: "1=3M, 2=6M, 3=9M, 4=FY"
         required: true
         default: "4"
+      offset:
+        description: "Ticker offset"
+        required: true
+        default: "0"
+      limit:
+        description: "Ticker batch size; 0 = all remaining"
+        required: true
+        default: "50"
       tickers:
-        description: "Optional comma-separated smoke subset; blank = configured universe"
+        description: "Optional comma-separated smoke subset"
         required: false
         default: ""
   push:
@@ -22,11 +30,11 @@ permissions:
   contents: write
 concurrency:
   group: bist-financial-writer
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -36,9 +44,36 @@ jobs:
         run: |
           python -m compileall -q src scripts
           pytest -q tests/test_kap_bulk_financials.py tests/test_fundamental.py
+      - name: Resolve bounded backfill request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            YEAR=2025; PERIOD=4; OFFSET=0; LIMIT=50; TICKERS=""
+            while IFS='=' read -r key value; do
+              case "$key" in
+                year) YEAR="$value" ;;
+                period) PERIOD="$value" ;;
+                offset) OFFSET="$value" ;;
+                limit) LIMIT="$value" ;;
+                tickers) TICKERS="$value" ;;
+              esac
+            done < .github/triggers/financial-backfill
+          else
+            YEAR="${{ inputs.year }}"; PERIOD="${{ inputs.period }}"
+            OFFSET="${{ inputs.offset }}"; LIMIT="${{ inputs.limit }}"
+            TICKERS="${{ inputs.tickers }}"
+          fi
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+          echo "period=$PERIOD" >> "$GITHUB_OUTPUT"
+          echo "offset=$OFFSET" >> "$GITHUB_OUTPUT"
+          echo "limit=$LIMIT" >> "$GITHUB_OUTPUT"
+          echo "tickers=$TICKERS" >> "$GITHUB_OUTPUT"
+          echo "FINANCIAL_REQUEST year=$YEAR period=$PERIOD offset=$OFFSET limit=$LIMIT tickers=$TICKERS"
       - name: Ingest KAP financial archive
         run: |
-          python scripts/bootstrap_financials.py             --year "${{ inputs.year || '2025' }}"             --period "${{ inputs.period || '4' }}"             --tickers "${{ inputs.tickers }}"
+          python scripts/bootstrap_financials.py             --year "${{ steps.request.outputs.year }}"             --period "${{ steps.request.outputs.period }}"             --offset "${{ steps.request.outputs.offset }}"             --limit "${{ steps.request.outputs.limit }}"             --tickers "${{ steps.request.outputs.tickers }}"
       - name: Commit normalized financial state
         run: |
           set -euo pipefail
@@ -49,6 +84,6 @@ jobs:
             echo "No financial changes to commit."
             exit 0
           fi
-          git commit -m "data: financial backfill ${{ inputs.year || '2025' }}-${{ inputs.period || '4' }}"
+          git commit -m "data: financial backfill ${{ steps.request.outputs.year }}-${{ steps.request.outputs.period }} offset ${{ steps.request.outputs.offset }}"
           git pull --rebase origin main
           git push origin HEAD:main

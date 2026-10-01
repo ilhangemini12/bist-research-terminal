@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12', cache: 'pip'}
       - run: pip install -r requirements.txt
-      - run: python -m compileall -q scripts/probe_bist_bulletin.py
+      - run: python -m compileall -q scripts/probe_bist_bulletin.py scripts/probe_bist_equity_bulletin.py
       - name: Probe official BIST file path archive
         run: python scripts/probe_bist_bulletin.py
+      - name: Probe previous-day official equity bulletin
+        run: python scripts/probe_bist_equity_bulletin.py

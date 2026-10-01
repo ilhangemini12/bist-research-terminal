@@ -23,6 +23,7 @@ from bist_terminal.storage.history_files import history_parquet_files
 from bist_terminal.storage.financial_files import financial_parquet_files
 from bist_terminal.calculations.fundamental import safe_div
 from bist_terminal.calculations.technical import add_indicators
+from bist_terminal.financials.quarterly import standalone_quarters, ttm_from_quarters
 
 
 def load_runtime():
@@ -165,12 +166,14 @@ def main():
     storage_status = 'ACTIVE'
     snapshot_rows = 0
     financial_latest = {}
+    financial_history = {}
     technical_covered = 0
 
     try:
         store = DuckDBStore(ROOT / 'data/bist.duckdb')
         restore_durable_state(store)
         financial_latest = store.latest_financial_payloads()
+        financial_history = store.financial_payload_history()
         stamp = datetime.datetime.now(timezone.utc).isoformat()
         for code, members in universe.members.items():
             normalized = [
@@ -222,6 +225,10 @@ def main():
         financial_status = fin_payload.get('status')
         financial_ok = financial_status == 'PARSED_HIGH_CONFIDENCE' and bool(facts)
         annual = str(fin_payload.get('archive_period') or '') == '4'
+        quarters = standalone_quarters(financial_history.get(ticker, []))
+        qttm = ttm_from_quarters(quarters)
+        flow_facts = qttm if qttm else (facts if financial_ok and annual else {})
+        ttm_status = 'TTM_4Q' if qttm else ('ANNUAL_FALLBACK' if financial_ok and annual else 'INSUFFICIENT_QUARTERS')
 
         def yoy(metric):
             cur = facts.get(metric)
@@ -231,12 +238,12 @@ def main():
             return cur / prev - 1
 
         derived = {}
-        if financial_ok and annual:
+        if financial_ok:
             derived = {
-                'roe': safe_div(facts.get('net_income'), facts.get('equity')),
-                'roa': safe_div(facts.get('net_income'), facts.get('assets')),
-                'gross_margin': safe_div(facts.get('gross_profit'), facts.get('revenue')),
-                'operating_margin': safe_div(facts.get('operating_profit'), facts.get('revenue')),
+                'roe': safe_div(flow_facts.get('net_income'), facts.get('equity')),
+                'roa': safe_div(flow_facts.get('net_income'), facts.get('assets')),
+                'gross_margin': safe_div(flow_facts.get('gross_profit'), flow_facts.get('revenue')),
+                'operating_margin': safe_div(flow_facts.get('operating_profit'), flow_facts.get('revenue')),
                 'current_ratio': safe_div(facts.get('current_assets'), facts.get('current_liabilities')),
                 'quick_ratio': safe_div(
                     (facts.get('current_assets') - (facts.get('inventories') or 0))
@@ -328,11 +335,14 @@ def main():
             'current_assets': facts.get('current_assets') if financial_ok else None,
             'current_liabilities': facts.get('current_liabilities') if financial_ok else None,
             'inventories': facts.get('inventories') if financial_ok else None,
-            'revenue_ttm': facts.get('revenue') if financial_ok and annual else None,
-            'gross_profit_ttm': facts.get('gross_profit') if financial_ok and annual else None,
-            'operating_profit_ttm': facts.get('operating_profit') if financial_ok and annual else None,
-            'net_income_ttm': facts.get('net_income') if financial_ok and annual else None,
-            'cash_from_operations_ttm': facts.get('cash_from_operations') if financial_ok and annual else None,
+            'financial_quarters_available': len(quarters),
+            'ttm_status': ttm_status,
+            'ttm_quarters_used': qttm.get('quarters_used') if qttm else [],
+            'revenue_ttm': flow_facts.get('revenue') if financial_ok else None,
+            'gross_profit_ttm': flow_facts.get('gross_profit') if financial_ok else None,
+            'operating_profit_ttm': flow_facts.get('operating_profit') if financial_ok else None,
+            'net_income_ttm': flow_facts.get('net_income') if financial_ok else None,
+            'cash_from_operations_ttm': flow_facts.get('cash_from_operations') if financial_ok else None,
             'technical_history_rows': history_rows,
             **derived,
             **technical,

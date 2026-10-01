@@ -17,7 +17,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: bist-history-writer
+  group: bist-history-sharded-writer
   cancel-in-progress: false
 jobs:
   bootstrap:

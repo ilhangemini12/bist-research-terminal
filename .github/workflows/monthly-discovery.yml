@@ -9,6 +9,9 @@ on:
     - cron: '15 6 1 * *'
 permissions:
   contents: write
+concurrency:
+  group: bist-data-writer
+  cancel-in-progress: false
 jobs:
   discover:
     runs-on: ubuntu-latest
@@ -21,9 +24,16 @@ jobs:
       - name: Static checks
         run: python -m compileall -q src scripts
       - run: python scripts/discover_sources.py
-      - run: |
+      - name: Commit discovery snapshot
+        run: |
+          set -euo pipefail
           git config user.name "bist-research-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/discovery config/source_catalog.yaml || true
-          git diff --cached --quiet || git commit -m "discovery: monthly official registry refresh"
-          git push
+          if git diff --cached --quiet; then
+            echo "No discovery changes to commit."
+            exit 0
+          fi
+          git commit -m "discovery: monthly official registry refresh"
+          git pull --rebase origin main
+          git push origin HEAD:main

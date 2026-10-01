@@ -9,9 +9,9 @@ providers:
     login_required: false
     live_or_delayed: n/a
     delay_minutes: null
-    fields_available: [broker_list, bank_list, activity_permissions, listed_companies, financial_report_metadata, special_disclosures]
+    fields_available: [broker_list, bank_list, activity_permissions, listed_companies, financial_report_metadata, financial_report_pdf_document, special_disclosures]
     historical_data: false
-    financial_data: true
+    financial_data: metadata_and_pdf_documents
     research_reports: false
     target_prices: false
     model_portfolio: false
@@ -47,26 +47,49 @@ providers:
 
   - provider_id: kap_public
     institution: Kamuyu Aydinlatma Platformu
-    platform_name: KAP
+    platform_name: KAP public pages
     website: https://www.kap.org.tr/
-    source_type: financials_and_disclosures
+    source_type: public_reference
     official_or_secondary: official
     free: true
     login_required: false
     live_or_delayed: mixed
     delay_minutes: null
-    fields_available: [financial_statements, disclosures, corporate_actions, company_metadata]
+    fields_available: [public_disclosure_pages, public_financial_pages, corporate_action_reference, company_metadata_reference]
+    historical_data: true
+    financial_data: reference_only
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: true
+    robots_status: REVIEWED_PUBLIC_REFERENCE
+    terms_status: PUBLIC_REFERENCE_ONLY_NO_AUTOMATED_STORAGE_OR_HIGH_VOLUME_FETCH
+    upstream_vendor: KAP
+    last_checked: 2026-10-01
+    status: DISABLED
+
+  - provider_id: kap_rest_api
+    institution: Kamuyu Aydinlatma Platformu
+    platform_name: KAP Veri Yayin Servisi REST API
+    website: https://www.kap.org.tr/
+    source_type: licensed_structured_financials_and_disclosures
+    official_or_secondary: official
+    free: false
+    login_required: true
+    live_or_delayed: contract_dependent
+    delay_minutes: null
+    fields_available: [structured_financial_statements, disclosures, corporate_actions, company_metadata]
     historical_data: true
     financial_data: true
     research_reports: false
     target_prices: false
     model_portfolio: false
     news: true
-    robots_status: REVIEW_REQUIRED
-    terms_status: PUBLIC_PAGES_ONLY
+    robots_status: API
+    terms_status: BIST_DATA_DISTRIBUTION_AGREEMENT_MKK_AUTHORIZATION_AND_API_KEY_REQUIRED
     upstream_vendor: KAP
     last_checked: 2026-10-01
-    status: ACTIVE
+    status: PAID_SOURCE_SKIPPED
 
   - provider_id: bist_daily_bulletin
     institution: Borsa Istanbul

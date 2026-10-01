@@ -97,7 +97,7 @@ def _period_columns(df: pd.DataFrame):
 
 BALANCE = {
     "assets": ("TOPLAM VARLIKLAR", "AKTIF TOPLAMI", "VARLIKLAR TOPLAMI"),
-    "equity": ("TOPLAM OZKAYNAKLAR", "OZKAYNAKLAR TOPLAMI"),
+    "equity": ("TOPLAM OZKAYNAKLAR", "OZKAYNAKLAR TOPLAMI", "OZKAYNAKLAR"),
     "current_assets": ("DONEN VARLIKLAR", "TOPLAM DONEN VARLIKLAR"),
     "current_liabilities": ("KISA VADELI YUKUMLULUKLER", "TOPLAM KISA VADELI YUKUMLULUKLER"),
     "cash": ("NAKIT VE NAKIT BENZERLERI",),
@@ -200,6 +200,8 @@ def parse_html_xls(payload: bytes, source_file: str | None = None) -> dict:
     core = ["assets", "equity", "net_income"]
     core_count = sum(k in facts for k in core)
     quality = min(100, 20 + matched_tables * 10 + core_count * 15 + (10 if current_period else 0))
+    if core_count < 3:
+        quality = min(quality, 80)
     status = "PARSED_HIGH_CONFIDENCE" if quality >= 85 and core_count == 3 else (
         "PARSED_REVIEW_REQUIRED" if facts else "UNPARSEABLE"
     )

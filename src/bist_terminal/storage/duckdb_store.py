@@ -124,6 +124,30 @@ class DuckDBStore:
             }
         return out
 
+
+    def financial_payload_history(self) -> dict[str, list[dict]]:
+        rows = self.con.execute('''
+          select ticker, report_period, publication_date, statement_scope, payload, source_url
+          from financials
+          order by ticker, cast(report_period as date), publication_date nulls last
+        ''').fetchall()
+        out: dict[str, list[dict]] = {}
+        for ticker, report_period, publication_date, scope, payload, source_url in rows:
+            if isinstance(payload, str):
+                try:
+                    payload = json.loads(payload)
+                except json.JSONDecodeError:
+                    payload = {}
+            out.setdefault(ticker, []).append({
+                'ticker': ticker,
+                'report_period': str(report_period),
+                'publication_date': str(publication_date) if publication_date else None,
+                'statement_scope': scope,
+                'payload': payload or {},
+                'source_url': source_url,
+            })
+        return out
+
     def replace_current_membership(self, index_code: str, rows: list[dict], retrieved_at: str):
         self.con.execute('delete from index_membership_current where index_code=?', [index_code])
         for r in rows:

@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-10-01T19:03:08Z",
+  "universe_snapshot_date": "2026-10-01",
+  "configured_universe_tickers": 323,
+  "covered_tickers": 323,
+  "coverage_pct": 100,
+  "target_history_years": 5,
+  "ohlcv_rows": 347075,
+  "corporate_action_rows": 860,
+  "storage_mode": "legacy_base_plus_immutable_batch_shards",
+  "base": {
+    "daily_ohlcv": "data/parquet/daily_ohlcv.parquet",
+    "corporate_actions": "data/parquet/corporate_actions.parquet",
+    "covered_offsets": "0-104"
+  },
+  "shards": [
+    {
+      "offset": 105,
+      "end": 154,
+      "ohlcv_rows": 53014,
+      "corporate_action_rows": 132
+    },
+    {
+      "offset": 155,
+      "end": 204,
+      "ohlcv_rows": 53097,
+      "corporate_action_rows": 133
+    },
+    {
+      "offset": 205,
+      "end": 254,
+      "ohlcv_rows": 51644,
+      "corporate_action_rows": 109
+    },
+    {
+      "offset": 255,
+      "end": 304,
+      "ohlcv_rows": 54556,
+      "corporate_action_rows": 122
+    },
+    {
+      "offset": 305,
+      "end": 322,
+      "ohlcv_rows": 21004,
+      "corporate_action_rows": 46
+    }
+  ],
+  "validation": {
+    "immutable_shards": true,
+    "duplicate_run_idempotent": true,
+    "final_batch_run_id": 36910751175,
+    "full_history_daily_validation_run_id": 36911075664,
+    "technical_rsi14_count": 322,
+    "technical_coverage_pct": 99.7
+  }
+}

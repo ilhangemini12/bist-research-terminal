@@ -3,6 +3,7 @@ from bist_terminal.financials.kap_bulk import (
     parse_html_xls,
     parse_tr_number,
     presentation_scale,
+    notification_id_from_source_file,
 )
 from io import BytesIO
 import zipfile
@@ -64,3 +65,9 @@ def test_archive_finds_prefixed_bank_symbol():
     arc = KapArchive(2025, "4", "https://example.invalid", bio.getvalue())
     assert arc.entry_for_ticker("VAKBN") == "TVB-VAKBN_1557008_2025_4.xls"
     assert arc.entry_for_ticker("THYAO") == "THYAO_1565996_2025_4.xls"
+
+
+def test_notification_id_is_derived_from_bulk_filename():
+    assert notification_id_from_source_file("THYAO_1565996_2025_4.xls")==1565996
+    assert notification_id_from_source_file("TVB-VAKBN_1557008_2025_4.xls")==1557008
+    assert notification_id_from_source_file("invalid.xls") is None

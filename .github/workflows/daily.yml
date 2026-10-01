@@ -1,6 +1,10 @@
 name: Daily Update
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/daily'
   schedule:
     # 18:25 Turkey time = 15:25 UTC while Turkey remains UTC+3
     - cron: '25 15 * * 1-5'

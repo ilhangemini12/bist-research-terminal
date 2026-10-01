@@ -2,8 +2,8 @@
   "mode": "LIVE_PIPELINE",
   "data_as_of": {
     "prices": "2026-10-01",
-    "financials": "pending KAP adapter",
-    "targets": "pending discovery"
+    "financials": "SPK metadata/PDF only; structured KAP REST requires licensed access",
+    "targets": "terms-compatible discovery partial"
   },
   "stocks": [
     {
@@ -4586,6 +4586,9 @@
       "XUSIN"
     ],
     "status": "LIVE_REFERENCE",
+    "snapshot_date": "2026-10-01",
+    "history_status": "ACCUMULATING_FROM_2026-10-01",
+    "history_rows": 406,
     "members_by_index": {
       "XAKUR": 9,
       "XBANK": 12,
@@ -4595,5 +4598,5 @@
       "XUSIN": 248
     }
   },
-  "generated_at": "2026-10-01T14:10:19.472433+00:00"
+  "generated_at": "2026-10-01T14:22:33.959567+00:00"
 }

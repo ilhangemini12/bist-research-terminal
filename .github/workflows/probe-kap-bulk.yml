@@ -1,0 +1,20 @@
+name: Probe KAP Bulk Financial Download
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/kap-bulk-probe'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: 'pip'}
+      - run: pip install -r requirements.txt
+      - name: Discover public KAP download endpoint
+        run: python scripts/probe_kap_bulk_download.py

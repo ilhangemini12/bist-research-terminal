@@ -2191,13 +2191,15 @@
     {
       "ticker": "ISBTR",
       "price": null,
-      "price_status": "STALE",
-      "verification_reason": "no fresh raw-close observations",
-      "trade_date": null,
+      "price_status": "SINGLE_SOURCE",
+      "verification_reason": "fewer than 2 independent upstreams",
+      "trade_date": "2026-10-01",
       "sources": [
         "yahoo_chart"
       ],
-      "source_lineage": [],
+      "source_lineage": [
+        "yahoo market data feed"
+      ],
       "max_diff_pct": null
     },
     {
@@ -4551,6 +4553,15 @@
       "message": "ACTIVE"
     },
     {
+      "provider": "bist_daily_bulletin",
+      "status": "DEGRADED",
+      "upstream": "Borsa Istanbul",
+      "successes": 0,
+      "failures": 3,
+      "skipped_after_circuit": 321,
+      "message": "ProviderError: BIST bulletin not published for 2026-10-01"
+    },
+    {
       "provider": "yahoo_chart",
       "status": "ACTIVE",
       "upstream": "Yahoo market data feed",
@@ -4584,5 +4595,5 @@
       "XUSIN": 248
     }
   },
-  "generated_at": "2026-10-01T09:37:51.696388+00:00"
+  "generated_at": "2026-10-01T13:20:36.691016+00:00"
 }

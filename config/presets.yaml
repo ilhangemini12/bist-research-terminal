@@ -1,0 +1,57 @@
+presets:
+  VALUE:
+    label: Value
+    rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median"
+  QUALITY:
+    label: Quality
+    rules: "roe > sector_roe_median and roic > 0"
+  GROWTH:
+    label: Growth
+    rules: "revenue_growth_yoy > 0 and net_income_growth_yoy > 0"
+  DIVIDEND:
+    label: Dividend
+    rules: "dividend_yield > 0"
+  TREND:
+    label: Trend
+    rules: "close > sma20 and sma20 > sma50"
+  MOMENTUM:
+    label: Momentum
+    rules: "close > sma20 and sma20 > sma50 and roc20 > 0"
+  OVERSOLD:
+    label: Oversold
+    rules: "rsi14 < 35"
+  LOW_DEBT:
+    label: Low Debt
+    rules: "net_debt_ebitda >= 0 and net_debt_ebitda < 2"
+  HIGH_ROIC:
+    label: High ROIC
+    rules: "roic > 0.15"
+  HIGH_FCF_YIELD:
+    label: High FCF Yield
+    rules: "fcf_yield > 0.05"
+  VALUE_QUALITY:
+    label: Value + Quality
+    rules: "pe > 0 and pe < sector_pe_median and roe > sector_roe_median"
+  VALUE_RSI:
+    label: Value + RSI
+    rules: "pe > 0 and pe < sector_pe_median and rsi14 < 45"
+  GROWTH_MOMENTUM:
+    label: Growth + Momentum
+    rules: "ebitda_growth_yoy > 0 and close > sma20 and roc20 > 0"
+  OZKAN_FILIZ_SECTOR_VALUE:
+    label: Ozkan Filiz Sector Value
+    description: Public methodology reconstruction
+    rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and ev_ebitda > 0 and ev_ebitda < sector_ev_ebitda_median"
+    optional_quality: "roe > sector_roe_median and net_debt_ebitda < 3"
+  VOLKAN_KOCABAS_VALUE_GROWTH:
+    label: Volkan Kocabas Value Growth
+    description: Public examples reconstruction
+    rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and ev_ebitda > 0 and ev_ebitda < sector_ev_ebitda_median and ebitda_growth_yoy > 0 and roe > 0"
+  VK_RSI_DIP_RECOVERY:
+    label: Volkan Kocabas RSI Dip
+    description: Approximation; exact public formula not verified
+    rules: "rsi_recent_low < 35 and rsi14 > rsi14_prev and volume > volume_ma20 and close > sma10"
+  VK_TREND_MOMENTUM:
+    label: VK Trend Momentum
+    description: Configurable public-pattern approximation
+    rules: "sma20 > sma50 and close > sma20 and roc20 > 0 and volume_ratio > 1"

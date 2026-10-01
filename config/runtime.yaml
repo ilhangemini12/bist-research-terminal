@@ -1,0 +1,19 @@
+price_verification:
+  tolerance_pct: 0.15
+  minimum_independent_upstreams: 2
+  verified_status: VERIFIED_2X
+
+providers:
+  # Free/keyless candidate. Undocumented endpoint: keep fallback/circuit-breaker enabled.
+  yahoo_chart:
+    enabled: true
+    role: price_candidate
+  # Intentionally disabled: İş Yatırım robots.txt disallows /_layouts/ and current
+  # usage terms restrict copying/distribution of site content. Do not automate it.
+  isyatirim_public:
+    enabled: false
+    role: price_candidate
+
+pipeline:
+  provider_failure_threshold: 3
+  max_tickers_per_manual_smoke_run: null

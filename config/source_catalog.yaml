@@ -1,0 +1,391 @@
+providers:
+  - provider_id: spk_ws
+    institution: Sermaye Piyasasi Kurulu
+    platform_name: SPK Web Servisleri
+    website: https://ws.spk.gov.tr/help/index.html
+    source_type: registry
+    official_or_secondary: official
+    free: true
+    login_required: false
+    live_or_delayed: n/a
+    delay_minutes: null
+    fields_available: [broker_list, bank_list, activity_permissions, listed_companies, financial_report_metadata, special_disclosures]
+    historical_data: false
+    financial_data: true
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: false
+    robots_status: REVIEWED_PUBLIC_SERVICE
+    terms_status: PUBLIC_WEB_SERVICE
+    upstream_vendor: SPK
+    last_checked: 2026-10-01
+    status: ACTIVE
+
+  - provider_id: tspb_members
+    institution: Turkiye Sermaye Piyasalari Birligi
+    platform_name: TSPB Uye Bilgileri
+    website: https://tspb.org.tr/uye-bilgileri/
+    source_type: registry
+    official_or_secondary: official
+    free: true
+    login_required: false
+    live_or_delayed: periodic
+    delay_minutes: null
+    fields_available: [member_list, member_statistics]
+    historical_data: true
+    financial_data: aggregate
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: true
+    robots_status: REVIEW_REQUIRED
+    terms_status: PUBLIC_DOWNLOADS
+    upstream_vendor: TSPB
+    last_checked: 2026-10-01
+    status: ACTIVE
+
+  - provider_id: kap_public
+    institution: Kamuyu Aydinlatma Platformu
+    platform_name: KAP
+    website: https://www.kap.org.tr/
+    source_type: financials_and_disclosures
+    official_or_secondary: official
+    free: true
+    login_required: false
+    live_or_delayed: mixed
+    delay_minutes: null
+    fields_available: [financial_statements, disclosures, corporate_actions, company_metadata]
+    historical_data: true
+    financial_data: true
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: true
+    robots_status: REVIEW_REQUIRED
+    terms_status: PUBLIC_PAGES_ONLY
+    upstream_vendor: KAP
+    last_checked: 2026-10-01
+    status: ACTIVE
+
+  - provider_id: bist_official
+    institution: Borsa Istanbul
+    platform_name: Borsa Istanbul Daily Bulletin / DataStore
+    website: https://www.borsaistanbul.com/en/data/daily-bulletin
+    source_type: exchange_reference
+    official_or_secondary: official
+    free: partial
+    login_required: varies
+    live_or_delayed: eod_or_licensed
+    delay_minutes: null
+    fields_available: [calendar, bulletins, corporate_actions, reference_data]
+    historical_data: paid_or_datastore
+    financial_data: false
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: false
+    robots_status: REVIEW_REQUIRED
+    terms_status: REALTIME_REDISTRIBUTION_LICENSE_REQUIRED
+    upstream_vendor: Borsa Istanbul
+    last_checked: 2026-10-01
+    status: DEGRADED
+
+  - provider_id: bist_index_components
+    institution: Borsa Istanbul
+    platform_name: Official index constituent CSV
+    website: https://www.borsaistanbul.com/datum/hisse_endeks_ds.csv
+    source_type: index_membership_reference
+    official_or_secondary: official
+    free: true
+    login_required: false
+    live_or_delayed: reference
+    delay_minutes: null
+    fields_available: [index_code, index_name, ticker, company_name]
+    historical_data: false
+    financial_data: false
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: false
+    robots_status: PUBLIC_REFERENCE_FILE
+    terms_status: REFERENCE_DATA_ONLY_NOT_REALTIME_REDISTRIBUTION
+    upstream_vendor: Borsa Istanbul
+    last_checked: 2026-10-01
+    status: ACTIVE
+
+  - provider_id: isyatirim_public
+    institution: Is Yatirim Menkul Degerler A.S.
+    platform_name: Is Yatirim public analysis pages
+    website: https://www.isyatirim.com.tr/tr-tr/analiz/hisse/Sayfalar/Tarihsel-Fiyat-Bilgileri.aspx
+    source_type: price_financial_candidate
+    official_or_secondary: secondary
+    free: true
+    login_required: false
+    live_or_delayed: delayed_or_page_dependent
+    delay_minutes: null
+    fields_available: [historical_price, financial_statements, company_analysis]
+    historical_data: true
+    financial_data: true
+    research_reports: true
+    target_prices: true
+    model_portfolio: true
+    news: true
+    robots_status: BLOCKED_PATH__LAYOUTS
+    terms_status: AUTOMATED_INGESTION_DISABLED_CONTENT_USE_RESTRICTED
+    upstream_vendor: Matriks_on_historical_price_page
+    last_checked: 2026-10-01
+    status: BLOCKED
+
+  - provider_id: yahoo_chart
+    institution: Yahoo
+    platform_name: Yahoo Finance
+    website: https://finance.yahoo.com/
+    source_type: price_history
+    official_or_secondary: secondary
+    free: true
+    login_required: false
+    live_or_delayed: delayed
+    delay_minutes: null
+    fields_available: [ohlcv, adjusted_close, dividends, splits]
+    historical_data: true
+    financial_data: limited
+    research_reports: false
+    target_prices: limited
+    model_portfolio: false
+    news: true
+    robots_status: REVIEW_REQUIRED
+    terms_status: UNDOCUMENTED_PUBLIC_ENDPOINT_USE_CAUTIOUSLY
+    upstream_vendor: Yahoo market data feed
+    last_checked: 2026-10-01
+    status: ACTIVE
+
+  - provider_id: investing_public
+    institution: Investing.com
+    platform_name: Investing.com public pages
+    website: https://www.investing.com/
+    source_type: price_secondary
+    official_or_secondary: secondary
+    free: true
+    login_required: false
+    live_or_delayed: delayed
+    delay_minutes: null
+    fields_available: [price, historical_ohlcv]
+    historical_data: true
+    financial_data: true
+    research_reports: false
+    target_prices: true
+    model_portfolio: false
+    news: true
+    robots_status: REVIEW_REQUIRED
+    terms_status: AUTOMATED_FETCH_DISABLED_UNTIL_REVIEW
+    upstream_vendor: Investing.com market data feed
+    last_checked: 2026-10-01
+    status: DISABLED
+
+  - provider_id: tinyfish
+    institution: TinyFish
+    platform_name: TinyFish
+    website: null
+    source_type: forbidden
+    official_or_secondary: secondary
+    free: false
+    login_required: true
+    live_or_delayed: n/a
+    delay_minutes: null
+    fields_available: []
+    historical_data: false
+    financial_data: false
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: false
+    robots_status: n/a
+    terms_status: USER_FORBIDDEN
+    upstream_vendor: null
+    last_checked: 2026-10-01
+    status: PAID_SOURCE_SKIPPED
+
+  - provider_id: forinvest_public
+    institution: ForInvest Yazilim ve Teknoloji Hizmetleri A.S.
+    platform_name: ForInvest App / Web
+    website: https://www.forinvest.com/canli-veri
+    source_type: market_data_and_research_candidate
+    official_or_secondary: secondary
+    free: partial
+    login_required: true
+    live_or_delayed: live_for_free_membership
+    delay_minutes: 0
+    fields_available: [prices, bist30, bist100, fundamentals, news, economic_calendar, research_reports]
+    historical_data: true
+    financial_data: true
+    research_reports: true
+    target_prices: unknown
+    model_portfolio: unknown
+    news: true
+    robots_status: REVIEW_REQUIRED
+    terms_status: AUTOMATED_INGESTION_DISABLED_UNTIL_TERMS_REVIEW
+    upstream_vendor: ForInvest
+    last_checked: 2026-10-01
+    status: DISABLED
+
+  - provider_id: piapiri_public
+    institution: UNLU Menkul Degerler A.S.
+    platform_name: Piapiri
+    website: https://www.piapiri.com/
+    source_type: market_data_research_model_portfolio_candidate
+    official_or_secondary: secondary
+    free: partial
+    login_required: true
+    live_or_delayed: live_for_eligible_users
+    delay_minutes: 0
+    fields_available: [prices, watchlists, research_reports, model_portfolios, technical_signals]
+    historical_data: unknown
+    financial_data: unknown
+    research_reports: true
+    target_prices: true
+    model_portfolio: true
+    news: true
+    robots_status: REVIEW_REQUIRED
+    terms_status: AUTOMATED_INGESTION_DISABLED_UNTIL_TERMS_REVIEW
+    upstream_vendor: unknown
+    last_checked: 2026-10-01
+    status: DISABLED
+
+  - provider_id: matriksiq
+    institution: Matriks Bilgi Dagitim Hizmetleri A.S.
+    platform_name: MatriksIQ
+    website: https://www.matriksdata.com/website/urunlerimiz/kullanici-platformlari/matriksiq-veri-terminali
+    source_type: market_data_terminal_reference
+    official_or_secondary: secondary
+    free: false
+    login_required: true
+    live_or_delayed: licensed
+    delay_minutes: null
+    fields_available: [prices, technical_analysis, strategy_tools, trading]
+    historical_data: true
+    financial_data: true
+    research_reports: unknown
+    target_prices: unknown
+    model_portfolio: unknown
+    news: true
+    robots_status: n/a
+    terms_status: PAID_PRODUCT_NOT_USED
+    upstream_vendor: Matriks
+    last_checked: 2026-10-01
+    status: PAID_SOURCE_SKIPPED
+
+  - provider_id: ideal_data
+    institution: iDeal Data Financial Technologies
+    platform_name: iDeal
+    website: https://www.idealdata.com.tr/
+    source_type: market_data_terminal_reference
+    official_or_secondary: secondary
+    free: false
+    login_required: true
+    live_or_delayed: licensed
+    delay_minutes: null
+    fields_available: [prices, technical_analysis, scanner, system_tester, custom_index]
+    historical_data: true
+    financial_data: true
+    research_reports: unknown
+    target_prices: unknown
+    model_portfolio: unknown
+    news: true
+    robots_status: n/a
+    terms_status: PAID_PRODUCT_NOT_USED
+    upstream_vendor: iDeal Data
+    last_checked: 2026-10-01
+    status: PAID_SOURCE_SKIPPED
+
+  - provider_id: zborsa
+    institution: Ziraat Yatirim Menkul Degerler A.S.
+    platform_name: ZBorsa
+    website: https://service.ziraatyatirim.com.tr/tr/zborsa
+    source_type: broker_platform_reference
+    official_or_secondary: secondary
+    free: true
+    login_required: true
+    live_or_delayed: live_for_customers
+    delay_minutes: 0
+    fields_available: [prices, research_reports, technical_analysis, recommendations, kap_news]
+    historical_data: unknown
+    financial_data: unknown
+    research_reports: true
+    target_prices: true
+    model_portfolio: unknown
+    news: true
+    robots_status: n/a
+    terms_status: CUSTOMER_LOGIN_REQUIRED_NO_AUTOMATED_INGESTION
+    upstream_vendor: Foreks_or_other_vendor_unverified
+    last_checked: 2026-10-01
+    status: LOGIN_REQUIRED
+
+  - provider_id: tradeall_tr
+    institution: TradeAll / broker platform
+    platform_name: TradeAll TR
+    website: https://www.tradeall.com/
+    source_type: broker_platform_reference
+    official_or_secondary: secondary
+    free: partial
+    login_required: true
+    live_or_delayed: account_dependent
+    delay_minutes: null
+    fields_available: [prices, depth, charts, technical_analysis, news, reports]
+    historical_data: unknown
+    financial_data: unknown
+    research_reports: true
+    target_prices: unknown
+    model_portfolio: unknown
+    news: true
+    robots_status: REVIEW_REQUIRED
+    terms_status: LOGIN_REQUIRED_NO_AUTOMATED_INGESTION
+    upstream_vendor: unknown
+    last_checked: 2026-10-01
+    status: LOGIN_REQUIRED
+
+  - provider_id: gedik_trader
+    institution: Gedik Yatirim Menkul Degerler A.S.
+    platform_name: Gedik Trader
+    website: https://gedik.com/yatirimciya-ozel/gedik-trader
+    source_type: broker_platform_reference
+    official_or_secondary: secondary
+    free: partial
+    login_required: true
+    live_or_delayed: account_dependent
+    delay_minutes: null
+    fields_available: [prices, watchlists, technical_analysis, news, trading]
+    historical_data: unknown
+    financial_data: unknown
+    research_reports: true
+    target_prices: unknown
+    model_portfolio: unknown
+    news: true
+    robots_status: REVIEW_REQUIRED
+    terms_status: LOGIN_REQUIRED_NO_AUTOMATED_INGESTION
+    upstream_vendor: unknown
+    last_checked: 2026-10-01
+    status: LOGIN_REQUIRED
+
+  - provider_id: queenstocks_reference
+    institution: QueenStocks
+    platform_name: QPS
+    website: https://www.queenstocks.com/
+    source_type: ux_strategy_reference_only
+    official_or_secondary: secondary
+    free: false
+    login_required: true
+    live_or_delayed: n/a
+    delay_minutes: null
+    fields_available: [fundamental_filters, technical_filters, custom_formulas, backtesting, strategy_models]
+    historical_data: true
+    financial_data: true
+    research_reports: false
+    target_prices: false
+    model_portfolio: true
+    news: false
+    robots_status: n/a
+    terms_status: REFERENCE_ONLY_NOT_INGESTED
+    upstream_vendor: unknown
+    last_checked: 2026-10-01
+    status: PAID_SOURCE_SKIPPED

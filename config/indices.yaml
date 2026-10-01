@@ -1,0 +1,8 @@
+indices:
+  XU030: {name: BIST 30, enabled: true}
+  XU100: {name: BIST 100, enabled: true}
+  XBANK: {name: BIST Banka, enabled: true}
+  XSGRT: {name: BIST Sigorta, enabled: true}
+  XAKUR: {name: BIST Araci Kurumlar, enabled: true}
+  XUSIN: {name: BIST Sinai, enabled: true}
+# Add any additional BIST index here; membership is refreshed by provider/discovery logic.

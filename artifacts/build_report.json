@@ -1,0 +1,90 @@
+{
+  "project": "bist-research-terminal",
+  "generated_at": "2026-10-01T03:11:11.265325+00:00",
+  "mode": "DEMO_FIXTURE_NOT_LIVE",
+  "repository_url": null,
+  "dashboard_url": null,
+  "live_market_status": {
+    "last_verified_market_date": null,
+    "tracked_live_tickers": 0,
+    "verified_price_count": 0,
+    "unverified_price_count": 0,
+    "reason": "Bundled dataset is synthetic demo fixture; no live market date is claimed."
+  },
+  "demo_fixture": {
+    "tracked_stocks": 3,
+    "verified_fixture_rows": 3
+  },
+  "financial_coverage_percent_live": 0,
+  "source_catalog": {
+    "discovered_or_catalogued": 17,
+    "status_counts": {
+      "ACTIVE": 5,
+      "BLOCKED": 1,
+      "DEGRADED": 1,
+      "DISABLED": 3,
+      "LOGIN_REQUIRED": 3,
+      "PAID_SOURCE_SKIPPED": 4
+    }
+  },
+  "python_tests_collected": 70,
+  "js_formula_tests": "dashboard/tests/formula.test.js",
+  "presets": [
+    "VALUE",
+    "QUALITY",
+    "GROWTH",
+    "DIVIDEND",
+    "TREND",
+    "MOMENTUM",
+    "OVERSOLD",
+    "LOW_DEBT",
+    "HIGH_ROIC",
+    "HIGH_FCF_YIELD",
+    "VALUE_QUALITY",
+    "VALUE_RSI",
+    "GROWTH_MOMENTUM",
+    "OZKAN_FILIZ_SECTOR_VALUE",
+    "VOLKAN_KOCABAS_VALUE_GROWTH",
+    "VK_RSI_DIP_RECOVERY",
+    "VK_TREND_MOMENTUM"
+  ],
+  "known_limitations": [
+    "Connected GitHub tool can write to an existing repository but cannot create the new repository in this session.",
+    "GitHub Pages is not live until ilhangemini12/bist-research-terminal exists and this build is pushed.",
+    "Live VERIFIED_2X coverage remains zero until a second current, free, terms-compatible independent price lineage is approved.",
+    "Full KAP financial-statement taxonomy normalization and 12–20-quarter population across all issuer types is not complete.",
+    "Historical point-in-time index universes are not fully populated; affected backtests must retain BACKTEST BIASED.",
+    "Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries.",
+    "Local sandbox lacks duckdb/pyarrow; the storage module is compiled/tested structurally and GitHub Actions installs declared dependencies."
+  ],
+  "stress_coverage": [
+    "primary/secondary provider down",
+    "HTTP 403",
+    "HTTP 429 bounded retry",
+    "timeout",
+    "malformed payload/HTML",
+    "schema change",
+    "missing ticker",
+    "wrong ticker",
+    "duplicate row",
+    "stale/one-day-old price",
+    "adjusted/raw mismatch",
+    "wrong timezone normalization",
+    "split day",
+    "dividend day",
+    "BIST holiday",
+    "missing financial statement",
+    "duplicate KAP disclosure",
+    "target price archive threshold",
+    "zero volume warning",
+    "source conflict",
+    "extreme values",
+    "balance-sheet sanity",
+    "look-ahead bias",
+    "survivorship-bias warning",
+    "VWAP data sufficiency",
+    "provider circuit breaker",
+    "dynamic BIST universe schema/cache fallback"
+  ],
+  "quality_gate": "70/70 Python tests passed; JS safe-formula tests passed; Python compileall and workflow YAML parse passed."
+}

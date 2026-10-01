@@ -1,0 +1,57 @@
+from __future__ import annotations
+from pathlib import Path
+from datetime import datetime
+import json
+
+class DuckDBStore:
+    """DuckDB state store. Parquet is an export/cache format, not the primary state."""
+    def __init__(self,path='data/bist.duckdb'):
+        try: import duckdb
+        except ImportError as e: raise RuntimeError('duckdb dependency missing; run pip install -r requirements.txt') from e
+        Path(path).parent.mkdir(parents=True,exist_ok=True); self.duckdb=duckdb; self.con=duckdb.connect(str(path)); self._init()
+
+    def _init(self):
+        self.con.execute('''create table if not exists prices(
+          ticker varchar, trade_date date, close double, volume double, provider_id varchar, upstream_vendor varchar,
+          status varchar, retrieved_at timestamp, primary key(ticker,trade_date,provider_id))''')
+        self.con.execute('''create table if not exists price_verification(
+          ticker varchar, trade_date date, verified_price double, status varchar, sources json, upstreams json,
+          max_diff_pct double, reason varchar, verified_at timestamp, primary key(ticker,trade_date))''')
+        self.con.execute('''create table if not exists daily_ohlcv(
+          ticker varchar, trade_date date, open double, high double, low double, close double, adjusted_close double,
+          volume double, provider_id varchar, upstream_vendor varchar, source_url varchar, retrieved_at timestamp,
+          primary key(ticker,trade_date,provider_id))''')
+        self.con.execute('''create table if not exists corporate_actions(
+          ticker varchar, action_date date, action_type varchar, amount double, split_ratio varchar, provider_id varchar,
+          source_url varchar, retrieved_at timestamp, primary key(ticker,action_date,action_type,provider_id))''')
+        self.con.execute('''create table if not exists index_membership_current(
+          index_code varchar, ticker varchar, company_name varchar, retrieved_at timestamp,
+          primary key(index_code,ticker))''')
+        self.con.execute('''create table if not exists financials(
+          ticker varchar, report_period varchar, publication_date date, statement_scope varchar, payload json,
+          source_url varchar, primary key(ticker,report_period,statement_scope))''')
+        self.con.execute('''create table if not exists provider_health(
+          provider_id varchar primary key,status varchar,last_success timestamp,last_failure timestamp,latest_data_date date,message varchar)''')
+
+    def close(self): self.con.close()
+    def upsert_price(self,row:dict):
+        self.con.execute('''insert or replace into prices values (?,?,?,?,?,?,?,?)''',[row.get(k) for k in ['ticker','trade_date','close','volume','provider_id','upstream_vendor','status','retrieved_at']])
+    def upsert_verification(self,row:dict):
+        self.con.execute('''insert or replace into price_verification values (?,?,?,?,?,?,?,?,?)''',[row.get('ticker'),row.get('trade_date'),row.get('verified_price'),row.get('status'),json.dumps(row.get('sources') or []),json.dumps(row.get('upstreams') or []),row.get('max_diff_pct'),row.get('reason'),row.get('verified_at')])
+    def upsert_ohlcv(self,row:dict):
+        self.con.execute('''insert or replace into daily_ohlcv values (?,?,?,?,?,?,?,?,?,?,?,?)''',[row.get(k) for k in ['ticker','trade_date','open','high','low','close','adjusted_close','volume','provider_id','upstream_vendor','source_url','retrieved_at']])
+    def upsert_corporate_action(self,row:dict):
+        self.con.execute('''insert or replace into corporate_actions values (?,?,?,?,?,?,?,?)''',[row.get(k) for k in ['ticker','action_date','action_type','amount','split_ratio','provider_id','source_url','retrieved_at']])
+    def replace_current_membership(self,index_code:str,rows:list[dict],retrieved_at:str):
+        self.con.execute('delete from index_membership_current where index_code=?',[index_code])
+        for r in rows:
+            self.con.execute('insert into index_membership_current values (?,?,?,?)',[index_code,r.get('ticker'),r.get('company_name') or r.get('name'),retrieved_at])
+    def latest_history_date(self,ticker:str,provider_id:str):
+        row=self.con.execute('select max(trade_date) from daily_ohlcv where ticker=? and provider_id=?',[ticker,provider_id]).fetchone()
+        return row[0] if row and row[0] else None
+    def table_count(self,table:str)->int:
+        if table not in {'prices','price_verification','daily_ohlcv','corporate_actions','index_membership_current','financials','provider_health'}: raise ValueError('invalid table')
+        return int(self.con.execute(f'select count(*) from {table}').fetchone()[0])
+    def export_parquet(self,table,path):
+        if table not in {'prices','price_verification','daily_ohlcv','corporate_actions','index_membership_current','financials','provider_health'}: raise ValueError('invalid table')
+        Path(path).parent.mkdir(parents=True,exist_ok=True); self.con.execute(f"copy {table} to ? (format parquet, compression zstd)",[str(path)])

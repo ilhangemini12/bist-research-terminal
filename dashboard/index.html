@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>BIST Research Terminal V2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div><h1>BIST Research Terminal <span>V2</span></h1><p id="asof">Data as of: loading…</p></div>
+  <div class="head-actions"><button id="settingsBtn">⚙ Settings</button><button id="exportBtn">Export Settings</button><label class="import">Import<input id="importInput" type="file" accept="application/json"></label></div>
+</header>
+<div id="banner" class="banner"></div>
+<nav id="tabs"></nav>
+<main>
+  <section id="dashboard" class="tab"><div id="widgets" class="grid"></div></section>
+
+  <section id="screener" class="tab">
+    <div class="panel">
+      <div class="toolbar"><input id="search" placeholder="Ticker ara…"><label><input type="checkbox" id="verifiedOnly" checked> VERIFIED only</label><button id="columnsBtn">Columns</button></div>
+      <div id="columnPanel" class="popover hidden"></div>
+      <div class="tablewrap"><table id="stockTable"></table></div>
+      <div id="stockDetail" class="detail muted">Bir hisse koduna tıklayarak peer karşılaştırması ve veri durumunu aç.</div>
+    </div>
+  </section>
+
+  <section id="strategy" class="tab">
+    <div class="panel">
+      <div class="section-head"><div><h2>Strategy Lab</h2><p class="muted">Preset, rule builder ve custom formula motoru. Tarayıcı parser'ı da <code>eval()</code> kullanmaz.</p></div><button id="restorePresets">Restore Defaults</button></div>
+      <div id="presetCards" class="cards"></div>
+      <h3>Rule Builder</h3>
+      <div id="ruleBuilder" class="rule-builder"></div>
+      <div class="rule-actions"><button id="addRule">+ Rule</button><button id="buildRules">Build Formula</button></div>
+      <h3>Custom Formula</h3>
+      <div class="formula"><input id="formulaInput" value="pe < sector_pe_median * 0.8 and roe > sector_roe_median"><button id="formulaRun">Run</button><button id="formulaSave">Save</button></div>
+      <div id="strategyStatus" class="muted"></div>
+      <div id="strategyResults"></div>
+      <h3>Saved Models</h3><div id="savedStrategies"></div>
+    </div>
+  </section>
+
+  <section id="watchlists" class="tab">
+    <div class="panel"><div class="section-head"><div><h2>Watchlists</h2><p class="muted">Core · Value · Dividend · Watch · Oversold veya kendi listen.</p></div><div class="watch-actions"><select id="watchlistSelect"></select><button id="addWatchlist">+ List</button></div></div><div id="watchlistBody"></div></div>
+  </section>
+
+  <section id="compare" class="tab">
+    <div class="panel"><div class="section-head"><div><h2>Compare Stocks</h2><p class="muted">Screener'dan 2–6 hisse seç. Valuation · Quality · Technical · Targets yan yana.</p></div><button id="clearCompare">Clear</button></div><div id="compareBody"></div></div>
+  </section>
+
+  <section id="sources" class="tab"><div class="panel"><h2>DATA HEALTH</h2><div class="tablewrap"><table id="sourceTable"></table></div></div></section>
+</main>
+
+<aside id="settings" class="drawer hidden">
+  <div class="drawer-head"><h2>Personalization</h2><button id="closeSettings">×</button></div>
+  <label>Theme<select id="theme"><option>system</option><option>light</option><option>dark</option></select></label>
+  <label>Accent<select id="accent"><option value="#2563eb">Blue</option><option value="#16a34a">Green</option><option value="#7c3aed">Purple</option><option value="#ea580c">Orange</option><option value="#dc2626">Red</option><option value="#0d9488">Teal</option></select></label>
+  <label>Custom accent<input id="customAccent" type="color" value="#2563eb"></label>
+  <label>Density<select id="density"><option>compact</option><option>comfortable</option><option>spacious</option></select></label>
+  <h3>Widgets</h3><div id="widgetSettings"></div>
+  <h3>Tabs</h3><div id="tabSettings"></div><div class="add-tab"><input id="newTabName" placeholder="New tab name"><button id="addTab">Add Tab</button></div>
+  <button id="resetSettings">Restore Layout Defaults</button>
+</aside>
+<script src="formula.js"></script>
+<script src="app.js"></script>
+</body></html>

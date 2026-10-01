@@ -1,0 +1,11 @@
+{
+  "theme": "system",
+  "accent": "blue",
+  "customAccent": "#2563eb",
+  "density": "compact",
+  "widgets": ["health", "rsi", "value", "presets", "sources"],
+  "newsWindowDays": 7,
+  "targetWindowDays": 90,
+  "verifiedOnly": true,
+  "watchlists": {"Core": [], "Value": [], "Dividend": [], "Watch": [], "Oversold": []}
+}

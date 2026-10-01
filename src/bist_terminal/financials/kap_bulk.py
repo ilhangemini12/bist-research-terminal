@@ -246,7 +246,8 @@ class KapArchive:
         if not name:
             return None
         out = parse_html_xls(self.zip.read(name), source_file=name)
-        out.update({"ticker": ticker.replace(".IS", "").upper(), "archive_year": self.year, "archive_period": self.period})
+        notification_id=notification_id_from_source_file(name)
+        out.update({"ticker": ticker.replace(".IS", "").upper(), "archive_year": self.year, "archive_period": self.period, "notification_id": notification_id, "notification_url": f"https://www.kap.org.tr/tr/Bildirim/{notification_id}" if notification_id else None})
         return out
 
 

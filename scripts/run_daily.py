@@ -20,6 +20,7 @@ from bist_terminal.exports.static import write_latest
 from bist_terminal.quality.market_calendar import load_calendar, latest_expected_trade_date, is_trading_day
 from bist_terminal.storage.duckdb_store import DuckDBStore
 from bist_terminal.storage.history_files import history_parquet_files
+from bist_terminal.storage.financial_files import financial_parquet_files
 from bist_terminal.calculations.fundamental import safe_div
 from bist_terminal.calculations.technical import add_indicators
 
@@ -76,7 +77,7 @@ def provider_health(chain, attempts_by_ticker):
 def restore_durable_state(store):
     """Restore core Parquet state plus immutable OHLCV/corporate-action shards."""
     restored = {}
-    for table in ['prices', 'price_verification', 'index_membership_current', 'index_membership_history', 'financials']:
+    for table in ['prices', 'price_verification', 'index_membership_current', 'index_membership_history']:
         parquet = ROOT / f'data/parquet/{table}.parquet'
         restored[table] = store.import_parquet(table, parquet)
         if parquet.exists():
@@ -84,6 +85,14 @@ def restore_durable_state(store):
                 f'DAILY_STATE_RESTORED table={table} '
                 f'rows_added={restored[table]} total={store.table_count(table)}'
             )
+    restored['financials'] = 0
+    for parquet in financial_parquet_files(ROOT):
+        added = store.import_parquet('financials', parquet)
+        restored['financials'] += added
+        print(
+            f'DAILY_FINANCIAL_RESTORED file={parquet.name} '
+            f'rows_added={added} total={store.table_count("financials")}'
+        )
     for table in ['daily_ohlcv','corporate_actions']:
         restored[table] = 0
         for parquet in history_parquet_files(ROOT, table):

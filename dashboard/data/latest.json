@@ -1,150 +1,3946 @@
 {
-  "mode": "DEMO_FIXTURE_NOT_LIVE",
+  "mode": "LIVE_PIPELINE",
   "data_as_of": {
-    "prices": "2026-10-01 demo fixture",
-    "financials": "synthetic demo",
-    "targets": "synthetic demo"
-  },
-  "summary": {
-    "tracked_stocks": 3,
-    "verified_price_count": 3,
-    "unverified_price_count": 0,
-    "financial_coverage_pct": 100
+    "prices": "2026-10-01",
+    "financials": "pending KAP adapter",
+    "targets": "pending discovery"
   },
   "stocks": [
     {
-      "ticker": "THYAO",
-      "sector": "Transportation",
-      "rsi14": 38.4,
-      "rsi14_prev": 35.0,
-      "rsi_recent_low": 31.0,
-      "pe": 4.8,
-      "pb": 1.1,
-      "ev_ebitda": 5.3,
-      "roe": 0.31,
-      "roic": 0.19,
-      "net_debt_ebitda": 1.4,
-      "revenue_growth_yoy": 0.22,
-      "ebitda_growth_yoy": 0.27,
-      "net_income_growth_yoy": 0.18,
-      "volume_ratio": 1.35,
-      "target_upside": 0.18,
-      "quality_score": 92,
-      "sector_pe_median": 8.4,
-      "sector_pb_median": 1.8,
-      "sector_ev_ebitda_median": 7.2,
-      "sector_roe_median": 0.2,
-      "dividend_yield": 0.018,
-      "fcf_yield": 0.074,
-      "roc20": 0.06,
-      "price": 100.025,
-      "close": 100.025,
-      "price_status": "VERIFIED_2X",
-      "sma10": 98.0,
-      "sma20": 97.0,
-      "sma50": 95.0,
-      "volume": 1500000,
-      "volume_ma20": 1100000,
-      "market_cap": 100000000000
+      "ticker": "A1CAP",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
     },
     {
-      "ticker": "ASELS",
-      "sector": "Industrial",
-      "rsi14": 52.1,
-      "rsi14_prev": 51.0,
-      "rsi_recent_low": 42.0,
-      "pe": 31.2,
-      "pb": 4.9,
-      "ev_ebitda": 22.0,
-      "roe": 0.29,
-      "roic": 0.17,
-      "net_debt_ebitda": 0.3,
-      "revenue_growth_yoy": 0.33,
-      "ebitda_growth_yoy": 0.36,
-      "net_income_growth_yoy": 0.41,
-      "volume_ratio": 1.08,
-      "target_upside": 0.07,
-      "quality_score": 88,
-      "sector_pe_median": 19.0,
-      "sector_pb_median": 2.6,
-      "sector_ev_ebitda_median": 11.5,
-      "sector_roe_median": 0.18,
-      "dividend_yield": 0.004,
-      "fcf_yield": 0.022,
-      "roc20": 0.09,
-      "price": 100.025,
-      "close": 100.025,
-      "price_status": "VERIFIED_2X",
-      "sma10": 98.0,
-      "sma20": 97.0,
-      "sma50": 95.0,
-      "volume": 1500000,
-      "volume_ma20": 1100000,
-      "market_cap": 100000000000
+      "ticker": "ACSEL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ADEL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AEFES",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AFYON",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AGESA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AGHOL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AGROT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AHGAZ",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
     },
     {
       "ticker": "AKBNK",
-      "sector": "Bank",
-      "rsi14": 33.8,
-      "rsi14_prev": 30.5,
-      "rsi_recent_low": 28.0,
-      "pe": 7.1,
-      "pb": 1.3,
-      "ev_ebitda": null,
-      "roe": 0.21,
-      "roic": null,
-      "net_debt_ebitda": null,
-      "revenue_growth_yoy": 0.18,
-      "ebitda_growth_yoy": null,
-      "net_income_growth_yoy": 0.24,
-      "volume_ratio": 1.62,
-      "target_upside": 0.22,
-      "quality_score": 90,
-      "sector_pe_median": 8.1,
-      "sector_pb_median": 1.5,
-      "sector_ev_ebitda_median": null,
-      "sector_roe_median": 0.19,
-      "dividend_yield": 0.031,
-      "fcf_yield": null,
-      "roc20": 0.03,
-      "price": 100.025,
-      "close": 100.025,
-      "price_status": "VERIFIED_2X",
-      "sma10": 98.0,
-      "sma20": 97.0,
-      "sma50": 95.0,
-      "volume": 1500000,
-      "volume_ma20": 1100000,
-      "market_cap": 100000000000
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AKCNS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AKFYE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AKGRT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AKHAN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AKSA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AKSEN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ALARK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ALBRK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ALBTN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ALCAR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ALKA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ALKIM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ALKLC",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ALTNY",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ANGEN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ANHYT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ANSGR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ARCLK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ARMGD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ARTMS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ASELS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ASTOR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ASUZU",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ATAKP",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AVOD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "AYGAZ",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BAGFS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BAHKM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BAKAB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BALSU",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BANVT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BAYRK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BERA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BESLR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BETAE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BFREN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BIENY",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BIMAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BINHO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BLCYT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BLUME",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BMSCH",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BMSTL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BNTAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BOBET",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BORSK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BOSSA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BRISA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BRKSN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BRSAN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BRYAT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BSOKE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BTCIM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BUCIM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BURCE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BURVA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "BVSAN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CANTE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CCOLA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CELHA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CEMAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CEMTS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CEMZY",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CGCAM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CIMSA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CMBTN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CUSAN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CVKMD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "CWENE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DARDL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DERIM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DESA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DEVA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DGNMO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DITAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DMRGD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DMSAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DNISI",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DOAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DOFER",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DOGUB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DOHOL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DOKTA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DURDO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DURKN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "DYOBY",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ECILC",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ECZYT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EFOR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EGEEN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EGGUB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EGPRO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EGSER",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EKDMR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EKGYO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EKOS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EKSUN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ELITE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EMKEL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ENERY",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ENJSA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ENKAI",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ENSRI",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ENTRA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EPLAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ERBOS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ERCB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EREGL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ERSU",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EUPWR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "EUREN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "FADE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "FENER",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "FMIZP",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "FORMT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "FRIGO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "FRMPL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "FROTO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GARAN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GEDIK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GEDZA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GENKM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GENTS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GEREL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GIPTA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GLBMD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GLRMK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GLYHO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GOKNR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GOLDA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GOLTS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GOODY",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GRSEL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GUBRF",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GUNDG",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "GWIND",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "HALKB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "HATEK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "HATSN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "HEKTS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "HKTM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ICBCT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "IHEVA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "IMASM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "INFO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ISATR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ISBTR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ISCTR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ISDMR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ISKPL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ISMEN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ISSEN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ISVEA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "IZFAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "IZINV",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "IZMDC",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "JANTS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KAPLM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KARCL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KARSN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KARTN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KATMR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KAYSE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KBORU",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KCAER",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KCHOL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KLKIM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KLMSN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KLSER",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KLSYN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KMPUR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KNFRT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KOCMT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KONKA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KONYA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KOPOL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KORDS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KPEKS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KRDMA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KRDMB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KRDMD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KRPLS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KRSTL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KRTEK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KRVGD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KTSKR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "KUTPO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "LILAK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "LMKDC",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "LUKSK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MAKIM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MAKTK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MARBL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MARMR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MAVI",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MEDTR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MEGMT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MEKAG",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MERCN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MERKO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MEYSU",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MGROS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MNDRS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MNDTR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MPARK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "MRSHL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "NETGL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "NIBAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "NUHCM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OBAMS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ODAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OFSYM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ONCSM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ORCAY",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ORZAX",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OSMEN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OTKAR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OYAKC",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OYLUM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OYYAT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OZATD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OZRDN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OZSUB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "OZYSR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PAHOL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PARSN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PENGD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PETKM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PETUN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PGSUS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PINSU",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PNLSN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PNSUT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "POLTK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PRKAB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PRKME",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "PRZMA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "QUAGR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "QUICK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "RAYSG",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "RGYAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "RNPOL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "RODRG",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "RTALB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "RUBNS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "RUZYE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "RYSAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SAFKR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SAHOL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SAMAT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SANFM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SARAE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SARKY",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SASA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SAYAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SEGMN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SEKUR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SELVA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SERNT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SEYKM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SILVR",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SISE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SKBNK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SKTAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SKYMD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SNGYO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SNICA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SOHOE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SOKE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SOKM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "SUNTK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TABGD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TARKM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TATGD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TAVHL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TBORG",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TCELL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TCKRC",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TERA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TEZOL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "THYAO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TKFEN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TKNKA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TMPOL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TMSN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TOASO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TRALT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TRENJ",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TRGYO",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TRMET",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TSKB",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TTKOM",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TTRAK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TUCLK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TUKAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TUPRS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "TURSG",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ULKER",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ULUSE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ULUUN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "VAKBN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "VANGD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "VESBE",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "VESTL",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "VKING",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "VSNMD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "YAPRK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "YATAS",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "YIGIT",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "YKBNK",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "YKSLN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "YUNSA",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "YYLGD",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
+    },
+    {
+      "ticker": "ZOREN",
+      "price": null,
+      "price_status": "STALE",
+      "verification_reason": "no fresh raw-close observations",
+      "trade_date": null,
+      "sources": [
+        "yahoo_chart"
+      ],
+      "source_lineage": [],
+      "max_diff_pct": null
     }
   ],
   "sources": [
     {
-      "provider": "demo_a",
+      "provider": "bist_index_components",
       "status": "ACTIVE",
-      "last_success": "fixture",
-      "last_failure": null,
-      "latency_ms": 0,
-      "latest_data_date": "2026-10-01",
-      "freshness": "DEMO",
-      "fields": [
-        "price"
-      ],
-      "upstream": "demo_upstream_a"
+      "upstream": "Borsa Istanbul",
+      "message": "LIVE_REFERENCE; 324 unique tickers"
     },
     {
-      "provider": "demo_b",
+      "provider": "duckdb_store",
       "status": "ACTIVE",
-      "last_success": "fixture",
-      "last_failure": null,
-      "latency_ms": 0,
-      "latest_data_date": "2026-10-01",
-      "freshness": "DEMO",
-      "fields": [
-        "price"
-      ],
-      "upstream": "demo_upstream_b"
+      "upstream": "local",
+      "message": "ACTIVE"
+    },
+    {
+      "provider": "yahoo_chart",
+      "status": "ACTIVE",
+      "upstream": "Yahoo market data feed",
+      "successes": 324,
+      "failures": 0,
+      "skipped_after_circuit": 0,
+      "message": null
     }
   ],
-  "generated_at": "2026-10-01T03:11:08.513847+00:00"
+  "summary": {
+    "tracked_stocks": 324,
+    "verified_price_count": 0,
+    "unverified_price_count": 324
+  },
+  "universe": {
+    "indices": [
+      "XU030",
+      "XU100",
+      "XBANK",
+      "XSGRT",
+      "XAKUR",
+      "XUSIN"
+    ],
+    "status": "LIVE_REFERENCE",
+    "members_by_index": {
+      "XAKUR": 9,
+      "XBANK": 12,
+      "XSGRT": 7,
+      "XU030": 30,
+      "XU100": 100,
+      "XUSIN": 248
+    }
+  },
+  "generated_at": "2026-10-01T04:56:38.447439+00:00"
 }

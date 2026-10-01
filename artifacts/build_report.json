@@ -1,6 +1,6 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-01T17:48:42.547725+00:00",
+  "generated_at": "2026-10-01T19:01:33.695514+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
@@ -15,6 +15,9 @@
   },
   "demo_fixture": null,
   "financial_coverage_percent_live": 90.4,
+  "financial_high_confidence_count": 292,
+  "technical_coverage_percent_live": 99.7,
+  "technical_rsi14_count": 322,
   "source_catalog": {
     "discovered_or_catalogued": 19,
     "status_counts": {
@@ -25,7 +28,7 @@
       "PAID_SOURCE_SKIPPED": 5
     }
   },
-  "python_tests_collected": 79,
+  "python_tests_collected": 81,
   "js_formula_tests": "dashboard/tests/formula.test.js",
   "presets": [
     "VALUE",
@@ -63,7 +66,8 @@
   },
   "known_limitations": [
     "Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.",
-    "Structured 12–20-quarter financial coverage remains unavailable in the zero-cost build: SPK public services expose metadata/PDF documents, while KAP structured REST access requires licensed authorization; missing values remain N/A.",
+    "KAP public bulk financial downloads now provide normalized high-confidence annual financials for most of the configured universe; full 12–20-quarter history is still being accumulated and missing/review-required issuers remain N/A.",
+    "Five-year OHLCV/technical coverage is populated incrementally in bounded batches; tickers without sufficient durable history keep technical fields N/A until their batch completes.",
     "Point-in-time index membership snapshots accumulate from 2026-10-01 onward; periods before the first snapshot remain unavailable and affected backtests must retain BACKTEST BIASED.",
     "Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries."
   ],

@@ -1,34 +1,34 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-01T20:59:31.841564+00:00",
+  "generated_at": "2026-10-02T11:49:58.680868+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "expected_dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "live_market_status": {
-    "expected_market_date": "2026-10-01",
-    "last_verified_market_date": "2026-10-01",
+    "expected_market_date": "2026-10-02",
+    "last_verified_market_date": null,
     "tracked_live_tickers": 323,
-    "verified_price_count": 322,
-    "unverified_price_count": 1,
-    "reason": "Live pipeline has VERIFIED_2X prices."
+    "verified_price_count": 0,
+    "unverified_price_count": 323,
+    "reason": "Live pipeline ran, but no current-day price met the two-independent-upstream VERIFIED_2X contract."
   },
   "demo_fixture": null,
   "financial_coverage_percent_live": 90.4,
   "financial_high_confidence_count": 292,
   "financial_quarter_depth": {
     "min": 0,
-    "median": 4,
-    "max": 4,
+    "median": 12,
+    "max": 12,
     "tickers_with_at_least": {
       "1": 292,
-      "4": 276,
-      "8": 0,
-      "12": 0,
+      "4": 287,
+      "8": 263,
+      "12": 226,
       "16": 0,
       "20": 0
     },
-    "pct_with_at_least_12": 0.0,
+    "pct_with_at_least_12": 70.0,
     "pct_with_at_least_20": 0.0,
     "ttm_4q_ready_count": 276,
     "ttm_4q_ready_pct": 85.4
@@ -45,7 +45,7 @@
       "PAID_SOURCE_SKIPPED": 5
     }
   },
-  "python_tests_collected": 87,
+  "python_tests_collected": 88,
   "js_formula_tests": "dashboard/tests/formula.test.js",
   "presets": [
     "VALUE",
@@ -77,9 +77,9 @@
     "max_diff_pct": 0.0
   },
   "point_in_time_universe": {
-    "snapshot_date": "2026-10-01",
+    "snapshot_date": "2026-10-02",
     "history_status": "ACCUMULATING_FROM_2026-10-01",
-    "history_rows": 406
+    "history_rows": 811
   },
   "known_limitations": [
     "Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.",

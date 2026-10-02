@@ -1,3 +1,3 @@
 year=2024
-periods=1 2 3 4
-checkpoint=year-2024-r1
+periods=2 3 4
+checkpoint=year-2024-retry-after-lineage-fix

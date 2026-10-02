@@ -11,7 +11,7 @@ sys.path.insert(0,str(ROOT/'src'))
 from bist_terminal.financials.kap_bulk import KapBulkFinancialProvider, _fold, _clean
 
 TICKERS=["AGESA","AKGRT","ANHYT","ANSGR","RAYSG","TURSG"]
-KEYWORDS=("OZKAYNAK","KAR","ZARAR","PRIM","TEKNIK","YUKUMLULUK","VARLIK","NAKIT","HASILAT","GELIR","GIDER")
+KEYWORDS=("OZKAYNAK","OZSERMAYE","SERMAYE","KAR","ZARAR","PRIM","TEKNIK","YUKUMLULUK","VARLIK","NAKIT","HASILAT","GELIR","GIDER")
 
 
 def main():

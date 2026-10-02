@@ -304,10 +304,22 @@ def main():
                         except (TypeError, ValueError):
                             return None
                         return out if math.isfinite(out) else None
+                    rsi14_series = ind['RSI14'].dropna() if 'RSI14' in ind else []
+                    rsi14_prev = (
+                        float(rsi14_series.iloc[-2])
+                        if hasattr(rsi14_series, 'iloc') and len(rsi14_series) >= 2 else None
+                    )
+                    rsi_recent_low = (
+                        float(rsi14_series.tail(10).min())
+                        if hasattr(rsi14_series, 'tail') and len(rsi14_series) else None
+                    )
                     technical = {
                         'rsi7': num('RSI7'),
                         'rsi14': num('RSI14'),
+                        'rsi14_prev': rsi14_prev,
+                        'rsi_recent_low': rsi_recent_low,
                         'rsi21': num('RSI21'),
+                        'volume': num('Volume'),
                         'sma5': num('SMA5'),
                         'sma10': num('SMA10'),
                         'sma20': num('SMA20'),

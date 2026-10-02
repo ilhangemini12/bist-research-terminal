@@ -7,7 +7,7 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 - Repository: https://github.com/ilhangemini12/bist-research-terminal
 - Live dashboard: https://ilhangemini12.github.io/bist-research-terminal/
 - Core operational maturity: ~98%.
-- Full original specification completion: ~90%.
+- Full original specification completion: ~92%.
 - Latest validated Daily run: 36925457529 — SUCCESS.
 - Latest validated Pages run: 36925601735 — SUCCESS.
 - Python tests collected by latest build report: 87; JS safe-formula tests enabled.
@@ -23,13 +23,14 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 ## Verified financial coverage
 - High-confidence company coverage: 292/323 = 90.4%.
 - 2025 KAP reporting periods checkpointed: 3M, 6M, 9M, FY.
-- Total normalized financial rows after 2025 four-period checkpoint: 1,179.
-- Median high-confidence standalone-quarter depth: 4.
-- Tickers with >=4 high-confidence standalone quarters: 276/323 = 85.4%.
+- 2024 KAP reporting periods checkpointed: 3M, 6M, 9M, FY.
+- Total normalized financial rows after 2024+2025 checkpoints: 2,319.
+- Median high-confidence standalone-quarter depth: 8.
+- Tickers with >=8 high-confidence standalone quarters: 258/323 = 79.9%.
 - Real TTM_4Q available: 276/323 = 85.4%.
 - Tickers with >=12 standalone quarters: 0/323 at this checkpoint.
-- Financial depth progress versus minimum 12-quarter target: median 4/12 = 33.3%.
-- Financial depth progress versus 20-quarter upper target: median 4/20 = 20%.
+- Financial depth progress versus minimum 12-quarter target: median 8/12 = 66.7%.
+- Financial depth progress versus 20-quarter upper target: median 8/20 = 40%.
 - Annual fallback remains available where a high-confidence FY statement exists but four contiguous quarters are not available.
 - Review-required data stays excluded from high-confidence ratios/TTM.
 
@@ -74,9 +75,8 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 - Preferred loop: plan -> edit -> unit test -> live validation -> checkpoint -> next stage.
 
 ## Immediate next sequence
-1. Backfill 2024 periods 1/2/3/4 with per-period commits inside one workflow.
-2. Run Financial Depth Audit.
-3. If 2024 succeeds, repeat for 2023; audit again.
-4. Reach minimum 12-quarter depth, run Daily + Pages, verify TTM and growth outputs.
-5. Then extend toward 16–20 quarters if source stability remains acceptable.
-6. Separately improve insurance normalization and publication-date provenance without weakening confidence gates.
+1. Backfill 2023 periods 1/2/3/4 with per-period immutable checkpoint commits.
+2. Run Financial Depth Audit; verify median >=12 and count of tickers with >=12 standalone quarters.
+3. Run Daily + Pages and validate TTM, quarter YoY and growth outputs on live data.
+4. If 2023 is stable, extend 2022 toward 16-quarter depth, then 2021 if needed for the 20-quarter upper target.
+5. Separately improve insurance/bank normalization and trustworthy publication-date provenance without weakening confidence gates.

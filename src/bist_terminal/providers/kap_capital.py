@@ -4,12 +4,19 @@ from dataclasses import dataclass
 from io import StringIO
 import html as html_lib
 import re
+import unicodedata
 
 import pandas as pd
 import requests
 
 BASE="https://www.kap.org.tr"
 LIST_URL=BASE+"/tr/bist-sirketler"
+
+
+def _fold(value):
+    text=str(value or "").strip().upper().replace("İ","I")
+    text=unicodedata.normalize("NFKD",text)
+    return "".join(ch for ch in text if not unicodedata.combining(ch))
 
 
 def _tr_num(value):
@@ -52,7 +59,7 @@ def parse_total_shares(page_html:str,ticker:str|None=None)->dict:
     # Prefer explicit current KAP float table total-share field when present.
     for df in tables:
         cols=[str(c).strip() for c in df.columns]
-        norm=[c.upper().replace("İ","I") for c in cols]
+        norm=[_fold(c) for c in cols]
         if any("TOPLAM PAY ADED" in c for c in norm):
             idx=next(i for i,c in enumerate(norm) if "TOPLAM PAY ADED" in c)
             for _,row in df.iterrows():

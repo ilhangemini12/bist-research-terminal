@@ -23,8 +23,7 @@ presets:
     rules: "rsi14 < 35"
   LOW_DEBT:
     label: Low Debt
-    status: DISABLED_MISSING_VERIFIED_INPUT
-    reason: "Requires normalized net debt and EBITDA; unavailable values are not inferred."
+    description: Verified KAP borrowings + period-matched TTM EBITDA; missing values remain N/A
     rules: "net_debt_ebitda >= 0 and net_debt_ebitda < 2"
   HIGH_ROIC:
     label: High ROIC
@@ -33,8 +32,7 @@ presets:
     rules: "roic > 0.15"
   HIGH_FCF_YIELD:
     label: High FCF Yield
-    status: DISABLED_MISSING_VERIFIED_INPUT
-    reason: "Requires normalized capex/free-cash-flow inputs; unavailable values are not inferred."
+    description: Verified KAP CFO minus capex cash outflow; missing values remain N/A
     rules: "fcf_yield > 0.05"
   VALUE_QUALITY:
     label: Value + Quality
@@ -49,12 +47,12 @@ presets:
   OZKAN_FILIZ_SECTOR_VALUE:
     label: Ozkan Filiz Sector Value
     description: Public methodology reconstruction
-    scope_note: Available-input reconstruction; EV/debt overlay intentionally omitted until verified
+    scope_note: Public-methodology reconstruction; verified EV/debt overlay exists but is omitted because the exact public rule/threshold is not verified
     rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and roe > sector_roe_median"
   VOLKAN_KOCABAS_VALUE_GROWTH:
     label: Volkan Kocabas Value Growth
     description: Public examples reconstruction
-    scope_note: Available-input reconstruction; no unverified EV/EBITDA assumption
+    scope_note: Public-examples reconstruction; verified EV/EBITDA exists but no extra threshold is added without a verified public rule
     rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and revenue_growth_yoy > 0 and net_income_growth_yoy > 0 and roe > 0"
   VK_RSI_DIP_RECOVERY:
     label: Volkan Kocabas RSI Dip

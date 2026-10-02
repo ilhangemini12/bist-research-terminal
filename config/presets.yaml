@@ -42,11 +42,13 @@ presets:
     rules: "revenue_growth_yoy > 0 and net_income_growth_yoy > 0 and close > sma20 and roc20 > 0"
   OZKAN_FILIZ_SECTOR_VALUE:
     label: Ozkan Filiz Sector Value
-    description: Available-input public-methodology reconstruction; EV/debt overlay intentionally omitted until verified
+    description: Public methodology reconstruction
+    scope_note: Available-input reconstruction; EV/debt overlay intentionally omitted until verified
     rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and roe > sector_roe_median"
   VOLKAN_KOCABAS_VALUE_GROWTH:
     label: Volkan Kocabas Value Growth
-    description: Available-input reconstruction; no unverified EV/EBITDA assumption
+    description: Public examples reconstruction
+    scope_note: Available-input reconstruction; no unverified EV/EBITDA assumption
     rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and revenue_growth_yoy > 0 and net_income_growth_yoy > 0 and roe > 0"
   VK_RSI_DIP_RECOVERY:
     label: Volkan Kocabas RSI Dip

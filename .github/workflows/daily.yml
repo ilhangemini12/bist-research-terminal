@@ -11,7 +11,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: bist-data-writer
+  group: bist-main-writer
   cancel-in-progress: false
 jobs:
   update:

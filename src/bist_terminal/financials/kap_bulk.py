@@ -13,6 +13,15 @@ HOME = "https://www.kap.org.tr/tr"
 DOWNLOAD = "https://www.kap.org.tr/tr/api/financialTable/download/{year}/{period}"
 PERIOD_NAMES = {"1": "3M", "2": "6M", "3": "9M", "4": "FY"}
 DATE_RE = re.compile(r"(\d{2})\.(\d{2})\.(20\d{2})")
+NOTIFICATION_FILE_RE = re.compile(r"_(\d+)_(20\d{2})_([1-4])\.xls$", re.I)
+
+
+def notification_id_from_source_file(name: str) -> int | None:
+    """Extract the KAP notification id embedded in a bulk-export filename."""
+    base = name.rsplit("/", 1)[-1]
+    match = NOTIFICATION_FILE_RE.search(base)
+    return int(match.group(1)) if match else None
+
 
 
 def _clean(value) -> str:

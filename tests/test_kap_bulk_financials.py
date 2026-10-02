@@ -72,3 +72,45 @@ def test_notification_id_is_derived_from_bulk_filename():
     assert notification_id_from_source_file("TVB-VAKBN_1557008_2025_4.xls")==1557008
     assert notification_id_from_source_file("invalid.xls") is None
     assert notification_id_from_source_file(None) is None
+
+
+def test_parse_insurance_schema_core_metrics():
+    raw=b"""<html><body>
+<table><tr><td>Sunum Para Birimi</td><td>TL</td></tr><tr><td>Finansal Tablo Niteligi</td><td>Konsolide</td></tr></table>
+<table>
+<tr><td></td><td></td><td></td><td>Cari Donem 31.12.2025</td><td>Onceki Donem 31.12.2024</td></tr>
+<tr><td></td><td>Bilanco</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>VARLIKLAR</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>NAKIT VE NAKIT BENZERI VARLIKLAR</td><td></td><td>100</td><td>90</td></tr>
+<tr><td></td><td>CARI VARLIKLAR TOPLAMI</td><td></td><td>600</td><td>550</td></tr>
+<tr><td></td><td>TOPLAM VARLIKLAR</td><td></td><td>1250</td><td>1000</td></tr>
+<tr><td></td><td>KISA VADELI YUKUMLULUKLER TOPLAMI</td><td></td><td>300</td><td>280</td></tr>
+<tr><td></td><td>OZSERMAYE</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>OZSERMAYE TOPLAMI</td><td></td><td>500</td><td>450</td></tr>
+<tr><td></td><td>Diger</td><td></td><td>1</td><td>1</td></tr>
+<tr><td></td><td>Diger2</td><td></td><td>1</td><td>1</td></tr>
+<tr><td></td><td>Diger3</td><td></td><td>1</td><td>1</td></tr>
+</table>
+<table>
+<tr><td></td><td></td><td></td><td>Cari Donem 01.01.2025 - 31.12.2025</td><td>Onceki Donem 01.01.2024 - 31.12.2024</td></tr>
+<tr><td></td><td>Gelir Tablosu</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>HAYAT DISI TEKNIK GELIR</td><td></td><td>900</td><td>800</td></tr>
+<tr><td></td><td>Kazanilmis Primler</td><td></td><td>700</td><td>650</td></tr>
+<tr><td></td><td>DONEM NET KARI VEYA ZARARI</td><td></td><td>150</td><td>120</td></tr>
+<tr><td></td><td>Diger</td><td></td><td>1</td><td>1</td></tr>
+<tr><td></td><td>Diger2</td><td></td><td>1</td><td>1</td></tr>
+<tr><td></td><td>Diger3</td><td></td><td>1</td><td>1</td></tr>
+<tr><td></td><td>Diger4</td><td></td><td>1</td><td>1</td></tr>
+<tr><td></td><td>Diger5</td><td></td><td>1</td><td>1</td></tr>
+<tr><td></td><td>Diger6</td><td></td><td>1</td><td>1</td></tr>
+</table>
+</body></html>"""
+    out=parse_html_xls(raw,"AGESA_1_2025_4.xls")
+    assert out["status"]=="PARSED_HIGH_CONFIDENCE"
+    assert out["facts"]["assets"]==1250
+    assert out["facts"]["equity"]==500
+    assert out["facts"]["net_income"]==150
+    assert out["facts"]["cash"]==100
+    assert out["facts"]["current_assets"]==600
+    assert out["facts"]["current_liabilities"]==300
+    assert "revenue" not in out["facts"]

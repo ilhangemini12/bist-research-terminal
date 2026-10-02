@@ -1,6 +1,6 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-02T21:44:47.176294+00:00",
+  "generated_at": "2026-10-02T21:48:34.261081+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
@@ -51,7 +51,7 @@
       "PAID_SOURCE_SKIPPED": 5
     }
   },
-  "python_tests_collected": 102,
+  "python_tests_collected": 106,
   "js_formula_tests": "dashboard/tests/formula.test.js",
   "presets": [
     "VALUE",

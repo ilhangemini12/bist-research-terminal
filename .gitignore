@@ -20,3 +20,5 @@ data/parquet/*
 !data/parquet/financials/*.parquet
 !data/parquet/capital/
 !data/parquet/capital/*.parquet
+!data/parquet/extended_financials/
+!data/parquet/extended_financials/*.parquet

@@ -1,0 +1,628 @@
+{
+  "generated_at": "2026-10-02T22:07:25.445999+00:00",
+  "current_year": 2026,
+  "tracked_tickers": 323,
+  "tickers_with_any_extended_checkpoint": 298,
+  "period_matched_count": 294,
+  "period_matched_pct": 91.0,
+  "debt_ready_count": 294,
+  "debt_ready_pct": 91.0,
+  "da_ttm_ready_count": 272,
+  "da_ttm_ready_pct": 84.2,
+  "capex_ttm_ready_count": 265,
+  "capex_ttm_ready_pct": 82.0,
+  "all_core_extended_ready_count": 262,
+  "all_core_extended_ready_pct": 81.1,
+  "unready_sample": [
+    {
+      "ticker": "A1CAP",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "AGESA",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "AGROT",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "AKBNK",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "AKGRT",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "AKHAN",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ALBRK",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ALBTN",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ANHYT",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ANSGR",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "BETAE",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "BORSK",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-03-31",
+      "basis": "2025FY_FALLBACK",
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "BRYAT",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "BSOKE",
+      "latest_financial_period": "2026-03-31",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "BTCIM",
+      "latest_financial_period": "2026-03-31",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "BURVA",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ECZYT",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "EKDMR",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "EMKEL",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ERBOS",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": true
+    },
+    {
+      "ticker": "FRMPL",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "GARAN",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "GENKM",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "GOKNR",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "GOLDA",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "GUNDG",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": true
+    },
+    {
+      "ticker": "GWIND",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "HALKB",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ICBCT",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "INFO",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ISATR",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ISBTR",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ISCTR",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ISMEN",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ISVEA",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "KARCL",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "KAYSE",
+      "latest_financial_period": "2026-07-31",
+      "extended_report_period": "2026-04-30",
+      "basis": "2025FY_FALLBACK",
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "KONKA",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "KPEKS",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "KRDMA",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "KRDMB",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "KRTEK",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": true
+    },
+    {
+      "ticker": "MARMR",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "MEYSU",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "NETGL",
+      "latest_financial_period": null,
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "ORZAX",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "OZSUB",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "PAHOL",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "QUICK",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "RAYSG",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "RNPOL",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "SAMAT",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "SARAE",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "SKBNK",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "SOHOE",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "TKNKA",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "TMPOL",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": "2026-06-30",
+      "basis": "2025FY+2026P2-2025P2",
+      "period_match": true,
+      "debt_ready": true,
+      "da_ttm_ready": true,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "TSKB",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "TURSG",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "VAKBN",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    },
+    {
+      "ticker": "YKBNK",
+      "latest_financial_period": "2026-06-30",
+      "extended_report_period": null,
+      "basis": null,
+      "period_match": false,
+      "debt_ready": false,
+      "da_ttm_ready": false,
+      "capex_ttm_ready": false
+    }
+  ]
+}

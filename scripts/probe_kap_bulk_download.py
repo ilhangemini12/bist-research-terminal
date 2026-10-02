@@ -22,6 +22,15 @@ KEYWORDS=(
     "VERGİ GİDER","VERGI GIDER","VERGİ GELİR","VERGI GELIR"
 )
 
+
+EXACT_PROBE_TERMS=(
+    "Kısa Vadeli Borçlanmalar",
+    "Uzun Vadeli Borçlanmaların Kısa Vadeli Kısımları",
+    "Uzun Vadeli Borçlanmalar",
+    "Amortisman ve İtfa Gideri İle İlgili Düzeltmeler",
+    "Maddi ve Maddi Olmayan Duran Varlıkların Alımından Kaynaklanan Nakit Çıkışları",
+)
+
 BROWSER_HEADERS={
     "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36",
     "Accept-Language":"tr-TR,tr;q=0.9,en;q=0.8",
@@ -63,6 +72,19 @@ def parse_html_xls(payload:bytes,name:str):
             print(f"KAP_HTML_XLS_SAMPLE name={name} table={idx} shape={df.shape} rows={json.dumps(sample,ensure_ascii=False)[:5000]}")
             emitted+=1
             if emitted>=5: break
+
+    # Emit exact, value-bearing rows for debt / D&A / capex and any tax-expense labels.
+    exact_hits=[]
+    for idx,df in enumerate(tables):
+        for _,row in df.iterrows():
+            vals=[clean(v) for v in row.tolist()]
+            label=next((v for v in vals[:2] if v), "")
+            folded=label.upper()
+            wanted=label in EXACT_PROBE_TERMS or ("VERGİ" in folded and ("GİDER" in folded or "GELİR" in folded))
+            if wanted and any(v for v in vals[2:]):
+                exact_hits.append({"table":idx,"row":vals[:16]})
+    print(f"KAP_EXACT_FINANCIAL_ROWS name={name} rows={json.dumps(exact_hits,ensure_ascii=False)[:18000]}")
+
     print(f"KAP_HTML_XLS_PARSED name={name} metric_rows={hits}")
 
 def main():

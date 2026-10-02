@@ -1,37 +1,37 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-02T13:14:54.227768+00:00",
+  "generated_at": "2026-10-02T17:16:03.243046+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "expected_dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "live_market_status": {
     "expected_market_date": "2026-10-02",
-    "last_verified_market_date": null,
+    "last_verified_market_date": "2026-10-02",
     "tracked_live_tickers": 323,
-    "verified_price_count": 0,
-    "unverified_price_count": 323,
-    "reason": "Live pipeline ran, but no current-day price met the two-independent-upstream VERIFIED_2X contract."
+    "verified_price_count": 322,
+    "unverified_price_count": 1,
+    "reason": "Live pipeline has VERIFIED_2X prices."
   },
   "demo_fixture": null,
-  "financial_coverage_percent_live": 90.4,
-  "financial_high_confidence_count": 292,
+  "financial_coverage_percent_live": 92.3,
+  "financial_high_confidence_count": 298,
   "financial_quarter_depth": {
     "min": 0,
     "median": 20,
     "max": 20,
     "tickers_with_at_least": {
-      "1": 292,
-      "4": 287,
-      "8": 270,
-      "12": 232,
-      "16": 208,
-      "20": 179
+      "1": 298,
+      "4": 293,
+      "8": 276,
+      "12": 243,
+      "16": 220,
+      "20": 191
     },
-    "pct_with_at_least_12": 71.8,
-    "pct_with_at_least_20": 55.4,
-    "ttm_4q_ready_count": 276,
-    "ttm_4q_ready_pct": 85.4
+    "pct_with_at_least_12": 75.2,
+    "pct_with_at_least_20": 59.1,
+    "ttm_4q_ready_count": 288,
+    "ttm_4q_ready_pct": 89.2
   },
   "technical_coverage_percent_live": 99.7,
   "technical_rsi14_count": 322,
@@ -45,7 +45,7 @@
       "PAID_SOURCE_SKIPPED": 5
     }
   },
-  "python_tests_collected": 88,
+  "python_tests_collected": 99,
   "js_formula_tests": "dashboard/tests/formula.test.js",
   "presets": [
     "VALUE",

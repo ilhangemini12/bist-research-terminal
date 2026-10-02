@@ -23,12 +23,18 @@ presets:
     rules: "rsi14 < 35"
   LOW_DEBT:
     label: Low Debt
+    status: DISABLED_MISSING_VERIFIED_INPUT
+    reason: "Requires normalized net debt and EBITDA; unavailable values are not inferred."
     rules: "net_debt_ebitda >= 0 and net_debt_ebitda < 2"
   HIGH_ROIC:
     label: High ROIC
+    status: DISABLED_MISSING_VERIFIED_INPUT
+    reason: "Requires verified EBIT, effective tax rate and invested capital; unavailable values are not inferred."
     rules: "roic > 0.15"
   HIGH_FCF_YIELD:
     label: High FCF Yield
+    status: DISABLED_MISSING_VERIFIED_INPUT
+    reason: "Requires normalized capex/free-cash-flow inputs; unavailable values are not inferred."
     rules: "fcf_yield > 0.05"
   VALUE_QUALITY:
     label: Value + Quality

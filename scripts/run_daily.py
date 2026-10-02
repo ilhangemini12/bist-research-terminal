@@ -17,7 +17,7 @@ from bist_terminal.providers.bist_bulletin import BistDailyBulletinProvider
 from bist_terminal.providers.registry import FallbackChain
 from bist_terminal.providers.spk import SPKRegistryProvider
 from bist_terminal.providers.spk_news import recent_spk_disclosures
-from bist_terminal.quality.price_verification import verify_prices
+from bist_terminal.quality.price_verification import verify_prices, retain_same_trade_date_verified
 from bist_terminal.exports.static import write_latest
 from bist_terminal.quality.market_calendar import load_calendar, latest_expected_trade_date, is_trading_day
 from bist_terminal.storage.duckdb_store import DuckDBStore
@@ -225,6 +225,8 @@ def main():
             tolerance_pct=tolerance,
             official_ids={'bist_daily_bulletin'},
         )
+        previous_verification = store.get_verification(ticker, expected) if store else None
+        vr = retain_same_trade_date_verified(vr, previous_verification, expected)
         if store:
             for o in obs:
                 store.upsert_price({

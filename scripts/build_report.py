@@ -43,6 +43,11 @@ report={
   'financial_quarter_depth':financial_depth.get('standalone_quarter_depth',{}),
   'technical_coverage_percent_live':0 if is_demo else summary.get('technical_coverage_pct',0),
   'technical_rsi14_count':0 if is_demo else summary.get('technical_rsi14_count',0),
+  'capital_coverage_percent_live':0 if is_demo else summary.get('capital_coverage_pct',0),
+  'capital_explicit_count':0 if is_demo else summary.get('capital_explicit_count',0),
+  'valuation_active_count':0 if is_demo else summary.get('valuation_active_count',0),
+  'pe_count':0 if is_demo else summary.get('pe_count',0),
+  'pb_count':0 if is_demo else summary.get('pb_count',0),
   'source_catalog':{'discovered_or_catalogued':len(providers),'status_counts':dict(sorted(statuses.items()))},
   'python_tests_collected':collected,
   'js_formula_tests':'dashboard/tests/formula.test.js',
@@ -55,7 +60,9 @@ report={
   },
   'known_limitations':[
     'Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.',
-    'KAP public bulk financial downloads provide normalized high-confidence financials for most of the configured universe; standalone-quarter depth is checkpointed separately and missing/review-required issuers remain N/A.',
+    'KAP public bulk financial downloads provide normalized high-confidence financials for most of the configured universe; missing/review-required issuers remain N/A.',
+    'KAP explicit total-share coverage is used for market cap and P/E/P/B; experimental nominal-ratio share inference is excluded from production.',
+    'EV/EBITDA, net-debt ratios and FCF yield remain unavailable where trustworthy debt/capex inputs have not been normalized.',
     'Five-year OHLCV backfill is complete for the current configured universe; technical fields still remain N/A for any ticker without sufficient valid observations.',
     'Point-in-time index membership snapshots accumulate from 2026-10-01 onward; periods before the first snapshot remain unavailable and affected backtests must retain BACKTEST BIASED.',
     'Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries.'

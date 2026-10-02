@@ -10,14 +10,14 @@ const PRESETS=[
   ['MOMENTUM','Momentum','Trend + ROC','close > sma20 and sma20 > sma50 and roc20 > 0'],
   ['OVERSOLD','Oversold','RSI14 below 35','rsi14 < 35'],
   ['TREND','Trend','Price and moving-average trend','close > sma20 and sma20 > sma50'],
-  ['LOW_DEBT','Low Debt','Net debt / EBITDA below 2','net_debt_ebitda >= 0 and net_debt_ebitda < 2','Requires verified net debt + EBITDA; unavailable inputs are not inferred.'],
+  ['LOW_DEBT','Low Debt','Verified net debt / EBITDA below 2','net_debt_ebitda >= 0 and net_debt_ebitda < 2'],
   ['HIGH_ROIC','High ROIC','ROIC above 15%','roic > 0.15','Requires verified EBIT + tax rate + invested capital; unavailable inputs are not inferred.'],
-  ['HIGH_FCF_YIELD','High FCF Yield','FCF yield above 5%','fcf_yield > 0.05','Requires normalized capex/free-cash-flow inputs; unavailable inputs are not inferred.'],
+  ['HIGH_FCF_YIELD','High FCF Yield','Verified FCF yield above 5%','fcf_yield > 0.05'],
   ['VALUE_QUALITY','Value + Quality','Value plus sector-relative ROE','pe > 0 and pe < sector_pe_median and roe > sector_roe_median'],
   ['VALUE_RSI','Value + RSI','Value with RSI below 45','pe > 0 and pe < sector_pe_median and rsi14 < 45'],
   ['GROWTH_MOMENTUM','Growth + Momentum','Verified growth plus trend','revenue_growth_yoy > 0 and net_income_growth_yoy > 0 and close > sma20 and roc20 > 0'],
-  ['OZKAN_FILIZ_SECTOR_VALUE','Özkan Filiz Sector Value','Available-input reconstruction; EV/debt omitted until verified','pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and roe > sector_roe_median'],
-  ['VOLKAN_KOCABAS_VALUE_GROWTH','Volkan Kocabaş Value Growth','Available-input reconstruction; no unverified EV/EBITDA','pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and revenue_growth_yoy > 0 and net_income_growth_yoy > 0 and roe > 0'],
+  ['OZKAN_FILIZ_SECTOR_VALUE','Özkan Filiz Sector Value','Public-methodology reconstruction; no unverified threshold added','pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and roe > sector_roe_median'],
+  ['VOLKAN_KOCABAS_VALUE_GROWTH','Volkan Kocabaş Value Growth','Public-examples reconstruction; no unverified EV/EBITDA threshold added','pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and revenue_growth_yoy > 0 and net_income_growth_yoy > 0 and roe > 0'],
   ['VK_RSI_DIP_RECOVERY','Volkan Kocabaş RSI Dip','Approximation; exact public formula not verified','rsi_recent_low < 35 and rsi14 > rsi14_prev and volume > volume_ma20 and close > sma10'],
   ['VK_TREND_MOMENTUM','VK Trend Momentum','Configurable public-pattern approximation','sma20 > sma50 and close > sma20 and roc20 > 0 and volume_ratio > 1']
 ];

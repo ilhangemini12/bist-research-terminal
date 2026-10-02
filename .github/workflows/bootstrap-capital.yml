@@ -1,0 +1,76 @@
+name: Bootstrap Capital
+on:
+  workflow_dispatch:
+    inputs:
+      offset:
+        description: "Ticker offset"
+        required: true
+        default: "0"
+      limit:
+        description: "Bounded ticker batch"
+        required: true
+        default: "50"
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/bootstrap-capital'
+permissions:
+  contents: write
+concurrency:
+  group: bist-capital-sharded-writer
+  cancel-in-progress: false
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Sync latest main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout main
+          git merge --ff-only origin/main
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: 'pip'}
+      - run: pip install -r requirements.txt
+      - name: Validate capital code
+        run: |
+          python -m compileall -q src scripts
+          pytest -q tests/test_kap_capital.py tests/test_capital_files.py tests/test_duckdb_persistence.py
+      - name: Resolve request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            OFFSET=0; LIMIT=50
+            while IFS='=' read -r key value; do
+              case "$key" in
+                offset) OFFSET="$value" ;;
+                limit) LIMIT="$value" ;;
+              esac
+            done < .github/triggers/bootstrap-capital
+          else
+            OFFSET="${{ inputs.offset }}"; LIMIT="${{ inputs.limit }}"
+          fi
+          echo "offset=$OFFSET" >> "$GITHUB_OUTPUT"
+          echo "limit=$LIMIT" >> "$GITHUB_OUTPUT"
+      - name: Fetch KAP capital data
+        run: python scripts/bootstrap_capital.py --offset "${{ steps.request.outputs.offset }}" --limit "${{ steps.request.outputs.limit }}"
+      - name: Commit capital checkpoint
+        run: |
+          set -euo pipefail
+          git config user.name "bist-research-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/parquet/capital/*.parquet || true
+          if git diff --cached --quiet; then
+            echo "No capital changes to commit."
+            exit 0
+          fi
+          git commit -m "data: capital shard offset ${{ steps.request.outputs.offset }}"
+          git pull --rebase origin main
+          git push origin HEAD:main

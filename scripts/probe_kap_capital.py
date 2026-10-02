@@ -23,6 +23,17 @@ def main():
         if code in TARGETS:
             links[code]=BASE+a.get("href") if a.get("href","").startswith("/") else a.get("href")
     print("KAP_CAPITAL_LIST_FOUND",links)
+
+    # Next.js can keep the company rows in serialized server state rather than
+    # literal anchor tags. Inspect bounded snippets for target stock codes.
+    raw=r.text
+    for ticker in sorted(TARGETS):
+        patterns=[f'"stockCode":"{ticker}"',f'\\\"stockCode\\\":\\\"{ticker}\\\"']
+        for pat in patterns:
+            pos=raw.find(pat)
+            if pos>=0:
+                print("KAP_CAPITAL_STATE_SNIPPET",ticker,raw[max(0,pos-700):pos+1400].replace("\n"," "))
+                break
     for ticker,url in sorted(links.items()):
         rr=s.get(url,headers=h,timeout=30); rr.raise_for_status()
         text=" ".join(BeautifulSoup(rr.text,"html.parser").stripped_strings)

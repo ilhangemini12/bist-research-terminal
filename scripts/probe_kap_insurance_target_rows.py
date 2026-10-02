@@ -10,7 +10,7 @@ def main():
     arc=KapBulkFinancialProvider().download_archive(2025,"4")
     name=arc.entry_for_ticker("AGESA")
     tables=pd.read_html(arc.zip.read(name),header=None)
-    for ti,ranges in [(1,[(360,455)]),(279,[(220,277)]),(457,[(60,75)])]:
+    for ti,ranges in [(1,[(456,552)]),(279,[(220,277)]),(457,[(60,75)])]:
         df=tables[ti]
         print(f"INS_TARGET_TABLE table={ti} shape={df.shape}")
         for a,b in ranges:

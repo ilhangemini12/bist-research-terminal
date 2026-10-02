@@ -26,6 +26,7 @@ from bist_terminal.calculations.fundamental import safe_div
 from bist_terminal.calculations.growth import yoy_from_quarters, ttm_growth
 from bist_terminal.calculations.technical import add_indicators
 from bist_terminal.calculations.valuation import compute_valuation
+from bist_terminal.calculations.sector import sector_stats, discount_to_median
 from bist_terminal.financials.quarterly import standalone_quarters, ttm_from_quarters
 from bist_terminal.financials.kap_bulk import notification_id_from_source_file
 
@@ -391,6 +392,24 @@ def main():
             **quarterly_growth,
             **technical,
         })
+
+    sector_groups = {}
+    for row in rows:
+        sector_groups.setdefault(row.get('sector') or 'Other', []).append(row)
+    for sector, peers in sector_groups.items():
+        pe_med = sector_stats([r.get('pe') if (r.get('pe') or 0) > 0 else None for r in peers])['median']
+        pb_med = sector_stats([r.get('pb') if (r.get('pb') or 0) > 0 else None for r in peers])['median']
+        ps_med = sector_stats([r.get('ps') if (r.get('ps') or 0) > 0 else None for r in peers])['median']
+        roe_med = sector_stats([r.get('roe') for r in peers])['median']
+        for row in peers:
+            row['sector_pe_median'] = pe_med
+            row['sector_pb_median'] = pb_med
+            row['sector_ps_median'] = ps_med
+            row['sector_roe_median'] = roe_med
+            row['pe_discount_to_sector_median'] = discount_to_median(row.get('pe'), pe_med)
+            row['pb_discount_to_sector_median'] = discount_to_median(row.get('pb'), pb_med)
+            row['ps_discount_to_sector_median'] = discount_to_median(row.get('ps'), ps_med)
+    print(f'SECTOR_STATS_OK sectors={len(sector_groups)}')
 
     if store:
         for table in [

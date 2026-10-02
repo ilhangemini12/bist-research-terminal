@@ -1,4 +1,4 @@
-from bist_terminal.financials.extended_metrics import parse_extended_metrics, ttm_from_ytd_bridge
+from bist_terminal.financials.extended_metrics import derive_extended_ttm, parse_extended_metrics, ttm_from_ytd_bridge
 
 
 def fixture():
@@ -44,3 +44,16 @@ def test_parse_extended_metrics_exact_totals_and_scale():
 def test_ttm_bridge_requires_all_three_inputs():
     assert ttm_from_ytd_bridge(100,60,40)==120
     assert ttm_from_ytd_bridge(100,None,40) is None
+
+
+def test_derive_extended_ttm_uses_ytd_bridge_and_current_debt():
+    rows=[
+        {"archive_year":2025,"archive_period":2,"depreciation_amortization_ytd":30,"capex_spend_ytd":45,"financial_debt":400,"debt_components_complete":True},
+        {"archive_year":2025,"archive_period":4,"depreciation_amortization_ytd":80,"capex_spend_ytd":100,"financial_debt":420,"debt_components_complete":True},
+        {"archive_year":2026,"archive_period":2,"report_period":"2026-06-30","depreciation_amortization_ytd":40,"capex_spend_ytd":55,"financial_debt":500,"debt_components_complete":True},
+    ]
+    out=derive_extended_ttm(rows,2026)
+    assert out["financial_debt"]==500
+    assert out["depreciation_amortization_ttm"]==90
+    assert out["capex_spend_ttm"]==110
+    assert out["basis"]=="2025FY+2026P2-2025P2"

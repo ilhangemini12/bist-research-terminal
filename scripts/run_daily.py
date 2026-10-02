@@ -25,12 +25,15 @@ from bist_terminal.storage.duckdb_store import DuckDBStore
 from bist_terminal.storage.history_files import history_parquet_files
 from bist_terminal.storage.financial_files import financial_parquet_files
 from bist_terminal.storage.capital_files import load_capital_records
+from bist_terminal.storage.extended_financial_files import load_extended_metric_records
 from bist_terminal.calculations.fundamental import safe_div
 from bist_terminal.calculations.growth import yoy_from_quarters, ttm_growth
 from bist_terminal.calculations.technical import add_indicators
 from bist_terminal.calculations.valuation import compute_valuation
+from bist_terminal.calculations.extended_valuation import compute_extended_valuation
 from bist_terminal.calculations.sector import sector_stats, discount_to_median
 from bist_terminal.financials.quarterly import standalone_quarters, ttm_from_quarters
+from bist_terminal.financials.extended_metrics import derive_extended_ttm
 from bist_terminal.financials.kap_bulk import notification_id_from_source_file
 
 
@@ -176,6 +179,14 @@ def main():
     financial_latest = {}
     financial_history = {}
     technical_covered = 0
+    extended_metric_records = {}
+    try:
+        extended_metric_records = load_extended_metric_records(ROOT)
+        extended_metrics_status = 'ACTIVE' if extended_metric_records else 'UNAVAILABLE'
+    except Exception as exc:
+        extended_metric_records = {}
+        extended_metrics_status = f'DEGRADED: {type(exc).__name__}: {exc}'
+
     try:
         capital_records = load_capital_records(ROOT)
         capital_status = 'ACTIVE'
@@ -300,6 +311,20 @@ def main():
             net_income_ttm=flow_facts.get('net_income') if financial_ok else None,
             equity=facts.get('equity') if financial_ok else None,
             revenue_ttm=flow_facts.get('revenue') if financial_ok else None,
+        )
+        extended_metrics = derive_extended_ttm(
+            extended_metric_records.get(ticker, []),
+            int(expected[:4]),
+        )
+        extended_valuation = compute_extended_valuation(
+            market_cap=valuation.get('market_cap'),
+            latest_financial_period=fin.get('report_period') if financial_ok else None,
+            equity=facts.get('equity') if financial_ok else None,
+            cash=facts.get('cash') if financial_ok else None,
+            operating_profit_ttm=flow_facts.get('operating_profit') if financial_ok else None,
+            revenue_ttm=flow_facts.get('revenue') if financial_ok else None,
+            cash_from_operations_ttm=flow_facts.get('cash_from_operations') if financial_ok else None,
+            extended=extended_metrics,
         )
         dividend_ttm_per_share = 0.0
         if store:
@@ -449,6 +474,7 @@ def main():
             'pb': valuation.get('pb'),
             'ps': valuation.get('ps'),
             'earnings_yield': valuation.get('earnings_yield'),
+            **extended_valuation,
             'dividend_ttm_per_share': dividend_ttm_per_share,
             'dividend_yield': dividend_yield,
             'dividend_payout_ratio': dividend_payout_ratio,
@@ -513,6 +539,10 @@ def main():
     valuation_active = sum(r.get('valuation_status') == 'ACTIVE' for r in rows)
     pe_covered = sum(r.get('pe') is not None for r in rows)
     pb_covered = sum(r.get('pb') is not None for r in rows)
+    extended_active = sum(r.get('extended_valuation_status') == 'ACTIVE' for r in rows)
+    ev_ebitda_covered = sum(r.get('ev_ebitda') is not None for r in rows)
+    net_debt_ebitda_covered = sum(r.get('net_debt_ebitda') is not None for r in rows)
+    fcf_yield_covered = sum(r.get('fcf_yield') is not None for r in rows)
     dividend_positive = sum((r.get('dividend_yield') or 0) > 0 for r in rows)
     financial_periods = [r.get('financial_report_period') for r in rows if r.get('financial_status') == 'PARSED_HIGH_CONFIDENCE' and r.get('financial_report_period')]
     financial_as_of = max(financial_periods) if financial_periods else 'N/A'
@@ -541,6 +571,18 @@ def main():
             f'Explicit KAP total-share coverage: {capital_covered}/{len(rows)}; '
             f'experimental nominal-ratio fallback excluded'
             if capital_status == 'ACTIVE' else capital_status
+        ),
+    })
+    sources.append({
+        'provider': 'kap_extended_financial_metrics',
+        'status': 'ACTIVE' if extended_metrics_status == 'ACTIVE' else 'DEGRADED',
+        'upstream': 'KAP / MKK',
+        'successes': extended_active,
+        'failures': len(rows) - extended_active,
+        'skipped_after_circuit': 0,
+        'message': (
+            f'Period-matched extended valuation inputs active: {extended_active}/{len(rows)}'
+            if extended_metrics_status == 'ACTIVE' else extended_metrics_status
         ),
     })
     sources.append({
@@ -590,6 +632,10 @@ def main():
             'valuation_active_count': valuation_active,
             'pe_count': pe_covered,
             'pb_count': pb_covered,
+            'extended_valuation_active_count': extended_active,
+            'ev_ebitda_count': ev_ebitda_covered,
+            'net_debt_ebitda_count': net_debt_ebitda_covered,
+            'fcf_yield_count': fcf_yield_covered,
             'dividend_positive_count': dividend_positive,
             'kap_news_count': len(kap_news),
             'kap_news_mapped_count': sum(bool(x.get('ticker')) for x in kap_news),
@@ -608,6 +654,8 @@ def main():
         f'verified={verified} unverified={len(rows)-verified} financials={financial_covered}/{len(rows)} '
         f'technical={technical_covered}/{len(rows)} capital={capital_covered}/{len(rows)} '
         f'valuation_active={valuation_active}/{len(rows)} pe={pe_covered} pb={pb_covered} '
+        f'extended_active={extended_active}/{len(rows)} ev_ebitda={ev_ebitda_covered} '
+        f'net_debt_ebitda={net_debt_ebitda_covered} fcf_yield={fcf_yield_covered} '
         f'dividend_positive={dividend_positive} news={len(kap_news)} '
         f'news_mapped={sum(bool(x.get("ticker")) for x in kap_news)} universe={universe_status}'
     )

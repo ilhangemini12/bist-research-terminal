@@ -13,6 +13,10 @@ summary={
     'Targets as of':data.get('data_as_of',{}).get('targets'),'Tracked Stocks':data.get('summary',{}).get('tracked_stocks',0),
     'Verified Prices':data.get('summary',{}).get('verified_price_count',0),'Unverified Prices':data.get('summary',{}).get('unverified_price_count',0),
     'Financial Coverage %':data.get('summary',{}).get('financial_coverage_pct',0),
+    'Capital Coverage %':data.get('summary',{}).get('capital_coverage_pct',0),
+    'Valuation Active':data.get('summary',{}).get('valuation_active_count',0),
+    'P/E Available':data.get('summary',{}).get('pe_count',0),
+    'P/B Available':data.get('summary',{}).get('pb_count',0),
 }
 source_catalog=pd.DataFrame(yaml.safe_load((ROOT/'config/source_catalog.yaml').read_text())['providers'])
 source_status=pd.DataFrame(data.get('sources',[]))
@@ -50,12 +54,12 @@ tables={
     'Ozkan Filiz':filter_expr(presets['OZKAN_FILIZ_SECTOR_VALUE']['rules']),
     'Volkan Kocabas':filter_expr(presets['VOLKAN_KOCABAS_VALUE_GROWTH']['rules']),
     'Technical':cols(['ticker','price','price_status','rsi14','sma10','sma20','sma50','roc20','volume','volume_ma20','volume_ratio']),
-    'Fundamentals':cols(['ticker','sector','price','pe','pb','ev_ebitda','roe','roic','net_debt_ebitda','dividend_yield','fcf_yield']),
-    'Growth':cols(['ticker','revenue_growth_yoy','ebitda_growth_yoy','net_income_growth_yoy']),
+    'Fundamentals':cols(['ticker','sector','price','price_status','total_shares','market_cap','pe','pb','ps','earnings_yield','valuation_status','valuation_basis','financial_report_period','financial_quarters_available','roe','roa','gross_margin','operating_margin','current_ratio','quick_ratio','revenue_ttm','net_income_ttm','assets','equity','capital_source_url','financial_source_url']),
+    'Growth':cols(['ticker','revenue_growth_yoy','net_income_growth_yoy','revenue_quarter_yoy','net_income_quarter_yoy','revenue_ttm_growth','net_income_ttm_growth']),
     'Target Prices':cols(['ticker','target_upside']),
     'Model Portfolios':pd.DataFrame(),
     'KAP News':pd.DataFrame(),
-    'Data Quality':cols(['ticker','price_status','quality_score','verification_reason','trade_date','source_lineage']),
+    'Data Quality':cols(['ticker','price_status','valuation_status','financial_status','financial_quality_score','financial_quarters_available','technical_history_rows','verification_reason','trade_date','source_lineage','capital_method']),
     'Source Status':source_status,
     'Sources':source_catalog,
 }

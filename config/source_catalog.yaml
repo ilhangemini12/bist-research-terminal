@@ -435,3 +435,26 @@ providers:
     upstream_vendor: unknown
     last_checked: 2026-10-01
     status: PAID_SOURCE_SKIPPED
+
+  - provider_id: kap_capital_explicit
+    institution: Kamuyu Aydinlatma Platformu
+    platform_name: KAP company capital/share structure
+    website: https://www.kap.org.tr/tr/bist-sirketler
+    source_type: official_current_share_count
+    official_or_secondary: official
+    free: true
+    login_required: false
+    live_or_delayed: current_reference
+    delay_minutes: null
+    fields_available: [total_shares, company_title, mkk_member_oid]
+    historical_data: false
+    financial_data: false
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: false
+    robots_status: PUBLIC_PAGE
+    terms_status: PUBLIC_REFERENCE_PERSONAL_RESEARCH_RAW_PAGE_NOT_REDISTRIBUTED
+    upstream_vendor: KAP / MKK
+    last_checked: 2026-10-02
+    status: ACTIVE

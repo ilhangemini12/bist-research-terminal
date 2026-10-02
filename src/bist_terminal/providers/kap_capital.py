@@ -55,7 +55,7 @@ def parse_company_mapping(page_html:str)->dict[str,dict]:
 
 
 def parse_total_shares(page_html:str,ticker:str|None=None)->dict:
-    tables=pd.read_html(StringIO(page_html))
+    tables=pd.read_html(StringIO(page_html), decimal=',', thousands='.')
     # Prefer explicit current KAP float table total-share field when present.
     for df in tables:
         cols=[str(c).strip() for c in df.columns]

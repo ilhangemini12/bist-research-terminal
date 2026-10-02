@@ -205,6 +205,16 @@ class DuckDBStore:
         ).fetchone()
         return row[0] if row and row[0] else None
 
+    def dividend_amount_sum(self, ticker: str, start_date, end_date, provider_id: str = 'yahoo_chart') -> float:
+        row = self.con.execute(
+            '''select coalesce(sum(amount),0)
+               from corporate_actions
+               where ticker=? and provider_id=? and action_type='dividend'
+                 and action_date>=? and action_date<=?''',
+            [ticker, provider_id, start_date, end_date],
+        ).fetchone()
+        return float(row[0] or 0)
+
     def latest_history_date(self, ticker: str, provider_id: str):
         row = self.con.execute(
             'select max(trade_date) from daily_ohlcv where ticker=? and provider_id=?',

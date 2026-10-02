@@ -1,6 +1,6 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-02T17:24:38.951479+00:00",
+  "generated_at": "2026-10-02T17:35:00.893589+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
@@ -40,6 +40,7 @@
   "valuation_active_count": 322,
   "pe_count": 163,
   "pb_count": 298,
+  "dividend_positive_count": 104,
   "source_catalog": {
     "discovered_or_catalogued": 20,
     "status_counts": {
@@ -50,7 +51,7 @@
       "PAID_SOURCE_SKIPPED": 5
     }
   },
-  "python_tests_collected": 99,
+  "python_tests_collected": 100,
   "js_formula_tests": "dashboard/tests/formula.test.js",
   "presets": [
     "VALUE",

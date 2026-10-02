@@ -261,6 +261,30 @@ def main():
             equity=facts.get('equity') if financial_ok else None,
             revenue_ttm=flow_facts.get('revenue') if financial_ok else None,
         )
+        dividend_ttm_per_share = 0.0
+        if store:
+            dividend_start = (
+                datetime.date.fromisoformat(expected) - datetime.timedelta(days=365)
+            ).isoformat()
+            dividend_ttm_per_share = store.dividend_amount_sum(
+                ticker, dividend_start, expected
+            )
+        dividend_yield = (
+            dividend_ttm_per_share / vr.verified_price
+            if vr.status == 'VERIFIED_2X' and vr.verified_price and vr.verified_price > 0
+            else None
+        )
+        dividend_payout_ratio = None
+        if (
+            dividend_ttm_per_share > 0
+            and capital.get('total_shares')
+            and flow_facts.get('net_income')
+            and flow_facts.get('net_income') > 0
+        ):
+            dividend_payout_ratio = (
+                dividend_ttm_per_share * capital.get('total_shares')
+                / flow_facts.get('net_income')
+            )
 
         def yoy(metric):
             cur = facts.get(metric)
@@ -385,6 +409,9 @@ def main():
             'pb': valuation.get('pb'),
             'ps': valuation.get('ps'),
             'earnings_yield': valuation.get('earnings_yield'),
+            'dividend_ttm_per_share': dividend_ttm_per_share,
+            'dividend_yield': dividend_yield,
+            'dividend_payout_ratio': dividend_payout_ratio,
             'assets': facts.get('assets') if financial_ok else None,
             'equity': facts.get('equity') if financial_ok else None,
             'cash': facts.get('cash') if financial_ok else None,
@@ -446,6 +473,7 @@ def main():
     valuation_active = sum(r.get('valuation_status') == 'ACTIVE' for r in rows)
     pe_covered = sum(r.get('pe') is not None for r in rows)
     pb_covered = sum(r.get('pb') is not None for r in rows)
+    dividend_positive = sum((r.get('dividend_yield') or 0) > 0 for r in rows)
     financial_periods = [r.get('financial_report_period') for r in rows if r.get('financial_status') == 'PARSED_HIGH_CONFIDENCE' and r.get('financial_report_period')]
     financial_as_of = max(financial_periods) if financial_periods else 'N/A'
     sources = [
@@ -507,6 +535,7 @@ def main():
             'valuation_active_count': valuation_active,
             'pe_count': pe_covered,
             'pb_count': pb_covered,
+            'dividend_positive_count': dividend_positive,
         },
         'universe': {
             'indices': index_codes,
@@ -521,7 +550,8 @@ def main():
         f'LIVE_PIPELINE_OK expected={expected} tracked={len(rows)} '
         f'verified={verified} unverified={len(rows)-verified} financials={financial_covered}/{len(rows)} '
         f'technical={technical_covered}/{len(rows)} capital={capital_covered}/{len(rows)} '
-        f'valuation_active={valuation_active}/{len(rows)} pe={pe_covered} pb={pb_covered} universe={universe_status}'
+        f'valuation_active={valuation_active}/{len(rows)} pe={pe_covered} pb={pb_covered} '
+        f'dividend_positive={dividend_positive} universe={universe_status}'
     )
 
 

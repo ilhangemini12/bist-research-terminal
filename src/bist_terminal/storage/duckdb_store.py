@@ -77,6 +77,25 @@ class DuckDBStore:
             ],
         )
 
+    def price_rows(self, ticker: str, trade_date) -> list[dict]:
+        rows = self.con.execute(
+            '''select ticker, trade_date, close, volume, provider_id, upstream_vendor, status, retrieved_at
+               from prices
+               where ticker=? and trade_date=?
+               order by provider_id''',
+            [ticker, trade_date],
+        ).fetchall()
+        return [{
+            'ticker':r[0],
+            'trade_date':str(r[1]) if r[1] else None,
+            'close':r[2],
+            'volume':r[3],
+            'provider_id':r[4],
+            'upstream_vendor':r[5],
+            'status':r[6],
+            'retrieved_at':str(r[7]) if r[7] else None,
+        } for r in rows]
+
     def get_verification(self, ticker: str, trade_date) -> dict | None:
         row = self.con.execute(
             '''select ticker, trade_date, verified_price, status, sources, upstreams,

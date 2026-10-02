@@ -1,17 +1,17 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-02T20:00:10.368303+00:00",
+  "generated_at": "2026-10-02T21:44:47.176294+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "expected_dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "live_market_status": {
     "expected_market_date": "2026-10-02",
-    "last_verified_market_date": "2026-10-02",
+    "last_verified_market_date": null,
     "tracked_live_tickers": 323,
-    "verified_price_count": 322,
-    "unverified_price_count": 1,
-    "reason": "Live pipeline has VERIFIED_2X prices."
+    "verified_price_count": 0,
+    "unverified_price_count": 323,
+    "reason": "Live pipeline ran, but no current-day price met the two-independent-upstream VERIFIED_2X contract."
   },
   "demo_fixture": null,
   "financial_coverage_percent_live": 92.3,
@@ -37,10 +37,10 @@
   "technical_rsi14_count": 322,
   "capital_coverage_percent_live": 100.0,
   "capital_explicit_count": 323,
-  "valuation_active_count": 322,
-  "pe_count": 163,
-  "pb_count": 298,
-  "dividend_positive_count": 104,
+  "valuation_active_count": 0,
+  "pe_count": 0,
+  "pb_count": 0,
+  "dividend_positive_count": 0,
   "source_catalog": {
     "discovered_or_catalogued": 20,
     "status_counts": {
@@ -51,7 +51,7 @@
       "PAID_SOURCE_SKIPPED": 5
     }
   },
-  "python_tests_collected": 100,
+  "python_tests_collected": 102,
   "js_formula_tests": "dashboard/tests/formula.test.js",
   "presets": [
     "VALUE",

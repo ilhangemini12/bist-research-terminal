@@ -90,3 +90,66 @@ def ttm_from_ytd_bridge(fy: float | None, current_ytd: float | None, prior_ytd: 
     if fy is None or current_ytd is None or prior_ytd is None:
         return None
     return fy + current_ytd - prior_ytd
+
+
+def derive_extended_ttm(records: list[dict], current_year: int) -> dict:
+    """Derive current debt plus TTM D&A/capex from checkpointed YTD metrics.
+
+    Uses current-year latest YTD versus the same prior-year YTD and prior FY.
+    If current FY exists, it is used directly. Missing bridge periods never get
+    interpolated.
+    """
+    by={}
+    for rec in records:
+        try:
+            key=(int(rec.get("archive_year")),int(rec.get("archive_period")))
+        except (TypeError,ValueError):
+            continue
+        by[key]=rec
+
+    current_periods=sorted(p for (y,p) in by if y==int(current_year))
+    if current_periods:
+        p=current_periods[-1]
+        cur=by[(int(current_year),p)]
+        if p==4:
+            da=cur.get("depreciation_amortization_ytd")
+            capex=cur.get("capex_spend_ytd")
+            basis=f"{current_year}FY"
+        else:
+            prior_fy=by.get((int(current_year)-1,4),{})
+            prior_ytd=by.get((int(current_year)-1,p),{})
+            da=ttm_from_ytd_bridge(
+                prior_fy.get("depreciation_amortization_ytd"),
+                cur.get("depreciation_amortization_ytd"),
+                prior_ytd.get("depreciation_amortization_ytd"),
+            )
+            capex=ttm_from_ytd_bridge(
+                prior_fy.get("capex_spend_ytd"),
+                cur.get("capex_spend_ytd"),
+                prior_ytd.get("capex_spend_ytd"),
+            )
+            basis=f"{current_year-1}FY+{current_year}P{p}-{current_year-1}P{p}"
+        return {
+            "archive_year":int(current_year),
+            "archive_period":p,
+            "report_period":cur.get("report_period") or cur.get("current_period"),
+            "financial_debt":cur.get("financial_debt"),
+            "debt_components_complete":bool(cur.get("debt_components_complete")),
+            "depreciation_amortization_ttm":da,
+            "capex_spend_ttm":capex,
+            "basis":basis,
+        }
+
+    prev=by.get((int(current_year)-1,4))
+    if prev:
+        return {
+            "archive_year":int(current_year)-1,
+            "archive_period":4,
+            "report_period":prev.get("report_period") or prev.get("current_period"),
+            "financial_debt":prev.get("financial_debt"),
+            "debt_components_complete":bool(prev.get("debt_components_complete")),
+            "depreciation_amortization_ttm":prev.get("depreciation_amortization_ytd"),
+            "capex_spend_ttm":prev.get("capex_spend_ytd"),
+            "basis":f"{current_year-1}FY_FALLBACK",
+        }
+    return {}

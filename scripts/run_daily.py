@@ -15,6 +15,8 @@ from bist_terminal.providers.bist_universe import BistIndexUniverseProvider, ena
 from bist_terminal.providers.yahoo import YahooChartProvider
 from bist_terminal.providers.bist_bulletin import BistDailyBulletinProvider
 from bist_terminal.providers.registry import FallbackChain
+from bist_terminal.providers.spk import SPKRegistryProvider
+from bist_terminal.providers.spk_news import recent_spk_disclosures
 from bist_terminal.quality.price_verification import verify_prices
 from bist_terminal.exports.static import write_latest
 from bist_terminal.quality.market_calendar import load_calendar, latest_expected_trade_date, is_trading_day
@@ -179,6 +181,23 @@ def main():
     except Exception as exc:
         capital_records = {}
         capital_status = f'DEGRADED: {type(exc).__name__}: {exc}'
+
+    kap_news = []
+    try:
+        kap_news = recent_spk_disclosures(
+            SPKRegistryProvider(timeout=30),
+            capital_records,
+            datetime.date.fromisoformat(expected),
+            days=7,
+        )
+        news_status = 'ACTIVE'
+        print(
+            f'SPK_NEWS_OK rows={len(kap_news)} '
+            f'mapped={sum(bool(x.get("ticker")) for x in kap_news)}'
+        )
+    except Exception as exc:
+        news_status = f'DEGRADED: {type(exc).__name__}: {exc}'
+        print(f'SPK_NEWS_DEGRADED {news_status}')
 
     try:
         store = DuckDBStore(ROOT / 'data/bist.duckdb')
@@ -504,6 +523,19 @@ def main():
         ),
     })
     sources.append({
+        'provider': 'spk_disclosures',
+        'status': 'ACTIVE' if news_status == 'ACTIVE' else 'DEGRADED',
+        'upstream': 'SPK',
+        'successes': len(kap_news),
+        'failures': 0 if news_status == 'ACTIVE' else 1,
+        'skipped_after_circuit': 0,
+        'message': (
+            f'Recent 7-day official disclosure metadata: {len(kap_news)}; '
+            f'exact current-universe title matches: {sum(bool(x.get("ticker")) for x in kap_news)}'
+            if news_status == 'ACTIVE' else news_status
+        ),
+    })
+    sources.append({
         'provider': 'kap_bulk_financials',
         'status': 'ACTIVE' if financial_covered else 'DEGRADED',
         'upstream': 'KAP / MKK',
@@ -519,8 +551,10 @@ def main():
             'prices': expected,
             'financials': financial_as_of,
             'targets': 'terms-compatible discovery partial',
+            'news': expected,
         },
         'stocks': rows,
+        'kap_news': kap_news,
         'sources': sources,
         'summary': {
             'tracked_stocks': len(rows),
@@ -536,6 +570,8 @@ def main():
             'pe_count': pe_covered,
             'pb_count': pb_covered,
             'dividend_positive_count': dividend_positive,
+            'kap_news_count': len(kap_news),
+            'kap_news_mapped_count': sum(bool(x.get('ticker')) for x in kap_news),
         },
         'universe': {
             'indices': index_codes,
@@ -551,7 +587,8 @@ def main():
         f'verified={verified} unverified={len(rows)-verified} financials={financial_covered}/{len(rows)} '
         f'technical={technical_covered}/{len(rows)} capital={capital_covered}/{len(rows)} '
         f'valuation_active={valuation_active}/{len(rows)} pe={pe_covered} pb={pb_covered} '
-        f'dividend_positive={dividend_positive} universe={universe_status}'
+        f'dividend_positive={dividend_positive} news={len(kap_news)} '
+        f'news_mapped={sum(bool(x.get("ticker")) for x in kap_news)} universe={universe_status}'
     )
 
 

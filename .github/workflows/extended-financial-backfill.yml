@@ -1,0 +1,72 @@
+name: Extended Financial Metrics Backfill
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "KAP archive year"
+        required: true
+        default: "2025"
+      period:
+        description: "1=3M, 2=6M, 3=9M, 4=FY"
+        required: true
+        default: "4"
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/extended-financial-backfill'
+permissions:
+  contents: write
+concurrency:
+  group: bist-extended-financial-writer
+  cancel-in-progress: false
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: 'pip'}
+      - run: pip install -r requirements.txt
+      - name: Resolve request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            YEAR=2025; PERIOD=4
+            while IFS='=' read -r key value; do
+              case "$key" in
+                year) YEAR="$value" ;;
+                period) PERIOD="$value" ;;
+              esac
+            done < .github/triggers/extended-financial-backfill
+          else
+            YEAR="${{ inputs.year }}"
+            PERIOD="${{ inputs.period }}"
+          fi
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+          echo "period=$PERIOD" >> "$GITHUB_OUTPUT"
+      - name: Validate parser
+        run: |
+          python -m compileall -q src scripts
+          pytest -q tests/test_extended_financial_metrics.py tests/test_extended_financial_files.py
+      - name: Build immutable extended metrics checkpoint
+        run: |
+          python scripts/bootstrap_extended_financial_metrics.py             --year "${{ steps.request.outputs.year }}"             --period "${{ steps.request.outputs.period }}"
+      - name: Commit checkpoint
+        run: |
+          set -euo pipefail
+          git config user.name "bist-research-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/parquet/extended_financials/*.parquet || true
+          if git diff --cached --quiet; then
+            echo "No extended financial changes to commit."
+            exit 0
+          fi
+          git commit -m "data: extended financial metrics ${{ steps.request.outputs.year }}-${{ steps.request.outputs.period }}"
+          git pull --rebase origin main
+          git push origin HEAD:main

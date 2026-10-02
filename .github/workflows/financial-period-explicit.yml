@@ -15,7 +15,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: bist-financial-period-explicit
+  group: bist-main-writer
   cancel-in-progress: false
 jobs:
   backfill:

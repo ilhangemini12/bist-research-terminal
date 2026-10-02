@@ -12,6 +12,7 @@ TABLES = {
     'index_membership_history',
     'financials',
     'provider_health',
+    'capital_current',
 }
 
 
@@ -53,6 +54,9 @@ class DuckDBStore:
           source_url varchar, primary key(ticker,report_period,statement_scope))''')
         self.con.execute('''create table if not exists provider_health(
           provider_id varchar primary key,status varchar,last_success timestamp,last_failure timestamp,latest_data_date date,message varchar)''')
+        self.con.execute('''create table if not exists capital_current(
+          ticker varchar primary key,total_shares double,method varchar,source_url varchar,mkk_member_oid varchar,
+          company_title varchar,retrieved_at timestamp)''')
 
     def close(self):
         self.con.close()
@@ -84,6 +88,25 @@ class DuckDBStore:
             '''insert or replace into corporate_actions values (?,?,?,?,?,?,?,?)''',
             [row.get(k) for k in ['ticker','action_date','action_type','amount','split_ratio','provider_id','source_url','retrieved_at']],
         )
+
+    def upsert_capital(self, row: dict):
+        self.con.execute(
+            '''insert or replace into capital_current values (?,?,?,?,?,?,?)''',
+            [row.get(k) for k in ['ticker','total_shares','method','source_url','mkk_member_oid','company_title','retrieved_at']],
+        )
+
+    def capital_map(self) -> dict[str, dict]:
+        rows=self.con.execute(
+            '''select ticker,total_shares,method,source_url,mkk_member_oid,company_title,retrieved_at
+               from capital_current'''
+        ).fetchall()
+        return {
+            r[0]: {
+                'ticker':r[0],'total_shares':r[1],'method':r[2],'source_url':r[3],
+                'mkk_member_oid':r[4],'company_title':r[5],
+                'retrieved_at':str(r[6]) if r[6] else None,
+            } for r in rows
+        }
 
     def upsert_financial(self, row: dict):
         payload = row.get('payload')

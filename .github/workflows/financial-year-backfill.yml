@@ -17,7 +17,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: bist-financial-sharded-writer
+  group: bist-main-writer
   cancel-in-progress: false
 jobs:
   backfill-year:

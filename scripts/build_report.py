@@ -48,6 +48,7 @@ report={
   'valuation_active_count':0 if is_demo else summary.get('valuation_active_count',0),
   'pe_count':0 if is_demo else summary.get('pe_count',0),
   'pb_count':0 if is_demo else summary.get('pb_count',0),
+  'dividend_positive_count':0 if is_demo else summary.get('dividend_positive_count',0),
   'source_catalog':{'discovered_or_catalogued':len(providers),'status_counts':dict(sorted(statuses.items()))},
   'python_tests_collected':collected,
   'js_formula_tests':'dashboard/tests/formula.test.js',

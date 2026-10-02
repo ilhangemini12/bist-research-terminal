@@ -15,7 +15,7 @@ providers:
     research_reports: false
     target_prices: false
     model_portfolio: false
-    news: false
+    news: true
     robots_status: REVIEWED_PUBLIC_SERVICE
     terms_status: PUBLIC_WEB_SERVICE
     upstream_vendor: SPK
@@ -89,6 +89,29 @@ providers:
     terms_status: KAP_GUIDE_DOCUMENTED_BULK_DOWNLOAD_RAW_FILES_NOT_REDISTRIBUTED
     upstream_vendor: KAP / MKK
     last_checked: 2026-10-01
+    status: ACTIVE
+
+  - provider_id: kap_extended_financial_metrics
+    institution: Kamuyu Aydinlatma Platformu
+    platform_name: KAP exact-label debt D&A capex overlay
+    website: https://www.kap.org.tr/tr
+    source_type: official_extended_financial_metrics
+    official_or_secondary: official
+    free: true
+    login_required: false
+    live_or_delayed: periodic
+    delay_minutes: null
+    fields_available: [short_term_borrowings, current_portion_long_term_borrowings, long_term_borrowings, depreciation_amortization_ytd, capex_cash_outflow_ytd]
+    historical_data: checkpointed_periods
+    financial_data: true
+    research_reports: false
+    target_prices: false
+    model_portfolio: false
+    news: false
+    robots_status: DOCUMENTED_PUBLIC_DOWNLOAD
+    terms_status: KAP_GUIDE_DOCUMENTED_BULK_DOWNLOAD_NORMALIZED_METRICS_ONLY
+    upstream_vendor: KAP / MKK
+    last_checked: 2026-10-02
     status: ACTIVE
 
   - provider_id: kap_rest_api

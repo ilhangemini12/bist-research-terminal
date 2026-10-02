@@ -66,3 +66,19 @@ def test_index_membership_history_is_point_in_time_and_idempotent(tmp_path):
     assert restored.membership_for_date("XU100", "2026-10-01") == ["AKBNK", "THYAO"]
     assert restored.import_parquet("index_membership_history", parquet) == 0
     restored.close()
+
+
+def test_price_rows_preserve_same_day_provider_lineages(tmp_path):
+    store=DuckDBStore(tmp_path/"prices.duckdb")
+    try:
+        base={
+            "ticker":"THYAO","trade_date":"2026-10-02","close":321.5,"volume":1000,
+            "status":"VERIFIED_2X","retrieved_at":"2026-10-02T18:30:00Z",
+        }
+        store.upsert_price({**base,"provider_id":"bist_daily_bulletin","upstream_vendor":"Borsa Istanbul"})
+        store.upsert_price({**base,"provider_id":"yahoo_chart","upstream_vendor":"Yahoo market data feed"})
+        rows=store.price_rows("THYAO","2026-10-02")
+        assert {r["provider_id"] for r in rows}=={"bist_daily_bulletin","yahoo_chart"}
+        assert all(r["trade_date"]=="2026-10-02" for r in rows)
+    finally:
+        store.close()

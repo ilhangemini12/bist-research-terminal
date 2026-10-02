@@ -69,6 +69,7 @@ def main():
     print(f'KAP_FIN_ARCHIVE_OK year={args.year} period={args.period} files={len(archive.names)} bytes={len(archive.raw)}')
 
     parsed=0; missing=0; review=0; failed=0
+    SYSTEMIC_FAILURE_LIMIT=max(5, int(len(tickers)*0.10))
     stamp=datetime.now(timezone.utc).isoformat()
     new_rows=[]
     try:
@@ -111,6 +112,12 @@ def main():
                 failed+=1
                 print(f'KAP_FIN_DEGRADED ticker={ticker} {type(exc).__name__}: {exc}')
 
+        if failed > SYSTEMIC_FAILURE_LIMIT:
+            print(
+                f'KAP_FIN_SYSTEMIC_FAILURE failed={failed} limit={SYSTEMIC_FAILURE_LIMIT} '
+                f'requested={len(tickers)}; refusing shard write'
+            )
+            raise RuntimeError('systemic financial parse failure; shard not written')
         if new_rows:
             shard.parent.mkdir(parents=True,exist_ok=True)
             pd.DataFrame(

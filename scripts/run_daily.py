@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
 
 from bist_terminal.providers.bist_universe import BistIndexUniverseProvider, enabled_indices
+from bist_terminal.models import PriceObservation
 from bist_terminal.providers.yahoo import YahooChartProvider
 from bist_terminal.providers.bist_bulletin import BistDailyBulletinProvider
 from bist_terminal.providers.registry import FallbackChain
@@ -219,13 +220,31 @@ def main():
     for ticker in tickers:
         obs, att = chain.collect(ticker)
         attempts[ticker] = att
+        previous_verification = store.get_verification(ticker, expected) if store else None
+        durable_obs = []
+        if store:
+            for r in store.price_rows(ticker, expected):
+                durable_obs.append(PriceObservation(
+                    ticker=r['ticker'],
+                    market='BIST',
+                    trade_date=r['trade_date'],
+                    timestamp=r['retrieved_at'] or (r['trade_date'] + 'T18:10:00+03:00'),
+                    close=float(r['close']),
+                    currency='TRY',
+                    adjusted=False,
+                    volume=r.get('volume'),
+                    provider_id=r.get('provider_id') or 'unknown',
+                    upstream_vendor=r.get('upstream_vendor') or r.get('provider_id') or 'unknown',
+                    source_url=None,
+                    retrieved_at=r.get('retrieved_at'),
+                ))
+        merged_obs = obs + durable_obs
         vr = verify_prices(
-            obs,
+            merged_obs,
             expected,
             tolerance_pct=tolerance,
             official_ids={'bist_daily_bulletin'},
         )
-        previous_verification = store.get_verification(ticker, expected) if store else None
         vr = retain_same_trade_date_verified(vr, previous_verification, expected)
         if store:
             for o in obs:

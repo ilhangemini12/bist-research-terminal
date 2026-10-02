@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-import math
 
 import pandas as pd
 
@@ -29,8 +28,11 @@ def load_extended_metric_records(root: Path) -> dict[str,list[dict]]:
         for row in df.to_dict("records"):
             clean={}
             for k,v in row.items():
-                if isinstance(v,float) and math.isnan(v):
-                    v=None
+                try:
+                    if pd.isna(v):
+                        v=None
+                except (TypeError, ValueError):
+                    pass
                 clean[k]=v
             ticker=str(clean.get("ticker") or "").upper()
             if ticker:

@@ -4,7 +4,8 @@ presets:
     rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median"
   QUALITY:
     label: Quality
-    rules: "roe > sector_roe_median and roic > 0"
+    description: Verified-input quality screen
+    rules: "roe > sector_roe_median and net_income_ttm > 0"
   GROWTH:
     label: Growth
     rules: "revenue_growth_yoy > 0 and net_income_growth_yoy > 0"
@@ -37,16 +38,16 @@ presets:
     rules: "pe > 0 and pe < sector_pe_median and rsi14 < 45"
   GROWTH_MOMENTUM:
     label: Growth + Momentum
-    rules: "ebitda_growth_yoy > 0 and close > sma20 and roc20 > 0"
+    description: Verified-input growth and trend screen
+    rules: "revenue_growth_yoy > 0 and net_income_growth_yoy > 0 and close > sma20 and roc20 > 0"
   OZKAN_FILIZ_SECTOR_VALUE:
     label: Ozkan Filiz Sector Value
-    description: Public methodology reconstruction
-    rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and ev_ebitda > 0 and ev_ebitda < sector_ev_ebitda_median"
-    optional_quality: "roe > sector_roe_median and net_debt_ebitda < 3"
+    description: Available-input public-methodology reconstruction; EV/debt overlay intentionally omitted until verified
+    rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and roe > sector_roe_median"
   VOLKAN_KOCABAS_VALUE_GROWTH:
     label: Volkan Kocabas Value Growth
-    description: Public examples reconstruction
-    rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and ev_ebitda > 0 and ev_ebitda < sector_ev_ebitda_median and ebitda_growth_yoy > 0 and roe > 0"
+    description: Available-input reconstruction; no unverified EV/EBITDA assumption
+    rules: "pe > 0 and pe < sector_pe_median and pb > 0 and pb < sector_pb_median and revenue_growth_yoy > 0 and net_income_growth_yoy > 0 and roe > 0"
   VK_RSI_DIP_RECOVERY:
     label: Volkan Kocabas RSI Dip
     description: Approximation; exact public formula not verified

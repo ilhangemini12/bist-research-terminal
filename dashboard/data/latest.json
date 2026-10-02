@@ -114,7 +114,7 @@
       "current_assets": 283195952.0,
       "current_liabilities": 238692607.0,
       "inventories": 59832856.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -205,7 +205,7 @@
       "current_assets": 1808469000.0,
       "current_liabilities": 1880512000.0,
       "inventories": 1132923000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -298,7 +298,7 @@
       "current_assets": 109123335000.0,
       "current_liabilities": 105736063000.0,
       "inventories": 28997482000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -389,7 +389,7 @@
       "current_assets": 2498227509.0,
       "current_liabilities": 1060444492.0,
       "inventories": 463210057.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -558,7 +558,7 @@
       "current_assets": 220928042000.0,
       "current_liabilities": 235538153000.0,
       "inventories": 83821118000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -833,7 +833,7 @@
       "current_assets": null,
       "current_liabilities": null,
       "inventories": null,
-      "financial_quarters_available": 8,
+      "financial_quarters_available": 10,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": null,
@@ -920,7 +920,7 @@
       "current_assets": 13740960000.0,
       "current_liabilities": 9247853000.0,
       "inventories": 2167868000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -1267,7 +1267,7 @@
       "current_assets": 20701906000.0,
       "current_liabilities": 24421489000.0,
       "inventories": 7640640000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -1358,7 +1358,7 @@
       "current_assets": 19990857936.0,
       "current_liabilities": 26237982428.0,
       "inventories": 2224109467.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -1449,7 +1449,7 @@
       "current_assets": 21834225000.0,
       "current_liabilities": 26537228000.0,
       "inventories": 3145919000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -1697,7 +1697,7 @@
       "current_assets": 4543190538.0,
       "current_liabilities": 2774243737.0,
       "inventories": 1161095697.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -1788,7 +1788,7 @@
       "current_assets": 1011570367.0,
       "current_liabilities": 955245687.0,
       "inventories": 406979087.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -1879,7 +1879,7 @@
       "current_assets": 2518715935.0,
       "current_liabilities": 1447899862.0,
       "inventories": 1207563845.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -2152,7 +2152,7 @@
       "current_assets": 724426667.0,
       "current_liabilities": 256520032.0,
       "inventories": 340551593.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 18,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -2402,7 +2402,7 @@
       "current_assets": 330746728000.0,
       "current_liabilities": 340655670000.0,
       "inventories": 89980222000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -2676,7 +2676,7 @@
       "current_assets": 174984061000.0,
       "current_liabilities": 126229330000.0,
       "inventories": 73660730000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -2860,7 +2860,7 @@
       "current_assets": 27297174721.0,
       "current_liabilities": 22735394631.0,
       "inventories": 9864071658.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -3042,7 +3042,7 @@
       "current_assets": 1721810225.0,
       "current_liabilities": 1380893290.0,
       "inventories": 585302644.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -3134,7 +3134,7 @@
       "current_assets": 17253232000.0,
       "current_liabilities": 10531598000.0,
       "inventories": 2983601000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -3225,7 +3225,7 @@
       "current_assets": 2312956786.0,
       "current_liabilities": 5126981735.0,
       "inventories": 1235074969.0,
-      "financial_quarters_available": 15,
+      "financial_quarters_available": 19,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": 4973196939.0,
@@ -3402,7 +3402,7 @@
       "current_assets": 2615168011.0,
       "current_liabilities": 2202352081.0,
       "inventories": 795874788.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -3584,7 +3584,7 @@
       "current_assets": 16476768802.0,
       "current_liabilities": 12548435439.0,
       "inventories": 1943198243.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -3675,7 +3675,7 @@
       "current_assets": 288235456.0,
       "current_liabilities": 393056191.0,
       "inventories": 132935583.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -3766,7 +3766,7 @@
       "current_assets": 13420154406.0,
       "current_liabilities": 4654278457.0,
       "inventories": 4943300164.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -4026,7 +4026,7 @@
       "current_assets": 895582210.0,
       "current_liabilities": 567459981.0,
       "inventories": 164224767.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -4209,7 +4209,7 @@
       "current_assets": 111487229000.0,
       "current_liabilities": 108356980000.0,
       "inventories": 54447493000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -4391,7 +4391,7 @@
       "current_assets": 1759503628.0,
       "current_liabilities": 129775082.0,
       "inventories": 92584948.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -4573,7 +4573,7 @@
       "current_assets": 370422798.0,
       "current_liabilities": 466393755.0,
       "inventories": 155932493.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -4755,7 +4755,7 @@
       "current_assets": 1008382101.0,
       "current_liabilities": 149435350.0,
       "inventories": 210221417.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -4846,7 +4846,7 @@
       "current_assets": 6029522365.0,
       "current_liabilities": 5568987602.0,
       "inventories": 164680625.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5028,7 +5028,7 @@
       "current_assets": 5014788987.0,
       "current_liabilities": 2573624177.0,
       "inventories": 2407788844.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5119,7 +5119,7 @@
       "current_assets": 25179770000.0,
       "current_liabilities": 23949198000.0,
       "inventories": 6216994000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5210,7 +5210,7 @@
       "current_assets": 401118987.0,
       "current_liabilities": 126955688.0,
       "inventories": 108504874.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5302,7 +5302,7 @@
       "current_assets": 37468163000.0,
       "current_liabilities": 31758219000.0,
       "inventories": 19314222000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5393,7 +5393,7 @@
       "current_assets": 5283703481.0,
       "current_liabilities": 1063296506.0,
       "inventories": null,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5484,7 +5484,7 @@
       "current_assets": 2497447000.0,
       "current_liabilities": 2155659000.0,
       "inventories": 910091000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5576,7 +5576,7 @@
       "current_assets": 5185641000.0,
       "current_liabilities": 5075112000.0,
       "inventories": 1527470000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5667,7 +5667,7 @@
       "current_assets": 8468457047.0,
       "current_liabilities": 4335876533.0,
       "inventories": 2070301873.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5758,7 +5758,7 @@
       "current_assets": 475706601.0,
       "current_liabilities": 472953683.0,
       "inventories": 234094453.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 18,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -5849,7 +5849,7 @@
       "current_assets": 127108062.0,
       "current_liabilities": 86882217.0,
       "inventories": 64461303.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 18,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -6031,7 +6031,7 @@
       "current_assets": 4631084706.0,
       "current_liabilities": 2084481187.0,
       "inventories": 2307675971.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -6123,7 +6123,7 @@
       "current_assets": 73616867000.0,
       "current_liabilities": 63836513000.0,
       "inventories": 19091370000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -6214,7 +6214,7 @@
       "current_assets": 1055717363.0,
       "current_liabilities": 765548948.0,
       "inventories": 413667702.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -6305,7 +6305,7 @@
       "current_assets": 808485123.0,
       "current_liabilities": 609761530.0,
       "inventories": 199457403.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -6396,7 +6396,7 @@
       "current_assets": 5013003413.0,
       "current_liabilities": 950353840.0,
       "inventories": 1358819157.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -6670,7 +6670,7 @@
       "current_assets": 24996196000.0,
       "current_liabilities": 22653322000.0,
       "inventories": 6786728000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -6761,7 +6761,7 @@
       "current_assets": 1350511234.0,
       "current_liabilities": 1850323107.0,
       "inventories": 47523138.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -6852,7 +6852,7 @@
       "current_assets": 1961652838.0,
       "current_liabilities": 3100444039.0,
       "inventories": 608842076.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -7126,7 +7126,7 @@
       "current_assets": 4533006323.0,
       "current_liabilities": 4638128011.0,
       "inventories": 1736542077.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -7217,7 +7217,7 @@
       "current_assets": 1785925937.0,
       "current_liabilities": 1112375903.0,
       "inventories": 217447780.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -7308,7 +7308,7 @@
       "current_assets": 3589720238.0,
       "current_liabilities": 1241337219.0,
       "inventories": 1253438943.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -7399,7 +7399,7 @@
       "current_assets": 16625931505.0,
       "current_liabilities": 10072808825.0,
       "inventories": 5425691959.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -7490,7 +7490,7 @@
       "current_assets": 2960331219.0,
       "current_liabilities": 8900713828.0,
       "inventories": 1585110598.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 19,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -7581,7 +7581,7 @@
       "current_assets": 969624436.0,
       "current_liabilities": 1749668424.0,
       "inventories": 449228022.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -7763,7 +7763,7 @@
       "current_assets": 1014470288.0,
       "current_liabilities": 1359169949.0,
       "inventories": 300860661.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -7854,7 +7854,7 @@
       "current_assets": 382542492.0,
       "current_liabilities": 95675822.0,
       "inventories": 72626663.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -7945,7 +7945,7 @@
       "current_assets": 66090470000.0,
       "current_liabilities": 46109273000.0,
       "inventories": 30130708000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -8127,7 +8127,7 @@
       "current_assets": 45064004.0,
       "current_liabilities": 98972679.0,
       "inventories": 28197695.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -8218,7 +8218,7 @@
       "current_assets": 114038312000.0,
       "current_liabilities": 72453052000.0,
       "inventories": 7478900000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -8309,7 +8309,7 @@
       "current_assets": 4156336895.0,
       "current_liabilities": 8605050441.0,
       "inventories": 2698541280.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -8400,7 +8400,7 @@
       "current_assets": 1254937295.0,
       "current_liabilities": 1165239274.0,
       "inventories": 434444271.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -8582,7 +8582,7 @@
       "current_assets": 5282155650.0,
       "current_liabilities": 8248351348.0,
       "inventories": 1120312596.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -8673,7 +8673,7 @@
       "current_assets": 9673795000.0,
       "current_liabilities": 4816000000.0,
       "inventories": 2163975000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -8764,7 +8764,7 @@
       "current_assets": 802386827.0,
       "current_liabilities": 11320087.0,
       "inventories": null,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -8947,7 +8947,7 @@
       "current_assets": 3774227000.0,
       "current_liabilities": 1146559000.0,
       "inventories": 1265197000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -9039,7 +9039,7 @@
       "current_assets": 1728111572.0,
       "current_liabilities": 742959451.0,
       "inventories": 9856387.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -9130,7 +9130,7 @@
       "current_assets": 7559629431.0,
       "current_liabilities": 5416186652.0,
       "inventories": 914696391.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -9221,7 +9221,7 @@
       "current_assets": 3809412418.0,
       "current_liabilities": 4342975375.0,
       "inventories": 1150859077.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -9391,7 +9391,7 @@
       "current_assets": 302689071000.0,
       "current_liabilities": 155801289000.0,
       "inventories": 243436513000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -9664,7 +9664,7 @@
       "current_assets": 1529838864.0,
       "current_liabilities": 401529808.0,
       "inventories": 542613623.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 18,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -9755,7 +9755,7 @@
       "current_assets": 1358536253.0,
       "current_liabilities": 1004518402.0,
       "inventories": 626919979.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -9937,7 +9937,7 @@
       "current_assets": 66773135000.0,
       "current_liabilities": 84578944000.0,
       "inventories": 3550757000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -10029,7 +10029,7 @@
       "current_assets": 275272393000.0,
       "current_liabilities": 72660815000.0,
       "inventories": 16976694000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -10302,7 +10302,7 @@
       "current_assets": 570388564.0,
       "current_liabilities": 1127084309.0,
       "inventories": 289618787.0,
-      "financial_quarters_available": 15,
+      "financial_quarters_available": 17,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -10393,7 +10393,7 @@
       "current_assets": 3018188047.0,
       "current_liabilities": 1111108878.0,
       "inventories": 1159195719.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -10484,7 +10484,7 @@
       "current_assets": 8112763634.0,
       "current_liabilities": 4921512210.0,
       "inventories": 450347328.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 17,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -10577,7 +10577,7 @@
       "current_assets": 250627343000.0,
       "current_liabilities": 116913185000.0,
       "inventories": 89385563000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -10668,7 +10668,7 @@
       "current_assets": 164100501.0,
       "current_liabilities": 13404013.0,
       "inventories": 35455469.0,
-      "financial_quarters_available": 9,
+      "financial_quarters_available": 11,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": 162196746.0,
@@ -10937,7 +10937,7 @@
       "current_assets": 552795836.0,
       "current_liabilities": 321104405.0,
       "inventories": 288860680.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -11028,7 +11028,7 @@
       "current_assets": 7260118093.0,
       "current_liabilities": 12795019173.0,
       "inventories": 754134008.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -11119,7 +11119,7 @@
       "current_assets": 506623741.0,
       "current_liabilities": 55379592.0,
       "inventories": 54362163.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -11210,7 +11210,7 @@
       "current_assets": 909068411.0,
       "current_liabilities": 505431824.0,
       "inventories": 265478639.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -11301,7 +11301,7 @@
       "current_assets": 1312587717.0,
       "current_liabilities": 940025541.0,
       "inventories": 644702959.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -11480,7 +11480,7 @@
       "current_assets": 223456658000.0,
       "current_liabilities": 180623530000.0,
       "inventories": 49331040000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -11651,7 +11651,7 @@
       "current_assets": 22345563551.0,
       "current_liabilities": 19085734431.0,
       "inventories": null,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -11742,7 +11742,7 @@
       "current_assets": 827344205.0,
       "current_liabilities": 213210210.0,
       "inventories": 224799359.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -11911,7 +11911,7 @@
       "current_assets": 3220498658.0,
       "current_liabilities": 1708586590.0,
       "inventories": 1359274851.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -12002,7 +12002,7 @@
       "current_assets": 3192086844.0,
       "current_liabilities": 1634693932.0,
       "inventories": 1917714775.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -12184,7 +12184,7 @@
       "current_assets": 2793728999.0,
       "current_liabilities": 2399649009.0,
       "inventories": null,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -12366,7 +12366,7 @@
       "current_assets": 22113469364.0,
       "current_liabilities": 16691129512.0,
       "inventories": 776863486.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -12621,7 +12621,7 @@
       "current_assets": 3217024761.0,
       "current_liabilities": 3018471987.0,
       "inventories": 950979186.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -12712,7 +12712,7 @@
       "current_assets": 10656545429.0,
       "current_liabilities": 13187076103.0,
       "inventories": 3951046803.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -12896,7 +12896,7 @@
       "current_assets": 39694704626.0,
       "current_liabilities": 26906654918.0,
       "inventories": 7772977751.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -13078,7 +13078,7 @@
       "current_assets": 2189930835.0,
       "current_liabilities": 885608801.0,
       "inventories": 4409483.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -13248,7 +13248,7 @@
       "current_assets": 1089063100.0,
       "current_liabilities": 968897579.0,
       "inventories": 751345672.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -13431,7 +13431,7 @@
       "current_assets": 6182316144.0,
       "current_liabilities": 11685546011.0,
       "inventories": 2485137988.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -13613,7 +13613,7 @@
       "current_assets": null,
       "current_liabilities": null,
       "inventories": null,
-      "financial_quarters_available": 8,
+      "financial_quarters_available": 12,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": null,
@@ -13699,7 +13699,7 @@
       "current_assets": 1442532608.0,
       "current_liabilities": 337796730.0,
       "inventories": 498039765.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -14194,7 +14194,7 @@
       "current_assets": 102108960000.0,
       "current_liabilities": 45445629000.0,
       "inventories": 39116364000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -14285,7 +14285,7 @@
       "current_assets": 1766186992.0,
       "current_liabilities": 1628312057.0,
       "inventories": 558321117.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -14455,7 +14455,7 @@
       "current_assets": 4274567708.0,
       "current_liabilities": 3250441997.0,
       "inventories": 1403920759.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 18,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -14624,7 +14624,7 @@
       "current_assets": 526400329.0,
       "current_liabilities": 214941921.0,
       "inventories": 188070381.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -14715,7 +14715,7 @@
       "current_assets": 172568395.0,
       "current_liabilities": 51810703.0,
       "inventories": 48279507.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 19,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -14806,7 +14806,7 @@
       "current_assets": 16794803590.0,
       "current_liabilities": 25932020968.0,
       "inventories": 7694170929.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -14897,7 +14897,7 @@
       "current_assets": 2740223053.0,
       "current_liabilities": 1563340764.0,
       "inventories": 910442844.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -14988,7 +14988,7 @@
       "current_assets": 961857624.0,
       "current_liabilities": 940778087.0,
       "inventories": 140308708.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -15158,7 +15158,7 @@
       "current_assets": 11332523000.0,
       "current_liabilities": 11301951000.0,
       "inventories": 2956587000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -15249,7 +15249,7 @@
       "current_assets": 1278541185.0,
       "current_liabilities": 1212404232.0,
       "inventories": 795933537.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -15341,7 +15341,7 @@
       "current_assets": 12112187475.0,
       "current_liabilities": 4394262378.0,
       "inventories": 7804857920.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -15707,7 +15707,7 @@
       "current_assets": 3016408000000.0,
       "current_liabilities": 3459611000000.0,
       "inventories": 195089000000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -15798,7 +15798,7 @@
       "current_assets": 5749268357.0,
       "current_liabilities": 2679205654.0,
       "inventories": 760499199.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -15889,7 +15889,7 @@
       "current_assets": 5025090485.0,
       "current_liabilities": 4119458544.0,
       "inventories": 1326827517.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -16071,7 +16071,7 @@
       "current_assets": 1208203180.0,
       "current_liabilities": 855922920.0,
       "inventories": 454347796.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 17,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -16253,7 +16253,7 @@
       "current_assets": 2441759920.0,
       "current_liabilities": 1610128632.0,
       "inventories": 352478449.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -16435,7 +16435,7 @@
       "current_assets": 2116981482.0,
       "current_liabilities": 364888896.0,
       "inventories": 560472534.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 18,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -16526,7 +16526,7 @@
       "current_assets": 2323125588.0,
       "current_liabilities": 1643968021.0,
       "inventories": 878497171.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -16709,7 +16709,7 @@
       "current_assets": 20779424439.0,
       "current_liabilities": 15369394309.0,
       "inventories": 7765888322.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -17036,7 +17036,7 @@
       "current_assets": 36570658485.0,
       "current_liabilities": 25731095369.0,
       "inventories": 21365833912.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -17218,7 +17218,7 @@
       "current_assets": 629163752.0,
       "current_liabilities": 622182683.0,
       "inventories": 352562731.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -17309,7 +17309,7 @@
       "current_assets": 1238291258.0,
       "current_liabilities": 835824555.0,
       "inventories": 534629050.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -17400,7 +17400,7 @@
       "current_assets": 7398231000.0,
       "current_liabilities": 5733714000.0,
       "inventories": 3171294000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -17491,7 +17491,7 @@
       "current_assets": 2292109154.0,
       "current_liabilities": 1157635084.0,
       "inventories": 1588479020.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 19,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -17582,7 +17582,7 @@
       "current_assets": 2265156665.0,
       "current_liabilities": 585651651.0,
       "inventories": 1262608255.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -17856,7 +17856,7 @@
       "current_assets": 263514381.0,
       "current_liabilities": 119124715.0,
       "inventories": 104244882.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -18038,7 +18038,7 @@
       "current_assets": 1301933330.0,
       "current_liabilities": 350950606.0,
       "inventories": 312944834.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -18306,7 +18306,7 @@
       "current_assets": 17960054000.0,
       "current_liabilities": 10989956000.0,
       "inventories": 5852882000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -18397,7 +18397,7 @@
       "current_assets": 1821357594.0,
       "current_liabilities": 541529219.0,
       "inventories": 550442390.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 19,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -18670,7 +18670,7 @@
       "current_assets": 1280721149.0,
       "current_liabilities": 1240288351.0,
       "inventories": 428015964.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -18761,7 +18761,7 @@
       "current_assets": 716051230.0,
       "current_liabilities": 457586226.0,
       "inventories": 173669418.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -18939,7 +18939,7 @@
       "current_assets": 76260429000.0,
       "current_liabilities": 96259374000.0,
       "inventories": 41241056000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -19030,7 +19030,7 @@
       "current_assets": 6931621328.0,
       "current_liabilities": 3180964225.0,
       "inventories": 3379378551.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -19121,7 +19121,7 @@
       "current_assets": 5930425389.0,
       "current_liabilities": 4323335592.0,
       "inventories": 1191923173.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 17,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -19212,7 +19212,7 @@
       "current_assets": 21427766000.0,
       "current_liabilities": 16634713000.0,
       "inventories": 1110159000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -19303,7 +19303,7 @@
       "current_assets": 1890053600.0,
       "current_liabilities": 2076081537.0,
       "inventories": 461539007.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -19438,7 +19438,7 @@
       "current_assets": 200466947.0,
       "current_liabilities": 53942490.0,
       "inventories": 11082089.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -19529,7 +19529,7 @@
       "current_assets": 13465507492.0,
       "current_liabilities": 3028828730.0,
       "inventories": 1398495851.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -19712,7 +19712,7 @@
       "current_assets": 7548750555.0,
       "current_liabilities": 3894376056.0,
       "inventories": 2668197706.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -19985,7 +19985,7 @@
       "current_assets": 789125582.0,
       "current_liabilities": 853601362.0,
       "inventories": 385977648.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 18,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -20154,7 +20154,7 @@
       "current_assets": 4752081249.0,
       "current_liabilities": 2749423272.0,
       "inventories": null,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -20246,7 +20246,7 @@
       "current_assets": 43116777000.0,
       "current_liabilities": 41368329000.0,
       "inventories": 16229975000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -20338,7 +20338,7 @@
       "current_assets": 32616470000.0,
       "current_liabilities": 14527572000.0,
       "inventories": 8167672000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -20429,7 +20429,7 @@
       "current_assets": 458673467.0,
       "current_liabilities": 194585808.0,
       "inventories": 84403075.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -20520,7 +20520,7 @@
       "current_assets": 20069766026.0,
       "current_liabilities": 8288294431.0,
       "inventories": null,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -20702,7 +20702,7 @@
       "current_assets": 241683735.0,
       "current_liabilities": 58131061.0,
       "inventories": 58153790.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21061,7 +21061,7 @@
       "current_assets": 2193610755.0,
       "current_liabilities": 6555876470.0,
       "inventories": 1396539111.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21152,7 +21152,7 @@
       "current_assets": 1169857988.0,
       "current_liabilities": 1177395484.0,
       "inventories": 703802250.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21245,7 +21245,7 @@
       "current_assets": 30835350000.0,
       "current_liabilities": 55006857000.0,
       "inventories": 9445833000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21336,7 +21336,7 @@
       "current_assets": 5780220815.0,
       "current_liabilities": 4364056109.0,
       "inventories": 1080210701.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21428,7 +21428,7 @@
       "current_assets": 90234819051.0,
       "current_liabilities": 88019782755.0,
       "inventories": 2314444083.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21519,7 +21519,7 @@
       "current_assets": 654118603.0,
       "current_liabilities": 962428586.0,
       "inventories": 121399120.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21610,7 +21610,7 @@
       "current_assets": 2207703501.0,
       "current_liabilities": 1652121760.0,
       "inventories": 500510669.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 17,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21701,7 +21701,7 @@
       "current_assets": 6140499543.0,
       "current_liabilities": 6935084739.0,
       "inventories": 1380751510.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21883,7 +21883,7 @@
       "current_assets": 6257565695.0,
       "current_liabilities": 4320334791.0,
       "inventories": 1647454301.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -21974,7 +21974,7 @@
       "current_assets": 232781338.0,
       "current_liabilities": 210373618.0,
       "inventories": 81385624.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -22065,7 +22065,7 @@
       "current_assets": 280941422.0,
       "current_liabilities": 77292659.0,
       "inventories": 206982223.0,
-      "financial_quarters_available": 15,
+      "financial_quarters_available": 19,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": 110735621.0,
@@ -22151,7 +22151,7 @@
       "current_assets": 10325790662.0,
       "current_liabilities": 10177935729.0,
       "inventories": 2473460987.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -22489,7 +22489,7 @@
       "current_assets": 1873325081.0,
       "current_liabilities": 1262106047.0,
       "inventories": 730176121.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 18,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -22580,7 +22580,7 @@
       "current_assets": 84724810.0,
       "current_liabilities": 62375200.0,
       "inventories": 75896356.0,
-      "financial_quarters_available": 11,
+      "financial_quarters_available": 13,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": 88605385.0,
@@ -22666,7 +22666,7 @@
       "current_assets": 185312711.0,
       "current_liabilities": 134200250.0,
       "inventories": 42139369.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -22939,7 +22939,7 @@
       "current_assets": 7572213695.0,
       "current_liabilities": 6763537646.0,
       "inventories": 66928449.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -23030,7 +23030,7 @@
       "current_assets": 1060346689.0,
       "current_liabilities": 476491972.0,
       "inventories": 390583458.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -23122,7 +23122,7 @@
       "current_assets": 2382163233000.0,
       "current_liabilities": 3026038587000.0,
       "inventories": 36510089000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -23213,7 +23213,7 @@
       "current_assets": 125902898.0,
       "current_liabilities": 221745059.0,
       "inventories": 45152682.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -23304,7 +23304,7 @@
       "current_assets": 1002100914.0,
       "current_liabilities": 540167169.0,
       "inventories": 292847318.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -23473,7 +23473,7 @@
       "current_assets": 22668173923.0,
       "current_liabilities": 15615531090.0,
       "inventories": 8758164689.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -23566,7 +23566,7 @@
       "current_assets": 29764003000.0,
       "current_liabilities": 67495440000.0,
       "inventories": 14629007000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -23657,7 +23657,7 @@
       "current_assets": 1340963464.0,
       "current_liabilities": 519303495.0,
       "inventories": 473789402.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -23839,7 +23839,7 @@
       "current_assets": 952221777.0,
       "current_liabilities": 1064372366.0,
       "inventories": 297033128.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -23930,7 +23930,7 @@
       "current_assets": 818092000.0,
       "current_liabilities": 1373827000.0,
       "inventories": 168960000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 19,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -24112,7 +24112,7 @@
       "current_assets": 427597542.0,
       "current_liabilities": 55137696.0,
       "inventories": 96464692.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -24203,7 +24203,7 @@
       "current_assets": 673217134.0,
       "current_liabilities": 790916331.0,
       "inventories": 281834618.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -24295,7 +24295,7 @@
       "current_assets": 141493818000.0,
       "current_liabilities": 112306001000.0,
       "inventories": 50718153000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -24386,7 +24386,7 @@
       "current_assets": null,
       "current_liabilities": null,
       "inventories": null,
-      "financial_quarters_available": 8,
+      "financial_quarters_available": 10,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": null,
@@ -24472,7 +24472,7 @@
       "current_assets": 942759599.0,
       "current_liabilities": 1232443708.0,
       "inventories": 557229688.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -24563,7 +24563,7 @@
       "current_assets": 2458692669.0,
       "current_liabilities": 1881921109.0,
       "inventories": null,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -24654,7 +24654,7 @@
       "current_assets": 11413643660.0,
       "current_liabilities": 4393753174.0,
       "inventories": 8270070215.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -25005,7 +25005,7 @@
       "current_assets": 47408817166.0,
       "current_liabilities": 55040595984.0,
       "inventories": 35178322117.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -25278,7 +25278,7 @@
       "current_assets": 1409556670.0,
       "current_liabilities": 1123246424.0,
       "inventories": 712256298.0,
-      "financial_quarters_available": 12,
+      "financial_quarters_available": 13,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -25369,7 +25369,7 @@
       "current_assets": 7408928017.0,
       "current_liabilities": 5270671526.0,
       "inventories": 4254075228.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -25461,7 +25461,7 @@
       "current_assets": 47008163000.0,
       "current_liabilities": 60607334000.0,
       "inventories": 2860664000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -25552,7 +25552,7 @@
       "current_assets": 26619873000.0,
       "current_liabilities": 19990027000.0,
       "inventories": 6133605000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -25644,7 +25644,7 @@
       "current_assets": 156628647000.0,
       "current_liabilities": 91990404000.0,
       "inventories": 897953000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -25827,7 +25827,7 @@
       "current_assets": 3869111000.0,
       "current_liabilities": 1185593000.0,
       "inventories": 1310627000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 18,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -25919,7 +25919,7 @@
       "current_assets": 436412000000.0,
       "current_liabilities": 442076000000.0,
       "inventories": 41472000000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -26010,7 +26010,7 @@
       "current_assets": 27012127000.0,
       "current_liabilities": 36089961000.0,
       "inventories": 9990211000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -26179,7 +26179,7 @@
       "current_assets": 1047027439.0,
       "current_liabilities": 1011178238.0,
       "inventories": 499471863.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -26270,7 +26270,7 @@
       "current_assets": 7307905699.0,
       "current_liabilities": 2330742103.0,
       "inventories": 3451904523.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -26363,7 +26363,7 @@
       "current_assets": 120393022000.0,
       "current_liabilities": 70790631000.0,
       "inventories": 16855555000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -26639,7 +26639,7 @@
       "current_assets": 27706943000.0,
       "current_liabilities": 4037222000.0,
       "inventories": 6803324000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -26824,7 +26824,7 @@
       "current_assets": null,
       "current_liabilities": null,
       "inventories": null,
-      "financial_quarters_available": 8,
+      "financial_quarters_available": 10,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": null,
@@ -26911,7 +26911,7 @@
       "current_assets": 115153435000.0,
       "current_liabilities": 75943922000.0,
       "inventories": 1832569000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27003,7 +27003,7 @@
       "current_assets": 22733430133.0,
       "current_liabilities": 18636249854.0,
       "inventories": 9446149900.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27094,7 +27094,7 @@
       "current_assets": 3149324935.0,
       "current_liabilities": 2242432220.0,
       "inventories": 1036691046.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27186,7 +27186,7 @@
       "current_assets": 10914061765.0,
       "current_liabilities": 5620136117.0,
       "inventories": 6930646442.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27279,7 +27279,7 @@
       "current_assets": 236931136000.0,
       "current_liabilities": 169748201000.0,
       "inventories": 62145470000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27450,7 +27450,7 @@
       "current_assets": 84906085000.0,
       "current_liabilities": 35289768000.0,
       "inventories": 23671382000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27541,7 +27541,7 @@
       "current_assets": 4805916030.0,
       "current_liabilities": 5547941740.0,
       "inventories": 2228538177.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27632,7 +27632,7 @@
       "current_assets": 28609867954.0,
       "current_liabilities": 22740570252.0,
       "inventories": 2864202196.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27725,7 +27725,7 @@
       "current_assets": null,
       "current_liabilities": null,
       "inventories": null,
-      "financial_quarters_available": 8,
+      "financial_quarters_available": 10,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": null,
@@ -27811,7 +27811,7 @@
       "current_assets": 20316291.0,
       "current_liabilities": 11101497.0,
       "inventories": null,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27902,7 +27902,7 @@
       "current_assets": 35007837000.0,
       "current_liabilities": 42579715000.0,
       "inventories": 8426041000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -27994,7 +27994,7 @@
       "current_assets": 48526174000.0,
       "current_liabilities": 105833729000.0,
       "inventories": 20469739000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -28085,7 +28085,7 @@
       "current_assets": 394855512.0,
       "current_liabilities": 3342704155.0,
       "inventories": 160887755.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -28267,7 +28267,7 @@
       "current_assets": 299038045.0,
       "current_liabilities": 126617295.0,
       "inventories": 51063952.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -28358,7 +28358,7 @@
       "current_assets": 9602064002.0,
       "current_liabilities": 7465499903.0,
       "inventories": 3793699091.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -28542,7 +28542,7 @@
       "current_assets": null,
       "current_liabilities": null,
       "inventories": null,
-      "financial_quarters_available": 8,
+      "financial_quarters_available": 10,
       "ttm_status": "ANNUAL_FALLBACK",
       "ttm_quarters_used": [],
       "revenue_ttm": null,
@@ -28628,7 +28628,7 @@
       "current_assets": 1057976708.0,
       "current_liabilities": 769735614.0,
       "inventories": 624754280.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -28719,7 +28719,7 @@
       "current_assets": 2501121612.0,
       "current_liabilities": 1055265705.0,
       "inventories": 905639816.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -28901,7 +28901,7 @@
       "current_assets": 22812573000.0,
       "current_liabilities": 23592211000.0,
       "inventories": 635812000.0,
-      "financial_quarters_available": 16,
+      "financial_quarters_available": 20,
       "ttm_status": "TTM_4Q",
       "ttm_quarters_used": [
         "2025Q1",
@@ -29035,5 +29035,5 @@
       "XUSIN": 248
     }
   },
-  "generated_at": "2026-10-02T12:05:33.849784+00:00"
+  "generated_at": "2026-10-02T13:14:51.180163+00:00"
 }

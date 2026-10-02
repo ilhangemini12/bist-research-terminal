@@ -1,6 +1,6 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-02T12:05:36.541689+00:00",
+  "generated_at": "2026-10-02T13:14:54.227768+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
@@ -18,18 +18,18 @@
   "financial_high_confidence_count": 292,
   "financial_quarter_depth": {
     "min": 0,
-    "median": 16,
-    "max": 16,
+    "median": 20,
+    "max": 20,
     "tickers_with_at_least": {
       "1": 292,
       "4": 287,
       "8": 270,
-      "12": 230,
-      "16": 205,
-      "20": 0
+      "12": 232,
+      "16": 208,
+      "20": 179
     },
-    "pct_with_at_least_12": 71.2,
-    "pct_with_at_least_20": 0.0,
+    "pct_with_at_least_12": 71.8,
+    "pct_with_at_least_20": 55.4,
     "ttm_4q_ready_count": 276,
     "ttm_4q_ready_pct": 85.4
   },

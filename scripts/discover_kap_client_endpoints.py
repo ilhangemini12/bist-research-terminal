@@ -40,7 +40,7 @@ def main():
                     value=m.group(1)
                     if len(value)<300:
                         found.add(value)
-            for kw in ("bist-sirketler","sirket-bilgileri","company-list","company","member"):
+            for kw in ("GET_COMPANY_ITEMS","api/company/items","bist-sirketler","sirket-bilgileri","company-list","company","member"):
                 pos=low.find(kw)
                 if pos>=0:
                     snippet=body[max(0,pos-500):pos+1200]

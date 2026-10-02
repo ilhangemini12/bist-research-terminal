@@ -108,10 +108,18 @@ def _period_columns(df: pd.DataFrame):
 
 BALANCE = {
     "assets": ("TOPLAM VARLIKLAR", "AKTIF TOPLAMI", "VARLIKLAR TOPLAMI"),
-    "equity": ("TOPLAM OZKAYNAKLAR", "OZKAYNAKLAR TOPLAMI", "OZKAYNAKLAR"),
-    "current_assets": ("DONEN VARLIKLAR", "TOPLAM DONEN VARLIKLAR"),
-    "current_liabilities": ("KISA VADELI YUKUMLULUKLER", "TOPLAM KISA VADELI YUKUMLULUKLER"),
-    "cash": ("NAKIT VE NAKIT BENZERLERI",),
+    "equity": (
+        "TOPLAM OZKAYNAKLAR", "OZKAYNAKLAR TOPLAMI", "OZKAYNAKLAR",
+        "OZSERMAYE TOPLAMI",
+    ),
+    "current_assets": (
+        "DONEN VARLIKLAR", "TOPLAM DONEN VARLIKLAR", "CARI VARLIKLAR TOPLAMI",
+    ),
+    "current_liabilities": (
+        "KISA VADELI YUKUMLULUKLER", "TOPLAM KISA VADELI YUKUMLULUKLER",
+        "KISA VADELI YUKUMLULUKLER TOPLAMI",
+    ),
+    "cash": ("NAKIT VE NAKIT BENZERLERI", "NAKIT VE NAKIT BENZERI VARLIKLAR"),
     "inventories": ("STOKLAR",),
 }
 INCOME = {
@@ -122,6 +130,9 @@ INCOME = {
         "DONEM KARI (ZARARI)",
         "NET DONEM KARI (ZARARI)",
         "NET DONEM KARI VEYA ZARARI",
+        "DONEM NET KARI VEYA ZARARI",
+        "NET DONEM KARI/ZARARI",
+        "DONEM NET KARI",
     ),
 }
 CASHFLOW = {

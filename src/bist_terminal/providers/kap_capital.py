@@ -75,7 +75,7 @@ def parse_total_shares(page_html:str,ticker:str|None=None)->dict:
     # nominal value per share. Never assume nominal value is 1 TRY.
     for df in tables:
         cols=[str(c).strip() for c in df.columns]
-        norm=[c.upper().replace("İ","I") for c in cols]
+        norm=[_fold(c) for c in cols]
         nominal_per=None; nominal_total=None
         for i,c in enumerate(norm):
             if "BEHER PAYIN NOMINAL DEGERI" in c:
@@ -125,9 +125,10 @@ class KapCapitalProvider:
         r=self.session.get(url,headers=self.headers,timeout=self.timeout)
         r.raise_for_status()
         parsed=parse_total_shares(r.text,ticker)
+        production_ok = parsed.get("method") == "EXPLICIT_TOTAL_SHARE_COUNT" and bool(parsed.get("total_shares"))
         return {
             "ticker":ticker,
-            "status":"ACTIVE" if parsed.get("total_shares") else "DATA_UNAVAILABLE",
+            "status":"ACTIVE" if production_ok else ("EXPERIMENTAL_FALLBACK_ONLY" if parsed.get("total_shares") else "DATA_UNAVAILABLE"),
             "source_url":url,
             **meta,
             **parsed,

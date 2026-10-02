@@ -28,3 +28,40 @@ def verify_prices(observations:list[PriceObservation],expected_trade_date:str,to
     official_present=any(o.provider_id in official_ids for o in independent)
     reason='two or more independent upstreams agree' + ('; official anchor included' if official_present else '')
     return VerificationResult(ticker,PriceConfidence.VERIFIED_2X,mid,expected_trade_date,[x.provider_id for x in independent],[x.lineage_key() for x in independent],diff,reason)
+
+
+def retain_same_trade_date_verified(
+    current: VerificationResult,
+    previous: dict | None,
+    expected_trade_date: str,
+) -> VerificationResult:
+    """Preserve an already VERIFIED_2X EOD result for the same immutable trade date.
+
+    This guards transient refresh failures after an official EOD close was already
+    cross-verified. It never carries verification across trade dates and never
+    upgrades a previously unverified row.
+    """
+    if not previous or current.status == PriceConfidence.VERIFIED_2X:
+        return current
+    previous_date = str(previous.get("trade_date") or "")
+    previous_status = previous.get("status")
+    previous_price = previous.get("verified_price")
+    if (
+        previous_date == expected_trade_date
+        and previous_status == PriceConfidence.VERIFIED_2X
+        and previous_price is not None
+    ):
+        return VerificationResult(
+            ticker=current.ticker or str(previous.get("ticker") or ""),
+            status=PriceConfidence.VERIFIED_2X,
+            verified_price=float(previous_price),
+            trade_date=expected_trade_date,
+            sources=list(previous.get("sources") or []),
+            upstreams=list(previous.get("upstreams") or []),
+            max_diff_pct=previous.get("max_diff_pct"),
+            reason=(
+                "retained prior VERIFIED_2X for the same trade date after transient refresh degradation; "
+                f"refresh_status={current.status}; refresh_reason={current.reason}"
+            ),
+        )
+    return current

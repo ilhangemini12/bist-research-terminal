@@ -1,0 +1,39 @@
+name: Extended Financial Coverage Audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/extended-financial-audit'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: 'pip'}
+      - run: pip install -r requirements.txt
+      - name: Validate extended calculations and audit
+        run: |
+          python -m compileall -q src scripts/audit_extended_financial_coverage.py
+          pytest -q tests/test_extended_financial_metrics.py tests/test_extended_financial_files.py tests/test_extended_valuation.py
+          python scripts/audit_extended_financial_coverage.py
+      - name: Commit audit checkpoint
+        run: |
+          set -euo pipefail
+          git config user.name "bist-research-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add artifacts/extended_financial_coverage.json
+          if git diff --cached --quiet; then
+            echo "No extended audit changes to commit."
+            exit 0
+          fi
+          git commit -m "report: extended financial coverage audit"
+          git pull --rebase origin main
+          git push origin HEAD:main

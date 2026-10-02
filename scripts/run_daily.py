@@ -21,9 +21,11 @@ from bist_terminal.quality.market_calendar import load_calendar, latest_expected
 from bist_terminal.storage.duckdb_store import DuckDBStore
 from bist_terminal.storage.history_files import history_parquet_files
 from bist_terminal.storage.financial_files import financial_parquet_files
+from bist_terminal.storage.capital_files import load_capital_records
 from bist_terminal.calculations.fundamental import safe_div
 from bist_terminal.calculations.growth import yoy_from_quarters, ttm_growth
 from bist_terminal.calculations.technical import add_indicators
+from bist_terminal.calculations.valuation import compute_valuation
 from bist_terminal.financials.quarterly import standalone_quarters, ttm_from_quarters
 from bist_terminal.financials.kap_bulk import notification_id_from_source_file
 
@@ -170,6 +172,12 @@ def main():
     financial_latest = {}
     financial_history = {}
     technical_covered = 0
+    try:
+        capital_records = load_capital_records(ROOT)
+        capital_status = 'ACTIVE'
+    except Exception as exc:
+        capital_records = {}
+        capital_status = f'DEGRADED: {type(exc).__name__}: {exc}'
 
     try:
         store = DuckDBStore(ROOT / 'data/bist.duckdb')
@@ -243,6 +251,15 @@ def main():
             'net_income_ttm_growth':ttm_growth(net_income_q),
         }
         ttm_status = 'TTM_4Q' if qttm else ('ANNUAL_FALLBACK' if financial_ok and annual else 'INSUFFICIENT_QUARTERS')
+        capital = capital_records.get(ticker, {})
+        valuation = compute_valuation(
+            price_status=vr.status,
+            price=vr.verified_price,
+            total_shares=capital.get('total_shares'),
+            net_income_ttm=flow_facts.get('net_income') if financial_ok else None,
+            equity=facts.get('equity') if financial_ok else None,
+            revenue_ttm=flow_facts.get('revenue') if financial_ok else None,
+        )
 
         def yoy(metric):
             cur = facts.get(metric)
@@ -345,6 +362,16 @@ def main():
             'financial_source_url': fin.get('source_url'),
             'financial_notification_id': financial_notification_id,
             'financial_notification_url': financial_notification_url,
+            'total_shares': capital.get('total_shares'),
+            'capital_method': capital.get('method'),
+            'capital_source_url': capital.get('source_url'),
+            'valuation_status': valuation.get('valuation_status'),
+            'valuation_basis': ttm_status,
+            'market_cap': valuation.get('market_cap'),
+            'pe': valuation.get('pe'),
+            'pb': valuation.get('pb'),
+            'ps': valuation.get('ps'),
+            'earnings_yield': valuation.get('earnings_yield'),
             'assets': facts.get('assets') if financial_ok else None,
             'equity': facts.get('equity') if financial_ok else None,
             'cash': facts.get('cash') if financial_ok else None,
@@ -384,6 +411,10 @@ def main():
 
     verified = sum(r['price_status'] == 'VERIFIED_2X' for r in rows)
     financial_covered = sum(r.get('financial_status') == 'PARSED_HIGH_CONFIDENCE' for r in rows)
+    capital_covered = sum(bool(r.get('total_shares')) for r in rows)
+    valuation_active = sum(r.get('valuation_status') == 'ACTIVE' for r in rows)
+    pe_covered = sum(r.get('pe') is not None for r in rows)
+    pb_covered = sum(r.get('pb') is not None for r in rows)
     financial_periods = [r.get('financial_report_period') for r in rows if r.get('financial_status') == 'PARSED_HIGH_CONFIDENCE' and r.get('financial_report_period')]
     financial_as_of = max(financial_periods) if financial_periods else 'N/A'
     sources = [
@@ -400,6 +431,19 @@ def main():
             'message': storage_status,
         },
     ] + provider_health(chain, attempts)
+    sources.append({
+        'provider': 'kap_capital_explicit',
+        'status': 'ACTIVE' if capital_status == 'ACTIVE' and capital_covered else 'DEGRADED',
+        'upstream': 'KAP / MKK',
+        'successes': capital_covered,
+        'failures': len(rows) - capital_covered,
+        'skipped_after_circuit': 0,
+        'message': (
+            f'Explicit KAP total-share coverage: {capital_covered}/{len(rows)}; '
+            f'experimental nominal-ratio fallback excluded'
+            if capital_status == 'ACTIVE' else capital_status
+        ),
+    })
     sources.append({
         'provider': 'kap_bulk_financials',
         'status': 'ACTIVE' if financial_covered else 'DEGRADED',
@@ -427,6 +471,11 @@ def main():
             'financial_coverage_pct': round((financial_covered / len(rows) * 100), 1) if rows else 0,
             'technical_rsi14_count': technical_covered,
             'technical_coverage_pct': round((technical_covered / len(rows) * 100), 1) if rows else 0,
+            'capital_explicit_count': capital_covered,
+            'capital_coverage_pct': round((capital_covered / len(rows) * 100), 1) if rows else 0,
+            'valuation_active_count': valuation_active,
+            'pe_count': pe_covered,
+            'pb_count': pb_covered,
         },
         'universe': {
             'indices': index_codes,
@@ -439,7 +488,9 @@ def main():
     })
     print(
         f'LIVE_PIPELINE_OK expected={expected} tracked={len(rows)} '
-        f'verified={verified} unverified={len(rows)-verified} financials={financial_covered}/{len(rows)} technical={technical_covered}/{len(rows)} universe={universe_status}'
+        f'verified={verified} unverified={len(rows)-verified} financials={financial_covered}/{len(rows)} '
+        f'technical={technical_covered}/{len(rows)} capital={capital_covered}/{len(rows)} '
+        f'valuation_active={valuation_active}/{len(rows)} pe={pe_covered} pb={pb_covered} universe={universe_status}'
     )
 
 

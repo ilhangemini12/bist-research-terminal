@@ -17,6 +17,7 @@ summary={
     'Valuation Active':data.get('summary',{}).get('valuation_active_count',0),
     'P/E Available':data.get('summary',{}).get('pe_count',0),
     'P/B Available':data.get('summary',{}).get('pb_count',0),
+    'Dividend Positive':data.get('summary',{}).get('dividend_positive_count',0),
 }
 source_catalog=pd.DataFrame(yaml.safe_load((ROOT/'config/source_catalog.yaml').read_text())['providers'])
 source_status=pd.DataFrame(data.get('sources',[]))
@@ -53,8 +54,8 @@ tables={
     'Growth Scanner':filter_expr(presets['GROWTH']['rules']),
     'Ozkan Filiz':filter_expr(presets['OZKAN_FILIZ_SECTOR_VALUE']['rules']),
     'Volkan Kocabas':filter_expr(presets['VOLKAN_KOCABAS_VALUE_GROWTH']['rules']),
-    'Technical':cols(['ticker','price','price_status','rsi14','sma10','sma20','sma50','roc20','volume','volume_ma20','volume_ratio']),
-    'Fundamentals':cols(['ticker','sector','price','price_status','total_shares','market_cap','pe','pb','ps','earnings_yield','valuation_status','valuation_basis','financial_report_period','financial_quarters_available','roe','roa','gross_margin','operating_margin','current_ratio','quick_ratio','revenue_ttm','net_income_ttm','assets','equity','capital_source_url','financial_source_url']),
+    'Technical':cols(['ticker','price','price_status','rsi14','rsi14_prev','rsi_recent_low','sma10','sma20','sma50','roc20','volume','volume_ma20','volume_ratio']),
+    'Fundamentals':cols(['ticker','sector','price','price_status','total_shares','market_cap','pe','pb','ps','earnings_yield','dividend_ttm_per_share','dividend_yield','dividend_payout_ratio','valuation_status','valuation_basis','financial_report_period','financial_quarters_available','roe','roa','gross_margin','operating_margin','current_ratio','quick_ratio','revenue_ttm','net_income_ttm','assets','equity','capital_source_url','financial_source_url']),
     'Growth':cols(['ticker','revenue_growth_yoy','net_income_growth_yoy','revenue_quarter_yoy','net_income_quarter_yoy','revenue_ttm_growth','net_income_ttm_growth']),
     'Target Prices':cols(['ticker','target_upside']),
     'Model Portfolios':pd.DataFrame(),

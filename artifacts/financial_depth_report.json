@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-02T14:31:41.130541+00:00",
+  "generated_at": "2026-10-02T22:06:55.209191+00:00",
   "tracked_tickers": 323,
-  "financial_rows": 5087,
+  "financial_rows": 5688,
   "status_counts": {
-    "PARSED_HIGH_CONFIDENCE": 5056,
-    "PARSED_REVIEW_REQUIRED": 31
+    "PARSED_HIGH_CONFIDENCE": 5656,
+    "PARSED_REVIEW_REQUIRED": 32
   },
   "distinct_report_periods": [
     "2021-03-31",
@@ -69,7 +69,8 @@
     "2026-03-31",
     "2026-04-30",
     "2026-05-31",
-    "2026-06-30"
+    "2026-06-30",
+    "2026-07-31"
   ],
   "report_period_company_counts": {
     "2021-03-31": 195,
@@ -131,10 +132,11 @@
     "2025-12-31": 295,
     "2026-01-31": 2,
     "2026-02-28": 1,
-    "2026-03-31": 3,
-    "2026-04-30": 1,
+    "2026-03-31": 297,
+    "2026-04-30": 2,
     "2026-05-31": 1,
-    "2026-06-30": 2
+    "2026-06-30": 306,
+    "2026-07-31": 2
   },
   "archive_period_row_counts": {
     "2021-1": 198,
@@ -156,7 +158,9 @@
     "2025-1": 293,
     "2025-2": 293,
     "2025-3": 295,
-    "2025-4": 298
+    "2025-4": 298,
+    "2026-1": 297,
+    "2026-2": 304
   },
   "review_required_examples": [
     {
@@ -616,6 +620,25 @@
       "source_file": "PRZMA_1475118_2025_2.xls"
     },
     {
+      "ticker": "PRZMA",
+      "report_period": "2026-06-30",
+      "archive_year": 2026,
+      "archive_period": "2",
+      "quality_score": 80,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 3,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "cash_from_operations",
+        "current_assets",
+        "current_liabilities",
+        "equity",
+        "inventories"
+      ],
+      "source_file": "PRZMA_1646831_2026_2.xls"
+    },
+    {
       "ticker": "RODRG",
       "report_period": "2021-06-30",
       "archive_year": 2021,
@@ -751,36 +774,36 @@
   ],
   "period_depth": {
     "all_min": 0,
-    "all_median": 20,
-    "all_max": 20,
+    "all_median": 22,
+    "all_max": 22,
     "high_conf_min": 0,
-    "high_conf_median": 20,
-    "high_conf_max": 20,
+    "high_conf_median": 22,
+    "high_conf_max": 22,
     "tickers_with_at_least": {
-      "1": 298,
-      "4": 293,
-      "8": 276,
-      "12": 243,
-      "16": 220,
-      "20": 191
+      "1": 311,
+      "4": 295,
+      "8": 287,
+      "12": 259,
+      "16": 226,
+      "20": 207
     }
   },
   "standalone_quarter_depth": {
     "min": 0,
-    "median": 20,
-    "max": 20,
+    "median": 22,
+    "max": 22,
     "tickers_with_at_least": {
-      "1": 298,
-      "4": 293,
-      "8": 276,
-      "12": 243,
-      "16": 220,
-      "20": 191
+      "1": 311,
+      "4": 295,
+      "8": 287,
+      "12": 259,
+      "16": 226,
+      "20": 207
     },
-    "pct_with_at_least_12": 75.2,
-    "pct_with_at_least_20": 59.1,
-    "ttm_4q_ready_count": 288,
-    "ttm_4q_ready_pct": 89.2
+    "pct_with_at_least_12": 80.2,
+    "pct_with_at_least_20": 64.1,
+    "ttm_4q_ready_count": 293,
+    "ttm_4q_ready_pct": 90.7
   },
   "lowest_depth": [
     {
@@ -798,42 +821,7 @@
       "ttm_4q_ready": false
     },
     {
-      "ticker": "ALBTN",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
-      "ttm_4q_ready": false
-    },
-    {
-      "ticker": "BETAE",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
-      "ttm_4q_ready": false
-    },
-    {
-      "ticker": "EKDMR",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
-      "ttm_4q_ready": false
-    },
-    {
       "ticker": "GARAN",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
-      "ttm_4q_ready": false
-    },
-    {
-      "ticker": "GENKM",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
-      "ttm_4q_ready": false
-    },
-    {
-      "ticker": "GOLDA",
       "all_periods": 0,
       "high_conf_periods": 0,
       "standalone_quarters": 0,
@@ -882,27 +870,6 @@
       "ttm_4q_ready": false
     },
     {
-      "ticker": "ISVEA",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
-      "ttm_4q_ready": false
-    },
-    {
-      "ticker": "KARCL",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
-      "ttm_4q_ready": false
-    },
-    {
-      "ticker": "KPEKS",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
-      "ttm_4q_ready": false
-    },
-    {
       "ticker": "KRDMA",
       "all_periods": 0,
       "high_conf_periods": 0,
@@ -924,80 +891,129 @@
       "ttm_4q_ready": false
     },
     {
+      "ticker": "ALBTN",
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
+      "ttm_4q_ready": false
+    },
+    {
+      "ticker": "BETAE",
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
+      "ttm_4q_ready": false
+    },
+    {
+      "ticker": "GOLDA",
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
+      "ttm_4q_ready": false
+    },
+    {
+      "ticker": "ISVEA",
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
+      "ttm_4q_ready": false
+    },
+    {
+      "ticker": "KARCL",
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
+      "ttm_4q_ready": false
+    },
+    {
+      "ticker": "KPEKS",
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
+      "ttm_4q_ready": false
+    },
+    {
       "ticker": "ORZAX",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
       "ttm_4q_ready": false
     },
     {
       "ticker": "QUICK",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
       "ttm_4q_ready": false
     },
     {
       "ticker": "SARAE",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
       "ttm_4q_ready": false
     },
     {
       "ticker": "SOHOE",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
       "ttm_4q_ready": false
     },
     {
       "ticker": "TKNKA",
-      "all_periods": 0,
-      "high_conf_periods": 0,
-      "standalone_quarters": 0,
+      "all_periods": 1,
+      "high_conf_periods": 1,
+      "standalone_quarters": 1,
+      "ttm_4q_ready": false
+    },
+    {
+      "ticker": "EKDMR",
+      "all_periods": 2,
+      "high_conf_periods": 2,
+      "standalone_quarters": 2,
+      "ttm_4q_ready": false
+    },
+    {
+      "ticker": "GENKM",
+      "all_periods": 2,
+      "high_conf_periods": 2,
+      "standalone_quarters": 2,
       "ttm_4q_ready": false
     },
     {
       "ticker": "AKHAN",
-      "all_periods": 1,
-      "high_conf_periods": 1,
-      "standalone_quarters": 1,
+      "all_periods": 3,
+      "high_conf_periods": 3,
+      "standalone_quarters": 3,
       "ttm_4q_ready": false
     },
     {
       "ticker": "FRMPL",
-      "all_periods": 1,
-      "high_conf_periods": 1,
-      "standalone_quarters": 1,
+      "all_periods": 3,
+      "high_conf_periods": 3,
+      "standalone_quarters": 3,
       "ttm_4q_ready": false
     },
     {
       "ticker": "MEYSU",
-      "all_periods": 1,
-      "high_conf_periods": 1,
-      "standalone_quarters": 1,
+      "all_periods": 3,
+      "high_conf_periods": 3,
+      "standalone_quarters": 3,
       "ttm_4q_ready": false
     },
     {
       "ticker": "MARMR",
-      "all_periods": 2,
-      "high_conf_periods": 2,
-      "standalone_quarters": 2,
-      "ttm_4q_ready": false
+      "all_periods": 4,
+      "high_conf_periods": 4,
+      "standalone_quarters": 4,
+      "ttm_4q_ready": true
     },
     {
       "ticker": "PAHOL",
-      "all_periods": 2,
-      "high_conf_periods": 2,
-      "standalone_quarters": 2,
-      "ttm_4q_ready": false
-    },
-    {
-      "ticker": "ARMGD",
-      "all_periods": 5,
-      "high_conf_periods": 5,
-      "standalone_quarters": 5,
+      "all_periods": 4,
+      "high_conf_periods": 4,
+      "standalone_quarters": 4,
       "ttm_4q_ready": true
     },
     {
@@ -1008,199 +1024,206 @@
       "ttm_4q_ready": true
     },
     {
+      "ticker": "ARMGD",
+      "all_periods": 7,
+      "high_conf_periods": 7,
+      "standalone_quarters": 7,
+      "ttm_4q_ready": true
+    },
+    {
       "ticker": "CGCAM",
-      "all_periods": 5,
-      "high_conf_periods": 5,
-      "standalone_quarters": 5,
+      "all_periods": 7,
+      "high_conf_periods": 7,
+      "standalone_quarters": 7,
       "ttm_4q_ready": true
     },
     {
       "ticker": "GLRMK",
-      "all_periods": 5,
-      "high_conf_periods": 5,
-      "standalone_quarters": 5,
+      "all_periods": 7,
+      "high_conf_periods": 7,
+      "standalone_quarters": 7,
       "ttm_4q_ready": true
     },
     {
       "ticker": "SERNT",
-      "all_periods": 5,
-      "high_conf_periods": 5,
-      "standalone_quarters": 5,
+      "all_periods": 7,
+      "high_conf_periods": 7,
+      "standalone_quarters": 7,
       "ttm_4q_ready": true
     },
     {
       "ticker": "VSNMD",
-      "all_periods": 5,
-      "high_conf_periods": 5,
-      "standalone_quarters": 5,
+      "all_periods": 7,
+      "high_conf_periods": 7,
+      "standalone_quarters": 7,
       "ttm_4q_ready": true
     },
     {
       "ticker": "CEMZY",
-      "all_periods": 6,
-      "high_conf_periods": 6,
-      "standalone_quarters": 6,
+      "all_periods": 8,
+      "high_conf_periods": 8,
+      "standalone_quarters": 8,
       "ttm_4q_ready": true
     },
     {
       "ticker": "DURKN",
-      "all_periods": 6,
-      "high_conf_periods": 6,
-      "standalone_quarters": 6,
+      "all_periods": 8,
+      "high_conf_periods": 8,
+      "standalone_quarters": 8,
       "ttm_4q_ready": true
     },
     {
       "ticker": "OZATD",
-      "all_periods": 6,
-      "high_conf_periods": 6,
-      "standalone_quarters": 6,
+      "all_periods": 8,
+      "high_conf_periods": 8,
+      "standalone_quarters": 8,
       "ttm_4q_ready": true
     },
     {
       "ticker": "ALKLC",
-      "all_periods": 7,
-      "high_conf_periods": 7,
-      "standalone_quarters": 7,
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
       "ttm_4q_ready": true
     },
     {
       "ticker": "BAHKM",
-      "all_periods": 7,
-      "high_conf_periods": 7,
-      "standalone_quarters": 7,
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
       "ttm_4q_ready": true
     },
     {
       "ticker": "EFOR",
-      "all_periods": 7,
-      "high_conf_periods": 7,
-      "standalone_quarters": 7,
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
       "ttm_4q_ready": true
     },
     {
       "ticker": "GUNDG",
-      "all_periods": 7,
-      "high_conf_periods": 7,
-      "standalone_quarters": 7,
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
       "ttm_4q_ready": true
     },
     {
       "ticker": "OZYSR",
-      "all_periods": 7,
-      "high_conf_periods": 7,
-      "standalone_quarters": 7,
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
       "ttm_4q_ready": true
     },
     {
       "ticker": "SEGMN",
-      "all_periods": 7,
-      "high_conf_periods": 7,
-      "standalone_quarters": 7,
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
       "ttm_4q_ready": true
     },
     {
       "ticker": "TCKRC",
-      "all_periods": 7,
-      "high_conf_periods": 7,
-      "standalone_quarters": 7,
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
       "ttm_4q_ready": true
     },
     {
       "ticker": "YIGIT",
-      "all_periods": 7,
-      "high_conf_periods": 7,
-      "standalone_quarters": 7,
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
       "ttm_4q_ready": true
     },
     {
       "ticker": "ALTNY",
-      "all_periods": 8,
-      "high_conf_periods": 8,
-      "standalone_quarters": 8,
+      "all_periods": 10,
+      "high_conf_periods": 10,
+      "standalone_quarters": 10,
       "ttm_4q_ready": true
     },
     {
       "ticker": "ENTRA",
-      "all_periods": 8,
-      "high_conf_periods": 8,
-      "standalone_quarters": 8,
+      "all_periods": 10,
+      "high_conf_periods": 10,
+      "standalone_quarters": 10,
       "ttm_4q_ready": true
     },
     {
       "ticker": "KOCMT",
-      "all_periods": 8,
-      "high_conf_periods": 8,
-      "standalone_quarters": 8,
+      "all_periods": 10,
+      "high_conf_periods": 10,
+      "standalone_quarters": 10,
       "ttm_4q_ready": true
     },
     {
       "ticker": "LILAK",
-      "all_periods": 8,
-      "high_conf_periods": 8,
-      "standalone_quarters": 8,
+      "all_periods": 10,
+      "high_conf_periods": 10,
+      "standalone_quarters": 10,
+      "ttm_4q_ready": true
+    },
+    {
+      "ticker": "BORSK",
+      "all_periods": 11,
+      "high_conf_periods": 10,
+      "standalone_quarters": 10,
       "ttm_4q_ready": true
     },
     {
       "ticker": "ARTMS",
-      "all_periods": 9,
-      "high_conf_periods": 9,
-      "standalone_quarters": 9,
+      "all_periods": 11,
+      "high_conf_periods": 11,
+      "standalone_quarters": 11,
       "ttm_4q_ready": true
     },
     {
       "ticker": "BESLR",
-      "all_periods": 9,
-      "high_conf_periods": 9,
-      "standalone_quarters": 9,
+      "all_periods": 11,
+      "high_conf_periods": 11,
+      "standalone_quarters": 11,
       "ttm_4q_ready": true
     },
     {
       "ticker": "BLUME",
-      "all_periods": 9,
-      "high_conf_periods": 9,
-      "standalone_quarters": 9,
+      "all_periods": 11,
+      "high_conf_periods": 11,
+      "standalone_quarters": 11,
       "ttm_4q_ready": true
     },
     {
       "ticker": "KBORU",
-      "all_periods": 9,
-      "high_conf_periods": 9,
-      "standalone_quarters": 9,
+      "all_periods": 11,
+      "high_conf_periods": 11,
+      "standalone_quarters": 11,
       "ttm_4q_ready": true
     },
     {
       "ticker": "LMKDC",
-      "all_periods": 9,
-      "high_conf_periods": 9,
-      "standalone_quarters": 9,
+      "all_periods": 11,
+      "high_conf_periods": 11,
+      "standalone_quarters": 11,
       "ttm_4q_ready": true
     },
     {
       "ticker": "MEGMT",
-      "all_periods": 9,
-      "high_conf_periods": 9,
-      "standalone_quarters": 9,
+      "all_periods": 11,
+      "high_conf_periods": 11,
+      "standalone_quarters": 11,
       "ttm_4q_ready": true
     },
     {
       "ticker": "OBAMS",
-      "all_periods": 9,
-      "high_conf_periods": 9,
-      "standalone_quarters": 9,
+      "all_periods": 11,
+      "high_conf_periods": 11,
+      "standalone_quarters": 11,
       "ttm_4q_ready": true
     },
     {
       "ticker": "RGYAS",
-      "all_periods": 9,
-      "high_conf_periods": 9,
-      "standalone_quarters": 9,
-      "ttm_4q_ready": true
-    },
-    {
-      "ticker": "RUZYE",
-      "all_periods": 9,
-      "high_conf_periods": 9,
-      "standalone_quarters": 9,
+      "all_periods": 11,
+      "high_conf_periods": 11,
+      "standalone_quarters": 11,
       "ttm_4q_ready": true
     }
   ]

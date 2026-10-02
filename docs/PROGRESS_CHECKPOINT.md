@@ -7,7 +7,7 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 - Repository: https://github.com/ilhangemini12/bist-research-terminal
 - Live dashboard: https://ilhangemini12.github.io/bist-research-terminal/
 - Core operational maturity: ~99%.
-- Full original specification completion: ~94%.
+- Full original specification completion: ~95%.
 - Latest verified market date: 2026-10-01.
 - Dynamic current universe: 323 tickers.
 - TinyFish remains USER_FORBIDDEN / PAID_SOURCE_SKIPPED and must never be used.
@@ -22,15 +22,16 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 
 ## Verified financial coverage
 - Current high-confidence company coverage: 292/323 = 90.4%.
-- KAP reporting periods checkpointed: 2023, 2024 and 2025; each year has 3M/6M/9M/FY.
-- Total normalized financial rows after 2023–2025: 3,344.
-- High-confidence financial rows: 3,223.
-- Median standalone-quarter depth: 12.
-- Tickers with >=12 standalone quarters: 226/323 = 70.0%.
+- KAP reporting periods checkpointed: 2022, 2023, 2024 and 2025; each year has 3M/6M/9M/FY.
+- Total normalized financial rows after 2022–2025: 4,260.
+- High-confidence financial rows: 4,096.
+- Median standalone-quarter depth: 16.
+- Tickers with >=12 standalone quarters: 230/323 = 71.2%.
 - TTM_4Q ready: 276/323 = 85.4%.
+- Tickers with >=16 standalone quarters: 205/323 = 63.5%.
 - Tickers with >=20 standalone quarters: 0/323 at this checkpoint.
-- Financial depth progress versus minimum 12-quarter target: median 12/12 = 100%.
-- Financial depth progress versus upper 20-quarter target: median 12/20 = 60%.
+- Financial depth progress versus minimum 12-quarter target: median 16/12 = target exceeded.
+- Financial depth progress versus upper 20-quarter target: median 16/20 = 80%.
 - Review-required data remains excluded from high-confidence ratios/TTM.
 
 ## Stable architecture decisions
@@ -76,9 +77,8 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 - Keep data writes small and restartable.
 
 ## Immediate next sequence
-1. Run Daily Update + Pages and verify the 2023–2025 quarter-depth / TTM pipeline is live.
-2. Backfill 2022 periods 1/2/3/4 with one commit checkpoint per period.
-3. Run Financial Depth Audit; target median >=16 and measure 12/16/20-quarter distributions.
+1. Run Daily Update + Pages and verify the 2022–2025 16-quarter / TTM pipeline is live.
+2. Backfill 2021 periods 1/2/3/4 with one commit checkpoint per period.
+3. Run Financial Depth Audit; target median >=20 and measure 12/16/20-quarter distributions.
 4. Re-run Daily + Pages.
-5. If stable, backfill 2021 to approach the 20-quarter upper target.
-6. Separately improve insurance/bank normalization and publication-date provenance without weakening confidence gates.
+5. Separately improve insurance/bank normalization and trustworthy shares/market-cap / publication-date provenance without weakening confidence gates.

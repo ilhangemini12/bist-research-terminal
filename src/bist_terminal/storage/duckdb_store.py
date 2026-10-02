@@ -77,6 +77,39 @@ class DuckDBStore:
             ],
         )
 
+    def get_verification(self, ticker: str, trade_date) -> dict | None:
+        row = self.con.execute(
+            '''select ticker, trade_date, verified_price, status, sources, upstreams,
+                      max_diff_pct, reason, verified_at
+               from price_verification
+               where ticker=? and trade_date=?''',
+            [ticker, trade_date],
+        ).fetchone()
+        if not row:
+            return None
+
+        def decode_json(value):
+            if value is None:
+                return []
+            if isinstance(value, str):
+                try:
+                    return json.loads(value)
+                except json.JSONDecodeError:
+                    return []
+            return value
+
+        return {
+            'ticker': row[0],
+            'trade_date': str(row[1]) if row[1] else None,
+            'verified_price': row[2],
+            'status': row[3],
+            'sources': decode_json(row[4]),
+            'upstreams': decode_json(row[5]),
+            'max_diff_pct': row[6],
+            'reason': row[7],
+            'verified_at': str(row[8]) if row[8] else None,
+        }
+
     def upsert_ohlcv(self, row: dict):
         self.con.execute(
             '''insert or replace into daily_ohlcv values (?,?,?,?,?,?,?,?,?,?,?,?)''',

@@ -1,14 +1,26 @@
 {
-  "generated_at": "2026-10-02T12:03:43.492486+00:00",
+  "generated_at": "2026-10-02T13:12:53.628418+00:00",
   "tracked_tickers": 323,
-  "financial_rows": 4260,
+  "financial_rows": 5087,
   "status_counts": {
-    "PARSED_HIGH_CONFIDENCE": 4096,
-    "PARSED_REVIEW_REQUIRED": 164
+    "PARSED_HIGH_CONFIDENCE": 4878,
+    "PARSED_REVIEW_REQUIRED": 209
   },
   "distinct_report_periods": [
+    "2021-03-31",
+    "2021-04-30",
+    "2021-06-30",
+    "2021-07-31",
+    "2021-08-31",
+    "2021-09-30",
+    "2021-10-31",
+    "2021-11-30",
+    "2021-12-31",
+    "2022-01-31",
+    "2022-02-28",
     "2022-03-31",
     "2022-04-30",
+    "2022-05-31",
     "2022-06-30",
     "2022-07-31",
     "2022-08-31",
@@ -60,9 +72,21 @@
     "2026-06-30"
   ],
   "report_period_company_counts": {
-    "2022-03-31": 219,
+    "2021-03-31": 195,
+    "2021-04-30": 1,
+    "2021-06-30": 201,
+    "2021-07-31": 1,
+    "2021-08-31": 1,
+    "2021-09-30": 208,
+    "2021-10-31": 1,
+    "2021-11-30": 1,
+    "2021-12-31": 213,
+    "2022-01-31": 1,
+    "2022-02-28": 1,
+    "2022-03-31": 220,
     "2022-04-30": 1,
-    "2022-06-30": 225,
+    "2022-05-31": 1,
+    "2022-06-30": 226,
     "2022-07-31": 1,
     "2022-08-31": 1,
     "2022-09-30": 227,
@@ -113,6 +137,10 @@
     "2026-06-30": 2
   },
   "archive_period_row_counts": {
+    "2021-1": 198,
+    "2021-2": 204,
+    "2021-3": 210,
+    "2021-4": 215,
     "2022-1": 222,
     "2022-2": 228,
     "2022-3": 229,
@@ -131,6 +159,58 @@
     "2025-4": 298
   },
   "review_required_examples": [
+    {
+      "ticker": "AGESA",
+      "report_period": "2021-03-31",
+      "archive_year": 2021,
+      "archive_period": "1",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "AGESA_932123_2021_1.xls"
+    },
+    {
+      "ticker": "AGESA",
+      "report_period": "2021-06-30",
+      "archive_year": 2021,
+      "archive_period": "2",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "AGESA_956444_2021_2.xls"
+    },
+    {
+      "ticker": "AGESA",
+      "report_period": "2021-09-30",
+      "archive_year": 2021,
+      "archive_period": "3",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "AGESA_973101_2021_3.xls"
+    },
+    {
+      "ticker": "AGESA",
+      "report_period": "2021-12-31",
+      "archive_year": 2021,
+      "archive_period": "4",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "AGESA_1000533_2021_4.xls"
+    },
     {
       "ticker": "AGESA",
       "report_period": "2022-03-31",
@@ -341,6 +421,36 @@
     },
     {
       "ticker": "AKBNK",
+      "report_period": "2021-06-30",
+      "archive_year": 2021,
+      "archive_period": "2",
+      "quality_score": 80,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 5,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "equity"
+      ],
+      "source_file": "AKBNK_952364_2021_2.xls"
+    },
+    {
+      "ticker": "AKBNK",
+      "report_period": "2021-09-30",
+      "archive_year": 2021,
+      "archive_period": "3",
+      "quality_score": 80,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 5,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "equity"
+      ],
+      "source_file": "AKBNK_972530_2021_3.xls"
+    },
+    {
+      "ticker": "AKBNK",
       "report_period": "2022-06-30",
       "archive_year": 2022,
       "archive_period": "2",
@@ -458,6 +568,58 @@
         "equity"
       ],
       "source_file": "AKBNK_1507402_2025_3.xls"
+    },
+    {
+      "ticker": "AKGRT",
+      "report_period": "2021-03-31",
+      "archive_year": 2021,
+      "archive_period": "1",
+      "quality_score": 65,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "AKGRT_932153_2021_1.xls"
+    },
+    {
+      "ticker": "AKGRT",
+      "report_period": "2021-06-30",
+      "archive_year": 2021,
+      "archive_period": "2",
+      "quality_score": 65,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "AKGRT_955522_2021_2.xls"
+    },
+    {
+      "ticker": "AKGRT",
+      "report_period": "2021-09-30",
+      "archive_year": 2021,
+      "archive_period": "3",
+      "quality_score": 65,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "AKGRT_972306_2021_3.xls"
+    },
+    {
+      "ticker": "AKGRT",
+      "report_period": "2021-12-31",
+      "archive_year": 2021,
+      "archive_period": "4",
+      "quality_score": 65,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "AKGRT_1000099_2021_4.xls"
     },
     {
       "ticker": "AKGRT",
@@ -669,6 +831,58 @@
     },
     {
       "ticker": "ANHYT",
+      "report_period": "2021-03-31",
+      "archive_year": 2021,
+      "archive_period": "1",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "ANHYT_931455_2021_1.xls"
+    },
+    {
+      "ticker": "ANHYT",
+      "report_period": "2021-06-30",
+      "archive_year": 2021,
+      "archive_period": "2",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "ANHYT_955114_2021_2.xls"
+    },
+    {
+      "ticker": "ANHYT",
+      "report_period": "2021-09-30",
+      "archive_year": 2021,
+      "archive_period": "3",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "ANHYT_972977_2021_3.xls"
+    },
+    {
+      "ticker": "ANHYT",
+      "report_period": "2021-12-31",
+      "archive_year": 2021,
+      "archive_period": "4",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "ANHYT_997068_2021_4.xls"
+    },
+    {
+      "ticker": "ANHYT",
       "report_period": "2022-03-31",
       "archive_year": 2022,
       "archive_period": "1",
@@ -874,6 +1088,58 @@
         "assets"
       ],
       "source_file": "ANHYT_1548079_2025_4.xls"
+    },
+    {
+      "ticker": "ANSGR",
+      "report_period": "2021-03-31",
+      "archive_year": 2021,
+      "archive_period": "1",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "ANSGR_931975_2021_1.xls"
+    },
+    {
+      "ticker": "ANSGR",
+      "report_period": "2021-06-30",
+      "archive_year": 2021,
+      "archive_period": "2",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "ANSGR_955606_2021_2.xls"
+    },
+    {
+      "ticker": "ANSGR",
+      "report_period": "2021-09-30",
+      "archive_year": 2021,
+      "archive_period": "3",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "ANSGR_973007_2021_3.xls"
+    },
+    {
+      "ticker": "ANSGR",
+      "report_period": "2021-12-31",
+      "archive_year": 2021,
+      "archive_period": "4",
+      "quality_score": 65,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 2,
+      "fact_keys": [
+        "assets"
+      ],
+      "source_file": "ANSGR_999062_2021_4.xls"
     },
     {
       "ticker": "ANSGR",
@@ -1122,6 +1388,120 @@
       "source_file": "BORSK_1250649_2023_3.xls"
     },
     {
+      "ticker": "BURCE",
+      "report_period": "2021-06-30",
+      "archive_year": 2021,
+      "archive_period": "2",
+      "quality_score": 80,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 4,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "cash_from_operations",
+        "current_assets",
+        "current_liabilities",
+        "equity",
+        "inventories"
+      ],
+      "source_file": "BURCE_959370_2021_2.xls"
+    },
+    {
+      "ticker": "BURCE",
+      "report_period": "2021-09-30",
+      "archive_year": 2021,
+      "archive_period": "3",
+      "quality_score": 80,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 4,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "cash_from_operations",
+        "current_assets",
+        "current_liabilities",
+        "equity",
+        "inventories"
+      ],
+      "source_file": "BURCE_980988_2021_3.xls"
+    },
+    {
+      "ticker": "BURVA",
+      "report_period": "2021-06-30",
+      "archive_year": 2021,
+      "archive_period": "2",
+      "quality_score": 80,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 4,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "cash_from_operations",
+        "current_assets",
+        "current_liabilities",
+        "equity",
+        "inventories"
+      ],
+      "source_file": "BURVA_956240_2021_2.xls"
+    },
+    {
+      "ticker": "BURVA",
+      "report_period": "2021-09-30",
+      "archive_year": 2021,
+      "archive_period": "3",
+      "quality_score": 80,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 4,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "cash_from_operations",
+        "current_assets",
+        "current_liabilities",
+        "equity",
+        "inventories"
+      ],
+      "source_file": "BURVA_977848_2021_3.xls"
+    },
+    {
+      "ticker": "EPLAS",
+      "report_period": "2021-06-30",
+      "archive_year": 2021,
+      "archive_period": "2",
+      "quality_score": 80,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 3,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "cash_from_operations",
+        "current_assets",
+        "current_liabilities",
+        "equity",
+        "inventories"
+      ],
+      "source_file": "EPLAS_959331_2021_2.xls"
+    },
+    {
+      "ticker": "EPLAS",
+      "report_period": "2021-09-30",
+      "archive_year": 2021,
+      "archive_period": "3",
+      "quality_score": 80,
+      "statement_scope": "Konsolide",
+      "matched_statement_tables": 3,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "cash_from_operations",
+        "current_assets",
+        "current_liabilities",
+        "equity",
+        "inventories"
+      ],
+      "source_file": "EPLAS_976336_2021_3.xls"
+    },
+    {
       "ticker": "EPLAS",
       "report_period": "2022-06-30",
       "archive_year": 2022,
@@ -1139,6 +1519,44 @@
         "inventories"
       ],
       "source_file": "EPLAS_1056764_2022_2.xls"
+    },
+    {
+      "ticker": "ERSU",
+      "report_period": "2021-06-30",
+      "archive_year": 2021,
+      "archive_period": "2",
+      "quality_score": 80,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 3,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "cash_from_operations",
+        "current_assets",
+        "current_liabilities",
+        "equity",
+        "inventories"
+      ],
+      "source_file": "ERSU_962884_2021_2.xls"
+    },
+    {
+      "ticker": "ERSU",
+      "report_period": "2021-09-30",
+      "archive_year": 2021,
+      "archive_period": "3",
+      "quality_score": 80,
+      "statement_scope": "Konsolide Olmayan",
+      "matched_statement_tables": 3,
+      "fact_keys": [
+        "assets",
+        "cash",
+        "cash_from_operations",
+        "current_assets",
+        "current_liabilities",
+        "equity",
+        "inventories"
+      ],
+      "source_file": "ERSU_973836_2021_3.xls"
     },
     {
       "ticker": "ERSU",
@@ -1468,420 +1886,38 @@
         "equity"
       ],
       "source_file": "ICB-ICBCT_1507501_2025_3.xls"
-    },
-    {
-      "ticker": "PRZMA",
-      "report_period": "2025-06-30",
-      "archive_year": 2025,
-      "archive_period": "2",
-      "quality_score": 80,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 3,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "cash_from_operations",
-        "current_assets",
-        "current_liabilities",
-        "equity",
-        "inventories"
-      ],
-      "source_file": "PRZMA_1475118_2025_2.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2022-03-31",
-      "archive_year": 2022,
-      "archive_period": "1",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1024050_2022_1.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2022-06-30",
-      "archive_year": 2022,
-      "archive_period": "2",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1051282_2022_2.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2022-09-30",
-      "archive_year": 2022,
-      "archive_period": "3",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1073383_2022_3.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2022-12-31",
-      "archive_year": 2022,
-      "archive_period": "4",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1117956_2022_4.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2023-03-31",
-      "archive_year": 2023,
-      "archive_period": "1",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1141358_2023_1.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2023-06-30",
-      "archive_year": 2023,
-      "archive_period": "2",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1180415_2023_2.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2023-09-30",
-      "archive_year": 2023,
-      "archive_period": "3",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1210071_2023_3.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2023-12-31",
-      "archive_year": 2023,
-      "archive_period": "4",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1251207_2023_4.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2024-03-31",
-      "archive_year": 2024,
-      "archive_period": "1",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1277198_2024_1.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2024-06-30",
-      "archive_year": 2024,
-      "archive_period": "2",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1320080_2024_2.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2024-09-30",
-      "archive_year": 2024,
-      "archive_period": "3",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1350646_2024_3.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2024-12-31",
-      "archive_year": 2024,
-      "archive_period": "4",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1395359_2024_4.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2025-03-31",
-      "archive_year": 2025,
-      "archive_period": "1",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1431217_2025_1.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2025-06-30",
-      "archive_year": 2025,
-      "archive_period": "2",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1467852_2025_2.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2025-09-30",
-      "archive_year": 2025,
-      "archive_period": "3",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1509188_2025_3.xls"
-    },
-    {
-      "ticker": "RAYSG",
-      "report_period": "2025-12-31",
-      "archive_year": 2025,
-      "archive_period": "4",
-      "quality_score": 65,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 2,
-      "fact_keys": [
-        "assets"
-      ],
-      "source_file": "RAYSG_1561626_2025_4.xls"
-    },
-    {
-      "ticker": "RODRG",
-      "report_period": "2022-06-30",
-      "archive_year": 2022,
-      "archive_period": "2",
-      "quality_score": 80,
-      "statement_scope": "Konsolide",
-      "matched_statement_tables": 3,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "cash_from_operations",
-        "current_assets",
-        "current_liabilities",
-        "equity",
-        "inventories"
-      ],
-      "source_file": "RODRG_1055268_2022_2.xls"
-    },
-    {
-      "ticker": "RODRG",
-      "report_period": "2022-09-30",
-      "archive_year": 2022,
-      "archive_period": "3",
-      "quality_score": 80,
-      "statement_scope": "Konsolide",
-      "matched_statement_tables": 3,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "cash_from_operations",
-        "current_assets",
-        "current_liabilities",
-        "equity",
-        "inventories"
-      ],
-      "source_file": "RODRG_1077047_2022_3.xls"
-    },
-    {
-      "ticker": "RODRG",
-      "report_period": "2023-06-30",
-      "archive_year": 2023,
-      "archive_period": "2",
-      "quality_score": 80,
-      "statement_scope": "Konsolide",
-      "matched_statement_tables": 3,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "cash_from_operations",
-        "current_assets",
-        "current_liabilities",
-        "equity",
-        "inventories"
-      ],
-      "source_file": "RODRG_1185389_2023_2.xls"
-    },
-    {
-      "ticker": "RODRG",
-      "report_period": "2023-09-30",
-      "archive_year": 2023,
-      "archive_period": "3",
-      "quality_score": 80,
-      "statement_scope": "Konsolide",
-      "matched_statement_tables": 3,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "cash_from_operations",
-        "current_assets",
-        "current_liabilities",
-        "equity",
-        "inventories"
-      ],
-      "source_file": "RODRG_1214164_2023_3.xls"
-    },
-    {
-      "ticker": "RODRG",
-      "report_period": "2025-09-30",
-      "archive_year": 2025,
-      "archive_period": "3",
-      "quality_score": 80,
-      "statement_scope": "Konsolide",
-      "matched_statement_tables": 3,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "cash_from_operations",
-        "current_assets",
-        "current_liabilities",
-        "equity",
-        "inventories"
-      ],
-      "source_file": "RODRG_1514764_2025_3.xls"
-    },
-    {
-      "ticker": "SKBNK",
-      "report_period": "2022-06-30",
-      "archive_year": 2022,
-      "archive_period": "2",
-      "quality_score": 80,
-      "statement_scope": "Konsolide",
-      "matched_statement_tables": 5,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "equity"
-      ],
-      "source_file": "SEK-SKBNK_1051666_2022_2.xls"
-    },
-    {
-      "ticker": "SKBNK",
-      "report_period": "2022-09-30",
-      "archive_year": 2022,
-      "archive_period": "3",
-      "quality_score": 80,
-      "statement_scope": "Konsolide",
-      "matched_statement_tables": 5,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "equity"
-      ],
-      "source_file": "SEK-SKBNK_1076683_2022_3.xls"
-    },
-    {
-      "ticker": "SKBNK",
-      "report_period": "2023-06-30",
-      "archive_year": 2023,
-      "archive_period": "2",
-      "quality_score": 80,
-      "statement_scope": "Konsolide",
-      "matched_statement_tables": 5,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "equity"
-      ],
-      "source_file": "SEK-SKBNK_1181637_2023_2.xls"
-    },
-    {
-      "ticker": "SKBNK",
-      "report_period": "2023-09-30",
-      "archive_year": 2023,
-      "archive_period": "3",
-      "quality_score": 80,
-      "statement_scope": "Konsolide",
-      "matched_statement_tables": 5,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "equity"
-      ],
-      "source_file": "SEK-SKBNK_1212694_2023_3.xls"
     }
   ],
   "period_depth": {
     "all_min": 0,
-    "all_median": 16,
-    "all_max": 16,
+    "all_median": 20,
+    "all_max": 20,
     "high_conf_min": 0,
-    "high_conf_median": 16,
-    "high_conf_max": 16,
+    "high_conf_median": 20,
+    "high_conf_max": 20,
     "tickers_with_at_least": {
       "1": 292,
       "4": 287,
       "8": 270,
-      "12": 230,
-      "16": 205,
-      "20": 0
+      "12": 232,
+      "16": 208,
+      "20": 179
     }
   },
   "standalone_quarter_depth": {
     "min": 0,
-    "median": 16,
-    "max": 16,
+    "median": 20,
+    "max": 20,
     "tickers_with_at_least": {
       "1": 292,
       "4": 287,
       "8": 270,
-      "12": 230,
-      "16": 205,
-      "20": 0
+      "12": 232,
+      "16": 208,
+      "20": 179
     },
-    "pct_with_at_least_12": 71.2,
-    "pct_with_at_least_20": 0.0,
+    "pct_with_at_least_12": 71.8,
+    "pct_with_at_least_20": 55.4,
     "ttm_4q_ready_count": 276,
     "ttm_4q_ready_pct": 85.4
   },
@@ -2063,42 +2099,42 @@
     },
     {
       "ticker": "AGESA",
-      "all_periods": 16,
+      "all_periods": 20,
       "high_conf_periods": 0,
       "standalone_quarters": 0,
       "ttm_4q_ready": false
     },
     {
       "ticker": "AKGRT",
-      "all_periods": 16,
+      "all_periods": 20,
       "high_conf_periods": 0,
       "standalone_quarters": 0,
       "ttm_4q_ready": false
     },
     {
       "ticker": "ANHYT",
-      "all_periods": 16,
+      "all_periods": 20,
       "high_conf_periods": 0,
       "standalone_quarters": 0,
       "ttm_4q_ready": false
     },
     {
       "ticker": "ANSGR",
-      "all_periods": 16,
+      "all_periods": 20,
       "high_conf_periods": 0,
       "standalone_quarters": 0,
       "ttm_4q_ready": false
     },
     {
       "ticker": "RAYSG",
-      "all_periods": 16,
+      "all_periods": 20,
       "high_conf_periods": 0,
       "standalone_quarters": 0,
       "ttm_4q_ready": false
     },
     {
       "ticker": "TURSG",
-      "all_periods": 16,
+      "all_periods": 20,
       "high_conf_periods": 0,
       "standalone_quarters": 0,
       "ttm_4q_ready": false
@@ -2286,25 +2322,25 @@
       "ttm_4q_ready": true
     },
     {
-      "ticker": "AKBNK",
-      "all_periods": 16,
-      "high_conf_periods": 8,
-      "standalone_quarters": 8,
-      "ttm_4q_ready": false
+      "ticker": "ARTMS",
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
+      "ttm_4q_ready": true
     },
     {
-      "ticker": "ICBCT",
-      "all_periods": 16,
-      "high_conf_periods": 8,
-      "standalone_quarters": 8,
-      "ttm_4q_ready": false
+      "ticker": "BESLR",
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
+      "ttm_4q_ready": true
     },
     {
-      "ticker": "SKBNK",
-      "all_periods": 16,
-      "high_conf_periods": 8,
-      "standalone_quarters": 8,
-      "ttm_4q_ready": false
+      "ticker": "BLUME",
+      "all_periods": 9,
+      "high_conf_periods": 9,
+      "standalone_quarters": 9,
+      "ttm_4q_ready": true
     }
   ]
 }

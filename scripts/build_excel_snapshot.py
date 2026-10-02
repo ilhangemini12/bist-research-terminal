@@ -18,9 +18,12 @@ summary={
     'P/E Available':data.get('summary',{}).get('pe_count',0),
     'P/B Available':data.get('summary',{}).get('pb_count',0),
     'Dividend Positive':data.get('summary',{}).get('dividend_positive_count',0),
+    'Recent SPK/KAP News':data.get('summary',{}).get('kap_news_count',0),
+    'News Mapped to Current Universe':data.get('summary',{}).get('kap_news_mapped_count',0),
 }
 source_catalog=pd.DataFrame(yaml.safe_load((ROOT/'config/source_catalog.yaml').read_text())['providers'])
 source_status=pd.DataFrame(data.get('sources',[]))
+kap_news=pd.DataFrame(data.get('kap_news',[]))
 presets=yaml.safe_load((ROOT/'config/presets.yaml').read_text())['presets']
 
 def cols(names):
@@ -59,7 +62,7 @@ tables={
     'Growth':cols(['ticker','revenue_growth_yoy','net_income_growth_yoy','revenue_quarter_yoy','net_income_quarter_yoy','revenue_ttm_growth','net_income_ttm_growth']),
     'Target Prices':cols(['ticker','target_upside']),
     'Model Portfolios':pd.DataFrame(),
-    'KAP News':pd.DataFrame(),
+    'KAP News':kap_news,
     'Data Quality':cols(['ticker','price_status','valuation_status','financial_status','financial_quality_score','financial_quarters_available','technical_history_rows','verification_reason','trade_date','source_lineage','capital_method']),
     'Source Status':source_status,
     'Sources':source_catalog,

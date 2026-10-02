@@ -71,3 +71,4 @@ def test_notification_id_is_derived_from_bulk_filename():
     assert notification_id_from_source_file("THYAO_1565996_2025_4.xls")==1565996
     assert notification_id_from_source_file("TVB-VAKBN_1557008_2025_4.xls")==1557008
     assert notification_id_from_source_file("invalid.xls") is None
+    assert notification_id_from_source_file(None) is None

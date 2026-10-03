@@ -4,6 +4,7 @@ from dataclasses import asdict
 from collections import Counter
 import datetime
 import math
+import os
 import sys
 import yaml
 from datetime import timezone
@@ -20,12 +21,13 @@ from bist_terminal.providers.spk import SPKRegistryProvider
 from bist_terminal.providers.spk_news import recent_spk_disclosures
 from bist_terminal.quality.price_verification import verify_prices, retain_same_trade_date_verified
 from bist_terminal.exports.static import write_latest
-from bist_terminal.quality.market_calendar import load_calendar, latest_expected_trade_date, is_trading_day
+from bist_terminal.quality.market_calendar import load_calendar, latest_expected_trade_date, is_trading_day, resolve_run_trade_date
 from bist_terminal.storage.duckdb_store import DuckDBStore
 from bist_terminal.storage.history_files import history_parquet_files
 from bist_terminal.storage.financial_files import financial_parquet_files
 from bist_terminal.storage.capital_files import load_capital_records
 from bist_terminal.storage.extended_financial_files import load_extended_metric_records
+from bist_terminal.storage.roic_input_files import load_roic_input_records
 from bist_terminal.calculations.fundamental import safe_div
 from bist_terminal.calculations.growth import yoy_from_quarters, ttm_growth
 from bist_terminal.calculations.technical import add_indicators
@@ -34,6 +36,7 @@ from bist_terminal.calculations.extended_valuation import compute_extended_valua
 from bist_terminal.calculations.sector import sector_stats, discount_to_median
 from bist_terminal.financials.quarterly import standalone_quarters, ttm_from_quarters
 from bist_terminal.financials.extended_metrics import derive_extended_ttm
+from bist_terminal.financials.roic_inputs import derive_roic_ttm, derive_average_invested_capital, compute_roic
 from bist_terminal.financials.kap_bulk import notification_id_from_source_file
 
 
@@ -121,11 +124,14 @@ def main():
     runtime = load_runtime()
     today = datetime.date.today()
     cal = load_calendar(ROOT / 'config/bist_calendar_2026.yaml')
-    if not is_trading_day(today, cal):
+    requested_as_of = (os.environ.get('BIST_AS_OF_DATE') or '').strip() or None
+    run_trade_date = resolve_run_trade_date(today, cal, requested_as_of)
+    if run_trade_date is None:
         print(f'SKIP_NON_TRADING_DAY {today.isoformat()}')
         return
-
-    expected = latest_expected_trade_date(today, cal).isoformat()
+    expected = run_trade_date.isoformat()
+    if requested_as_of:
+        print(f'MANUAL_AS_OF_OVERRIDE expected={expected} today={today.isoformat()}')
     index_codes = enabled_indices(ROOT / 'config/indices.yaml')
     try:
         universe = BistIndexUniverseProvider(
@@ -186,6 +192,14 @@ def main():
     except Exception as exc:
         extended_metric_records = {}
         extended_metrics_status = f'DEGRADED: {type(exc).__name__}: {exc}'
+
+    roic_input_records = {}
+    try:
+        roic_input_records = load_roic_input_records(ROOT)
+        roic_inputs_status = 'ACTIVE' if roic_input_records else 'UNAVAILABLE'
+    except Exception as exc:
+        roic_input_records = {}
+        roic_inputs_status = f'DEGRADED: {type(exc).__name__}: {exc}'
 
     try:
         capital_records = load_capital_records(ROOT)
@@ -326,6 +340,62 @@ def main():
             cash_from_operations_ttm=flow_facts.get('cash_from_operations') if financial_ok else None,
             extended=extended_metrics,
         )
+
+        sector = sector_for(ticker)
+        roic_result = {
+            'roic_status': 'EXCLUDED_FINANCIAL_SECTOR' if sector in {'Bank','Insurance','Brokerage'} else 'INSUFFICIENT_INPUTS',
+            'roic': None,
+            'roic_basis': None,
+            'roic_report_period': None,
+            'effective_tax_rate': None,
+            'average_invested_capital': None,
+        }
+        if sector not in {'Bank','Insurance','Brokerage'}:
+            roic_ttm = derive_roic_ttm(
+                roic_input_records.get(ticker, []),
+                int(expected[:4]),
+            )
+            roic_period = roic_ttm.get('archive_period')
+            capital_basis = (
+                derive_average_invested_capital(
+                    financial_history.get(ticker, []),
+                    extended_metric_records.get(ticker, []),
+                    int(expected[:4]),
+                    int(roic_period),
+                )
+                if roic_period else {'status':'INSUFFICIENT_INPUTS'}
+            )
+            period_match = bool(
+                roic_ttm.get('report_period')
+                and fin.get('report_period')
+                and roic_ttm.get('report_period') == fin.get('report_period')
+            )
+            roic_value = None
+            if (
+                roic_ttm.get('status') == 'ACTIVE'
+                and capital_basis.get('status') == 'ACTIVE'
+                and period_match
+            ):
+                roic_value = compute_roic(
+                    roic_ttm.get('ebit_ttm'),
+                    roic_ttm.get('effective_tax_rate'),
+                    capital_basis.get('average_invested_capital'),
+                )
+            roic_result = {
+                'roic_status': 'ACTIVE' if roic_value is not None else (
+                    'PERIOD_MISMATCH' if roic_ttm.get('status') == 'ACTIVE'
+                    and capital_basis.get('status') == 'ACTIVE'
+                    and not period_match else 'INSUFFICIENT_INPUTS'
+                ),
+                'roic': roic_value,
+                'roic_basis': (
+                    f"{roic_ttm.get('basis')} | {capital_basis.get('basis')}"
+                    if roic_value is not None else None
+                ),
+                'roic_report_period': roic_ttm.get('report_period'),
+                'effective_tax_rate': roic_ttm.get('effective_tax_rate') if roic_value is not None else None,
+                'average_invested_capital': capital_basis.get('average_invested_capital') if roic_value is not None else None,
+            }
         dividend_ttm_per_share = 0.0
         if store:
             dividend_start = (
@@ -449,7 +519,7 @@ def main():
         rows.append({
             'ticker': ticker,
             'indices': sorted(ticker_indices.get(ticker, [])),
-            'sector': sector_for(ticker),
+            'sector': sector,
             'price': vr.verified_price,
             'close': vr.verified_price,
             'price_status': vr.status,
@@ -475,6 +545,7 @@ def main():
             'ps': valuation.get('ps'),
             'earnings_yield': valuation.get('earnings_yield'),
             **extended_valuation,
+            **roic_result,
             'dividend_ttm_per_share': dividend_ttm_per_share,
             'dividend_yield': dividend_yield,
             'dividend_payout_ratio': dividend_payout_ratio,
@@ -543,6 +614,8 @@ def main():
     ev_ebitda_covered = sum(r.get('ev_ebitda') is not None for r in rows)
     net_debt_ebitda_covered = sum(r.get('net_debt_ebitda') is not None for r in rows)
     fcf_yield_covered = sum(r.get('fcf_yield') is not None for r in rows)
+    roic_covered = sum(r.get('roic_status') == 'ACTIVE' for r in rows)
+    high_roic_count = sum((r.get('roic') or 0) > 0.15 for r in rows)
     dividend_positive = sum((r.get('dividend_yield') or 0) > 0 for r in rows)
     financial_periods = [r.get('financial_report_period') for r in rows if r.get('financial_status') == 'PARSED_HIGH_CONFIDENCE' and r.get('financial_report_period')]
     financial_as_of = max(financial_periods) if financial_periods else 'N/A'
@@ -583,6 +656,19 @@ def main():
         'message': (
             f'Period-matched extended valuation inputs active: {extended_active}/{len(rows)}'
             if extended_metrics_status == 'ACTIVE' else extended_metrics_status
+        ),
+    })
+    sources.append({
+        'provider': 'kap_roic_inputs',
+        'status': 'ACTIVE' if roic_inputs_status == 'ACTIVE' and roic_covered else 'DEGRADED',
+        'upstream': 'KAP / MKK',
+        'successes': roic_covered,
+        'failures': len(rows) - roic_covered,
+        'skipped_after_circuit': 0,
+        'message': (
+            f'Guarded non-financial ROIC active: {roic_covered}/{len(rows)}; '
+            f'exact KAP EBIT/tax plus average invested capital, financial sectors excluded'
+            if roic_inputs_status == 'ACTIVE' else roic_inputs_status
         ),
     })
     sources.append({
@@ -636,6 +722,8 @@ def main():
             'ev_ebitda_count': ev_ebitda_covered,
             'net_debt_ebitda_count': net_debt_ebitda_covered,
             'fcf_yield_count': fcf_yield_covered,
+            'roic_active_count': roic_covered,
+            'high_roic_gt_15_count': high_roic_count,
             'dividend_positive_count': dividend_positive,
             'kap_news_count': len(kap_news),
             'kap_news_mapped_count': sum(bool(x.get('ticker')) for x in kap_news),
@@ -656,6 +744,7 @@ def main():
         f'valuation_active={valuation_active}/{len(rows)} pe={pe_covered} pb={pb_covered} '
         f'extended_active={extended_active}/{len(rows)} ev_ebitda={ev_ebitda_covered} '
         f'net_debt_ebitda={net_debt_ebitda_covered} fcf_yield={fcf_yield_covered} '
+        f'roic={roic_covered} high_roic={high_roic_count} '
         f'dividend_positive={dividend_positive} news={len(kap_news)} '
         f'news_mapped={sum(bool(x.get("ticker")) for x in kap_news)} universe={universe_status}'
     )

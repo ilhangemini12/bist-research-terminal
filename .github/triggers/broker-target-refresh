@@ -1,2 +1,2 @@
 provider=gedik_model_portfolio
-method=turkish-normalizer-r1
+method=observed-date-snapshot-r1

@@ -1,0 +1,58 @@
+name: SPK News Mapping Audit
+on:
+  workflow_dispatch:
+    inputs:
+      end_date:
+        description: "Trading-date endpoint YYYY-MM-DD"
+        required: true
+        default: "2026-10-02"
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/spk-news-mapping-audit'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: 'pip'}
+      - run: pip install -r requirements.txt
+      - name: Resolve request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          END_DATE="${{ inputs.end_date || '2026-10-02' }}"
+          if [[ "${{ github.event_name }}" == "push" && -f .github/triggers/spk-news-mapping-audit ]]; then
+            while IFS='=' read -r key value; do
+              case "$key" in
+                end_date) END_DATE="$value" ;;
+              esac
+            done < .github/triggers/spk-news-mapping-audit
+          fi
+          echo "end_date=$END_DATE" >> "$GITHUB_OUTPUT"
+      - name: Audit deterministic title mapping
+        run: |
+          python -m compileall -q scripts/audit_spk_news_mapping.py src/bist_terminal/providers/spk_news.py
+          pytest -q tests/test_spk_news.py
+          python scripts/audit_spk_news_mapping.py --end-date "${{ steps.request.outputs.end_date }}"
+      - name: Commit audit checkpoint
+        run: |
+          set -euo pipefail
+          git config user.name "bist-research-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add artifacts/spk_news_mapping_audit.json
+          if git diff --cached --quiet; then
+            echo "No mapping audit changes to commit."
+            exit 0
+          fi
+          git commit -m "report: SPK news mapping audit"
+          git pull --rebase origin main
+          git push origin HEAD:main

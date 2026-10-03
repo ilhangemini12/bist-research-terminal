@@ -8,9 +8,9 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 - Live dashboard: https://ilhangemini12.github.io/bist-research-terminal/
 - Core operational maturity: ~99.9%.
 - Full original specification completion within free/legal constraints: ~99.0%.
-- Latest final ROIC validation Daily run: 37119448627 — SUCCESS.
-- Latest Pages run after that publish: 37119533016 — SUCCESS.
-- Final validation: 128 Python tests PASS + JS formula tests PASS + Excel artifact upload SUCCESS.
+- Latest validated Daily/report regression: 37155907147 — SUCCESS (136 Python tests + JS formula + UI regression).
+- Latest validated Pages deployment: 37155938566 — SUCCESS.
+- Latest broker target refresh: 37155639973 — SUCCESS; 10 Gedik targets/model-portfolio rows published.
 
 ## Verified live coverage (as-of 2026-10-02)
 - Current universe: 323 tickers.
@@ -52,9 +52,17 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 6. Manual weekend validation can use guarded BIST_AS_OF_DATE; normal scheduled weekend behavior still skips.
 7. TinyFish remains USER_FORBIDDEN / PAID_SOURCE_SKIPPED and must never be used.
 
+## Broker / News / ISATR audit checkpoint
+- Gedik public model portfolio: ACTIVE, robots/public-page validated, facts-only immutable snapshot.
+- Current Gedik overlay: 10 tickers, 10 model-portfolio memberships, target_source_count=1; target_consensus remains null.
+- Broker page BIST current-price/potential-return/BIST-weight fields are not republished.
+- Ak Yatirim public page is robots-allowed but rows are not available in static HTML; after bounded public-page probes, undocumented/private API probing was bypassed.
+- SPK 7-day disclosure audit on 2026-10-02: 9 official rows, 0 current-universe exact/legal-suffix mappings; verified correct rather than forced by fuzzy matching.
+- ISATR audit on 2026-10-02: Yahoo 4,950,000 TRY / volume 0; official BIST bulletin has no ISATR.E row; VERIFIED_2X deliberately remains unavailable.
+
 ## Remaining partial or structural limits
-1. Broker target-price / model-portfolio ingestion remains partial and must pass public-access + terms/robots review before automation.
-2. ISATR remains the single current price verification gap; no price is manufactured.
+1. Broker target-price/model-portfolio ingestion is ACTIVE from one validated public source (Gedik); multi-broker consensus remains partial until a second independent public/terms-compatible source is validated.
+2. ISATR remains the single current price verification gap: Yahoo has a fresh 2026-10-02 close, while the official BIST bulletin omits ISATR.E; status remains SINGLE_SOURCE by design.
 3. Twelve current-universe names still lack latest high-confidence normalized financials.
 4. Pre-2026-10-01 point-in-time index membership is unavailable; affected historical backtests retain BACKTEST BIASED.
 5. Genuine intraday/VWAP and licensed real-time BIST redistribution are not provided without required market-data rights.
@@ -76,7 +84,8 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 - Prefer immutable period/batch shards so failures require only the smallest failed piece to be retried.
 
 ## Next highest-value work
-1. Determine whether any public, free, terms-compatible broker target/model-portfolio source can be automated. If terms are unclear, keep discovery manual/disabled.
-2. Investigate ISATR only with existing approved free sources; do not weaken VERIFIED_2X.
-3. Improve the 12 missing latest-financial issuers only through exact KAP mappings/labels; no fuzzy issuer repair after repeated failures.
-4. Keep accumulating point-in-time index snapshots prospectively.
+1. Add a second broker target/model-portfolio source only if its current rows are public, static/documented and terms-compatible; do not probe private/undocumented APIs.
+2. Improve the 12 missing latest-financial issuers only through exact KAP mappings/labels; no fuzzy issuer repair after repeated failures.
+3. Keep accumulating point-in-time index snapshots prospectively; never fabricate pre-2026-10-01 membership history.
+4. Preserve ISATR SINGLE_SOURCE until an approved independent official/terms-compatible lineage appears.
+5. Keep real intraday/VWAP and real-time redistribution disabled unless licensed rights are available.

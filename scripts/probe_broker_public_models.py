@@ -23,6 +23,10 @@ SOURCES=[
         "id":"gedik_model_portfolio",
         "url":"https://gedik.com/analiz/model-portfoy/hisse-model-portfoy",
     },
+    {
+        "id":"deniz_model_portfolio",
+        "url":"https://www.denizyatirim.com/ModelPortfoyPerformans",
+    },
 ]
 
 

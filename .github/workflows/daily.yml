@@ -63,6 +63,7 @@ jobs:
             python -m compileall -q src scripts tests stress_tests
             node --check dashboard/app.js
             node dashboard/tests/formula.test.js
+            node dashboard/tests/ui_regression.test.js
             pytest
 
             python scripts/run_daily.py

@@ -150,7 +150,4 @@ class GedikModelPortfolioProvider:
     def fetch(self) -> dict:
         r=self.session.get(URL,headers=self.headers,timeout=self.timeout)
         r.raise_for_status()
-        out=parse_model_portfolio_html(r.text)
-        if not out.get("portfolio_date"):
-            raise RuntimeError("Gedik stock-model portfolio update date unavailable")
-        return out
+        return parse_model_portfolio_html(r.text)

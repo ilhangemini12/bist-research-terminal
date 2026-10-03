@@ -26,10 +26,14 @@ summary={
     'Dividend Positive':data.get('summary',{}).get('dividend_positive_count',0),
     'Recent SPK/KAP News':data.get('summary',{}).get('kap_news_count',0),
     'News Mapped to Current Universe':data.get('summary',{}).get('kap_news_mapped_count',0),
+    'Target Prices Available':data.get('summary',{}).get('target_price_count',0),
+    'Target Consensus 2+':data.get('summary',{}).get('target_consensus_2plus_count',0),
+    'Model Portfolio Stocks':data.get('summary',{}).get('model_portfolio_count',0),
 }
 source_catalog=pd.DataFrame(yaml.safe_load((ROOT/'config/source_catalog.yaml').read_text())['providers'])
 source_status=pd.DataFrame(data.get('sources',[]))
 kap_news=pd.DataFrame(data.get('kap_news',[]))
+broker_models=pd.DataFrame(data.get('broker_model_portfolios',[]))
 presets=yaml.safe_load((ROOT/'config/presets.yaml').read_text())['presets']
 
 def cols(names):
@@ -67,8 +71,8 @@ tables={
     'Technical':cols(['ticker','price','price_status','rsi14','rsi14_prev','rsi_recent_low','sma10','sma20','sma50','roc20','volume','volume_ma20','volume_ratio']),
     'Fundamentals':cols(['ticker','sector','price','price_status','total_shares','market_cap','pe','pb','ps','earnings_yield','ev','ev_ebitda','ev_sales','financial_debt','financial_debt_basis','net_debt','net_debt_ebitda','debt_equity','ebitda_ttm','ebitda_basis','ebitda_margin','depreciation_amortization_ttm','capex_ttm','fcf_ttm','fcf_basis','fcf_yield','roic','roic_status','roic_basis','roic_report_period','effective_tax_rate','average_invested_capital','extended_valuation_status','extended_metrics_basis','dividend_ttm_per_share','dividend_yield','dividend_payout_ratio','valuation_status','valuation_basis','financial_report_period','financial_quarters_available','roe','roa','gross_margin','operating_margin','current_ratio','quick_ratio','revenue_ttm','net_income_ttm','cash_from_operations_ttm','assets','equity','cash','capital_source_url','financial_source_url']),
     'Growth':cols(['ticker','revenue_growth_yoy','net_income_growth_yoy','revenue_quarter_yoy','net_income_quarter_yoy','revenue_ttm_growth','net_income_ttm_growth']),
-    'Target Prices':cols(['ticker','target_upside']),
-    'Model Portfolios':pd.DataFrame(),
+    'Target Prices':cols(['ticker','price','price_status','target_price','target_upside','target_status','target_consensus','target_source_count','target_sources','target_latest_date','model_portfolio_active','model_portfolio_brokers']),
+    'Model Portfolios':broker_models,
     'KAP News':kap_news,
     'Data Quality':cols(['ticker','price_status','valuation_status','extended_valuation_status','extended_metrics_basis','roic_status','roic_basis','financial_status','financial_quality_score','financial_quarters_available','technical_history_rows','verification_reason','trade_date','source_lineage','capital_method']),
     'Source Status':source_status,

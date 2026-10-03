@@ -28,12 +28,14 @@ from bist_terminal.storage.financial_files import financial_parquet_files
 from bist_terminal.storage.capital_files import load_capital_records
 from bist_terminal.storage.extended_financial_files import load_extended_metric_records
 from bist_terminal.storage.roic_input_files import load_roic_input_records
+from bist_terminal.storage.broker_target_files import load_latest_broker_targets
 from bist_terminal.calculations.fundamental import safe_div
 from bist_terminal.calculations.growth import yoy_from_quarters, ttm_growth
 from bist_terminal.calculations.technical import add_indicators
 from bist_terminal.calculations.valuation import compute_valuation
 from bist_terminal.calculations.extended_valuation import compute_extended_valuation
 from bist_terminal.calculations.sector import sector_stats, discount_to_median
+from bist_terminal.calculations.broker_targets import apply_broker_targets
 from bist_terminal.financials.quarterly import standalone_quarters, ttm_from_quarters
 from bist_terminal.financials.extended_metrics import derive_extended_ttm
 from bist_terminal.financials.roic_inputs import derive_roic_ttm, derive_average_invested_capital, compute_roic
@@ -604,6 +606,24 @@ def main():
     else:
         history_count = 0
 
+    target_reference_date = expected if requested_as_of else today.isoformat()
+    try:
+        broker_targets = load_latest_broker_targets(
+            ROOT, as_of=target_reference_date, max_age_days=90
+        )
+        rows = apply_broker_targets(rows, broker_targets)
+        print(
+            f'BROKER_TARGET_OVERLAY_OK tickers={sum(r.get("target_source_count",0)>0 for r in rows)} '
+            f'sources={len({x.get("broker_id") for values in broker_targets.values() for x in values if x.get("broker_id")})} '
+            f'reference_date={target_reference_date}'
+        )
+        broker_target_status = 'ACTIVE' if broker_targets else 'UNAVAILABLE'
+    except Exception as exc:
+        broker_targets = {}
+        rows = apply_broker_targets(rows, {})
+        broker_target_status = f'DEGRADED: {type(exc).__name__}: {exc}'
+        print(f'BROKER_TARGET_OVERLAY_DEGRADED {broker_target_status}')
+
     verified = sum(r['price_status'] == 'VERIFIED_2X' for r in rows)
     financial_covered = sum(r.get('financial_status') == 'PARSED_HIGH_CONFIDENCE' for r in rows)
     capital_covered = sum(bool(r.get('total_shares')) for r in rows)
@@ -617,6 +637,11 @@ def main():
     roic_covered = sum(r.get('roic_status') == 'ACTIVE' for r in rows)
     high_roic_count = sum((r.get('roic') or 0) > 0.15 for r in rows)
     dividend_positive = sum((r.get('dividend_yield') or 0) > 0 for r in rows)
+    target_price_covered = sum((r.get('target_source_count') or 0) > 0 for r in rows)
+    target_consensus_2plus = sum(r.get('target_status') == 'CONSENSUS_2PLUS' for r in rows)
+    model_portfolio_count = sum(bool(r.get('model_portfolio_active')) for r in rows)
+    target_dates = [r.get('target_latest_date') for r in rows if r.get('target_latest_date')]
+    targets_as_of = max(target_dates) if target_dates else 'N/A'
     financial_periods = [r.get('financial_report_period') for r in rows if r.get('financial_status') == 'PARSED_HIGH_CONFIDENCE' and r.get('financial_report_period')]
     financial_as_of = max(financial_periods) if financial_periods else 'N/A'
     sources = [
@@ -685,6 +710,21 @@ def main():
         ),
     })
     sources.append({
+        'provider': 'gedik_model_portfolio',
+        'status': 'ACTIVE' if broker_target_status == 'ACTIVE' else 'DEGRADED',
+        'upstream': 'Gedik Yatirim',
+        'successes': target_price_covered,
+        'failures': 0 if broker_target_status == 'ACTIVE' else 1,
+        'skipped_after_circuit': 0,
+        'latest_data_date': targets_as_of,
+        'fields': ['ticker','target_price','model_portfolio_membership'],
+        'message': (
+            f'Facts-only current public broker model portfolio: {target_price_covered} tickers; '
+            f'consensus_2plus={target_consensus_2plus}'
+            if broker_target_status == 'ACTIVE' else broker_target_status
+        ),
+    })
+    sources.append({
         'provider': 'kap_bulk_financials',
         'status': 'ACTIVE' if financial_covered else 'DEGRADED',
         'upstream': 'KAP / MKK',
@@ -699,7 +739,8 @@ def main():
         'data_as_of': {
             'prices': expected,
             'financials': financial_as_of,
-            'targets': 'terms-compatible discovery partial',
+            'targets': targets_as_of,
+            'targets_basis': 'BROKER_UPDATE_DATE_OR_OBSERVED_CURRENT_PUBLIC_PAGE',
             'news': expected,
         },
         'stocks': rows,
@@ -727,6 +768,12 @@ def main():
             'dividend_positive_count': dividend_positive,
             'kap_news_count': len(kap_news),
             'kap_news_mapped_count': sum(bool(x.get('ticker')) for x in kap_news),
+            'target_price_count': target_price_covered,
+            'target_consensus_2plus_count': target_consensus_2plus,
+            'model_portfolio_count': model_portfolio_count,
+            'broker_target_source_count': len({
+                x.get('broker_id') for values in broker_targets.values() for x in values if x.get('broker_id')
+            }),
         },
         'universe': {
             'indices': index_codes,
@@ -745,7 +792,8 @@ def main():
         f'extended_active={extended_active}/{len(rows)} ev_ebitda={ev_ebitda_covered} '
         f'net_debt_ebitda={net_debt_ebitda_covered} fcf_yield={fcf_yield_covered} '
         f'roic={roic_covered} high_roic={high_roic_count} '
-        f'dividend_positive={dividend_positive} news={len(kap_news)} '
+        f'dividend_positive={dividend_positive} targets={target_price_covered} '
+        f'model_portfolio={model_portfolio_count} news={len(kap_news)} '
         f'news_mapped={sum(bool(x.get("ticker")) for x in kap_news)} universe={universe_status}'
     )
 

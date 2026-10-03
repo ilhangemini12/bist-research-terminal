@@ -1,2 +1,2 @@
 provider=gedik_model_portfolio
-method=observed-date-snapshot-r1
+stage=publish-overlay-r1

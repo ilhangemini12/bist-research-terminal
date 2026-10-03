@@ -89,6 +89,15 @@ def probe(source):
         if pos>=0:
             snippets.append({"ticker":ticker,"snippet":visible[max(0,pos-120):pos+420]})
     result["ticker_snippets"]=snippets[:10]
+    dates_visible=sorted(set(re.findall(r"\\b\\d{2}\\.\\d{2}\\.\\d{4}\\b",visible)))
+    dates_raw=sorted(set(re.findall(r"\\b\\d{2}\\.\\d{2}\\.\\d{4}\\b",r.text)))
+    result["dates_visible"]=dates_visible[-30:]
+    result["dates_raw"]=dates_raw[-30:]
+    raw_contexts=[]
+    for d in dates_raw[-10:]:
+        pos=r.text.find(d)
+        raw_contexts.append({"date":d,"context":re.sub(r"\\s+"," ",r.text[max(0,pos-250):pos+350])[:700]})
+    result["date_contexts_raw"]=raw_contexts
     return result
 
 

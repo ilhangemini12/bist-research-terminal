@@ -1,6 +1,6 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-03T04:08:54.250565+00:00",
+  "generated_at": "2026-10-03T11:16:28.730304+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
@@ -14,8 +14,8 @@
     "reason": "Live pipeline has VERIFIED_2X prices."
   },
   "demo_fixture": null,
-  "financial_coverage_percent_live": 96.0,
-  "financial_high_confidence_count": 310,
+  "financial_coverage_percent_live": 96.3,
+  "financial_high_confidence_count": 311,
   "financial_quarter_depth": {
     "min": 0,
     "median": 22,
@@ -30,8 +30,8 @@
     },
     "pct_with_at_least_12": 80.2,
     "pct_with_at_least_20": 64.1,
-    "ttm_4q_ready_count": 293,
-    "ttm_4q_ready_pct": 90.7
+    "ttm_4q_ready_count": 294,
+    "ttm_4q_ready_pct": 91.0
   },
   "technical_coverage_percent_live": 99.7,
   "technical_rsi14_count": 322,
@@ -39,11 +39,11 @@
   "capital_explicit_count": 323,
   "valuation_active_count": 322,
   "pe_count": 160,
-  "pb_count": 309,
-  "extended_valuation_active_count": 293,
+  "pb_count": 310,
+  "extended_valuation_active_count": 294,
   "ev_ebitda_count": 234,
   "net_debt_ebitda_count": 234,
-  "fcf_yield_count": 261,
+  "fcf_yield_count": 262,
   "dividend_positive_count": 104,
   "source_catalog": {
     "discovered_or_catalogued": 21,
@@ -55,7 +55,7 @@
       "PAID_SOURCE_SKIPPED": 5
     }
   },
-  "python_tests_collected": 119,
+  "python_tests_collected": 128,
   "js_formula_tests": "dashboard/tests/formula.test.js",
   "presets": [
     "VALUE",

@@ -4,12 +4,14 @@ import yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 
-# Production availability as of the current verified KAP extended-metric pipeline:
+# Production availability after the verified KAP metric pipelines:
 # - net_debt_ebitda is guarded and emitted only for period-matched rows.
 # - fcf_yield is guarded and emitted only where CFO/capex checkpoints are valid.
-# - roic still lacks the required verified EBIT/effective-tax/invested-capital inputs.
-UNAVAILABLE_VERIFIED_FIELDS={"roic"}
-EXPECTED_DISABLED={"HIGH_ROIC"}
+# - roic is guarded and emitted only for non-financial issuers with exact KAP
+#   EBIT/pretax/tax checkpoints plus current/prior comparable invested capital.
+# Missing rows remain N/A; no verified-input preset currently requires a blanket disable.
+UNAVAILABLE_VERIFIED_FIELDS=set()
+EXPECTED_DISABLED=set()
 
 
 def test_unavailable_input_presets_are_explicitly_disabled():
@@ -35,6 +37,14 @@ def test_verified_extended_metric_presets_are_active_and_guarded():
     assert presets["LOW_DEBT"].get("status") is None
     assert "net_debt_ebitda" in presets["LOW_DEBT"]["rules"]
     assert presets["LOW_DEBT"].get("description")
+
     assert presets["HIGH_FCF_YIELD"].get("status") is None
     assert "fcf_yield" in presets["HIGH_FCF_YIELD"]["rules"]
     assert presets["HIGH_FCF_YIELD"].get("description")
+
+    assert presets["HIGH_ROIC"].get("status") is None
+    assert "roic" in presets["HIGH_ROIC"]["rules"]
+    description=presets["HIGH_ROIC"].get("description","").lower()
+    assert "ebit" in description
+    assert "invested capital" in description
+    assert "n/a" in description

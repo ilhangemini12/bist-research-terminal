@@ -52,6 +52,8 @@ report={
   'ev_ebitda_count':0 if is_demo else summary.get('ev_ebitda_count',0),
   'net_debt_ebitda_count':0 if is_demo else summary.get('net_debt_ebitda_count',0),
   'fcf_yield_count':0 if is_demo else summary.get('fcf_yield_count',0),
+  'roic_active_count':0 if is_demo else summary.get('roic_active_count',0),
+  'high_roic_gt_15_count':0 if is_demo else summary.get('high_roic_gt_15_count',0),
   'dividend_positive_count':0 if is_demo else summary.get('dividend_positive_count',0),
   'source_catalog':{'discovered_or_catalogued':len(providers),'status_counts':dict(sorted(statuses.items()))},
   'python_tests_collected':collected,
@@ -68,6 +70,7 @@ report={
     'KAP public bulk financial downloads provide normalized high-confidence financials for most of the configured universe; missing/review-required issuers remain N/A.',
     'KAP explicit total-share coverage is used for market cap and P/E/P/B; experimental nominal-ratio share inference is excluded from production.',
     'EV/EBITDA, net-debt ratios and FCF yield are emitted only where exact KAP parent debt labels plus D&A/capex checkpoints align to the latest high-confidence financial period; unmatched sectors/periods remain N/A.',
+    'ROIC is emitted only for non-financial issuers with exact KAP EBIT/pretax/tax checkpoints, a guarded effective tax rate, matching current/prior-period equity-cash-debt inputs and positive average invested capital; all other rows remain N/A.',
     'Five-year OHLCV backfill is complete for the current configured universe; technical fields still remain N/A for any ticker without sufficient valid observations.',
     'Point-in-time index membership snapshots accumulate from 2026-10-01 onward; periods before the first snapshot remain unavailable and affected backtests must retain BACKTEST BIASED.',
     'Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries.'

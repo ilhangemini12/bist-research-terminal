@@ -24,3 +24,5 @@ data/parquet/*
 !data/parquet/extended_financials/*.parquet
 !data/parquet/roic_inputs/
 !data/parquet/roic_inputs/*.parquet
+!data/parquet/broker_targets/
+!data/parquet/broker_targets/*.parquet

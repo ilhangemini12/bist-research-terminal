@@ -1,75 +1,82 @@
 # BIST Research Terminal — Progress Checkpoint
 
 Updated: 2026-10-03
-Rule: only GitHub-committed and workflow/test-verified work counts as progress.
+Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-verified progress is counted.
 
 ## Current operational state
 - Repository: https://github.com/ilhangemini12/bist-research-terminal
 - Live dashboard: https://ilhangemini12.github.io/bist-research-terminal/
-- Core operational maturity: ~99.7%
-- Full original specification completion within free/legal constraints: ~98%
-- Latest validated Daily run: 37094255618 — SUCCESS
-- Latest validated Pages run: 37094284447 — SUCCESS
-- Python tests: 114 passed
-- JS safe-formula tests: PASS
-- TinyFish: USER_FORBIDDEN / never use
+- Core operational maturity: ~99.8%.
+- Full original specification completion within free/legal constraints: ~98.5%.
+- Latest final ROIC validation Daily run: 37119448627 — SUCCESS.
+- Latest Pages run after that publish: 37119533016 — SUCCESS.
+- Final validation: 128 Python tests PASS + JS formula tests PASS + Excel artifact upload SUCCESS.
 
-## Verified coverage
-- Configured universe: 323 tickers
-- VERIFIED_2X current price: 322/323 = 99.7%
-- Five-year OHLCV history: 323/323 = 100%
-- RSI14 / technical coverage: 322/323 = 99.7%
-- Explicit KAP total-share coverage: 323/323 = 100%
-- High-confidence financial coverage: 310/323 = 96.0%
-- Median standalone-quarter depth: 22
-- >=12 standalone quarters: 259/323 = 80.2%
-- >=20 standalone quarters: 207/323 = 64.1%
-- TTM 4Q ready: 293/323 = 90.7%
-- Extended period-matched valuation inputs active: 293/323 = 90.7%
-- Core extended debt + D&A + capex ready: 262/323 = 81.1%
-- EV/EBITDA available: 234 tickers
-- Net-debt/EBITDA available: 234 tickers
-- FCF yield available: 261 tickers
-- Positive trailing dividend yield: 104 tickers
-- KAP/SPK recent disclosure metadata: 9 rows in latest live dataset
-- Point-in-time universe snapshots: accumulating from 2026-10-01; pre-2026-10-01 membership is not fabricated
+## Verified live coverage (as-of 2026-10-02)
+- Current universe: 323 tickers.
+- VERIFIED_2X prices: 322/323 = 99.7%.
+- Five-year OHLCV backfill: 323/323 = 100%.
+- RSI14/technical coverage: 322/323 = 99.7%.
+- Explicit KAP total-share coverage: 323/323 = 100%.
+- High-confidence latest financial coverage: 311/323 = 96.3%.
+- Financial depth median: 22 standalone quarters.
+- >=12 high-confidence standalone quarters: 259/323 = 80.2%.
+- >=20 high-confidence standalone quarters: 207/323 = 64.1%.
+- TTM 4Q ready: 294/323 = 91.0%.
+- Valuation active: 322/323.
+- P/E available: 160; P/B available: 310.
+- Extended valuation active: 294/323.
+- EV/EBITDA: 234; Net Debt/EBITDA: 234; FCF Yield: 262.
+- Guarded ROIC active: 107 tickers; High ROIC >15%: 44.
+- Dividend-positive: 104.
+- Point-in-time membership history: 811 rows, accumulating from 2026-10-01.
 
-## Stable architecture
-1. VERIFIED_2X requires independent Borsa Istanbul official EOD + Yahoo lineage.
-2. Same-day verification can retain only same-trade-date durable verified evidence; stale dates do not qualify.
-3. Five-year OHLCV is durable via immutable shards and duplicate runs are idempotent.
-4. KAP financial history is durable via immutable period/year shards.
-5. Cumulative KAP flows are normalized conservatively: Q1=3M, Q2=6M-3M, Q3=9M-6M, Q4=FY-9M.
-6. TTM is emitted only from four contiguous high-confidence quarters.
-7. KAP explicit total-share count is the only production share-count path.
-8. Market cap / P-E / P-B / P-S require VERIFIED_2X price where applicable; missing values remain N/A.
-9. Extended EV/debt/FCF metrics require period-matched exact-label KAP checkpoints.
-10. LOW_DEBT and HIGH_FCF_YIELD presets are active because their verified inputs now exist. HIGH_ROIC remains disabled until verified inputs are complete.
-11. Raw KAP archives are not republished.
-12. Missing licensed/intraday/historical point-in-time inputs are not fabricated.
+## ROIC completion checkpoint
+- Exact KAP EBIT label validated on a 10-ticker live sample: FİNANSMAN GELİRİ (GİDERİ) ÖNCESİ FAALİYET KARI (ZARARI).
+- Exact pretax and tax rows are used; effective tax rate is accepted only in [0,1].
+- Immutable input checkpoints persisted separately for 2025 H1, 2025 FY and 2026 H1.
+- TTM EBIT/pretax/tax uses FY + current YTD - prior comparable YTD.
+- Invested capital = equity + complete financial debt - cash.
+- Average invested capital requires current and prior-year same-period inputs.
+- Bank, Insurance and Brokerage sectors are excluded from this ROIC definition.
+- Period mismatch, missing inputs, tax benefits/invalid rates or non-positive invested capital remain N/A.
+- Coverage audit: 107/296 eligible non-financial tickers ACTIVE = 36.1%; 44 >15%.
+- HIGH_ROIC preset is active only after live pipeline validation.
 
-## Latest failure / bypass decisions
-- 2026-10-03 preset regression: fixed; current Daily run passes 114/114 tests and Pages deploy passes.
-- Same-issuer share-class audit proved KRDMA/KRDMB share the exact KAP company title with KRDMD and donor filenames name all three tickers.
-- Experimental same-issuer repair method failed twice:
-  1. test import path error;
-  2. stale helper cleanup left an undefined unicodedata reference.
-- Per the two-failure rule, that repair method is BYPASSED. No third retry. KRDMA/KRDMB remain N/A unless a different, independently validated ingestion path is introduced.
-- İş Bankası A/B/C classes have exact-title siblings but no high-confidence donor; no financial values are copied.
-- Recent SPK disclosure rows currently have zero current-universe exact-title matches; no forced ticker mapping is performed.
+## Stable architecture decisions
+1. Price verification uses independent Borsa Istanbul official EOD + Yahoo lineage. One source alone never becomes VERIFIED_2X.
+2. KAP public bulk financial downloads are normalized locally; raw bulk files are not republished.
+3. Historical OHLCV uses a frozen legacy base plus immutable batch shards.
+4. Financial history, extended metrics and ROIC inputs use immutable checkpoint shards.
+5. Duplicate shard runs are idempotent/no-op.
+6. Manual weekend validation can use guarded BIST_AS_OF_DATE; normal scheduled weekend behavior still skips.
+7. TinyFish remains USER_FORBIDDEN / PAID_SOURCE_SKIPPED and must never be used.
 
-## Remaining material gaps
-1. Pre-2026-10-01 historical point-in-time index membership is unavailable.
-2. Genuine intraday data / VWAP and licensed real-time BIST redistribution are unavailable in the free-first build.
-3. Broker target-price/model-portfolio coverage is partial because current candidates are login-gated, blocked by terms/robots, or paid.
-4. ISATR remains the current price verification gap.
-5. 13 current-universe tickers are not high-confidence financials; unsupported repairs remain N/A.
-6. ROIC remains disabled until verified EBIT/effective-tax/invested-capital inputs are available.
-7. Recent SPK disclosure metadata is useful but may contain zero current-universe matches in a given 7-day window.
+## Remaining partial or structural limits
+1. Broker target-price / model-portfolio ingestion remains partial and must pass public-access + terms/robots review before automation.
+2. ISATR remains the single current price verification gap; no price is manufactured.
+3. Twelve current-universe names still lack latest high-confidence normalized financials.
+4. Pre-2026-10-01 point-in-time index membership is unavailable; affected historical backtests retain BACKTEST BIASED.
+5. Genuine intraday/VWAP and licensed real-time BIST redistribution are not provided without required market-data rights.
+6. SPK recent disclosure metadata may have zero exact current-universe title mappings; approximate name matching is not forced.
+
+## Failure history and bypass rules
+- GitHub connector binary ZIP bootstrap repeatedly produced corrupt archives: permanently abandoned.
+- Mutable shared history Parquet caused binary rebase conflicts: bypassed with immutable history shards.
+- Initial financial mutable state was replaced for new backfills by immutable period shards.
+- Share-class exact issuer repair failed twice: third identical retry forbidden; missing rows remain N/A.
+- HIGH_ROIC final validation initially failed only because an old acceptance test still expected ROIC to be unavailable. Production ROIC had already passed live validation; the stale contract test was updated, and the next full validation passed 128/128.
+- If the same method fails twice consecutively, do not make a third identical attempt.
 
 ## Method discipline
-Plan -> smallest edit -> unit test -> live validation -> checkpoint -> continue.
-Never count speculative progress.
-Save partial successes immediately.
-If the same method fails twice, bypass it and use a different method.
-Do not weaken quality gates to increase coverage.
+- No speculative progress.
+- A stage counts only after code/data is committed and its validation workflow succeeds.
+- Checkpoint after every successful stage or before changing methods.
+- Smallest sequence: analyze -> edit -> unit test -> live validation -> checkpoint -> continue.
+- Prefer immutable period/batch shards so failures require only the smallest failed piece to be retried.
+
+## Next highest-value work
+1. Determine whether any public, free, terms-compatible broker target/model-portfolio source can be automated. If terms are unclear, keep discovery manual/disabled.
+2. Investigate ISATR only with existing approved free sources; do not weaken VERIFIED_2X.
+3. Improve the 12 missing latest-financial issuers only through exact KAP mappings/labels; no fuzzy issuer repair after repeated failures.
+4. Keep accumulating point-in-time index snapshots prospectively.

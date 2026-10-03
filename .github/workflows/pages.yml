@@ -40,6 +40,8 @@ jobs:
           test -f dashboard/app.js
           test -f dashboard/data/latest.json
           node --check dashboard/app.js
+          node dashboard/tests/formula.test.js
+          node dashboard/tests/ui_regression.test.js
           python - <<'PY'
           import json
           from pathlib import Path

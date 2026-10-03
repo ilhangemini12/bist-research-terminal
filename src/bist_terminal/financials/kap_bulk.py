@@ -93,8 +93,21 @@ def _period_columns(df: pd.DataFrame):
     def choose(cols):
         if not cols:
             return None
+        # Bank statements split a period into TP / YP / Toplam; the explicit
+        # total is authoritative when present.
         totals = [i for i in cols if _fold(row1[i]) == "TOPLAM"]
-        return totals[-1] if totals else cols[-1]
+        if totals:
+            return totals[-1]
+        # General KAP income tables can expose both cumulative YTD and a
+        # standalone "3 Aylık" comparison column under the same Cari/Onceki
+        # Donem prefix. Prefer the cumulative YTD column for normalized period
+        # facts; quarterly standalone values are derived later by differencing
+        # cumulative checkpoints.
+        ytd = [
+            i for i in cols
+            if not re.search(r"\b\d+\s*AYLIK\b", _fold(row0[i]))
+        ]
+        return ytd[0] if ytd else cols[-1]
 
     cur = choose(current)
     prev = choose(previous)

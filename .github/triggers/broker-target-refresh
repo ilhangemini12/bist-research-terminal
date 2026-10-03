@@ -1,2 +1,2 @@
 provider=gedik_model_portfolio
-retry=parser-fix-r1
+method=turkish-normalizer-r1

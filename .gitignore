@@ -22,3 +22,5 @@ data/parquet/*
 !data/parquet/capital/*.parquet
 !data/parquet/extended_financials/
 !data/parquet/extended_financials/*.parquet
+!data/parquet/roic_inputs/
+!data/parquet/roic_inputs/*.parquet

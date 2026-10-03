@@ -1,6 +1,11 @@
 name: Daily Update
 on:
   workflow_dispatch:
+    inputs:
+      as_of_date:
+        description: "Optional manual BIST trade date YYYY-MM-DD; blank keeps normal current-day behavior"
+        required: false
+        default: ""
   push:
     branches: [main]
     paths:
@@ -27,10 +32,27 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Validate, regenerate and publish from latest main
         shell: bash
+        env:
+          DISPATCH_AS_OF: ${{ github.event.inputs.as_of_date || '' }}
         run: |
           set -euo pipefail
           git config user.name "bist-research-bot"
           git config user.email "actions@users.noreply.github.com"
+
+          AS_OF="$DISPATCH_AS_OF"
+          if [[ "$GITHUB_EVENT_NAME" == "push" && -f .github/triggers/daily ]]; then
+            while IFS='=' read -r key value; do
+              case "$key" in
+                as_of) AS_OF="$value" ;;
+              esac
+            done < .github/triggers/daily
+          fi
+          if [[ -n "$AS_OF" ]]; then
+            export BIST_AS_OF_DATE="$AS_OF"
+            echo "DAILY_MANUAL_AS_OF=$BIST_AS_OF_DATE"
+          else
+            unset BIST_AS_OF_DATE || true
+          fi
 
           for ATTEMPT in 1 2; do
             echo "DAILY_PUBLISH_ATTEMPT=$ATTEMPT"

@@ -33,18 +33,26 @@ def load_latest_broker_targets(root: Path, as_of: str | None=None, max_age_days:
     frame=pd.concat(frames,ignore_index=True)
     if as_of:
         end=pd.Timestamp(as_of).date()
-        def fresh(raw):
+        def effective_date(row):
+            raw=row.get("portfolio_date") or row.get("observed_date")
             try:
-                d=pd.Timestamp(raw).date()
+                return pd.Timestamp(raw).date()
             except Exception:
+                return None
+        def fresh_row(row):
+            d=effective_date(row)
+            if d is None:
                 return False
             age=(end-d).days
             return 0<=age<=max_age_days
-        frame=frame[frame["portfolio_date"].map(fresh)]
+        frame=frame[frame.apply(fresh_row,axis=1)]
     if frame.empty:
         return {}
     # Latest snapshot wins within each broker/ticker; different brokers remain independent.
-    frame=frame.sort_values(["broker_id","ticker","portfolio_date","retrieved_at"],na_position="first")
+    frame["_effective_date"]=frame.apply(
+        lambda r: r.get("portfolio_date") or r.get("observed_date"),axis=1
+    )
+    frame=frame.sort_values(["broker_id","ticker","_effective_date","retrieved_at"],na_position="first")
     frame=frame.drop_duplicates(["broker_id","ticker"],keep="last")
     out={}
     for row in frame.to_dict("records"):

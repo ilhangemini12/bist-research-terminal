@@ -1,0 +1,36 @@
+{
+  "ticker": "ISATR",
+  "trade_date": "2026-10-02",
+  "observations": [
+    {
+      "provider_id": "yahoo_chart",
+      "upstream_vendor": "Yahoo market data feed",
+      "trade_date": "2026-10-02",
+      "close": 4950000.0,
+      "volume": 0.0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ISATR.IS?interval=1d&events=div%2Csplits&range=5d"
+    }
+  ],
+  "errors": [
+    {
+      "provider": "bist_daily_bulletin",
+      "error_type": "ProviderError",
+      "message": "ticker ISATR absent from BIST bulletin 2026-10-02"
+    }
+  ],
+  "verification": {
+    "ticker": "ISATR",
+    "status": "SINGLE_SOURCE",
+    "verified_price": null,
+    "trade_date": "2026-10-02",
+    "sources": [
+      "yahoo_chart"
+    ],
+    "upstreams": [
+      "yahoo market data feed"
+    ],
+    "max_diff_pct": null,
+    "reason": "fewer than 2 independent upstreams"
+  },
+  "decision": "DO_NOT_ADD_THIRD_SOURCE_OR_WEAKEN_VERIFIED_2X"
+}

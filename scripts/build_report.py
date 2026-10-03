@@ -71,6 +71,7 @@ report={
   },
   'known_limitations':[
     'Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.',
+    'ISATR remains SINGLE_SOURCE on 2026-10-02 because Yahoo has a fresh close but the official Borsa Istanbul bulletin omits ISATR.E; no third unreviewed source is added.',
     'KAP public bulk financial downloads provide normalized high-confidence financials for most of the configured universe; missing/review-required issuers remain N/A.',
     'KAP explicit total-share coverage is used for market cap and P/E/P/B; experimental nominal-ratio share inference is excluded from production.',
     'EV/EBITDA, net-debt ratios and FCF yield are emitted only where exact KAP parent debt labels plus D&A/capex checkpoints align to the latest high-confidence financial period; unmatched sectors/periods remain N/A.',

@@ -1,0 +1,101 @@
+{
+  "end_date": "2026-10-02",
+  "days": 7,
+  "spk_rows": 9,
+  "capital_titles": 323,
+  "exact_matches": 0,
+  "legal_suffix_unique_matches": 0,
+  "legal_suffix_collision_count": 2,
+  "rows": [
+    {
+      "id": 6639,
+      "date": "2026-10-02",
+      "company_code": 463,
+      "company_title": "KONYA ŞEKER SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "subject": "Tedarikçi Ödemesi hk.",
+      "exact_ticker": null,
+      "legal_suffix_ticker": null,
+      "legal_canonical_title": "KONYA SEKER SANAYI VE TICARET"
+    },
+    {
+      "id": 6638,
+      "date": "2026-10-02",
+      "company_code": 477,
+      "company_title": "PANPET PETROL TAŞIMACILIK SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "subject": "Yatırımcı İlişkileri Bölümü Yöneticiliği hk. ",
+      "exact_ticker": null,
+      "legal_suffix_ticker": null,
+      "legal_canonical_title": "PANPET PETROL TASIMACILIK SANAYI VE TICARET"
+    },
+    {
+      "id": 6637,
+      "date": "2026-10-01",
+      "company_code": 121,
+      "company_title": "ANKA INVESTMENT GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI ANONİM ŞİRKETİ",
+      "subject": "Özel Durum Açıklamaları Hk.",
+      "exact_ticker": null,
+      "legal_suffix_ticker": null,
+      "legal_canonical_title": "ANKA INVESTMENT GIRISIM SERMAYESI YATIRIM ORTAKLIGI"
+    },
+    {
+      "id": 6635,
+      "date": "2026-10-01",
+      "company_code": 524,
+      "company_title": "TARIM KREDİ YEM SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "subject": " Bağımsız Yönetim Kurulu Üyesi Değişikliği hk.",
+      "exact_ticker": null,
+      "legal_suffix_ticker": null,
+      "legal_canonical_title": "TARIM KREDI YEM SANAYI VE TICARET"
+    },
+    {
+      "id": 6633,
+      "date": "2026-09-30",
+      "company_code": 821,
+      "company_title": "KAYSERİ ŞEKER TARIM ÜRÜNLERİ LİSANSLI DEPOCULUK ANONİM ŞİRKETİ",
+      "subject": "Yatırımcı İlişkileri Bölümü Yönetici Değişikliği hk.",
+      "exact_ticker": null,
+      "legal_suffix_ticker": null,
+      "legal_canonical_title": "KAYSERI SEKER TARIM URUNLERI LISANSLI DEPOCULUK"
+    },
+    {
+      "id": 6634,
+      "date": "2026-09-30",
+      "company_code": 850,
+      "company_title": "GÜBRETAŞ MADEN YATIRIMLARI ANONİM ŞİRKETİ",
+      "subject": "Olağanüstü Genel Kurul Toplantısı hk.",
+      "exact_ticker": null,
+      "legal_suffix_ticker": null,
+      "legal_canonical_title": "GUBRETAS MADEN YATIRIMLARI"
+    },
+    {
+      "id": 6632,
+      "date": "2026-09-29",
+      "company_code": 537,
+      "company_title": "PAN DOĞA SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+      "subject": "Yönetim Kurulu Üyesinin İstifası hk.",
+      "exact_ticker": null,
+      "legal_suffix_ticker": null,
+      "legal_canonical_title": "PAN DOGA SANAYI VE TICARET"
+    },
+    {
+      "id": 6631,
+      "date": "2026-09-29",
+      "company_code": 457,
+      "company_title": "KARAMAN YEM VE UN GIDA SANAYİ TİCARET ANONİM ŞİRKETİ",
+      "subject": "Genel Kurul Tutanağı ve Bağımsız Denetim Sözleşmesi hk.",
+      "exact_ticker": null,
+      "legal_suffix_ticker": null,
+      "legal_canonical_title": "KARAMAN YEM VE UN GIDA SANAYI TICARET"
+    },
+    {
+      "id": 6630,
+      "date": "2026-09-28",
+      "company_code": 489,
+      "company_title": "SOMA TERMİK SANTRAL ELEKTRİK ÜRETİM ANONİM ŞİRKETİ",
+      "subject": " Şirketimizin İflas İşlemleri hk.",
+      "exact_ticker": null,
+      "legal_suffix_ticker": null,
+      "legal_canonical_title": "SOMA TERMIK SANTRAL ELEKTRIK URETIM"
+    }
+  ]
+}

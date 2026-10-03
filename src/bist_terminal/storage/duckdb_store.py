@@ -175,26 +175,42 @@ class DuckDBStore:
     def latest_financial_payloads(self) -> dict[str, dict]:
         rows = self.con.execute('''
           select ticker, report_period, publication_date, statement_scope, payload, source_url
-          from (
-            select *, row_number() over (
-              partition by ticker order by cast(report_period as date) desc, publication_date desc nulls last
-            ) as rn
-            from financials
-          )
-          where rn=1
+          from financials
+          order by ticker, cast(report_period as date) desc, publication_date desc nulls last
         ''').fetchall()
-        out = {}
+        out: dict[str, dict] = {}
+        ranks: dict[str, tuple] = {}
         for ticker, report_period, publication_date, scope, payload, source_url in rows:
             if isinstance(payload, str):
                 try:
                     payload = json.loads(payload)
                 except json.JSONDecodeError:
                     payload = {}
+            payload = payload or {}
+            status = payload.get('status')
+            try:
+                quality = float(payload.get('quality_score') or 0)
+            except (TypeError, ValueError):
+                quality = 0.0
+            # ISO report-period strings sort chronologically. For the same
+            # report date prefer a validated high-confidence parse, then the
+            # higher quality score, then the later publication date. This
+            # makes immutable repair overlays deterministic without allowing
+            # an older report to outrank a newer one.
+            rank = (
+                str(report_period),
+                1 if status == 'PARSED_HIGH_CONFIDENCE' else 0,
+                quality,
+                str(publication_date) if publication_date else '',
+            )
+            if ticker in ranks and rank <= ranks[ticker]:
+                continue
+            ranks[ticker] = rank
             out[ticker] = {
                 'report_period': str(report_period),
                 'publication_date': str(publication_date) if publication_date else None,
                 'statement_scope': scope,
-                'payload': payload or {},
+                'payload': payload,
                 'source_url': source_url,
             }
         return out

@@ -1,6 +1,6 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-03T13:23:07.273942+00:00",
+  "generated_at": "2026-10-03T21:35:57.349150+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
@@ -47,17 +47,21 @@
   "roic_active_count": 107,
   "high_roic_gt_15_count": 44,
   "dividend_positive_count": 104,
+  "target_price_count": 10,
+  "target_consensus_2plus_count": 0,
+  "model_portfolio_count": 10,
+  "broker_target_source_count": 1,
   "source_catalog": {
-    "discovered_or_catalogued": 21,
+    "discovered_or_catalogued": 23,
     "status_counts": {
-      "ACTIVE": 8,
+      "ACTIVE": 9,
       "BLOCKED": 1,
-      "DISABLED": 4,
+      "DISABLED": 5,
       "LOGIN_REQUIRED": 3,
       "PAID_SOURCE_SKIPPED": 5
     }
   },
-  "python_tests_collected": 128,
+  "python_tests_collected": 136,
   "js_formula_tests": "dashboard/tests/formula.test.js",
   "presets": [
     "VALUE",
@@ -101,7 +105,7 @@
     "ROIC is emitted only for non-financial issuers with exact KAP EBIT/pretax/tax checkpoints, a guarded effective tax rate, matching current/prior-period equity-cash-debt inputs and positive average invested capital; all other rows remain N/A.",
     "Five-year OHLCV backfill is complete for the current configured universe; technical fields still remain N/A for any ticker without sufficient valid observations.",
     "Point-in-time index membership snapshots accumulate from 2026-10-01 onward; periods before the first snapshot remain unavailable and affected backtests must retain BACKTEST BIASED.",
-    "Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries."
+    "Gedik public model-portfolio target prices are active as a facts-only single-broker source; no target-price consensus is claimed until at least two independent broker sources are available."
   ],
   "stress_coverage": [
     "primary/secondary provider down",

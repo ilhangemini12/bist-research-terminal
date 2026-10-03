@@ -8,7 +8,7 @@ This prevents generic title-based inference.
 from __future__ import annotations
 from datetime import datetime, timezone
 from pathlib import Path
-import json, re, sys, unicodedata
+import json, sys
 import pandas as pd
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -17,6 +17,7 @@ sys.path.insert(0,str(ROOT/'src'))
 from bist_terminal.storage.capital_files import load_capital_records
 from bist_terminal.storage.duckdb_store import DuckDBStore
 from bist_terminal.storage.financial_files import financial_parquet_files
+from bist_terminal.financials.share_class import normalize_company_title, source_filename_names_ticker
 
 RECIPIENTS={"KRDMA":"KRDMD","KRDMB":"KRDMD"}
 

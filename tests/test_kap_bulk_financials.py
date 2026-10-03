@@ -4,6 +4,7 @@ from bist_terminal.financials.kap_bulk import (
     parse_tr_number,
     presentation_scale,
     notification_id_from_source_file,
+    _period_columns,
 )
 from io import BytesIO
 import zipfile
@@ -114,3 +115,33 @@ def test_parse_insurance_schema_core_metrics():
     assert out["facts"]["current_assets"]==600
     assert out["facts"]["current_liabilities"]==300
     assert "revenue" not in out["facts"]
+
+
+def test_period_columns_prefer_ytd_over_three_month_subperiod():
+    import pandas as pd
+    df=pd.DataFrame([
+        [None,None,None,
+         "Cari Donem 01.01.2026 - 30.06.2026",
+         "Onceki Donem 01.01.2025 - 30.06.2025",
+         "Cari Donem 3 Aylik 01.04.2026 - 30.06.2026",
+         "Onceki Donem 3 Aylik 01.04.2025 - 30.06.2025"],
+        [None,"Kar veya Zarar ve Diger Kapsamli Gelir Tablosu",None,None,None,None,None],
+    ])
+    cols=_period_columns(df)
+    assert cols["current_col"]==3
+    assert cols["previous_col"]==4
+    assert cols["current_period"]=="2026-06-30"
+    assert cols["previous_period"]=="2025-06-30"
+
+
+def test_period_columns_keep_bank_total_priority():
+    import pandas as pd
+    df=pd.DataFrame([
+        [None,None,None,
+         "Cari Donem 30.06.2026","Cari Donem 30.06.2026","Cari Donem 30.06.2026",
+         "Onceki Donem 30.06.2025","Onceki Donem 30.06.2025","Onceki Donem 30.06.2025"],
+        [None,None,None,"TP","YP","Toplam","TP","YP","Toplam"],
+    ])
+    cols=_period_columns(df)
+    assert cols["current_col"]==5
+    assert cols["previous_col"]==8

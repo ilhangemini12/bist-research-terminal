@@ -12,7 +12,7 @@ URL="https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
 BROKER_ID="gedik_model_portfolio"
 BROKER_NAME="Gedik Yatırım"
 
-_TRY_RE=re.compile(r"[-+]?\d[\d.]*?(?:,\d+)?")
+_TRY_RE=re.compile(r"[-+]?\\d[\\d.]*(?:,\\d+)?")
 _DATE_RE=re.compile(r"\b(\d{2}\.\d{2}\.\d{4})\b")
 
 

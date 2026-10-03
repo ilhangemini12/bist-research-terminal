@@ -16,4 +16,7 @@ assert(app.includes("c==='ticker'?'stock-ticker-col':''"),'ticker sticky class n
 assert(app.includes("output?.classList.remove('hidden')"),'strategy output is not revealed');
 assert(app.includes("scrollIntoView({behavior:'smooth',block:'start'})"),'mobile strategy feedback scroll missing');
 assert(app.includes('type="button" data-runpreset'),'preset run buttons need explicit button type');
+assert(app.includes("'target_price'"),'target price field missing from dashboard');
+assert(app.includes("'target_source_count'"),'target source-count field missing from dashboard');
+assert(app.includes("'model_portfolio_active'"),'model portfolio flag missing from dashboard');
 console.log('ui regression tests passed');

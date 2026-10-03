@@ -1,11 +1,17 @@
 {
-  "generated_at": "2026-10-02T22:06:55.209191+00:00",
+  "generated_at": "2026-10-03T04:11:23.814161+00:00",
   "tracked_tickers": 323,
   "financial_rows": 5688,
   "status_counts": {
-    "PARSED_HIGH_CONFIDENCE": 5656,
-    "PARSED_REVIEW_REQUIRED": 32
+    "PARSED_HIGH_CONFIDENCE": 5658,
+    "PARSED_REVIEW_REQUIRED": 30
   },
+  "latest_status_counts": {
+    "MISSING": 12,
+    "PARSED_HIGH_CONFIDENCE": 311
+  },
+  "latest_high_confidence_count": 311,
+  "latest_high_confidence_pct": 96.3,
   "distinct_report_periods": [
     "2021-03-31",
     "2021-04-30",
@@ -601,44 +607,6 @@
       "source_file": "ORCAY_970883_2021_2.xls"
     },
     {
-      "ticker": "PRZMA",
-      "report_period": "2025-06-30",
-      "archive_year": 2025,
-      "archive_period": "2",
-      "quality_score": 80,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 3,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "cash_from_operations",
-        "current_assets",
-        "current_liabilities",
-        "equity",
-        "inventories"
-      ],
-      "source_file": "PRZMA_1475118_2025_2.xls"
-    },
-    {
-      "ticker": "PRZMA",
-      "report_period": "2026-06-30",
-      "archive_year": 2026,
-      "archive_period": "2",
-      "quality_score": 80,
-      "statement_scope": "Konsolide Olmayan",
-      "matched_statement_tables": 3,
-      "fact_keys": [
-        "assets",
-        "cash",
-        "cash_from_operations",
-        "current_assets",
-        "current_liabilities",
-        "equity",
-        "inventories"
-      ],
-      "source_file": "PRZMA_1646831_2026_2.xls"
-    },
-    {
       "ticker": "RODRG",
       "report_period": "2021-06-30",
       "archive_year": 2021,
@@ -802,8 +770,8 @@
     },
     "pct_with_at_least_12": 80.2,
     "pct_with_at_least_20": 64.1,
-    "ttm_4q_ready_count": 293,
-    "ttm_4q_ready_pct": 90.7
+    "ttm_4q_ready_count": 294,
+    "ttm_4q_ready_pct": 91.0
   },
   "lowest_depth": [
     {

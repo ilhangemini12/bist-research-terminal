@@ -11,7 +11,7 @@ const PRESETS=[
   ['OVERSOLD','Oversold','RSI14 below 35','rsi14 < 35'],
   ['TREND','Trend','Price and moving-average trend','close > sma20 and sma20 > sma50'],
   ['LOW_DEBT','Low Debt','Verified net debt / EBITDA below 2','net_debt_ebitda >= 0 and net_debt_ebitda < 2'],
-  ['HIGH_ROIC','High ROIC','ROIC above 15%','roic > 0.15','Requires verified EBIT + tax rate + invested capital; unavailable inputs are not inferred.'],
+  ['HIGH_ROIC','High ROIC','Verified KAP EBIT/tax + average invested capital; non-financial only','roic > 0.15'],
   ['HIGH_FCF_YIELD','High FCF Yield','Verified FCF yield above 5%','fcf_yield > 0.05'],
   ['VALUE_QUALITY','Value + Quality','Value plus sector-relative ROE','pe > 0 and pe < sector_pe_median and roe > sector_roe_median'],
   ['VALUE_RSI','Value + RSI','Value with RSI below 45','pe > 0 and pe < sector_pe_median and rsi14 < 45'],

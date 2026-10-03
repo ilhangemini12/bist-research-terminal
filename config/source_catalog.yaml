@@ -481,3 +481,49 @@ providers:
     upstream_vendor: KAP / MKK
     last_checked: 2026-10-02
     status: ACTIVE
+
+  - provider_id: gedik_model_portfolio
+    institution: Gedik Yatirim Menkul Degerler A.S.
+    platform_name: Gedik public stock model portfolio
+    website: https://gedik.com/analiz/model-portfoy/hisse-model-portfoy
+    source_type: broker_research_public_page
+    official_or_secondary: secondary
+    free: true
+    login_required: false
+    live_or_delayed: research_snapshot
+    delay_minutes: null
+    fields_available: [ticker, target_price, model_portfolio_membership, portfolio_update_date]
+    historical_data: immutable_snapshots
+    financial_data: false
+    research_reports: true
+    target_prices: true
+    model_portfolio: true
+    news: false
+    robots_status: PUBLIC_PAGE_ALLOWED
+    terms_status: FACTS_ONLY_NO_BIST_MARKET_DATA_REPUBLISH
+    upstream_vendor: Gedik Yatirim
+    last_checked: 2026-10-04
+    status: ACTIVE
+
+  - provider_id: ak_yatirim_model_portfolio
+    institution: Ak Yatirim Menkul Degerler A.S.
+    platform_name: Ak Yatirim public model portfolio page
+    website: https://www.akyatirim.com.tr/tr/raporlarimiz/model-portfoy
+    source_type: broker_research_public_page_candidate
+    official_or_secondary: secondary
+    free: true
+    login_required: false
+    live_or_delayed: research_snapshot
+    delay_minutes: null
+    fields_available: [page_shell]
+    historical_data: unknown
+    financial_data: false
+    research_reports: true
+    target_prices: true
+    model_portfolio: true
+    news: false
+    robots_status: PUBLIC_PAGE_ALLOWED
+    terms_status: STATIC_HTML_HAS_NO_ROWS_PRIVATE_OR_UNDOCUMENTED_API_NOT_PROBED
+    upstream_vendor: Ak Yatirim
+    last_checked: 2026-10-04
+    status: DISABLED

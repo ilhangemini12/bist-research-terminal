@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "provider_id": "ak_yatirim_model_portfolio",
+      "url": "https://www.akyatirim.com.tr/tr/raporlarimiz/model-portfoy",
+      "error": "ImportError: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+    },
+    {
+      "provider_id": "gedik_model_portfolio",
+      "url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy",
+      "robots_url": "https://gedik.com/robots.txt",
+      "robots_status": 200,
+      "robots_can_fetch": true,
+      "page_status": 200,
+      "page_bytes": 274438,
+      "table_count": 1,
+      "candidate_tables": [],
+      "signals": {
+        "hedef_fiyat": true,
+        "model_portfoy": true,
+        "known_ticker_count": 35
+      }
+    }
+  ]
+}

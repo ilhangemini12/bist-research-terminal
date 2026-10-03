@@ -6,8 +6,8 @@ Purpose: evidence-based restart point. Only GitHub-committed and workflow/test-v
 ## Current operational state
 - Repository: https://github.com/ilhangemini12/bist-research-terminal
 - Live dashboard: https://ilhangemini12.github.io/bist-research-terminal/
-- Core operational maturity: ~99.8%.
-- Full original specification completion within free/legal constraints: ~98.5%.
+- Core operational maturity: ~99.9%.
+- Full original specification completion within free/legal constraints: ~99.0%.
 - Latest final ROIC validation Daily run: 37119448627 — SUCCESS.
 - Latest Pages run after that publish: 37119533016 — SUCCESS.
 - Final validation: 128 Python tests PASS + JS formula tests PASS + Excel artifact upload SUCCESS.

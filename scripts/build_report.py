@@ -55,6 +55,10 @@ report={
   'roic_active_count':0 if is_demo else summary.get('roic_active_count',0),
   'high_roic_gt_15_count':0 if is_demo else summary.get('high_roic_gt_15_count',0),
   'dividend_positive_count':0 if is_demo else summary.get('dividend_positive_count',0),
+  'target_price_count':0 if is_demo else summary.get('target_price_count',0),
+  'target_consensus_2plus_count':0 if is_demo else summary.get('target_consensus_2plus_count',0),
+  'model_portfolio_count':0 if is_demo else summary.get('model_portfolio_count',0),
+  'broker_target_source_count':0 if is_demo else summary.get('broker_target_source_count',0),
   'source_catalog':{'discovered_or_catalogued':len(providers),'status_counts':dict(sorted(statuses.items()))},
   'python_tests_collected':collected,
   'js_formula_tests':'dashboard/tests/formula.test.js',
@@ -73,7 +77,7 @@ report={
     'ROIC is emitted only for non-financial issuers with exact KAP EBIT/pretax/tax checkpoints, a guarded effective tax rate, matching current/prior-period equity-cash-debt inputs and positive average invested capital; all other rows remain N/A.',
     'Five-year OHLCV backfill is complete for the current configured universe; technical fields still remain N/A for any ticker without sufficient valid observations.',
     'Point-in-time index membership snapshots accumulate from 2026-10-01 onward; periods before the first snapshot remain unavailable and affected backtests must retain BACKTEST BIASED.',
-    'Broker target-price/model-portfolio discovery is partial and must respect each public source terms/access boundaries.'
+    'Gedik public model-portfolio target prices are active as a facts-only single-broker source; no target-price consensus is claimed until at least two independent broker sources are available.'
   ],
   'stress_coverage':[
     'primary/secondary provider down','HTTP 403','HTTP 429 bounded retry','timeout','malformed payload/HTML','schema change',

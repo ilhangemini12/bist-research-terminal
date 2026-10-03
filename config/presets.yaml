@@ -27,8 +27,7 @@ presets:
     rules: "net_debt_ebitda >= 0 and net_debt_ebitda < 2"
   HIGH_ROIC:
     label: High ROIC
-    status: DISABLED_MISSING_VERIFIED_INPUT
-    reason: "Requires verified EBIT, effective tax rate and invested capital; unavailable values are not inferred."
+    description: Verified exact KAP EBIT, guarded effective tax rate and two-period average invested capital; financial sectors and missing inputs remain N/A
     rules: "roic > 0.15"
   HIGH_FCF_YIELD:
     label: High FCF Yield

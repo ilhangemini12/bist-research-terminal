@@ -1,0 +1,125 @@
+{
+  "missing_or_review_count": 13,
+  "rows": [
+    {
+      "ticker": "A1CAP",
+      "company_title": "A1 CAPİTAL YATIRIM MENKUL DEĞERLER A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "ALBRK",
+      "company_title": "ALBARAKA TÜRK KATILIM BANKASI A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "GARAN",
+      "company_title": "TÜRKİYE GARANTİ BANKASI A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "HALKB",
+      "company_title": "TÜRKİYE HALK BANKASI A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "INFO",
+      "company_title": "İNFO YATIRIM MENKUL DEĞERLER A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "ISATR",
+      "company_title": "TÜRKİYE İŞ BANKASI A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [
+        "ISBTR",
+        "ISCTR"
+      ],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "ISBTR",
+      "company_title": "TÜRKİYE İŞ BANKASI A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [
+        "ISATR",
+        "ISCTR"
+      ],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "ISCTR",
+      "company_title": "TÜRKİYE İŞ BANKASI A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [
+        "ISATR",
+        "ISBTR"
+      ],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "ISMEN",
+      "company_title": "İŞ YATIRIM MENKUL DEĞERLER A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "KRDMA",
+      "company_title": "KARDEMİR KARABÜK DEMİR ÇELİK SANAYİ VE TİCARET A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [
+        "KRDMB",
+        "KRDMD"
+      ],
+      "high_confidence_donors": [
+        {
+          "ticker": "KRDMD",
+          "report_period": "2026-06-30",
+          "quality_score": 100,
+          "source_file": "KRDMA-KRDMB-KRDMD_1650387_2026_2.xls"
+        }
+      ]
+    },
+    {
+      "ticker": "KRDMB",
+      "company_title": "KARDEMİR KARABÜK DEMİR ÇELİK SANAYİ VE TİCARET A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [
+        "KRDMA",
+        "KRDMD"
+      ],
+      "high_confidence_donors": [
+        {
+          "ticker": "KRDMD",
+          "report_period": "2026-06-30",
+          "quality_score": 100,
+          "source_file": "KRDMA-KRDMB-KRDMD_1650387_2026_2.xls"
+        }
+      ]
+    },
+    {
+      "ticker": "NETGL",
+      "company_title": "NET GLOBAL ENDÜSTRİYEL YATIRIMLAR A.Ş.",
+      "current_financial_status": null,
+      "exact_title_siblings": [],
+      "high_confidence_donors": []
+    },
+    {
+      "ticker": "PRZMA",
+      "company_title": "PRİZMA PRES MATBAACILIK YAYINCILIK SANAYİ VE TİCARET A.Ş.",
+      "current_financial_status": "PARSED_REVIEW_REQUIRED",
+      "exact_title_siblings": [],
+      "high_confidence_donors": []
+    }
+  ]
+}

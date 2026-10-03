@@ -1,0 +1,19 @@
+const assert=require('assert');
+const fs=require('fs');
+const path=require('path');
+const root=path.resolve(__dirname,'..');
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const css=fs.readFileSync(path.join(root,'styles.css'),'utf8');
+const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
+
+assert(html.indexOf('id="strategyOutput"')>0,'strategy output container missing');
+assert(html.indexOf('id="strategyOutput"')<html.indexOf('id="presetCards"'),'strategy output must be above preset cards');
+assert(css.includes('#stockTable .stock-ticker-col'),'ticker sticky CSS missing');
+assert(css.includes('#stockTable thead th{position:sticky'),'sticky header CSS missing');
+assert(!css.includes('th{position:relative}.drawer'),'legacy th relative override still present');
+assert(app.includes('class="stock-star-col"'),'watch column sticky class missing');
+assert(app.includes("c==='ticker'?'stock-ticker-col':''"),'ticker sticky class not rendered');
+assert(app.includes("output?.classList.remove('hidden')"),'strategy output is not revealed');
+assert(app.includes("scrollIntoView({behavior:'smooth',block:'start'})"),'mobile strategy feedback scroll missing');
+assert(app.includes('type="button" data-runpreset'),'preset run buttons need explicit button type');
+console.log('ui regression tests passed');

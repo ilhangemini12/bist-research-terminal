@@ -3,7 +3,19 @@
     {
       "provider_id": "ak_yatirim_model_portfolio",
       "url": "https://www.akyatirim.com.tr/tr/raporlarimiz/model-portfoy",
-      "error": "ImportError: Missing optional dependency 'html5lib'.  Use pip or conda to install html5lib."
+      "robots_url": "https://www.akyatirim.com.tr/robots.txt",
+      "robots_status": 200,
+      "robots_can_fetch": true,
+      "page_status": 200,
+      "page_bytes": 116550,
+      "table_count": 0,
+      "candidate_tables": [],
+      "signals": {
+        "hedef_fiyat": true,
+        "model_portfoy": true,
+        "known_ticker_count": 0
+      },
+      "ticker_snippets": []
     },
     {
       "provider_id": "gedik_model_portfolio",
@@ -14,12 +26,114 @@
       "page_status": 200,
       "page_bytes": 274438,
       "table_count": 1,
-      "candidate_tables": [],
+      "candidate_tables": [
+        {
+          "index": 0,
+          "first_rows": [
+            [
+              "Şirket Adı",
+              "Hisse Kodu",
+              "Hedef Fiyat",
+              "Potansiyel Getiri",
+              "BIST-100 Ağırlık (%)"
+            ],
+            [
+              "Aksa",
+              "AKSA",
+              "20,15₺",
+              "%87,4",
+              "%0,3"
+            ],
+            [
+              "Astor Enerji",
+              "ASTOR",
+              "461,30₺",
+              "%76,2",
+              "%2,6"
+            ],
+            [
+              "Doğan Holding",
+              "DOHOL",
+              "35,56₺",
+              "%79,2",
+              "%0,5"
+            ],
+            [
+              "Garanti Bankası",
+              "GARAN",
+              "189,65₺",
+              "%42,5",
+              "%1,9"
+            ],
+            [
+              "Mlp Sağlık Hizmetleri",
+              "MPARK",
+              "723,00₺",
+              "%64,6",
+              "%0,9"
+            ],
+            [
+              "Rönesans Gayrimenkul",
+              "RGYAS",
+              "311,00₺",
+              "%63,3",
+              "-"
+            ],
+            [
+              "Sabancı Holding",
+              "SAHOL",
+              "138,20₺",
+              "%52,6",
+              "%2,3"
+            ],
+            [
+              "Tab Gıda Sanayi",
+              "TABGD",
+              "405,60₺",
+              "%79,2",
+              "-"
+            ],
+            [
+              "Türk Hava Yolları",
+              "THYAO",
+              "483,00₺",
+              "%64,6",
+              "%4,8"
+            ]
+          ]
+        }
+      ],
       "signals": {
         "hedef_fiyat": true,
         "model_portfoy": true,
-        "known_ticker_count": 35
-      }
+        "known_ticker_count": 15
+      },
+      "ticker_snippets": [
+        {
+          "ticker": "GARAN",
+          "snippet": "e güncellediği Model Portföy ile portföyünüz için hisse seçimini kolaylaştırın. Model Portföy Dağılımı AKSA ASTOR DOHOL GARAN MPARK RGYAS SAHOL TABGD THYAO YKBNK Şirket Adı Hisse Kodu Hedef Fiyat Potansiyel Getiri BIST-100 Ağırlık (%) Aksa AKSA 20,15₺ %87,4 %0,3 Astor Enerji ASTOR 461,30₺ %76,2 %2,6 Doğan Holding DOHOL 35,56₺ %79,2 %0,5 Garanti Bankası GARAN 189,65₺ %42,5 %1,9 Mlp Sağlık Hizmetleri MPARK 723,00₺ %64,6 %0,9 Rönesans Gayrimenkul RGYAS 311,00₺ %63,3 - Sabancı Holding SAHOL 138,20₺ %52,6 %2,3 Tab Gıda Sanayi TABGD 405,60₺"
+        },
+        {
+          "ticker": "THYAO",
+          "snippet": "le portföyünüz için hisse seçimini kolaylaştırın. Model Portföy Dağılımı AKSA ASTOR DOHOL GARAN MPARK RGYAS SAHOL TABGD THYAO YKBNK Şirket Adı Hisse Kodu Hedef Fiyat Potansiyel Getiri BIST-100 Ağırlık (%) Aksa AKSA 20,15₺ %87,4 %0,3 Astor Enerji ASTOR 461,30₺ %76,2 %2,6 Doğan Holding DOHOL 35,56₺ %79,2 %0,5 Garanti Bankası GARAN 189,65₺ %42,5 %1,9 Mlp Sağlık Hizmetleri MPARK 723,00₺ %64,6 %0,9 Rönesans Gayrimenkul RGYAS 311,00₺ %63,3 - Sabancı Holding SAHOL 138,20₺ %52,6 %2,3 Tab Gıda Sanayi TABGD 405,60₺ %79,2 - Türk Hava Yolları THY"
+        },
+        {
+          "ticker": "YKBNK",
+          "snippet": "tföyünüz için hisse seçimini kolaylaştırın. Model Portföy Dağılımı AKSA ASTOR DOHOL GARAN MPARK RGYAS SAHOL TABGD THYAO YKBNK Şirket Adı Hisse Kodu Hedef Fiyat Potansiyel Getiri BIST-100 Ağırlık (%) Aksa AKSA 20,15₺ %87,4 %0,3 Astor Enerji ASTOR 461,30₺ %76,2 %2,6 Doğan Holding DOHOL 35,56₺ %79,2 %0,5 Garanti Bankası GARAN 189,65₺ %42,5 %1,9 Mlp Sağlık Hizmetleri MPARK 723,00₺ %64,6 %0,9 Rönesans Gayrimenkul RGYAS 311,00₺ %63,3 - Sabancı Holding SAHOL 138,20₺ %52,6 %2,3 Tab Gıda Sanayi TABGD 405,60₺ %79,2 - Türk Hava Yolları THYAO 483"
+        },
+        {
+          "ticker": "AKSA",
+          "snippet": "a koşullarına göre güncellediği Model Portföy ile portföyünüz için hisse seçimini kolaylaştırın. Model Portföy Dağılımı AKSA ASTOR DOHOL GARAN MPARK RGYAS SAHOL TABGD THYAO YKBNK Şirket Adı Hisse Kodu Hedef Fiyat Potansiyel Getiri BIST-100 Ağırlık (%) Aksa AKSA 20,15₺ %87,4 %0,3 Astor Enerji ASTOR 461,30₺ %76,2 %2,6 Doğan Holding DOHOL 35,56₺ %79,2 %0,5 Garanti Bankası GARAN 189,65₺ %42,5 %1,9 Mlp Sağlık Hizmetleri MPARK 723,00₺ %64,6 %0,9 Rönesans Gayrimenkul RGYAS 311,00₺ %63,3 - Sabancı Holding SAHOL 138,20₺ %52,6 %2,3 Tab Gıda San"
+        },
+        {
+          "ticker": "ASTOR",
+          "snippet": "ullarına göre güncellediği Model Portföy ile portföyünüz için hisse seçimini kolaylaştırın. Model Portföy Dağılımı AKSA ASTOR DOHOL GARAN MPARK RGYAS SAHOL TABGD THYAO YKBNK Şirket Adı Hisse Kodu Hedef Fiyat Potansiyel Getiri BIST-100 Ağırlık (%) Aksa AKSA 20,15₺ %87,4 %0,3 Astor Enerji ASTOR 461,30₺ %76,2 %2,6 Doğan Holding DOHOL 35,56₺ %79,2 %0,5 Garanti Bankası GARAN 189,65₺ %42,5 %1,9 Mlp Sağlık Hizmetleri MPARK 723,00₺ %64,6 %0,9 Rönesans Gayrimenkul RGYAS 311,00₺ %63,3 - Sabancı Holding SAHOL 138,20₺ %52,6 %2,3 Tab Gıda Sanayi T"
+        },
+        {
+          "ticker": "DOHOL",
+          "snippet": "na göre güncellediği Model Portföy ile portföyünüz için hisse seçimini kolaylaştırın. Model Portföy Dağılımı AKSA ASTOR DOHOL GARAN MPARK RGYAS SAHOL TABGD THYAO YKBNK Şirket Adı Hisse Kodu Hedef Fiyat Potansiyel Getiri BIST-100 Ağırlık (%) Aksa AKSA 20,15₺ %87,4 %0,3 Astor Enerji ASTOR 461,30₺ %76,2 %2,6 Doğan Holding DOHOL 35,56₺ %79,2 %0,5 Garanti Bankası GARAN 189,65₺ %42,5 %1,9 Mlp Sağlık Hizmetleri MPARK 723,00₺ %64,6 %0,9 Rönesans Gayrimenkul RGYAS 311,00₺ %63,3 - Sabancı Holding SAHOL 138,20₺ %52,6 %2,3 Tab Gıda Sanayi TABGD 4"
+        }
+      ]
     }
   ]
 }

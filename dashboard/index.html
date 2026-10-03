@@ -29,14 +29,16 @@
   <section id="strategy" class="tab">
     <div class="panel">
       <div class="section-head"><div><h2>Strategy Lab</h2><p class="muted">Preset, rule builder ve custom formula motoru. Tarayıcı parser'ı da <code>eval()</code> kullanmaz.</p></div><button id="restorePresets">Restore Defaults</button></div>
+      <div id="strategyOutput" class="strategy-output hidden" aria-live="polite">
+        <div id="strategyStatus" class="strategy-status muted"></div>
+        <div id="strategyResults"></div>
+      </div>
       <div id="presetCards" class="cards"></div>
       <h3>Rule Builder</h3>
       <div id="ruleBuilder" class="rule-builder"></div>
       <div class="rule-actions"><button id="addRule">+ Rule</button><button id="buildRules">Build Formula</button></div>
       <h3>Custom Formula</h3>
       <div class="formula"><input id="formulaInput" value="pe < sector_pe_median * 0.8 and roe > sector_roe_median"><button id="formulaRun">Run</button><button id="formulaSave">Save</button></div>
-      <div id="strategyStatus" class="muted"></div>
-      <div id="strategyResults"></div>
       <h3>Saved Models</h3><div id="savedStrategies"></div>
     </div>
   </section>

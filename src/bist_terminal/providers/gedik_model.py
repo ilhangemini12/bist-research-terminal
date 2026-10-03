@@ -17,11 +17,20 @@ _DATE_RE=re.compile(r"\b(\d{2}\.\d{2}\.\d{4})\b")
 
 
 def parse_tr_price(value: str | None) -> float | None:
-    text=str(value or "").strip()
-    m=_TRY_RE.search(text)
-    if not m:
+    """Parse Turkish displayed TRY values without regex token extraction."""
+    s=str(value or "").strip()
+    if not s or s in {"-","—"}:
         return None
-    s=m.group(0).replace(".","").replace(",",".")
+    s=s.replace("\u00a0"," ").replace("₺","").replace("TL","").replace("tl","").replace(" ","")
+    s=re.sub(r"[^0-9,.-]","",s)
+    if not s or s in {"-",".",","}:
+        return None
+    if "," in s:
+        s=s.replace(".","").replace(",",".")
+    else:
+        parts=s.lstrip("-").split(".")
+        if len(parts)>1 and all(len(p)==3 for p in parts[1:]):
+            s=s.replace(".","")
     try:
         out=float(s)
     except ValueError:

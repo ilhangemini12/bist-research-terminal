@@ -27,6 +27,7 @@ def main():
             'select ticker, report_period, statement_scope, payload from financials order by ticker, report_period'
         ).fetchall()
         history=store.financial_payload_history()
+        latest=store.latest_financial_payloads()
         universe=BistIndexUniverseProvider(
             cache_dir=ROOT/'data/cache/bist_universe'
         ).get_components(enabled_indices(ROOT/'config/indices.yaml'))
@@ -80,11 +81,19 @@ def main():
         raw_thresholds={str(n):sum(c>=n for c in high_counts) for n in (1,4,8,12,16,20)}
         quarter_thresholds={str(n):sum(c>=n for c in standalone_counts) for n in (1,4,8,12,16,20)}
         ttm_count=sum(ttm_ready.values())
+        latest_status_counts=Counter()
+        for ticker in tickers:
+            payload=(latest.get(ticker) or {}).get('payload') or {}
+            latest_status_counts[payload.get('status') or 'MISSING'] += 1
+        latest_high_confidence=latest_status_counts.get('PARSED_HIGH_CONFIDENCE',0)
         report={
             'generated_at':datetime.now(timezone.utc).isoformat(),
             'tracked_tickers':len(tickers),
             'financial_rows':len(rows),
             'status_counts':dict(status_counts),
+            'latest_status_counts':dict(latest_status_counts),
+            'latest_high_confidence_count':latest_high_confidence,
+            'latest_high_confidence_pct':pct(latest_high_confidence,len(tickers)),
             'distinct_report_periods':sorted(period_counts),
             'report_period_company_counts':dict(sorted(period_counts.items())),
             'archive_period_row_counts':dict(sorted(source_period_counts.items())),

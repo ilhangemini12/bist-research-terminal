@@ -19,9 +19,11 @@ def main():
     result=provider.fetch()
     portfolio_date=result.get("portfolio_date")
     rows=result.get("rows") or []
-    if not portfolio_date or not rows:
-        raise SystemExit("GEDIK_TARGET_BOOTSTRAP_FAILED missing date/rows")
-    out=broker_target_snapshot_path(ROOT,result["broker_id"],portfolio_date)
+    if not rows:
+        raise SystemExit("GEDIK_TARGET_BOOTSTRAP_FAILED missing rows")
+    observed_date=datetime.now(timezone.utc).date().isoformat()
+    snapshot_date=portfolio_date or observed_date
+    out=broker_target_snapshot_path(ROOT,result["broker_id"],snapshot_date)
     if out.exists():
         print(f"GEDIK_TARGET_SNAPSHOT_EXISTS file={out.name}; immutable checkpoint kept")
         return
@@ -29,12 +31,14 @@ def main():
     frame=pd.DataFrame([
         {
             **row,
+            "observed_date":observed_date,
+            "date_basis":"BROKER_UPDATE_DATE" if portfolio_date else "OBSERVED_CURRENT_PUBLIC_PAGE",
             "retrieved_at":stamp,
         }
         for row in rows
     ],columns=[
         "broker_id","broker_name","ticker","company_name","target_price",
-        "model_portfolio_active","portfolio_date","source_url","retrieved_at"
+        "model_portfolio_active","portfolio_date","observed_date","date_basis","source_url","retrieved_at"
     ])
     if frame["ticker"].duplicated().any():
         raise SystemExit("GEDIK_TARGET_BOOTSTRAP_FAILED duplicate tickers")
@@ -42,7 +46,7 @@ def main():
     frame.to_parquet(out,index=False)
     print(
         f"GEDIK_TARGET_SNAPSHOT_WRITTEN file={out.name} rows={len(frame)} "
-        f"portfolio_date={portfolio_date} tickers={frame['ticker'].tolist()}"
+        f"portfolio_date={portfolio_date} observed_date={observed_date} tickers={frame['ticker'].tolist()}"
     )
 
 

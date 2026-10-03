@@ -5,13 +5,12 @@ does not log in, and does not persist broker target prices.
 """
 from __future__ import annotations
 
-from io import StringIO
 from pathlib import Path
 import json
 from urllib.parse import urlparse
 from urllib.robotparser import RobotFileParser
 
-import pandas as pd
+from bs4 import BeautifulSoup
 import requests
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -60,30 +59,36 @@ def probe(source):
     result["page_status"]=r.status_code
     result["page_bytes"]=len(r.content)
     r.raise_for_status()
-    try:
-        tables=pd.read_html(StringIO(r.text),header=None)
-    except ValueError:
-        tables=[]
+    soup=BeautifulSoup(r.text,"html.parser")
+    tables=soup.find_all("table")
     result["table_count"]=len(tables)
-    for i,df in enumerate(tables):
-        blob=" ".join(str(x) for x in df.astype(str).to_numpy().ravel()).upper()
+    for i,table in enumerate(tables):
+        rows=[]
+        for tr in table.find_all("tr")[:10]:
+            cells=[x.get_text(" ",strip=True)[:140] for x in tr.find_all(["th","td"])]
+            if cells:
+                rows.append(cells)
+        blob=" ".join(" ".join(row) for row in rows).upper()
         if "HEDEF" not in blob and "MODEL PORTF" not in blob:
             continue
         result["candidate_tables"].append({
             "index":i,
-            "shape":[int(df.shape[0]),int(df.shape[1])],
-            "first_rows":[
-                [str(x)[:140] for x in row]
-                for row in df.head(8).fillna("").astype(str).values.tolist()
-            ],
+            "first_rows":rows,
         })
     # Text-only signals for server-rendered card layouts.
-    upper=r.text.upper()
+    visible=soup.get_text(" ",strip=True)
+    upper=visible.upper()
     result["signals"]={
         "hedef_fiyat":("HEDEF F" in upper),
         "model_portfoy":("MODEL PORTF" in upper),
         "known_ticker_count":sum(upper.count(t) for t in ["ANHYT","GARAN","THYAO","YKBNK","AKSA","ASTOR","DOHOL"]),
     }
+    snippets=[]
+    for ticker in ["ANHYT","GARAN","THYAO","YKBNK","AKSA","ASTOR","DOHOL"]:
+        pos=upper.find(ticker)
+        if pos>=0:
+            snippets.append({"ticker":ticker,"snippet":visible[max(0,pos-120):pos+420]})
+    result["ticker_snippets"]=snippets[:10]
     return result
 
 

@@ -1,3 +1,5 @@
+import pytest
+
 from bist_terminal.calculations.broker_targets import apply_broker_targets
 
 
@@ -15,7 +17,7 @@ def test_single_source_is_not_called_consensus():
     assert out["target_price"]==483.0
     assert out["target_consensus"] is None
     assert out["target_source_count"]==1
-    assert out["target_upside"]==0.61
+    assert out["target_upside"]==pytest.approx(0.61)
     assert out["model_portfolio_brokers"]==["Gedik Yatırım"]
 
 
@@ -27,7 +29,7 @@ def test_two_sources_emit_median_consensus():
     assert out["target_status"]=="CONSENSUS_2PLUS"
     assert out["target_price"]==130
     assert out["target_consensus"]==130
-    assert out["target_upside"]==0.3
+    assert out["target_upside"]==pytest.approx(0.3)
 
 
 def test_unverified_price_does_not_get_upside():

@@ -27,15 +27,20 @@ jobs:
       - name: Validate broker target parser
         run: |
           python -m compileall -q src scripts
-          pytest -q tests/test_gedik_model.py tests/test_broker_target_files.py
+          pytest -q tests/test_gedik_model.py tests/test_broker_target_files.py tests/test_broker_targets.py
       - name: Refresh public Gedik target snapshot
         run: python scripts/bootstrap_broker_targets.py
-      - name: Commit immutable broker snapshot
+      - name: Publish broker overlay and artifacts
+        run: |
+          python scripts/publish_broker_targets.py
+          python scripts/build_excel_snapshot.py
+          python scripts/build_report.py
+      - name: Commit immutable broker snapshot and published overlay
         run: |
           set -euo pipefail
           git config user.name "bist-research-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/parquet/broker_targets/*.parquet || true
+          git add data/parquet/broker_targets/*.parquet dashboard/data artifacts || true
           if git diff --cached --quiet; then
             echo "No broker target changes to commit."
             exit 0

@@ -8,7 +8,7 @@ on:
       - 'dashboard/**'
       - '.github/workflows/pages.yml'
   workflow_run:
-    workflows: ['Daily Update']
+    workflows: ['Daily Update', 'Broker Target Refresh']
     types: [completed]
     branches: [main]
 

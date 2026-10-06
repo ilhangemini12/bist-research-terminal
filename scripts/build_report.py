@@ -1,7 +1,7 @@
 from pathlib import Path
 from datetime import datetime, timezone
 from collections import Counter
-import json, re, subprocess, yaml
+import json, re, subprocess, sys, yaml
 
 ROOT=Path(__file__).resolve().parents[1]
 latest=json.loads((ROOT/'dashboard/data/latest.json').read_text())
@@ -10,7 +10,7 @@ financial_depth=json.loads(financial_depth_path.read_text()) if financial_depth_
 providers=yaml.safe_load((ROOT/'config/source_catalog.yaml').read_text())['providers']
 statuses=Counter(p['status'] for p in providers)
 try:
-    out=subprocess.check_output(['pytest','--collect-only'],cwd=ROOT,text=True,stderr=subprocess.STDOUT)
+    out=subprocess.check_output([sys.executable,'-m','pytest','--collect-only'],cwd=ROOT,text=True,stderr=subprocess.STDOUT)
     m=re.search(r'(\d+) tests collected',out); collected=int(m.group(1)) if m else None
 except Exception:
     collected=None
@@ -63,14 +63,20 @@ report={
   'python_tests_collected':collected,
   'js_formula_tests':'dashboard/tests/formula.test.js',
   'presets':list(yaml.safe_load((ROOT/'config/presets.yaml').read_text())['presets']),
-  'verification_evidence':{'closed_day_sample':'2026-09-30','tickers':['THYAO','ASELS','AKBNK'],'status':'VERIFIED_2X','max_diff_pct':0.0},
+  'verification_evidence':{
+    'basis':'CURRENT_CANONICAL_DATASET',
+    'data_date':expected_date,
+    'dataset_generated_at':latest.get('generated_at'),
+    'status_counts':dict(Counter(r.get('price_status','UNVERIFIED') for r in latest.get('stocks',[]))),
+    'verified_tickers':[r['ticker'] for r in latest.get('stocks',[]) if r.get('price_status')=='VERIFIED_2X'],
+  },
   'point_in_time_universe':{
     'snapshot_date':latest.get('universe',{}).get('snapshot_date'),
     'history_status':latest.get('universe',{}).get('history_status'),
     'history_rows':latest.get('universe',{}).get('history_rows',0),
   },
   'known_limitations':[
-    'Current-day VERIFIED_2X can remain zero until the official Borsa Istanbul EOD bulletin is published; closed-day BIST-vs-Yahoo cross-checks are validated.',
+    'VERIFIED_2X requires matching requested dates from independent upstreams; publication delays, stale sources, missing rows and conflicts must be diagnosed from observation dates/errors, not inferred from a zero count.',
     'ISATR remains SINGLE_SOURCE on 2026-10-02 because Yahoo has a fresh close but the official Borsa Istanbul bulletin omits ISATR.E; no third unreviewed source is added.',
     'KAP public bulk financial downloads provide normalized high-confidence financials for most of the configured universe; missing/review-required issuers remain N/A.',
     'KAP explicit total-share coverage is used for market cap and P/E/P/B; experimental nominal-ratio share inference is excluded from production.',

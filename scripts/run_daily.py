@@ -52,7 +52,7 @@ def build_price_providers(runtime, expected_trade_date):
     if cfg.get('bist_daily_bulletin', {}).get('enabled', True):
         out.append(BistDailyBulletinProvider(expected_trade_date))
     if cfg.get('yahoo_chart', {}).get('enabled', True):
-        out.append(YahooChartProvider())
+        out.append(YahooChartProvider(target_trade_date=expected_trade_date))
     return out
 
 
@@ -530,6 +530,9 @@ def main():
             'sources': vr.sources,
             'source_lineage': vr.upstreams,
             'max_diff_pct': vr.max_diff_pct,
+            'price_observation_dates': {o.provider_id: o.trade_date for o in obs},
+            'price_observation_retrieved_at': {o.provider_id: o.retrieved_at for o in obs},
+            'price_provider_errors': {a.provider_id: a.error for a in att if not a.ok},
             'financial_report_period': fin.get('report_period'),
             'financial_status': financial_status,
             'financial_quality_score': fin_payload.get('quality_score'),

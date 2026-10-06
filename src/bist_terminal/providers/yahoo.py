@@ -1,15 +1,17 @@
 from __future__ import annotations
 from datetime import datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
 import pandas as pd
 import requests
 from bist_terminal.models import PriceObservation
-from bist_terminal.providers.base import BaseProvider, RateLimited, Blocked, SchemaChanged
+from bist_terminal.providers.base import BaseProvider, ProviderError, RateLimited, Blocked, SchemaChanged
 
 class YahooChartProvider(BaseProvider):
     provider_id="yahoo_chart"
     upstream_vendor="Yahoo market data feed"
-    def __init__(self, session=None, timeout=12):
+    def __init__(self, session=None, timeout=12, target_trade_date=None):
         self.session=session or requests.Session(); self.timeout=timeout
+        self.target_trade_date = target_trade_date
 
     def _symbol(self,ticker:str)->str:
         return ticker if ticker.endswith('.IS') else ticker+'.IS'
@@ -29,11 +31,19 @@ class YahooChartProvider(BaseProvider):
         return base+f"&period1={int(period1)}&period2={int(period2)}"
 
     def get_latest_price(self,ticker:str)->PriceObservation:
-        url=self._chart_url(ticker,range_='5d'); data=self._request_json(url)
+        if self.target_trade_date:
+            url, data = self._history_request(ticker, self.target_trade_date, self.target_trade_date)
+        else:
+            url=self._chart_url(ticker,range_='5d'); data=self._request_json(url)
         try:
             result=data['chart']['result'][0]; ts=result['timestamp']; q=result['indicators']['quote'][0]
-            idx=max(i for i,v in enumerate(q['close']) if v is not None)
-            dt=datetime.fromtimestamp(ts[idx],tz=timezone.utc); meta=result.get('meta',{})
+            candidates = [i for i,v in enumerate(q['close']) if v is not None and (
+                not self.target_trade_date or datetime.fromtimestamp(ts[i], ZoneInfo('Europe/Istanbul')).date().isoformat() == self.target_trade_date
+            )]
+            if not candidates:
+                raise ProviderError(f'Yahoo has no raw close for requested trade date {self.target_trade_date}')
+            idx=max(candidates, key=lambda i: ts[i])
+            dt=datetime.fromtimestamp(ts[idx],tz=ZoneInfo('Europe/Istanbul')); meta=result.get('meta',{})
             return PriceObservation(ticker=ticker.replace('.IS',''),market='BIST',trade_date=dt.date().isoformat(),timestamp=dt.isoformat(),close=float(q['close'][idx]),currency=meta.get('currency','TRY'),adjusted=False,volume=float(q['volume'][idx]) if q['volume'][idx] is not None else None,provider_id=self.provider_id,upstream_vendor=self.upstream_vendor,source_url=url,retrieved_at=datetime.now(timezone.utc).isoformat())
         except (KeyError,IndexError,TypeError,ValueError) as e: raise SchemaChanged(str(e)) from e
 

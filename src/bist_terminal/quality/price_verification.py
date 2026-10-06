@@ -41,7 +41,7 @@ def retain_same_trade_date_verified(
     cross-verified. It never carries verification across trade dates and never
     upgrades a previously unverified row.
     """
-    if not previous or current.status == PriceConfidence.VERIFIED_2X:
+    if not previous or current.status in (PriceConfidence.VERIFIED_2X, PriceConfidence.SOURCE_CONFLICT):
         return current
     previous_date = str(previous.get("trade_date") or "")
     previous_status = previous.get("status")

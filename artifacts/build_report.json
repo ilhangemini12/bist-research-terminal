@@ -1,13 +1,13 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-08T21:32:14.318053+00:00",
+  "generated_at": "2026-10-09T20:10:27.541866+00:00",
   "mode": "LIVE_PIPELINE",
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
   "dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "expected_dashboard_url": "https://ilhangemini12.github.io/bist-research-terminal/",
   "live_market_status": {
-    "expected_market_date": "2026-10-08",
-    "last_verified_market_date": "2026-10-08",
+    "expected_market_date": "2026-10-09",
+    "last_verified_market_date": "2026-10-09",
     "tracked_live_tickers": 323,
     "verified_price_count": 155,
     "unverified_price_count": 168,
@@ -84,8 +84,8 @@
   ],
   "verification_evidence": {
     "basis": "CURRENT_CANONICAL_DATASET",
-    "data_date": "2026-10-08",
-    "dataset_generated_at": "2026-10-08T20:44:21.279968+00:00",
+    "data_date": "2026-10-09",
+    "dataset_generated_at": "2026-10-09T20:10:23.262543+00:00",
     "status_counts": {
       "VERIFIED_2X": 155,
       "UNVERIFIED": 1,
@@ -250,9 +250,9 @@
     ]
   },
   "point_in_time_universe": {
-    "snapshot_date": "2026-10-08",
+    "snapshot_date": "2026-10-09",
     "history_status": "ACCUMULATING_FROM_2026-10-01",
-    "history_rows": 2431
+    "history_rows": 2836
   },
   "known_limitations": [
     "VERIFIED_2X requires matching requested dates from independent upstreams; publication delays, stale sources, missing rows and conflicts must be diagnosed from observation dates/errors, not inferred from a zero count.",

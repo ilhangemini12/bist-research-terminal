@@ -19,6 +19,7 @@ class ProviderHealth:
     message: str | None = None
 
 class ProviderError(RuntimeError): pass
+class NoData(ProviderError): pass
 class RateLimited(ProviderError): pass
 class Blocked(ProviderError): pass
 class SchemaChanged(ProviderError): pass

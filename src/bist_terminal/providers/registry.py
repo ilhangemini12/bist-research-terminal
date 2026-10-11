@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Iterable
-from bist_terminal.providers.base import ProviderError, Blocked, RateLimited, SchemaChanged
+from bist_terminal.providers.base import ProviderError, NoData, Blocked, RateLimited, SchemaChanged
 
 @dataclass
 class ProviderAttempt:
@@ -33,6 +33,8 @@ class FallbackChain:
         return getattr(p, 'provider_id', 'unknown')
 
     def _record_failure(self, p, exc: Exception):
+        if isinstance(exc, NoData):
+            return  # Symbol-level absence is not evidence of provider-wide failure.
         pid = self._pid(p); state = self.circuits.setdefault(pid, CircuitState()); state.failures += 1
         immediate = isinstance(exc, (Blocked, RateLimited, SchemaChanged))
         if immediate or state.failures >= self.failure_threshold:

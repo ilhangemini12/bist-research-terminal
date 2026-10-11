@@ -4,7 +4,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 import requests
 from bist_terminal.models import PriceObservation
-from bist_terminal.providers.base import BaseProvider, ProviderError, RateLimited, Blocked, SchemaChanged
+from bist_terminal.providers.base import BaseProvider, ProviderError, NoData, RateLimited, Blocked, SchemaChanged
 
 class YahooChartProvider(BaseProvider):
     provider_id="yahoo_chart"
@@ -36,12 +36,18 @@ class YahooChartProvider(BaseProvider):
         else:
             url=self._chart_url(ticker,range_='5d'); data=self._request_json(url)
         try:
-            result=data['chart']['result'][0]; ts=result['timestamp']; q=result['indicators']['quote'][0]
+            result=data['chart']['result'][0]
+            ts=result.get('timestamp')
+            if not ts and isinstance(result.get('meta'), dict) and 'indicators' in result:
+                raise NoData(f'Yahoo empty trading series for {ticker}')
+            if ts is None:
+                raise SchemaChanged('Yahoo timestamp missing from malformed result')
+            q=result['indicators']['quote'][0]
             candidates = [i for i,v in enumerate(q['close']) if v is not None and (
                 not self.target_trade_date or datetime.fromtimestamp(ts[i], ZoneInfo('Europe/Istanbul')).date().isoformat() == self.target_trade_date
             )]
             if not candidates:
-                raise ProviderError(f'Yahoo has no raw close for requested trade date {self.target_trade_date}')
+                raise NoData(f'Yahoo has no raw close for requested trade date {self.target_trade_date}')
             idx=max(candidates, key=lambda i: ts[i])
             dt=datetime.fromtimestamp(ts[idx],tz=ZoneInfo('Europe/Istanbul')); meta=result.get('meta',{})
             return PriceObservation(ticker=ticker.replace('.IS',''),market='BIST',trade_date=dt.date().isoformat(),timestamp=dt.isoformat(),close=float(q['close'][idx]),currency=meta.get('currency','TRY'),adjusted=False,volume=float(q['volume'][idx]) if q['volume'][idx] is not None else None,provider_id=self.provider_id,upstream_vendor=self.upstream_vendor,source_url=url,retrieved_at=datetime.now(timezone.utc).isoformat())
@@ -57,7 +63,12 @@ class YahooChartProvider(BaseProvider):
     def _parse_history_bundle(self,ticker:str,url:str,data:dict):
         try:
             result=data['chart']['result'][0]
-            timestamps=result.get('timestamp') or []
+            meta = result.get('meta') or {}
+            if meta.get('currency') != 'TRY' or meta.get('symbol') != self._symbol(ticker):
+                raise SchemaChanged('Yahoo history currency/symbol mismatch or missing identity')
+            if not result.get('timestamp'):
+                raise NoData(f'Yahoo empty trading series for {ticker}')
+            timestamps=result['timestamp']
             q=result['indicators']['quote'][0]
             adj=(result.get('indicators',{}).get('adjclose') or [{}])[0].get('adjclose') or [None]*len(timestamps)
             rows=[]

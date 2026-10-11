@@ -1,5 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
+import math
 
 
 def capital_parquet_files(root: Path) -> list[Path]:
@@ -29,7 +30,7 @@ def load_capital_records(root: Path) -> dict[str, dict]:
                 shares = float(shares)
             except (TypeError, ValueError):
                 continue
-            if not ticker or shares <= 0 or method != "EXPLICIT_TOTAL_SHARE_COUNT":
+            if not ticker or not math.isfinite(shares) or shares <= 0 or method != "EXPLICIT_TOTAL_SHARE_COUNT":
                 continue
             out[ticker] = {
                 "ticker": ticker,

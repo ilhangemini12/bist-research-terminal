@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       as_of_date:
-        description: "Optional manual BIST trade date YYYY-MM-DD; blank keeps normal current-day behavior"
+        description: "Optional manual BIST trade date YYYY-MM-DD; blank uses the latest closed session"
         required: false
         default: ""
   push:
@@ -11,8 +11,9 @@ on:
     paths:
       - '.github/triggers/daily'
   schedule:
-    # 18:25 Turkey time = 15:25 UTC while Turkey remains UTC+3
-    - cron: '25 15 * * 1-5'
+    # Two post-close attempts plus next-morning closed-day recovery.
+    - cron: '35 17,20 * * 1-5'
+    - cron: '35 7 * * *'
 permissions:
   contents: write
 concurrency:
@@ -21,7 +22,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,6 +32,7 @@ jobs:
         with: {python-version: '3.12', cache: 'pip'}
       - run: pip install -r requirements.txt
       - name: Validate, regenerate and publish from latest main
+        id: pipeline
         shell: bash
         env:
           DISPATCH_AS_OF: ${{ github.event.inputs.as_of_date || '' }}
@@ -69,8 +71,9 @@ jobs:
             python scripts/run_daily.py
             python scripts/build_excel_snapshot.py
             python scripts/build_report.py
+            python scripts/validate_production.py
 
-            git add dashboard/data artifacts data/parquet || true
+            git add dashboard/data artifacts data/parquet data/state || true
             if git diff --cached --quiet; then
               echo "No daily changes to commit."
               echo "DAILY_PUBLISH_OK attempt=$ATTEMPT no_changes=true"
@@ -89,7 +92,22 @@ jobs:
             fi
             echo "DAILY_PUBLISH_RACE retrying once from latest main"
           done
+      - name: Preserve resumable state after a failed pipeline
+        if: failure()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "bist-research-bot"
+          git config user.email "actions@users.noreply.github.com"
+          mkdir -p data/state
+          git reset
+          git add data/parquet/history data/parquet/financials data/parquet/capital data/parquet/extended_financials data/parquet/roic_inputs data/state
+          if ! git diff --cached --quiet; then
+            git commit -m "checkpoint: preserve partial daily refresh; publication not accepted"
+            git push origin HEAD:main
+          fi
       - name: Upload daily research artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: BIST-Research-Latest
@@ -97,5 +115,7 @@ jobs:
             artifacts/BIST_Research_Latest.xlsx
             artifacts/build_report.json
             dashboard/data/latest.json
+            dashboard/data/health.json
+            data/state/
           if-no-files-found: error
           retention-days: 14

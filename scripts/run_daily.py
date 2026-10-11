@@ -4,6 +4,7 @@ from dataclasses import asdict
 from collections import Counter
 import datetime
 import math
+import json
 import os
 import sys
 import yaml
@@ -15,6 +16,11 @@ sys.path.insert(0, str(ROOT / 'src'))
 from bist_terminal.providers.bist_universe import BistIndexUniverseProvider, enabled_indices
 from bist_terminal.models import PriceObservation
 from bist_terminal.providers.yahoo import YahooChartProvider
+from bist_terminal.providers.base import NoData
+from bist_terminal.pipeline.history_refresh import refresh_history
+from bist_terminal.pipeline.financial_refresh import refresh_financials
+from bist_terminal.pipeline.capital_refresh import refresh_capital
+from bist_terminal.quality.production import completed_trade_date, production_health
 from bist_terminal.providers.bist_bulletin import BistDailyBulletinProvider
 from bist_terminal.providers.registry import FallbackChain
 from bist_terminal.providers.spk import SPKRegistryProvider
@@ -124,10 +130,11 @@ def restore_durable_state(store):
 
 def main():
     runtime = load_runtime()
-    today = datetime.date.today()
+    now = datetime.datetime.now(timezone.utc)
+    today = now.date()
     cal = load_calendar(ROOT / 'config/bist_calendar_2026.yaml')
     requested_as_of = (os.environ.get('BIST_AS_OF_DATE') or '').strip() or None
-    run_trade_date = resolve_run_trade_date(today, cal, requested_as_of)
+    run_trade_date = completed_trade_date(now, cal, requested_as_of)
     if run_trade_date is None:
         print(f'SKIP_NON_TRADING_DAY {today.isoformat()}')
         return
@@ -203,6 +210,7 @@ def main():
         roic_input_records = {}
         roic_inputs_status = f'DEGRADED: {type(exc).__name__}: {exc}'
 
+    capital_refresh_result = refresh_capital(ROOT, tickers)
     try:
         capital_records = load_capital_records(ROOT)
         capital_status = 'ACTIVE'
@@ -227,9 +235,18 @@ def main():
         news_status = f'DEGRADED: {type(exc).__name__}: {exc}'
         print(f'SPK_NEWS_DEGRADED {news_status}')
 
+    history_refresh_result = {'status': 'UNAVAILABLE', 'observations': {}}
+    financial_refresh_result = {'status': 'UNAVAILABLE'}
     try:
         store = DuckDBStore(ROOT / 'data/bist.duckdb')
         restore_durable_state(store)
+        try:
+            financial_refresh_result = refresh_financials(ROOT, store, tickers, expected)
+        except Exception as exc:
+            financial_refresh_result = {'status': 'PARTIAL', 'error': type(exc).__name__}
+        extended_metric_records = load_extended_metric_records(ROOT)
+        roic_input_records = load_roic_input_records(ROOT)
+        history_refresh_result = refresh_history(ROOT, store, tickers, expected)
         financial_latest = store.latest_financial_payloads()
         financial_history = store.financial_payload_history()
         stamp = datetime.datetime.now(timezone.utc).isoformat()
@@ -244,6 +261,18 @@ def main():
     except Exception as exc:
         storage_status = f'DEGRADED: {type(exc).__name__}: {exc}'
 
+    class CachedYahoo:
+        provider_id = 'yahoo_chart'
+        upstream_vendor = 'Yahoo market data feed'
+        def get_latest_price(self, ticker):
+            observation = history_refresh_result.get('observations', {}).get(ticker)
+            if observation is None:
+                raise NoData(f'No current history observation: {history_refresh_result.get("status")}')
+            return observation
+
+    # Reuse the exact history observation: never issue a second Yahoo request
+    # after its circuit breaker has opened during history refresh.
+    chain = FallbackChain([CachedYahoo() if p.provider_id == 'yahoo_chart' else p for p in providers], failure_threshold=threshold)
     for ticker in tickers:
         obs, att = chain.collect(ticker)
         attempts[ticker] = att
@@ -449,11 +478,16 @@ def main():
 
         technical = {}
         history_rows = 0
+        technical_date = None
+        technical_refresh_available = history_refresh_result.get('status') != 'UNAVAILABLE'
+        corporate_action_review = ticker in history_refresh_result.get('corporate_action_review_tickers', [])
         if store:
             try:
                 history = store.history_frame(ticker)
+                history = history[history['Date'].astype(str).str[:10] <= expected]
                 history_rows = len(history)
-                if history_rows >= 20:
+                technical_date = str(history.iloc[-1]['Date'])[:10] if history_rows else None
+                if history_rows >= 20 and technical_date == expected and not corporate_action_review and technical_refresh_available:
                     ind = add_indicators(history)
                     last = ind.iloc[-1]
                     def num(name):
@@ -569,6 +603,9 @@ def main():
             'net_income_ttm': flow_facts.get('net_income') if financial_ok else None,
             'cash_from_operations_ttm': flow_facts.get('cash_from_operations') if financial_ok else None,
             'technical_history_rows': history_rows,
+            'technical_data_date': technical_date,
+            'technical_freshness': 'CORPORATE_ACTION_REVIEW' if corporate_action_review else ('FRESH' if technical_date == expected and technical_refresh_available else 'STALE'),
+            'capital_retrieved_at': capital.get('retrieved_at'),
             **derived,
             **quarterly_growth,
             **technical,
@@ -737,7 +774,12 @@ def main():
         'message': f'Latest normalized high-confidence financial coverage: {financial_covered}/{len(rows)}',
     })
 
+    health = production_health(rows, expected, history_refresh_result['status'], financial_refresh_result['status'], capital_refresh_result['status'])
+    operational = {'history': {k:v for k,v in history_refresh_result.items() if k != 'observations'}, 'financials': financial_refresh_result, 'capital': capital_refresh_result}
+    write_latest({'health': health, 'refresh': operational}, ROOT / 'dashboard/data/health.json')
     write_latest({
+        'health': health,
+        'refresh': operational,
         'mode': 'LIVE_PIPELINE',
         'data_as_of': {
             'prices': expected,
@@ -755,6 +797,7 @@ def main():
             'unverified_price_count': len(rows) - verified,
             'financial_high_confidence_count': financial_covered,
             'financial_coverage_pct': round((financial_covered / len(rows) * 100), 1) if rows else 0,
+            'technical_fresh_count': sum(r.get('technical_freshness') == 'FRESH' for r in rows),
             'technical_rsi14_count': technical_covered,
             'technical_coverage_pct': round((technical_covered / len(rows) * 100), 1) if rows else 0,
             'capital_explicit_count': capital_covered,

@@ -23,6 +23,8 @@ report={
   'project':'bist-research-terminal',
   'generated_at':datetime.now(timezone.utc).isoformat(),
   'mode':latest.get('mode'),
+  'production_health':latest.get('health',{}),
+  'daily_refresh':latest.get('refresh',{}),
   'repository_url':'https://github.com/ilhangemini12/bist-research-terminal',
   'dashboard_url':dashboard_url,
   'expected_dashboard_url':dashboard_url,
@@ -77,7 +79,7 @@ report={
   },
   'known_limitations':[
     'VERIFIED_2X requires matching requested dates from independent upstreams; publication delays, stale sources, missing rows and conflicts must be diagnosed from observation dates/errors, not inferred from a zero count.',
-    'ISATR remains SINGLE_SOURCE on 2026-10-02 because Yahoo has a fresh close but the official Borsa Istanbul bulletin omits ISATR.E; no third unreviewed source is added.',
+    'ISATR remains unverified whenever fewer than two independent current-date sources are available; no third unreviewed source is added.',
     'KAP public bulk financial downloads provide normalized high-confidence financials for most of the configured universe; missing/review-required issuers remain N/A.',
     'KAP explicit total-share coverage is used for market cap and P/E/P/B; experimental nominal-ratio share inference is excluded from production.',
     'EV/EBITDA, net-debt ratios and FCF yield are emitted only where exact KAP parent debt labels plus D&A/capex checkpoints align to the latest high-confidence financial period; unmatched sectors/periods remain N/A.',

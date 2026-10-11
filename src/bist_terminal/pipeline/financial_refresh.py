@@ -164,7 +164,9 @@ def refresh_financials(root, store, tickers, expected_date, provider=None) -> di
         try:
             archive = provider.download_archive(year, period)
         except Exception as exc:
-            report['errors'].append({'year': year, 'period': period, 'stage': 'download', 'error': type(exc).__name__})
+            report['errors'].append({'year': year, 'period': period, 'stage': 'download', 'error': type(exc).__name__, 'http_status': getattr(getattr(exc, 'response', None), 'status_code', None)})
+            if getattr(getattr(exc, 'response', None), 'status_code', None) == 404:
+                continue  # A not-yet-published quarter does not suppress the prior quarter.
             # Timeout/access/rate-limit failures stop all calls to this host.
             break
         report['archives_checked'] += 1

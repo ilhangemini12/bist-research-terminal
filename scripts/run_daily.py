@@ -38,7 +38,7 @@ from bist_terminal.storage.broker_target_files import load_latest_broker_targets
 from bist_terminal.calculations.fundamental import safe_div
 from bist_terminal.calculations.growth import yoy_from_quarters, ttm_growth
 from bist_terminal.calculations.technical import add_indicators
-from bist_terminal.calculations.valuation import compute_valuation
+from bist_terminal.calculations.valuation import compute_valuation, quick_ratio, multi_class_tickers
 from bist_terminal.calculations.extended_valuation import compute_extended_valuation
 from bist_terminal.calculations.sector import sector_stats, discount_to_median
 from bist_terminal.calculations.broker_targets import apply_broker_targets
@@ -210,7 +210,7 @@ def main():
         roic_input_records = {}
         roic_inputs_status = f'DEGRADED: {type(exc).__name__}: {exc}'
 
-    capital_refresh_result = refresh_capital(ROOT, tickers)
+    capital_refresh_result = {'status': 'NOT CONFIGURED'}
     try:
         capital_records = load_capital_records(ROOT)
         capital_status = 'ACTIVE'
@@ -260,6 +260,10 @@ def main():
             snapshot_rows += len(normalized)
     except Exception as exc:
         storage_status = f'DEGRADED: {type(exc).__name__}: {exc}'
+
+    capital_refresh_result = refresh_capital(ROOT, tickers)
+    capital_records = load_capital_records(ROOT)
+    share_class_review = multi_class_tickers(capital_records)
 
     class CachedYahoo:
         provider_id = 'yahoo_chart'
@@ -353,6 +357,7 @@ def main():
             price_status=vr.status,
             price=vr.verified_price,
             total_shares=capital.get('total_shares'),
+            issuer_capital_complete=ticker not in share_class_review,
             net_income_ttm=flow_facts.get('net_income') if financial_ok else None,
             equity=facts.get('equity') if financial_ok else None,
             revenue_ttm=flow_facts.get('revenue') if financial_ok else None,
@@ -443,6 +448,7 @@ def main():
         dividend_payout_ratio = None
         if (
             dividend_ttm_per_share > 0
+            and ticker not in share_class_review
             and capital.get('total_shares')
             and flow_facts.get('net_income')
             and flow_facts.get('net_income') > 0
@@ -467,11 +473,7 @@ def main():
                 'gross_margin': safe_div(flow_facts.get('gross_profit'), flow_facts.get('revenue')),
                 'operating_margin': safe_div(flow_facts.get('operating_profit'), flow_facts.get('revenue')),
                 'current_ratio': safe_div(facts.get('current_assets'), facts.get('current_liabilities')),
-                'quick_ratio': safe_div(
-                    (facts.get('current_assets') - (facts.get('inventories') or 0))
-                    if facts.get('current_assets') is not None else None,
-                    facts.get('current_liabilities'),
-                ),
+                'quick_ratio': quick_ratio(facts.get('current_assets'), facts.get('inventories'), facts.get('current_liabilities')),
                 'revenue_growth_yoy': yoy('revenue'),
                 'net_income_growth_yoy': yoy('net_income'),
             }
@@ -579,6 +581,8 @@ def main():
             'valuation_status': valuation.get('valuation_status'),
             'valuation_basis': ttm_status,
             'market_cap': valuation.get('market_cap'),
+            'share_class_market_cap': valuation.get('share_class_market_cap'),
+            'market_cap_basis': valuation.get('market_cap_basis', 'ISSUER_EXPLICIT_SHARES'),
             'pe': valuation.get('pe'),
             'pb': valuation.get('pb'),
             'ps': valuation.get('ps'),
@@ -700,7 +704,7 @@ def main():
     ] + provider_health(chain, attempts)
     sources.append({
         'provider': 'kap_capital_explicit',
-        'status': 'ACTIVE' if capital_status == 'ACTIVE' and capital_covered else 'DEGRADED',
+        'status': capital_refresh_result['status'],
         'upstream': 'KAP / MKK',
         'successes': capital_covered,
         'failures': len(rows) - capital_covered,
@@ -766,7 +770,7 @@ def main():
     })
     sources.append({
         'provider': 'kap_bulk_financials',
-        'status': 'ACTIVE' if financial_covered else 'DEGRADED',
+        'status': financial_refresh_result['status'],
         'upstream': 'KAP / MKK',
         'successes': financial_covered,
         'failures': len(rows) - financial_covered,

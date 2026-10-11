@@ -56,7 +56,7 @@ def _acceptable(record, ticker):
             and math.isfinite(shares) and shares > 0)
 
 
-def refresh_capital(root, tickers, provider=None, *, pause_seconds=0.2) -> dict:
+def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0) -> dict:
     """Fetch mapping once and check each ticker at most once per UTC day.
 
     Successful receipts are reusable only while their shard exists. Access/rate

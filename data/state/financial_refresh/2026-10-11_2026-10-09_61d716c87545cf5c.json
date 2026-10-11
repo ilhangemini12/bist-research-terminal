@@ -1,0 +1,28 @@
+{
+  "status": "PARTIAL",
+  "expected_market_date": "2026-10-09",
+  "checked_at": "2026-10-11T03:36:05.332977+00:00",
+  "attempts": 1,
+  "requested": 323,
+  "archives_checked": 0,
+  "parsed": 0,
+  "changed": 0,
+  "unchanged": 0,
+  "review_rejected": 0,
+  "missing": 0,
+  "stale_rejected": 0,
+  "errors": [
+    {
+      "year": 2026,
+      "period": "3",
+      "stage": "download",
+      "error": "HTTPError"
+    }
+  ],
+  "shards": [],
+  "cached": false,
+  "extended_financials_changed": 0,
+  "roic_inputs_changed": 0,
+  "provider_id": "kap_bulk_financials",
+  "upstream_vendor": "KAP / MKK"
+}

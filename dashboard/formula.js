@@ -27,7 +27,7 @@
     or(){let v=this.and();while(this.take('or')){const r=this.and();v=Boolean(v)||Boolean(r)}return v}
     and(){let v=this.not();while(this.take('and')){const r=this.not();v=Boolean(v)&&Boolean(r)}return v}
     not(){if(this.take('not'))return !Boolean(this.not());return this.compare()}
-    compare(){let left=this.add();while(this.cur().t==='op'&&['==','!=','<','<=','>','>='].includes(this.cur().v)){let op=this.cur().v;this.i++;let right=this.add();let ok=false;if(left!=null&&right!=null){if(op==='==')ok=left===right;else if(op==='!=')ok=left!==right;else if(op==='<')ok=left<right;else if(op==='<=')ok=left<=right;else if(op==='>')ok=left>right;else ok=left>=right} else ok=op==='!='?left!==right:left===right; if(!ok)return false;left=right}return left}
+    compare(){let left=this.add(),compared=false,result=true;while(this.cur().t==='op'&&['==','!=','<','<=','>','>='].includes(this.cur().v)){compared=true;let op=this.cur().v;this.i++;let right=this.add(),ok=false;if(op==='==')ok=left===right;else if(op==='!=')ok=left!==right;else if(left!=null&&right!=null){if(op==='<')ok=left<right;else if(op==='<=')ok=left<=right;else if(op==='>')ok=left>right;else ok=left>=right}result=result&&ok;left=right}return compared?result:left}
     add(){let v=this.mul();while(this.cur().t==='op'&&['+','-'].includes(this.cur().v)){let op=this.cur().v;this.i++;let r=this.mul();v=this.math(op,v,r)}return v}
     mul(){let v=this.pow();while(this.cur().t==='op'&&['*','/','%'].includes(this.cur().v)){let op=this.cur().v;this.i++;let r=this.pow();v=this.math(op,v,r)}return v}
     pow(){let v=this.unary();if(this.take('op','**')){let r=this.pow();v=this.math('**',v,r)}return v}

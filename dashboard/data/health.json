@@ -10,7 +10,7 @@
     ],
     "stale_history_tickers": [],
     "history_refresh_status": "ACTIVE",
-    "financial_refresh_status": "PARTIAL",
+    "financial_refresh_status": "BLOCKED",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."
   },
@@ -32,7 +32,7 @@
       "corporate_action_review_tickers": []
     },
     "financials": {
-      "status": "PARTIAL",
+      "status": "BLOCKED",
       "expected_market_date": "2026-10-09",
       "checked_at": "2026-10-11T08:07:59.208208+00:00",
       "attempts": 2,
@@ -54,17 +54,18 @@
         }
       ],
       "shards": [],
-      "cached": false,
+      "cached": true,
       "extended_financials_changed": 0,
       "roic_inputs_changed": 0,
       "provider_id": "kap_bulk_financials",
-      "upstream_vendor": "KAP / MKK"
+      "upstream_vendor": "KAP / MKK",
+      "circuit_reason": "daily_attempt_limit"
     },
     "capital": {
       "status": "BLOCKED",
       "provider_id": "kap_capital",
       "upstream_vendor": "KAP",
-      "checked_at": "2026-10-11T08:08:02.710785+00:00",
+      "checked_at": "2026-10-11T14:18:52.748370+00:00",
       "check_date": "2026-10-11",
       "requested": 323,
       "refreshed": 0,
@@ -183,5 +184,5 @@
       "circuit_reason": "HTTP_429"
     }
   },
-  "generated_at": "2026-10-11T08:08:23.235775+00:00"
+  "generated_at": "2026-10-11T14:19:48.303231+00:00"
 }

@@ -1,5 +1,15 @@
 # Üretim devam noktası — 2026-10-12
 
+## Doğrulanmış checkpoint
+
+Kod c804b33; veri 15864a3. Daily 38316391640 ve Pages 38316489428 SUCCESS.
+Sabit dal: checkpoint/handoff-verified-20261012. 211 Python testi; 8 Node testi;
+42.442 Excel skaler alan; gerçek Chromium mobil/offline kabulü PASS.
+Canlı Run VALUE 51; tarih 2026-10-12, üretim 22:24:28 UTC. Sağlık PARTIAL:
+319/323 fiyat/tarihçe; AFYON/KARCL/OZRDN tutarsız OHLC, ISATR kaynak eksikliği.
+Son koşu ortak KAP devresi nedeniyle sıfır mali indirme ve sıfır sermaye isteği.
+Detaylı kanıt ve PDF/ZIP ayrımı docs/AUDIT_2026-10-12.md içinde.
+
 ## Son uygulama turu
 
 12 Ekim audit: docs/AUDIT_2026-10-12.md; kaynak izin incelemesi:

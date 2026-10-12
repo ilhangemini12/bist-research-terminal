@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-11T14:19:48.304012+00:00",
+  "generated_at": "2026-10-12T04:31:36.597647+00:00",
   "market_date": "2026-10-09",
   "health": {
     "status": "PARTIAL",
@@ -13,7 +13,7 @@
     ],
     "stale_history_tickers": [],
     "history_refresh_status": "ACTIVE",
-    "financial_refresh_status": "BLOCKED",
+    "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."
   },

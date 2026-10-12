@@ -65,4 +65,4 @@ arşivi günlük kontrol edilir; yüksek güven şartı düşürülmez.
 - ZERO_COST_ONLY, kaynak soy ağacı ve yeniden dağıtım sınırları korunmalı; resmi ham bülten/arşiv
   kamu deposuna konulmamalı.
 
-Canlı doğrulama sonuçları tamamlandığında docs/AUDIT_2026-10-11.md güncellenir.
+Canlı doğrulama sonuçları tamamlandığında docs/AUDIT_2026-10-12.md güncellenir.

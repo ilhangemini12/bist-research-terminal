@@ -193,6 +193,15 @@ def refresh_financials(root, store, tickers, expected_date, provider=None) -> di
         return report
     try:
         receipt, ledger = _daily_ledger(root, check_day)
+        capital_circuit = root / 'data/state/capital_refresh' / check_day / '_circuit.json'
+        if capital_circuit.exists():
+            blocked = json.loads(capital_circuit.read_text(encoding='utf-8'))
+            if not isinstance(blocked, dict):
+                raise ValueError('invalid capital circuit')
+            if blocked:
+                ledger['host_circuit'] = {'stage': 'capital_refresh',
+                    'reason': blocked.get('reason', 'capital_host_circuit')}
+                _atomic_json(receipt, ledger)
     except (ValueError, OSError, TypeError):
         return {**report, 'status': 'BLOCKED', 'circuit_reason': 'invalid_daily_receipt'}
     ticker_key = _digest(tickers)

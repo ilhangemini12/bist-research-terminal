@@ -94,6 +94,16 @@ def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0) -> dict:
         else:
             pending.append(ticker)
     prior_circuit = _read(circuit)
+    financial_receipt = root / 'data/state/financial_refresh' / f'{day}_kap_periods_v2.json'
+    if financial_receipt.exists():
+        try:
+            financial_state = json.loads(financial_receipt.read_text(encoding='utf-8'))
+            if not isinstance(financial_state, dict):
+                raise ValueError('invalid financial receipt')
+            if financial_state.get('host_circuit'):
+                prior_circuit = {'reason': 'kap_financial_host_circuit'}
+        except (OSError, ValueError, TypeError):
+            prior_circuit = {'reason': 'invalid_kap_financial_receipt'}
     if pending and prior_circuit:
         report['stale'] += len(pending)
         report.update(status='BLOCKED', circuit_reason=prior_circuit.get('reason'))

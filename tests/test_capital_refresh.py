@@ -97,6 +97,29 @@ def test_invalid_mapping_stops_all_requests(tmp_path):
     assert report['status'] == 'BLOCKED' and p.calls == []
 
 
+@pytest.mark.parametrize('host_error', [None, {'http_status': 429}])
+def test_shared_financial_host_circuit_does_not_block_period_only_error(tmp_path, host_error):
+    import json
+    day = datetime.now(timezone.utc).date().isoformat()
+    receipt = tmp_path / 'data/state/financial_refresh' / f'{day}_kap_periods_v2.json'
+    receipt.parent.mkdir(parents=True)
+    receipt.write_text(json.dumps({'host_circuit': host_error}))
+    p = Provider()
+    result = refresh(tmp_path, ['AAA'], p)
+    assert p.mapping_calls == (0 if host_error else 1)
+    assert result['status'] == ('BLOCKED' if host_error else 'ACTIVE/TESTED')
+
+
+def test_malformed_shared_receipt_blocks_capital_requests(tmp_path):
+    day = datetime.now(timezone.utc).date().isoformat()
+    receipt = tmp_path / 'data/state/financial_refresh' / f'{day}_kap_periods_v2.json'
+    receipt.parent.mkdir(parents=True)
+    receipt.write_text('["malformed"]')
+    p = Provider()
+    result = refresh(tmp_path, ['AAA'], p)
+    assert result['status'] == 'BLOCKED' and p.mapping_calls == 0
+
+
 def test_missing_success_shard_is_not_false_cache_hit(tmp_path):
     p = Provider()
     first = refresh(tmp_path, ['AAA'], p)

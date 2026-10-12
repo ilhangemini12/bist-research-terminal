@@ -275,6 +275,17 @@ def test_corrupt_ledger_fails_closed(tmp_path, store):
     assert receipt.read_text() == '{truncated'
 
 
+@pytest.mark.parametrize('payload', [{'reason': 'HTTP_429'}, ['malformed']])
+def test_capital_host_circuit_stops_financial_downloads(tmp_path, store, payload):
+    day = datetime.now(timezone.utc).date().isoformat()
+    circuit = tmp_path / 'data/state/capital_refresh' / day / '_circuit.json'
+    circuit.parent.mkdir(parents=True)
+    circuit.write_text(json.dumps(payload))
+    provider = Provider()
+    result = refresh.refresh_financials(tmp_path, store, ['TEST'], '2026-10-09', provider)
+    assert result['status'] == 'BLOCKED' and provider.calls == []
+
+
 def test_utc_day_reset_independent_of_market_date(tmp_path, store, monkeypatch):
     provider = Provider(fail=True)
     refresh.refresh_financials(tmp_path, store, ['TEST'], '2026-10-09', provider)

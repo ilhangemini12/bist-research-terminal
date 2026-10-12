@@ -1,18 +1,26 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-12T04:31:36.597647+00:00",
-  "market_date": "2026-10-09",
+  "generated_at": "2026-10-12T16:57:27.642257+00:00",
+  "market_date": "2026-10-12",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-10-09",
+    "expected_market_date": "2026-10-12",
     "tracked": 323,
-    "verified_prices": 322,
-    "fresh_history": 323,
+    "verified_prices": 319,
+    "fresh_history": 319,
     "unverified_tickers": [
-      "ISATR"
+      "AFYON",
+      "ISATR",
+      "KARCL",
+      "OZRDN"
     ],
-    "stale_history_tickers": [],
-    "history_refresh_status": "ACTIVE",
+    "stale_history_tickers": [
+      "AFYON",
+      "ISATR",
+      "KARCL",
+      "OZRDN"
+    ],
+    "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

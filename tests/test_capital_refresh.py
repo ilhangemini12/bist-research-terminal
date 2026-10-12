@@ -112,3 +112,38 @@ def test_write_failure_preserves_prior_snapshot(tmp_path, monkeypatch):
     assert report['stale'] == 1
     assert not list((tmp_path / 'data/parquet/capital').glob('*.parquet'))
     assert not list((tmp_path / 'data/parquet/capital').glob('*.tmp'))
+
+
+def test_oldest_first_after_day_boundary_preserves_daily_circuit(tmp_path, monkeypatch):
+    clock = [datetime(2026, 10, 11, 12, tzinfo=timezone.utc)]
+    monkeypatch.setattr(module, '_utc_now', lambda: clock[0])
+    response = requests.Response()
+    response.status_code = 429
+    p = Provider({'BBB': requests.HTTPError(response=response)})
+    first = refresh(tmp_path, ['AAA', 'BBB', 'CCC'], p)
+    assert first['refreshed'] == 1 and p.calls == ['AAA', 'BBB']
+    # Sorting is not a way around the existing provider circuit.
+    assert refresh(tmp_path, ['CCC'], p)['status'] == 'BLOCKED'
+    assert p.calls == ['AAA', 'BBB']
+    clock[0] = datetime(2026, 10, 12, 12, tzinfo=timezone.utc)
+    p.values = {}
+    second = refresh(tmp_path, ['AAA', 'BBB', 'CCC'], p)
+    assert p.calls[2:] == ['BBB', 'CCC', 'AAA']
+    assert second['refreshed'] == 3
+
+
+def test_oldest_first_uses_timestamp_not_ticker_and_retains_pacing(tmp_path, monkeypatch):
+    folder = tmp_path / 'data/parquet/capital'
+    folder.mkdir(parents=True)
+    pd.DataFrame([
+        dict(ticker=t, total_shares=100, method='EXPLICIT_TOTAL_SHARE_COUNT', retrieved_at=stamp)
+        for t, stamp in [('AAA', '2026-10-10T12:00:00+00:00'),
+                         ('BBB', '2026-10-09T16:00:00+04:00'), ('CCC', None)]
+    ]).to_parquet(folder / 'capital_000.parquet')
+    pauses = []
+    monkeypatch.setattr(module.time, 'sleep', pauses.append)
+    p = Provider()
+    result = module.refresh_capital(tmp_path, ['AAA', 'BBB', 'CCC'], p)
+    assert p.calls == ['CCC', 'BBB', 'AAA']
+    assert pauses == [2.0, 2.0, 2.0]
+    assert result['scheduling'] == 'oldest_successful_check_first'

@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#101827">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
   <title>BIST Research Terminal V2</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,10 +15,29 @@
   <div><h1>BIST Research Terminal <span>V2</span></h1><p id="asof">Data as of: loading…</p></div>
   <div class="head-actions"><button id="settingsBtn">⚙ Settings</button><button id="exportBtn">Export Settings</button><label class="import">Import<input id="importInput" type="file" accept="application/json"></label></div>
 </header>
-<div id="banner" class="banner"></div>
+<div id="banner" class="banner" role="status" aria-live="polite"></div>
+<div class="install-strip"><button id="installApp" type="button">Telefona yükle</button><span id="installStatus" role="status"></span></div>
 <nav id="tabs"></nav>
 <main>
-  <section id="dashboard" class="tab"><div id="widgets" class="grid"></div></section>
+  <section id="dashboard" class="tab">
+    <div class="panel quick-panel">
+      <div class="section-head"><div><h2>Hızlı araştırma</h2><p class="muted">Yayımlanan kapanış verisini yeniden oku ve seçtiğin koşullarla tara. Sunucuda veri toplama başlatılmaz.</p></div></div>
+      <form id="quickForm" class="quick-filters">
+        <label class="quick-mode">Tarama<select id="quickMode"><option value="value">Sektörüne göre ucuz</option><option value="quality">Değer + kalite</option><option value="dividend">Temettü</option><option value="recovery">RSI toparlanması</option><option value="trend">Trend</option><option value="all">Tüm doğrulanmış hisseler</option></select></label>
+        <label>En yüksek F/K<input id="quickPE" type="number" step="any" placeholder="Sınır yok"></label>
+        <label>En yüksek PD/DD<input id="quickPB" type="number" step="any" placeholder="Sınır yok"></label>
+        <label>En yüksek RSI14<input id="quickRSI" type="number" step="any" min="0" max="100" placeholder="Sınır yok"></label>
+        <label>En düşük ROE (%)<input id="quickROE" type="number" step="any" placeholder="Sınır yok"></label>
+        <label>En yüksek net borç/FAVÖK<input id="quickDebt" type="number" step="any" placeholder="Sınır yok"></label>
+        <label>Senaryo iskontosu (%)<input id="quickMargin" type="number" step="any" min="0" max="80" value="20"></label>
+        <button id="quickRun" type="submit">Run / Tara</button>
+      </form>
+      <p id="quickStatus" role="status" aria-live="polite">Veri yükleniyor…</p>
+      <div id="quickResults" class="research-results"></div>
+      <details class="ownership-panel"><summary>Yabancı sahiplik ve emeklilik fonları</summary><p>Hisse bazlı yabancı payı, değişimleri ve emeklilik fonu sahipliği henüz entegre değil. Eksik değerler tahmin edilmez.</p><ul><li>Piyasa geneli yabancı sahiplik: N/A — NOT_CONFIGURED</li><li>Hisse bazlı yabancı payı ve değişimleri: N/A — NOT_CONFIGURED</li><li>Emeklilik fonu sahipliği: N/A — NOT_CONFIGURED</li></ul></details>
+    </div>
+    <div id="widgets" class="grid"></div>
+  </section>
 
   <section id="screener" class="tab">
     <div class="panel">
@@ -72,5 +94,7 @@
   <button id="resetSettings">Restore Layout Defaults</button>
 </aside>
 <script src="formula.js?v=fbbdcd5"></script>
-<script src="app.js?v=10ba727"></script>
+<script src="research.js?v=mobile-v1"></script>
+<script src="app.js?v=mobile-v1"></script>
+<script src="install.js?v=mobile-v1"></script>
 </body></html>

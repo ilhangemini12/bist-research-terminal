@@ -66,12 +66,14 @@ jobs:
             node --check dashboard/app.js
             node dashboard/tests/formula.test.js
             node dashboard/tests/ui_regression.test.js
+            node --test dashboard/tests/research.test.js tests/pwa.test.js
             pytest
 
             python scripts/run_daily.py
             python scripts/build_excel_snapshot.py
             python scripts/build_report.py
             python scripts/validate_production.py
+            python scripts/validate_excel_snapshot.py
 
             git add dashboard/data artifacts data/parquet data/state || true
             if git diff --cached --quiet; then

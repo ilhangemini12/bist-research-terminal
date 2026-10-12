@@ -1,4 +1,23 @@
-# Üretim devam noktası — 2026-10-11
+# Üretim devam noktası — 2026-10-12
+
+## Son uygulama turu
+
+12 Ekim audit: docs/AUDIT_2026-10-12.md; kaynak izin incelemesi:
+docs/SOURCE_REVIEW_2026-10-12.md. Mobil taslaklar artık çalışma koduna entegre;
+Run yayımlanan veriyi tarar, GitHub işini tetiklemez. Kaynak kontrollü PWA ve
+Excel/canonical karşılaştırması iş akışı kabul kapılarına eklendi.
+KAP mali dönem devresi ile host devresi ayrıldı; eski bilinmeyen hata aşamaları
+kanıtsız sınıflandırılmaz. Sermaye kontrolleri en eski gözlemi önceleyen sırada.
+Son canlı kabul SHA/run bilgisi audit'ten okunmalı; yalnız yerel test yayın kanıtı değildir.
+
+Testler: python -m pytest; node dashboard/tests/formula.test.js;
+node dashboard/tests/ui_regression.test.js;
+node --test dashboard/tests/research.test.js tests/pwa.test.js;
+python scripts/validate_excel_snapshot.py.
+Gerçek tarayıcı: Playwright 1.56.1 + Chromium kur; dashboard'u HTTP üzerinden sun;
+BIST_E2E_URL ile node dashboard/tests/browser_e2e.cjs çalıştır. Pages bunu yayın öncesi yapar.
+S24 Ultra: terminali Chrome'da aç → Telefona yükle veya ⋮ → Ana ekrana ekle.
+Fon sahipliği, yabancı payı/değişimi ve ikinci broker henüz uygulanmış sayılmaz.
 
 Kaynak gerçekliği: canlı main HEAD, Actions sonuçları, dashboard/data/latest.json,
 dashboard/data/health.json, artifacts/build_report.json ve data/state/production_checkpoint.json.

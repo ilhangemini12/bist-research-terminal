@@ -303,18 +303,26 @@ class KapBulkFinancialProvider:
             "User-Agent": "Mozilla/5.0 (compatible; BIST-Research-Terminal/1.0; personal research)",
             "Accept-Language": "tr-TR,tr;q=0.9,en;q=0.8",
         }
-        self.session.get(HOME, timeout=30, headers=headers).raise_for_status()
+        try:
+            self.session.get(HOME, timeout=30, headers=headers).raise_for_status()
+        except requests.RequestException as exc:
+            exc.kap_request_stage = 'homepage'
+            raise
         url = DOWNLOAD.format(year=int(year), period=period)
         api_headers = {**headers, "Accept": "*/*", "Referer": HOME, "Origin": "https://www.kap.org.tr"}
-        with self.session.get(url, timeout=self.timeout, headers=api_headers, stream=True) as r:
-            r.raise_for_status()
-            buf = bytearray()
-            for chunk in r.iter_content(1024 * 1024):
-                if not chunk:
-                    continue
-                buf.extend(chunk)
-                if len(buf) > self.max_bytes:
-                    raise RuntimeError("KAP archive exceeded bounded byte limit")
+        try:
+            with self.session.get(url, timeout=self.timeout, headers=api_headers, stream=True) as r:
+                r.raise_for_status()
+                buf = bytearray()
+                for chunk in r.iter_content(1024 * 1024):
+                    if not chunk:
+                        continue
+                    buf.extend(chunk)
+                    if len(buf) > self.max_bytes:
+                        raise RuntimeError("KAP archive exceeded bounded byte limit")
+        except requests.RequestException as exc:
+            exc.kap_request_stage = 'archive'
+            raise
         raw = bytes(buf)
         if not raw.startswith(b"PK"):
             raise RuntimeError("KAP financial download is not a ZIP archive")

@@ -145,3 +145,40 @@ def test_period_columns_keep_bank_total_priority():
     cols=_period_columns(df)
     assert cols["current_col"]==5
     assert cols["previous_col"]==8
+
+
+def test_provider_error_stage_distinguishes_homepage_from_archive():
+    import requests
+    import pytest
+    from bist_terminal.financials.kap_bulk import KapBulkFinancialProvider, HOME, DOWNLOAD
+
+    class Response:
+        def __init__(self, status):
+            self.status_code = status
+        def raise_for_status(self):
+            if self.status_code >= 400:
+                raise requests.HTTPError('fixture', response=self)
+        def __enter__(self):
+            return self
+        def __exit__(self, *args):
+            pass
+
+    class Session:
+        def __init__(self, statuses):
+            self.statuses = iter(statuses)
+            self.urls = []
+        def get(self, url, **kwargs):
+            self.urls.append(url)
+            return Response(next(self.statuses))
+
+    home_session = Session([500])
+    with pytest.raises(requests.HTTPError) as home_error:
+        KapBulkFinancialProvider(session=home_session).download_archive(2026, '3')
+    assert home_error.value.kap_request_stage == 'homepage'
+    assert home_session.urls == [HOME]
+
+    archive_session = Session([200, 500])
+    with pytest.raises(requests.HTTPError) as archive_error:
+        KapBulkFinancialProvider(session=archive_session).download_archive(2026, '3')
+    assert archive_error.value.kap_request_stage == 'archive'
+    assert archive_session.urls == [HOME, DOWNLOAD.format(year=2026, period='3')]

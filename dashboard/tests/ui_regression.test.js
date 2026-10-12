@@ -38,12 +38,13 @@ async function startupRegression(){
   const document={getElementById(id){return nodes.get(id)||null},
     querySelector(selector){return selector==='main'?main:selector.startsWith('#')?nodes.get(selector.slice(1))||null:null},
     querySelectorAll(){return []},body:element('body'),documentElement:element('html')};
-  const payload={mode:'LIVE_PIPELINE',stocks:[{ticker:'TEST',price_status:'VERIFIED_2X',pe:8,rsi14:30}],
+  const payload={mode:'LIVE_PIPELINE',stocks:[{ticker:'TEST',trade_date:'2026-10-09',price:10,price_status:'VERIFIED_2X',pe:8,rsi14:30}],
     sources:[],kap_news:[],summary:{tracked_stocks:1,verified_price_count:1},data_as_of:{prices:'2026-10-09'}};
   const context=vm.createContext({document,structuredClone,
     localStorage:{getItem(){return null},setItem(){}},matchMedia(){return {matches:false}},
-    window:{matchMedia(){return {matches:true}}},requestAnimationFrame(callback){callback()},
+    window:{matchMedia(){return {matches:true}},addEventListener(){}},navigator:{onLine:true},requestAnimationFrame(callback){callback()},
     fetch:async()=>({ok:true,json:async()=>payload}),SafeFormula:require(path.join(root,'formula.js'))});
+  vm.runInContext(fs.readFileSync(path.join(root,'research.js'),'utf8'),context,{filename:'research.js'});
   vm.runInContext(app,context,{filename:'app.js'});
   await new Promise(resolve=>setImmediate(resolve));
   assert(!nodes.get('banner').textContent.startsWith('Data load failed:'),nodes.get('banner').textContent);
@@ -54,5 +55,14 @@ async function startupRegression(){
   assert(nodes.get('strategyStatus').textContent.includes('1/1 matched'),'strategy did not execute');
   assert(!nodes.get('strategyOutput').classList.contains('hidden'),'strategy output remained hidden');
   assert(nodes.get('strategyOutput').scrolled,'mobile strategy result was not brought into view');
+  nodes.get('quickMode').value='all';
+  await nodes.get('quickForm').onsubmit({preventDefault(){}});
+  assert(nodes.get('quickStatus').textContent.includes('1/1 hisse'),'quick Run did not scan current published data');
+  assert(nodes.get('quickResults').innerHTML.includes('TEST'),'quick Run did not render result card');
+  context.navigator.onLine=false;
+  await nodes.get('quickForm').onsubmit({preventDefault(){}});
+  assert(nodes.get('quickStatus').textContent.includes('Tarama yapılamadı'),'offline quick Run did not fail');
+  assert.equal(nodes.get('quickResults').innerHTML,'','offline quick Run left stale results');
+  assert.equal(nodes.get('quickRun').disabled,false,'Run stayed disabled after failure');
 }
 startupRegression().then(()=>console.log('ui regression tests passed')).catch(error=>{console.error(error);process.exitCode=1});

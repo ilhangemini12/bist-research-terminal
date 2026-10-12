@@ -18,6 +18,7 @@ from uuid import uuid4
 import pandas as pd
 
 from bist_terminal.providers.kap_capital import KapCapitalProvider
+from bist_terminal.storage.capital_files import load_capital_records
 
 
 def _read(path):
@@ -100,6 +101,22 @@ def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0) -> dict:
     if not pending:
         report['status'] = 'ACTIVE/TESTED' if not report['stale'] else 'PARTIAL'
         return report
+
+    # A daily rate limit must not permanently starve the alphabetic tail. Only
+    # reorder after honoring today's receipts/circuit; never reopen a blocked day.
+    snapshots = load_capital_records(root)
+    def last_checked(ticker):
+        value = snapshots.get(ticker, {}).get('retrieved_at')
+        try:
+            parsed = datetime.fromisoformat(str(value).replace('Z', '+00:00'))
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return parsed.timestamp(), ticker
+        except (TypeError, ValueError, OverflowError):
+            return float('-inf'), ticker
+    pending.sort(key=last_checked)
+    report['scheduling'] = 'oldest_successful_check_first'
+    report['pause_seconds'] = pause_seconds
 
     def open_circuit(reason):
         report['circuit_reason'] = reason

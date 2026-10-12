@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "BIST Araştırma Terminali",
+  "short_name": "BIST Terminal",
+  "description": "Kapanış verileri, finansallar ve araştırma taramaları. Veri tarihi ve doğrulama durumu uygulamada gösterilir.",
+  "lang": "tr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101827",
+  "theme_color": "#101827",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}
+  ]
+}

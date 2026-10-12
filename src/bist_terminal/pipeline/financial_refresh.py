@@ -114,42 +114,88 @@ def _supplement_rows(archive, result, stamp, provider):
         out[prefix] = row
     return out
 
-def refresh_financials(root, store, tickers, expected_date, provider=None) -> dict:
-    """Check <=2 archives, persist only changed high-confidence rows, return evidence.
+_COUNTERS = ('archives_checked', 'parsed', 'changed', 'unchanged', 'review_rejected',
+             'missing', 'stale_rejected', 'extended_financials_changed', 'roic_inputs_changed')
 
-    A successful same-market-day check is reused only if all its shards still
-    exist. Failed checks have a two-attempt daily cap. A transport failure opens
-    the circuit immediately; there is no hidden retry or paid fallback.
+
+def _valid_shards(root: Path, paths) -> bool:
+    if not isinstance(paths, list):
+        return False
+    for name in paths:
+        if not isinstance(name, str):
+            return False
+        path = (root / name).resolve()
+        if not path.is_relative_to((root / 'data/parquet').resolve()) or not path.is_file():
+            return False
+        try:
+            # Existence alone is insufficient after a truncated restore.
+            import pyarrow.parquet as pq
+            pq.read_metadata(path)
+        except Exception:
+            return False
+    return True
+
+
+def _shard_dependencies(root: Path) -> list[str]:
+    return sorted(str(p.relative_to(root)) for prefix in ('financials', 'extended_financials', 'roic_inputs')
+                  for p in (root / 'data/parquet' / prefix).glob('*.parquet'))
+
+
+def _daily_ledger(root: Path, day: str) -> tuple[Path, dict]:
+    directory = root / 'data/state/financial_refresh'
+    receipt = directory / f'{day}_kap_periods_v2.json'
+    if receipt.exists():
+        # A corrupt canonical ledger fails closed; never silently reset limits.
+        ledger = json.loads(receipt.read_text(encoding='utf-8'))
+        if ledger.get('schema_version') != 2 or ledger.get('utc_day') != day or not isinstance(ledger.get('periods'), dict):
+            raise ValueError('Invalid KAP daily receipt')
+        return receipt, ledger
+    ledger = {'schema_version': 2, 'utc_day': day, 'periods': {}, 'host_circuit': None}
+    # Legacy receipts were scoped to market day + ticker set, and attempts were
+    # cumulative per receipt. Preserve every scope's used budget, bounded at 2.
+    for path in sorted(directory.glob(f'{day}_*.json')):
+        prior = json.loads(path.read_text(encoding='utf-8'))
+        for error in prior.get('errors', []):
+            if error.get('stage') != 'download' or not error.get('year') or not error.get('period'):
+                continue
+            key = f"{error['year']}Q{error['period']}"
+            state = ledger['periods'].setdefault(key, {'attempts': 0, 'failures': 0, 'checks': {}})
+            consumed = max(1, int(prior.get('attempts', 1)))
+            state['attempts'] += consumed
+            state['failures'] = min(2, state['failures'] + consumed)
+            state['last_error'] = error
+            # Unknown-stage legacy errors could be from HOME, not the archive.
+            # Never infer period-scoped failure from a status code alone.
+            if not (error.get('request_stage') == 'archive' and error.get('http_status') in (404, 500)):
+                ledger['host_circuit'] = error
+    _atomic_json(receipt, ledger)
+    return receipt, ledger
+
+
+def refresh_financials(root, store, tickers, expected_date, provider=None) -> dict:
+    """Two downloads per call, with UTC-day per-period failures and host circuit.
+
+    Market-date and ticker-set changes never reset budgets. Cached checks must
+    match the ticker set and have readable financial shard dependencies.
     """
     root = Path(root)
     expected_date = date.fromisoformat(str(expected_date)).isoformat()
     tickers = sorted({str(t).upper().removesuffix('.IS') for t in tickers})
     check_day = datetime.now(timezone.utc).date().isoformat()
-    receipt = root / 'data/state/financial_refresh' / f'{check_day}_{expected_date}_{_digest(tickers)[:16]}.json'
-    prior = {}
-    if receipt.exists():
-        try:
-            prior = json.loads(receipt.read_text(encoding='utf-8'))
-        except (ValueError, OSError):
-            pass
-    if prior.get('status') == 'ACTIVE/TESTED' and all((root / p).exists() for p in prior.get('shards', [])):
-        return {**prior, 'cached': True}
-    if prior.get('attempts', 0) >= 2:
-        return {**prior, 'status': 'BLOCKED', 'cached': True, 'circuit_reason': 'daily_attempt_limit'}
-
-    report = dict(status='PARTIAL', expected_market_date=expected_date,
-                  checked_at=datetime.now(timezone.utc).isoformat(), attempts=prior.get('attempts', 0) + 1,
-                  requested=len(tickers), archives_checked=0, parsed=0, changed=0,
-                  unchanged=0, review_rejected=0, missing=0, stale_rejected=0,
-                  errors=[], shards=list(prior.get('shards', [])), cached=False,
-                  extended_financials_changed=0, roic_inputs_changed=0)
     provider = provider or KapBulkFinancialProvider()
-    report['provider_id'] = provider.provider_id
-    report['upstream_vendor'] = provider.upstream_vendor
+    report = dict(status='PARTIAL', expected_market_date=expected_date,
+                  checked_at=datetime.now(timezone.utc).isoformat(), requested=len(tickers),
+                  errors=[], shards=[], cached=True, periods={}, downloads_attempted=0,
+                  provider_id=provider.provider_id, upstream_vendor=provider.upstream_vendor,
+                  **{key: 0 for key in _COUNTERS})
     if not tickers:
         report['status'] = 'NOT CONFIGURED'
         return report
-
+    try:
+        receipt, ledger = _daily_ledger(root, check_day)
+    except (ValueError, OSError, TypeError):
+        return {**report, 'status': 'BLOCKED', 'circuit_reason': 'invalid_daily_receipt'}
+    ticker_key = _digest(tickers)
     existing = {}
     for ticker, records in store.financial_payload_history().items():
         if ticker in tickers:
@@ -161,14 +207,45 @@ def refresh_financials(root, store, tickers, expected_date, provider=None) -> di
         supplements[prefix] = {(t, row['report_period']): row for t, rows in loader(root).items() for row in rows}
 
     for year, period, period_end in completed_quarters(expected_date):
+        key = f'{year}Q{period}'
+        state = ledger['periods'].setdefault(key, {'attempts': 0, 'failures': 0, 'checks': {}})
+        check = state.get('checks', {}).get(ticker_key)
+        if check and check.get('tickers') == tickers and _valid_shards(root, check.get('shards')):
+            report['periods'][key] = {**check, 'cached': True}
+            report['shards'].extend(check['shards'])
+            report['errors'].extend(check.get('errors', []))
+            continue
+        force_rebuild = bool(check)
+        if ledger.get('host_circuit') or state.get('failures', 0) >= 2:
+            reason = 'host_circuit' if ledger.get('host_circuit') else 'daily_period_failure_limit'
+            report['periods'][key] = {'status': 'BLOCKED', 'reason': reason, 'cached': True,
+                                      'last_error': state.get('last_error')}
+            continue
+        if report['downloads_attempted'] >= 2:
+            report['periods'][key] = {'status': 'BLOCKED', 'reason': 'call_download_limit'}
+            continue
+        # Reserve a failure before I/O: interruption cannot reset the daily cap.
+        state['attempts'] += 1
+        state['failures'] += 1
+        _atomic_json(receipt, ledger)
+        report['downloads_attempted'] += 1
+        report['cached'] = False
         try:
             archive = provider.download_archive(year, period)
         except Exception as exc:
-            report['errors'].append({'year': year, 'period': period, 'stage': 'download', 'error': type(exc).__name__, 'http_status': getattr(getattr(exc, 'response', None), 'status_code', None)})
-            if getattr(getattr(exc, 'response', None), 'status_code', None) == 404:
-                continue  # A not-yet-published quarter does not suppress the prior quarter.
-            # Timeout/access/rate-limit failures stop all calls to this host.
-            break
+            error = {'year': year, 'period': period, 'stage': 'download',
+                     'error': type(exc).__name__,
+                     'http_status': getattr(getattr(exc, 'response', None), 'status_code', None),
+                     'request_stage': getattr(exc, 'kap_request_stage', 'unknown')}
+            report['errors'].append(error)
+            state['last_error'] = error
+            if not (error['request_stage'] == 'archive' and error['http_status'] in (404, 500)):
+                ledger['host_circuit'] = error
+            report['periods'][key] = {'status': 'BLOCKED', 'last_error': error, 'cached': False}
+            _atomic_json(receipt, ledger)
+            continue
+        before = {k: report[k] for k in _COUNTERS}
+        errors_before = len(report['errors'])
         report['archives_checked'] += 1
         new_rows = []
         supplemental_rows = {'extended_financials': [], 'roic_inputs': []}
@@ -187,8 +264,8 @@ def refresh_financials(root, store, tickers, expected_date, provider=None) -> di
                                'upstream_vendor': provider.upstream_vendor, 'retrieved_at': report['checked_at']}
                     row = dict(ticker=ticker, report_period=period_end, publication_date=None,
                                statement_scope=result['statement_scope'], payload=payload, source_url=archive.source_url)
-                    key = (ticker, period_end, row['statement_scope'])
-                    old = existing.get(key)
+                    fact_key = (ticker, period_end, row['statement_scope'])
+                    old = existing.get(fact_key)
                     old_payload = (old or {}).get('payload', {})
                     old_id = old_payload.get('notification_id')
                     new_id = payload.get('notification_id')
@@ -197,22 +274,24 @@ def refresh_financials(root, store, tickers, expected_date, provider=None) -> di
                         continue
                     for prefix, supplement in _supplement_rows(archive, result, report['checked_at'], provider).items():
                         previous = supplements[prefix].get((ticker, period_end))
-                        if previous is None or _digest(previous) != _digest(supplement):
+                        if force_rebuild or previous is None or _digest(previous) != _digest(supplement):
                             supplemental_rows[prefix].append(supplement)
-                    if old and _digest(old_payload) == _digest(payload) and old.get('source_url') == row['source_url']:
+                    if not force_rebuild and old and _digest(old_payload) == _digest(payload) and old.get('source_url') == row['source_url']:
                         report['unchanged'] += 1
                         continue
                     new_rows.append(row)
                 except Exception as exc:
                     report['errors'].append({'ticker': ticker, 'period': period_end, 'stage': 'parse', 'error': type(exc).__name__})
-                    if len(report['errors']) >= max(5, len(tickers) // 10):
+                    if len(report['errors']) - errors_before >= max(5, len(tickers) // 10):
                         break
         finally:
             if hasattr(archive, 'zip'):
                 archive.zip.close()
         # Avoid accepting a partial archive after systemic parser failure.
-        if len(report['errors']) >= max(5, len(tickers) // 10):
-            break
+        if len(report['errors']) - errors_before >= max(5, len(tickers) // 10):
+            report['periods'][key] = {'status': 'PARTIAL', 'reason': 'systemic_parse_failure'}
+            _atomic_json(receipt, ledger)
+            continue
         if new_rows:
             shard = _write_shard(root, 'financials', [{**r, 'payload': json.dumps(r['payload'], ensure_ascii=False, allow_nan=False)} for r in new_rows])
             store.import_parquet('financials', shard)
@@ -223,6 +302,20 @@ def refresh_financials(root, store, tickers, expected_date, provider=None) -> di
                 shard = _write_shard(root, prefix, rows)
                 report[prefix + '_changed'] += len(rows)
                 report['shards'].append(str(shard.relative_to(root)))
-    report['status'] = 'ACTIVE/TESTED' if not report['errors'] else 'PARTIAL'
-    _atomic_json(receipt, report)
+        state['failures'] -= 1
+        stats = {k: report[k] - before[k] for k in _COUNTERS}
+        period_errors = report['errors'][errors_before:]
+        healthy = not period_errors and not any(stats[k] for k in ('missing', 'review_rejected', 'stale_rejected'))
+        check = {'status': 'ACTIVE/TESTED' if healthy else 'PARTIAL', 'tickers': tickers,
+                 'shards': _shard_dependencies(root), 'stats': stats, 'errors': period_errors,
+                 'checked_at': report['checked_at']}
+        state.setdefault('checks', {})[ticker_key] = check
+        report['periods'][key] = {**check, 'cached': False}
+        _atomic_json(receipt, ledger)
+    outcomes = [p['status'] for p in report['periods'].values()]
+    report['status'] = ('ACTIVE/TESTED' if outcomes and all(s == 'ACTIVE/TESTED' for s in outcomes)
+                        else 'BLOCKED' if outcomes and all(s == 'BLOCKED' for s in outcomes) else 'PARTIAL')
+    report['shards'] = sorted(set(report['shards']))
+    report['attempts'] = sum(p.get('attempts', 0) for p in ledger['periods'].values())
+    report['host_circuit'] = ledger.get('host_circuit')
     return report

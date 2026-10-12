@@ -1,6 +1,6 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-10-12T23:15:24.140603+00:00",
+  "generated_at": "2026-10-12T23:45:35.819373+00:00",
   "mode": "LIVE_PIPELINE",
   "production_health": {
     "status": "PARTIAL",
@@ -71,7 +71,7 @@
     "financials": {
       "status": "PARTIAL",
       "expected_market_date": "2026-10-12",
-      "checked_at": "2026-10-12T22:24:07.262606+00:00",
+      "checked_at": "2026-10-12T23:45:17.437905+00:00",
       "requested": 323,
       "errors": [],
       "shards": [
@@ -540,7 +540,7 @@
       "status": "BLOCKED",
       "provider_id": "kap_capital",
       "upstream_vendor": "KAP",
-      "checked_at": "2026-10-12T22:24:10.183242+00:00",
+      "checked_at": "2026-10-12T23:45:21.052610+00:00",
       "check_date": "2026-10-12",
       "requested": 323,
       "refreshed": 0,
@@ -742,7 +742,7 @@
   "verification_evidence": {
     "basis": "CURRENT_CANONICAL_DATASET",
     "data_date": "2026-10-12",
-    "dataset_generated_at": "2026-10-12T22:24:28.741613+00:00",
+    "dataset_generated_at": "2026-10-12T23:45:32.549500+00:00",
     "status_counts": {
       "VERIFIED_2X": 319,
       "SINGLE_SOURCE": 3,

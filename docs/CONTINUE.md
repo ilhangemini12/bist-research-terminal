@@ -1,6 +1,21 @@
-# Üretim devam noktası — 2026-10-12
+# Üretim devam noktası — 2026-10-13
 
-## Doğrulanmış checkpoint
+## Son doğrulanmış checkpoint — 13 Ekim
+
+Kod e082c0d + CI düzeltmesi 04a6319; veri 876cb33.
+Broker 38369307283, Daily 38369307289, Pages 38371095070 SUCCESS.
+Dal checkpoint/broker-integrity-verified-20261013; audit docs/AUDIT_2026-10-13.md.
+224 Python testi; 8 Node/formül/UI; 42.442 Excel alanı; gerçek Chromium mobil/offline PASS.
+Üretim 2026-10-13T08:42:10 UTC, kapanış 12 Ekim. Genel PARTIAL319/323;
+AFYON/ISATR/KARCL/OZRDN son koşuda NoData. 100 yeni sermaye kontrolü önceki
+100'lük kümeden farklı; HTTP429'da duruldu. Q2 305 değişmeyen kayıt doğrulandı.
+Broker loader son portföyü bütün seçer, çıkarılan üyeyi diriltmez, sonraki
+zamanda alınmış gözlemi geçmişe taşımaz. Aynı kurum iki kaynak sayılmaz.
+10 Gedik hedefi 13 Ekim gözlemli; tek kurum/konsensüs yok. Deniz resmi açık
+sayfasında hedef tablosu bulundu; üretim entegrasyonu henüz yapılmadı.
+İlk CI giriş noktası import hatası audit'te kayıtlı; düzeltilen koşular başarılı.
+
+## Önceki doğrulanmış checkpoint
 
 Kod c804b33; veri 15864a3. Daily 38316391640 ve Pages 38316489428 SUCCESS.
 Sabit dal: checkpoint/handoff-verified-20261012. 211 Python testi; 8 Node testi;

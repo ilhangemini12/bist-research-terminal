@@ -36,3 +36,18 @@ sağlandıktan sonra önce tek fon/iki tarih pilotu uygulanmalı. ISIN eşlemesi
 rapor/yayın tarihi, pay adedi, şirket toplam payı, hisse bazlı pay ve yüzde-puan
 değişimi ayrı alanlar olmalı. Kaynak verisi yoksa N/A kalmalı; VERIFIED_2X etiketi
 bağımsız iki upstream kanıtı olmadan verilmemeli.
+
+## 13 Ekim takip incelemesi
+
+Kaynak keşfi kodundaki NameError ve regex düzeltildi; çıktı
+artifacts/broker_public_probe.json. Kamuya yalnız metadata kaydedilir.
+Deniz Yatırım resmi ModelPortfoyPerformans sayfasında 10 hisse ve hedef fiyat
+sütunu doğrulandı; Gedik ile beş ortak hisse var. Görünür rapor/güncelleme tarihi
+bulunmadı. Bu keşif henüz üretim kolektörü veya güncel konsensüs değildir.
+Aday URL: https://www.denizyatirim.com/ModelPortfoyPerformans .
+Sonraki entegrasyon açık bir tarih politikası gerektirir: rapor tarihi yoksa
+OBSERVED_CURRENT_PUBLIC_PAGE açıkça korunmalı; gözlem tarihi yayın/rapor tarihi
+olarak sunulmamalı. Piyasa fiyatı/getiri sütunları hedef fiyat olgusundan ayrılmalı;
+site altbilgisindeki BIST/Ideal Data kapsamı ve yeniden kullanım ayrıca kayda alınmalı.
+Gedik'in yerel keşifteki tek 500 hatası ardından GitHub Broker 38369307283
+başarıyla 13 Ekim gözlemini aldı; kalıcı kaynak kesintisi denmedi.

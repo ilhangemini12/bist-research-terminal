@@ -1,24 +1,34 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-13T15:14:37.688769+00:00",
-  "market_date": "2026-10-12",
+  "generated_at": "2026-10-13T21:58:49.303036+00:00",
+  "market_date": "2026-10-13",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-10-12",
+    "expected_market_date": "2026-10-13",
     "tracked": 323,
-    "verified_prices": 319,
-    "fresh_history": 319,
+    "verified_prices": 314,
+    "fresh_history": 314,
     "unverified_tickers": [
       "AFYON",
+      "BURVA",
+      "CUSAN",
       "ISATR",
+      "ISVEA",
       "KARCL",
-      "OZRDN"
+      "OZRDN",
+      "PETUN",
+      "SILVR"
     ],
     "stale_history_tickers": [
       "AFYON",
+      "BURVA",
+      "CUSAN",
       "ISATR",
+      "ISVEA",
       "KARCL",
-      "OZRDN"
+      "OZRDN",
+      "PETUN",
+      "SILVR"
     ],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",

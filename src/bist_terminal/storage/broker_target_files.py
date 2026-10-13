@@ -20,44 +20,56 @@ def broker_target_files(root: Path) -> list[Path]:
 
 
 def load_latest_broker_targets(root: Path, as_of: str | None=None, max_age_days: int=90) -> dict[str,list[dict]]:
-    frames=[]
+    # Each retrieval is a complete model portfolio, not a set of independent
+    # recommendations. Mixing snapshots resurrects removed constituents.
+    end = pd.Timestamp(as_of or pd.Timestamp.now(tz="UTC").date()).date()
+    candidates = {}
     for path in broker_target_files(root):
-        try:
-            frame=pd.read_parquet(path)
-        except Exception:
+        frame = pd.read_parquet(path)  # Corruption must not silently revive old data.
+        if frame.empty:
             continue
-        if not frame.empty:
-            frames.append(frame)
-    if not frames:
-        return {}
-    frame=pd.concat(frames,ignore_index=True)
-    if as_of:
-        end=pd.Timestamp(as_of).date()
-        def effective_date(row):
-            raw=row.get("portfolio_date") or row.get("observed_date")
+        required = {"broker_id", "ticker", "retrieved_at", "target_price"}
+        if not required.issubset(frame.columns):
+            raise ValueError("broker snapshot schema unavailable")
+        for (broker, retrieved), group in frame.groupby(["broker_id", "retrieved_at"], dropna=False):
+            if not isinstance(broker, str) or not broker.strip() or pd.isna(retrieved):
+                raise ValueError("broker snapshot identity unavailable")
+            stamp = pd.Timestamp(retrieved)
+            if pd.isna(stamp):
+                raise ValueError("broker retrieval date unavailable")
+            stamp = stamp.tz_localize("UTC") if stamp.tzinfo is None else stamp.tz_convert("UTC")
+            if stamp.date() > end:
+                continue  # Do not leak a later observation into a historical view.
+            rows = group.to_dict("records")
+            if group["ticker"].duplicated().any():
+                raise ValueError("duplicate broker snapshot ticker")
+            key = broker.strip().casefold()
+            rank = (stamp, path.name)
+            if key not in candidates or rank > candidates[key][0]:
+                candidates[key] = (rank, rows)
+    out = {}
+    for _, rows in candidates.values():
+        for row in rows:
+            def present(value):
+                return value is not None and not pd.isna(value) and str(value).strip() != ""
+            raw = row.get("portfolio_date")
+            if not present(raw):
+                raw = row.get("observed_date")
+            if not present(raw):
+                raw = row["retrieved_at"]
             try:
-                return pd.Timestamp(raw).date()
-            except Exception:
-                return None
-        def fresh_row(row):
-            d=effective_date(row)
-            if d is None:
-                return False
-            age=(end-d).days
-            return 0<=age<=max_age_days
-        frame=frame[frame.apply(fresh_row,axis=1)]
-    if frame.empty:
-        return {}
-    # Latest snapshot wins within each broker/ticker; different brokers remain independent.
-    frame["_effective_date"]=frame.apply(
-        lambda r: r.get("portfolio_date") or r.get("observed_date"),axis=1
-    )
-    frame=frame.sort_values(["broker_id","ticker","_effective_date","retrieved_at"],na_position="first")
-    frame=frame.drop_duplicates(["broker_id","ticker"],keep="last")
-    out={}
-    for row in frame.to_dict("records"):
-        ticker=str(row.get("ticker") or "").upper()
-        if not ticker:
-            continue
-        out.setdefault(ticker,[]).append(row)
+                effective = pd.Timestamp(raw).date()
+                age = (end - effective).days
+            except (ValueError, TypeError):
+                continue
+            if not 0 <= age <= max_age_days:
+                continue
+            ticker = str(row.get("ticker") or "").strip().upper()
+            if not ticker:
+                continue
+            row["broker_id"] = str(row["broker_id"]).strip().casefold()
+            for field in ("portfolio_date", "observed_date"):
+                if not present(row.get(field)):
+                    row[field] = None
+            out.setdefault(ticker, []).append(row)
     return out

@@ -4,6 +4,8 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from pathlib import Path
 import sys
+import hashlib
+import json
 
 import pandas as pd
 
@@ -14,20 +16,22 @@ from bist_terminal.providers.gedik_model import GedikModelPortfolioProvider
 from bist_terminal.storage.broker_target_files import broker_target_snapshot_path
 
 
-def main():
-    provider=GedikModelPortfolioProvider(timeout=30)
-    result=provider.fetch()
+def persist_snapshot(root, result, now=None):
+    now = now or datetime.now(timezone.utc)
     portfolio_date=result.get("portfolio_date")
     rows=result.get("rows") or []
     if not rows:
         raise SystemExit("GEDIK_TARGET_BOOTSTRAP_FAILED missing rows")
-    observed_date=datetime.now(timezone.utc).date().isoformat()
-    snapshot_date=portfolio_date or observed_date
-    out=broker_target_snapshot_path(ROOT,result["broker_id"],snapshot_date)
+    observed_date=now.date().isoformat()
+    # Public page contents may change without a new displayed report date.
+    # Preserve both observations, including same-day corrections, immutably.
+    facts = sorted(rows, key=lambda row: row["ticker"])
+    digest = hashlib.sha256(json.dumps(facts, sort_keys=True, allow_nan=False).encode()).hexdigest()[:16]
+    out=broker_target_snapshot_path(root,result["broker_id"],observed_date + "_" + now.strftime("%H%M%S%fZ") + "_" + digest)
     if out.exists():
         print(f"GEDIK_TARGET_SNAPSHOT_EXISTS file={out.name}; immutable checkpoint kept")
-        return
-    stamp=datetime.now(timezone.utc).isoformat()
+        return out
+    stamp=now.isoformat()
     frame=pd.DataFrame([
         {
             **row,
@@ -48,6 +52,13 @@ def main():
         f"GEDIK_TARGET_SNAPSHOT_WRITTEN file={out.name} rows={len(frame)} "
         f"portfolio_date={portfolio_date} observed_date={observed_date} tickers={frame['ticker'].tolist()}"
     )
+
+    return out
+
+
+def main():
+    result = GedikModelPortfolioProvider(timeout=30).fetch()
+    persist_snapshot(ROOT, result)
 
 
 if __name__=="__main__":

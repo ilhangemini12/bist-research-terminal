@@ -7,6 +7,8 @@ from __future__ import annotations
 
 from pathlib import Path
 import json
+import re
+from datetime import datetime, timezone
 from urllib.parse import urlparse
 from urllib.robotparser import RobotFileParser
 
@@ -77,7 +79,8 @@ def probe(source):
             continue
         result["candidate_tables"].append({
             "index":i,
-            "first_rows":rows,
+            "headers":rows[0] if rows else [],
+            "sample_row_count":len(rows),
         })
     # Text-only signals for server-rendered card layouts.
     visible=soup.get_text(" ",strip=True)
@@ -87,21 +90,9 @@ def probe(source):
         "model_portfoy":("MODEL PORTF" in upper),
         "known_ticker_count":sum(upper.count(t) for t in ["ANHYT","GARAN","THYAO","YKBNK","AKSA","ASTOR","DOHOL"]),
     }
-    snippets=[]
-    for ticker in ["ANHYT","GARAN","THYAO","YKBNK","AKSA","ASTOR","DOHOL"]:
-        pos=upper.find(ticker)
-        if pos>=0:
-            snippets.append({"ticker":ticker,"snippet":visible[max(0,pos-120):pos+420]})
-    result["ticker_snippets"]=snippets[:10]
-    dates_visible=sorted(set(re.findall(r"\\b\\d{2}\\.\\d{2}\\.\\d{4}\\b",visible)))
-    dates_raw=sorted(set(re.findall(r"\\b\\d{2}\\.\\d{2}\\.\\d{4}\\b",r.text)))
-    result["dates_visible"]=dates_visible[-30:]
-    result["dates_raw"]=dates_raw[-30:]
-    raw_contexts=[]
-    for d in dates_raw[-10:]:
-        pos=r.text.find(d)
-        raw_contexts.append({"date":d,"context":re.sub(r"\\s+"," ",r.text[max(0,pos-250):pos+350])[:700]})
-    result["date_contexts_raw"]=raw_contexts
+    result["dates_visible"]=sorted(set(re.findall(r"\b\d{2}\.\d{2}\.\d{4}\b",visible)))[-30:]
+    result["dates_raw"]=sorted(set(re.findall(r"\b\d{2}\.\d{2}\.\d{4}\b",r.text)))[-30:]
+    # No numeric target table, HTML, snippets or raw report is persisted.
     return result
 
 
@@ -120,7 +111,7 @@ def main():
         print("BROKER_PUBLIC_PROBE",json.dumps(row,ensure_ascii=False))
     out=ROOT/"artifacts/broker_public_probe.json"
     out.parent.mkdir(exist_ok=True)
-    out.write_text(json.dumps({"sources":rows},ensure_ascii=False,indent=2),encoding="utf-8")
+    out.write_text(json.dumps({"checked_at":datetime.now(timezone.utc).isoformat(),"sources":rows},ensure_ascii=False,indent=2),encoding="utf-8")
 
 
 if __name__=="__main__":

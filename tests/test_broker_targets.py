@@ -38,3 +38,29 @@ def test_unverified_price_does_not_get_upside():
     ]})[0]
     assert out["target_price"]==150
     assert out["target_upside"] is None
+
+
+def test_duplicate_same_broker_does_not_create_consensus():
+    rows = [{"broker_id": "G", "target_price": 120, "observed_date": "2026-10-12"},
+            {"broker_id": "g", "target_price": 140, "observed_date": "2026-10-13"}]
+    result = apply_broker_targets([stock(100)], {"THYAO": rows})[0]
+    assert result['target_source_count'] == 1
+    assert result['target_price'] == 140
+    assert result['target_consensus'] is None
+
+
+def test_conflicting_same_date_broker_is_unavailable():
+    rows = [{"broker_id": "g", "target_price": x, "observed_date": "2026-10-13"} for x in [120, 140]]
+    result = apply_broker_targets([stock()], {"THYAO": rows})[0]
+    assert result['target_status'] == 'UNAVAILABLE'
+
+
+@pytest.mark.parametrize('value', [float('inf'), float('nan'), True, 'bad', -1, None])
+def test_invalid_target_never_enters_consensus(value):
+    result = apply_broker_targets([stock()], {"THYAO": [{"broker_id": "g", "target_price": value}]})[0]
+    assert result['target_price'] is None
+
+
+def test_missing_broker_identity_never_counts_as_independent():
+    result = apply_broker_targets([stock()], {"THYAO": [{"broker_name": "Unknown", "target_price": 150}]})[0]
+    assert result['target_source_count'] == 0

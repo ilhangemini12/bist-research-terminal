@@ -27,7 +27,7 @@ jobs:
       - name: Validate broker target parser
         run: |
           python -m compileall -q src scripts
-          pytest -q tests/test_gedik_model.py tests/test_broker_target_files.py tests/test_broker_targets.py
+          pytest -q tests/test_gedik_model.py tests/test_broker_target_files.py tests/test_broker_targets.py tests/test_broker_snapshot.py tests/test_broker_probe.py
       - name: Refresh public Gedik target snapshot
         run: python scripts/bootstrap_broker_targets.py
       - name: Publish broker overlay and artifacts
@@ -35,6 +35,8 @@ jobs:
           python scripts/publish_broker_targets.py
           python scripts/build_excel_snapshot.py
           python scripts/build_report.py
+          python scripts/validate_production.py
+          python scripts/validate_excel_snapshot.py
       - name: Commit immutable broker snapshot and published overlay
         run: |
           set -euo pipefail

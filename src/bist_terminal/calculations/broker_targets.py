@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from statistics import median
+import math
 
 
 def apply_broker_targets(stocks: list[dict], by_ticker: dict[str,list[dict]]) -> list[dict]:
@@ -12,11 +13,26 @@ def apply_broker_targets(stocks: list[dict], by_ticker: dict[str,list[dict]]) ->
     out=[]
     for row in stocks:
         r=dict(row)
-        records=[
-            x for x in (by_ticker.get(str(r.get("ticker") or "").upper(),[]) or [])
-            if x.get("target_price") is not None and float(x.get("target_price"))>0
-        ]
-        records=sorted(records,key=lambda x:(str(x.get("broker_id") or ""),str(x.get("portfolio_date") or x.get("observed_date") or "")))
+        # Count independent broker identities, never duplicate rows. Conflicting
+        # targets at the same latest timestamp are unavailable for that broker.
+        grouped = {}
+        for item in by_ticker.get(str(r.get("ticker") or "").upper(), []) or []:
+            broker = str(item.get("broker_id") or "").strip().casefold()
+            try:
+                price = float(item.get("target_price"))
+            except (TypeError, ValueError, OverflowError):
+                continue
+            if not broker or isinstance(item.get("target_price"), bool) or not math.isfinite(price) or price <= 0:
+                continue
+            rank = (str(item.get("portfolio_date") or item.get("observed_date") or ""),
+                    str(item.get("retrieved_at") or ""))
+            grouped.setdefault(broker, []).append((rank, {**item, "broker_id": broker, "target_price": price}))
+        records = []
+        for broker in sorted(grouped):
+            latest = max(x[0] for x in grouped[broker])
+            peers = [x[1] for x in grouped[broker] if x[0] == latest]
+            if len({x["target_price"] for x in peers}) == 1:
+                records.append(peers[0])
         prices=[float(x["target_price"]) for x in records]
         brokers=sorted({str(x.get("broker_name") or x.get("broker_id") or "") for x in records if x.get("broker_name") or x.get("broker_id")})
         dates=[str(x.get("portfolio_date") or x.get("observed_date")) for x in records if x.get("portfolio_date") or x.get("observed_date")]
@@ -24,6 +40,9 @@ def apply_broker_targets(stocks: list[dict], by_ticker: dict[str,list[dict]]) ->
         count=len(records)
         status="CONSENSUS_2PLUS" if count>=2 else ("SINGLE_SOURCE" if count==1 else "UNAVAILABLE")
         verified_price=r.get("price") if r.get("price_status")=="VERIFIED_2X" else None
+        if (isinstance(verified_price, bool) or not isinstance(verified_price, (int, float))
+                or not math.isfinite(verified_price)):
+            verified_price = None
         upside=(reference/verified_price-1) if reference is not None and verified_price and verified_price>0 else None
         r.update({
             "target_status":status,

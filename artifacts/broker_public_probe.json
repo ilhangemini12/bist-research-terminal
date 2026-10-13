@@ -1,19 +1,54 @@
 {
+  "checked_at": "2026-10-13T08:21:57.439631+00:00",
   "sources": [
     {
       "provider_id": "ak_yatirim_model_portfolio",
       "url": "https://www.akyatirim.com.tr/tr/raporlarimiz/model-portfoy",
-      "error": "NameError: name 're' is not defined"
+      "robots_url": "https://www.akyatirim.com.tr/robots.txt",
+      "robots_status": 200,
+      "robots_can_fetch": true,
+      "page_status": 200,
+      "page_bytes": 116550,
+      "table_count": 0,
+      "candidate_tables": [],
+      "signals": {
+        "hedef_fiyat": true,
+        "model_portfoy": true,
+        "known_ticker_count": 0
+      },
+      "dates_visible": [],
+      "dates_raw": []
     },
     {
       "provider_id": "gedik_model_portfolio",
       "url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy",
-      "error": "NameError: name 're' is not defined"
+      "error": "HTTPError: 500 Server Error: Internal Server Error for url: https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
     },
     {
       "provider_id": "deniz_model_portfolio",
       "url": "https://www.denizyatirim.com/ModelPortfoyPerformans",
-      "error": "NameError: name 're' is not defined"
+      "robots_url": "https://www.denizyatirim.com/robots.txt",
+      "robots_status": 200,
+      "robots_can_fetch": true,
+      "page_status": 200,
+      "page_bytes": 154987,
+      "table_count": 1,
+      "candidate_tables": [
+        {
+          "index": 0,
+          "headers": [
+            "Deniz Yatırım Model Portföy"
+          ],
+          "sample_row_count": 10
+        }
+      ],
+      "signals": {
+        "hedef_fiyat": true,
+        "model_portfoy": true,
+        "known_ticker_count": 3
+      },
+      "dates_visible": [],
+      "dates_raw": []
     }
   ]
 }

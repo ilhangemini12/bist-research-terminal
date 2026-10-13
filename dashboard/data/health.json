@@ -68,23 +68,58 @@
     "financials": {
       "status": "PARTIAL",
       "expected_market_date": "2026-10-12",
-      "checked_at": "2026-10-13T08:28:18.950684+00:00",
+      "checked_at": "2026-10-13T15:13:45.004982+00:00",
       "requested": 323,
-      "errors": [
-        {
-          "year": 2026,
-          "period": "3",
-          "stage": "download",
-          "error": "HTTPError",
-          "http_status": 500,
-          "request_stage": "archive"
-        }
+      "errors": [],
+      "shards": [
+        "data/parquet/extended_financials/extended_financials_2025_2.parquet",
+        "data/parquet/extended_financials/extended_financials_2025_4.parquet",
+        "data/parquet/extended_financials/extended_financials_2026_2.parquet",
+        "data/parquet/extended_financials/extended_financials_zzrefresh_20261012T042728000094Z_c50fb508f10fb8fa.parquet",
+        "data/parquet/financials/financials_2021_1_000_322.parquet",
+        "data/parquet/financials/financials_2021_2_000_322.parquet",
+        "data/parquet/financials/financials_2021_3_000_322.parquet",
+        "data/parquet/financials/financials_2021_4_000_322.parquet",
+        "data/parquet/financials/financials_2022_1_000_322.parquet",
+        "data/parquet/financials/financials_2022_2_000_322.parquet",
+        "data/parquet/financials/financials_2022_3_000_322.parquet",
+        "data/parquet/financials/financials_2022_4_000_322.parquet",
+        "data/parquet/financials/financials_2023_1_000_322.parquet",
+        "data/parquet/financials/financials_2023_2_000_322.parquet",
+        "data/parquet/financials/financials_2023_3_000_322.parquet",
+        "data/parquet/financials/financials_2023_4_000_322.parquet",
+        "data/parquet/financials/financials_2024_1_000_322.parquet",
+        "data/parquet/financials/financials_2024_2_000_322.parquet",
+        "data/parquet/financials/financials_2024_3_000_322.parquet",
+        "data/parquet/financials/financials_2024_4_000_322.parquet",
+        "data/parquet/financials/financials_2025_1_000_322.parquet",
+        "data/parquet/financials/financials_2025_2_000_322.parquet",
+        "data/parquet/financials/financials_2026_1_000_322.parquet",
+        "data/parquet/financials/financials_2026_2_000_322.parquet",
+        "data/parquet/financials/financials_repair_banks_2021_v001.parquet",
+        "data/parquet/financials/financials_repair_banks_2022_v001.parquet",
+        "data/parquet/financials/financials_repair_banks_2023_v001.parquet",
+        "data/parquet/financials/financials_repair_banks_2024_v001.parquet",
+        "data/parquet/financials/financials_repair_banks_2025_v001.parquet",
+        "data/parquet/financials/financials_repair_insurance_2021_v001.parquet",
+        "data/parquet/financials/financials_repair_insurance_2022_v001.parquet",
+        "data/parquet/financials/financials_repair_insurance_2023_v001.parquet",
+        "data/parquet/financials/financials_repair_insurance_2024_v001.parquet",
+        "data/parquet/financials/financials_repair_insurance_2025_v001.parquet",
+        "data/parquet/financials/financials_repair_przma_2025_v001.parquet",
+        "data/parquet/financials/financials_repair_przma_2026_v001.parquet",
+        "data/parquet/financials/financials_zzrefresh_20261012T042727978431Z_3d613dd95601e1ae.parquet",
+        "data/parquet/roic_inputs/roic_inputs_2025_2.parquet",
+        "data/parquet/roic_inputs/roic_inputs_2025_4.parquet",
+        "data/parquet/roic_inputs/roic_inputs_2026_2.parquet",
+        "data/parquet/roic_inputs/roic_inputs_zzrefresh_20261012T042728009203Z_f742527b37f67bfb.parquet"
       ],
-      "shards": [],
-      "cached": false,
+      "cached": true,
       "periods": {
         "2026Q3": {
           "status": "BLOCKED",
+          "reason": "host_circuit",
+          "cached": true,
           "last_error": {
             "year": 2026,
             "period": "3",
@@ -92,8 +127,7 @@
             "error": "HTTPError",
             "http_status": 500,
             "request_stage": "archive"
-          },
-          "cached": false
+          }
         },
         "2026Q2": {
           "status": "PARTIAL",
@@ -478,39 +512,43 @@
           },
           "errors": [],
           "checked_at": "2026-10-13T08:28:18.950684+00:00",
-          "cached": false
+          "cached": true
         }
       },
-      "downloads_attempted": 2,
+      "downloads_attempted": 0,
       "provider_id": "kap_bulk_financials",
       "upstream_vendor": "KAP / MKK",
-      "archives_checked": 1,
-      "parsed": 305,
+      "archives_checked": 0,
+      "parsed": 0,
       "changed": 0,
-      "unchanged": 305,
-      "review_rejected": 1,
-      "missing": 17,
+      "unchanged": 0,
+      "review_rejected": 0,
+      "missing": 0,
       "stale_rejected": 0,
       "extended_financials_changed": 0,
       "roic_inputs_changed": 0,
       "attempts": 2,
-      "host_circuit": null
+      "host_circuit": {
+        "stage": "capital_refresh",
+        "reason": "HTTP_429"
+      }
     },
     "capital": {
       "status": "BLOCKED",
       "provider_id": "kap_capital",
       "upstream_vendor": "KAP",
-      "checked_at": "2026-10-13T08:38:03.464495+00:00",
+      "checked_at": "2026-10-13T15:13:48.477574+00:00",
       "check_date": "2026-10-13",
       "requested": 323,
-      "refreshed": 100,
-      "skipped": 0,
+      "refreshed": 0,
+      "skipped": 100,
       "stale": 223,
-      "attempted": 101,
+      "attempted": 0,
       "errors": [
         {
           "ticker": "TTKOM",
-          "reason": "HTTP_429"
+          "reason": "HTTP_429",
+          "cached": true
         }
       ],
       "shards": [
@@ -615,10 +653,8 @@
         "data/parquet/capital/capital_zzrefresh_20261013T084152352302Z_TRMET.parquet",
         "data/parquet/capital/capital_zzrefresh_20261013T084154566478Z_TSKB.parquet"
       ],
-      "circuit_reason": "HTTP_429",
-      "scheduling": "oldest_successful_check_first",
-      "pause_seconds": 2.0
+      "circuit_reason": "kap_financial_host_circuit"
     }
   },
-  "generated_at": "2026-10-13T08:42:10.070319+00:00"
+  "generated_at": "2026-10-13T15:14:37.687900+00:00"
 }

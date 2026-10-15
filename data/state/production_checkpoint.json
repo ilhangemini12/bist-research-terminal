@@ -1,28 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-14T20:58:33.071517+00:00",
+  "generated_at": "2026-10-15T12:58:38.793028+00:00",
   "market_date": "2026-10-14",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-10-14",
     "tracked": 323,
-    "verified_prices": 318,
-    "fresh_history": 318,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "AKCNS",
-      "DURDO",
-      "ISATR",
-      "NIBAS",
-      "ULKER"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "AKCNS",
-      "DURDO",
-      "ISATR",
-      "NIBAS",
-      "ULKER"
-    ],
-    "history_refresh_status": "PARTIAL",
+    "stale_history_tickers": [],
+    "history_refresh_status": "ACTIVE",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

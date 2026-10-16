@@ -1,26 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-15T23:16:01.858042+00:00",
+  "generated_at": "2026-10-16T12:58:25.470620+00:00",
   "market_date": "2026-10-15",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-10-15",
     "tracked": 323,
-    "verified_prices": 319,
-    "fresh_history": 319,
+    "verified_prices": 321,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "ARMGD",
       "ISATR",
-      "ISBTR",
-      "TMPOL"
+      "ISBTR"
     ],
-    "stale_history_tickers": [
-      "ARMGD",
-      "ISATR",
-      "ISBTR",
-      "TMPOL"
-    ],
-    "history_refresh_status": "PARTIAL",
+    "stale_history_tickers": [],
+    "history_refresh_status": "ACTIVE",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

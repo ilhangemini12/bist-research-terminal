@@ -1,22 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T23:00:02.443687+00:00",
+  "generated_at": "2026-10-17T12:02:01.530649+00:00",
   "market_date": "2026-10-16",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-10-16",
     "tracked": 323,
-    "verified_prices": 321,
-    "fresh_history": 321,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "ISATR",
-      "PRZMA"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "ISATR",
-      "PRZMA"
-    ],
-    "history_refresh_status": "PARTIAL",
+    "stale_history_tickers": [],
+    "history_refresh_status": "ACTIVE",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

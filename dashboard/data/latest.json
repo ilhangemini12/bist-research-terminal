@@ -19,25 +19,22 @@
       "status": "ACTIVE",
       "expected_date": "2026-10-16",
       "requested": 323,
-      "updated": 2,
-      "already_current": 321,
+      "updated": 0,
+      "already_current": 323,
       "current": 323,
       "stale": 0,
-      "rows_added": 2,
+      "rows_added": 0,
       "actions_added": 0,
       "errors": [],
       "circuit_open": false,
       "circuit_reason": null,
-      "attempted": [
-        "ISATR",
-        "PRZMA"
-      ],
+      "attempted": [],
       "corporate_action_review_tickers": []
     },
     "financials": {
       "status": "PARTIAL",
       "expected_market_date": "2026-10-16",
-      "checked_at": "2026-10-17T11:43:55.022874+00:00",
+      "checked_at": "2026-10-18T12:09:49.993601+00:00",
       "requested": 323,
       "errors": [],
       "shards": [],
@@ -425,7 +422,7 @@
             "roic_inputs_changed": 0
           },
           "errors": [],
-          "checked_at": "2026-10-17T11:43:55.022874+00:00",
+          "checked_at": "2026-10-18T12:09:49.993601+00:00",
           "cached": false
         },
         "2026Q2": {
@@ -810,7 +807,7 @@
             "roic_inputs_changed": 0
           },
           "errors": [],
-          "checked_at": "2026-10-17T11:43:55.022874+00:00",
+          "checked_at": "2026-10-18T12:09:49.993601+00:00",
           "cached": false
         }
       },
@@ -833,8 +830,8 @@
       "status": "BLOCKED",
       "provider_id": "kap_capital",
       "upstream_vendor": "KAP",
-      "checked_at": "2026-10-17T11:57:54.446978+00:00",
-      "check_date": "2026-10-17",
+      "checked_at": "2026-10-18T12:23:58.194772+00:00",
+      "check_date": "2026-10-18",
       "requested": 323,
       "refreshed": 100,
       "skipped": 0,
@@ -842,111 +839,111 @@
       "attempted": 101,
       "errors": [
         {
-          "ticker": "BOBET",
+          "ticker": "INFO",
           "reason": "HTTP_429"
         }
       ],
       "shards": [
-        "data/parquet/capital/capital_zzrefresh_20261017T115759404826Z_SOHOE.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115801627955Z_SOKE.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115803800323Z_SOKM.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115806096945Z_SUNTK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115808395765Z_TABGD.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115810665575Z_TARKM.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115812975395Z_TATGD.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115815295703Z_TAVHL.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115817462361Z_TBORG.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115819774189Z_TCELL.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115822039537Z_TCKRC.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115824318222Z_TEZOL.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115826632543Z_THYAO.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115828928152Z_TKFEN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115831086373Z_TKNKA.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115833360428Z_TMPOL.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115835628370Z_TMSN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115837937504Z_TOASO.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115840267427Z_TRALT.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115842443377Z_TRENJ.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115844738081Z_TRGYO.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115847035407Z_TRMET.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115849235322Z_TSKB.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115851422707Z_TTKOM.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115853605396Z_TTRAK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115855922164Z_TUCLK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115858082629Z_TUKAS.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115900269103Z_TUPRS.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115902581702Z_TURSG.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115904890357Z_ULKER.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115907178155Z_ULUSE.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115909506054Z_ULUUN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115911809006Z_VAKBN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115913974268Z_VANGD.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115916141633Z_VESBE.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115918316401Z_VESTL.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115920479003Z_VKING.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115922652413Z_VSNMD.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115924940629Z_YAPRK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115927253916Z_YATAS.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115929425930Z_YIGIT.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115931624901Z_YKBNK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115933905000Z_YKSLN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115936075569Z_YUNSA.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115938357924Z_YYLGD.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115940532332Z_ZOREN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115942823918Z_A1CAP.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115945102020Z_ACSEL.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115947412590Z_ADEL.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115949768534Z_AEFES.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115952080375Z_AFYON.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115954390834Z_AGESA.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115956569307Z_AGHOL.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T115958843206Z_AGROT.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120001285678Z_AHGAZ.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120003588369Z_AKBNK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120005918909Z_AKCNS.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120008093215Z_AKFYE.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120010274915Z_AKGRT.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120012450408Z_AKHAN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120014635098Z_AKSA.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120016824677Z_AKSEN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120019006926Z_ALARK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120021194469Z_ALBRK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120023359518Z_ALBTN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120025524752Z_ALCAR.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120027801543Z_ALKA.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120029986260Z_ALKIM.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120032153536Z_ALKLC.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120034449232Z_ALTNY.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120036716194Z_ANGEN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120038902397Z_ANHYT.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120041240460Z_ANSGR.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120043434632Z_ARCLK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120045645362Z_ARMGD.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120048060350Z_ARTMS.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120050287927Z_ASELS.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120052465731Z_ASTOR.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120054803478Z_ASUZU.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120057075426Z_ATAKP.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120059385503Z_AVOD.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120101696150Z_AYGAZ.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120103871376Z_BAGFS.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120106166815Z_BAHKM.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120108470575Z_BAKAB.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120110734515Z_BALSU.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120113043726Z_BANVT.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120115304826Z_BAYRK.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120117598215Z_BERA.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120119865255Z_BESLR.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120122139583Z_BETAE.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120124427991Z_BFREN.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120126646760Z_BIENY.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120129053347Z_BIMAS.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120131223907Z_BINHO.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120133401060Z_BLCYT.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120135949675Z_BLUME.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120138216930Z_BMSCH.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120140386170Z_BMSTL.parquet",
-        "data/parquet/capital/capital_zzrefresh_20261017T120142675784Z_BNTAS.parquet"
+        "data/parquet/capital/capital_zzrefresh_20261018T122403267322Z_BOBET.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122405590644Z_BORSK.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122407890944Z_BOSSA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122410201516Z_BRISA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122412641512Z_BRKSN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122415106048Z_BRSAN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122417378026Z_BRYAT.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122419667470Z_BSOKE.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122421885562Z_BTCIM.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122424191147Z_BUCIM.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122426474789Z_BURCE.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122428747097Z_BURVA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122431064876Z_BVSAN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122433353124Z_CANTE.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122435668786Z_CCOLA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122437971747Z_CELHA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122440330335Z_CEMAS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122442624240Z_CEMTS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122445110027Z_CEMZY.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122447375354Z_CGCAM.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122449668369Z_CIMSA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122451948603Z_CMBTN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122454233390Z_CUSAN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122456428670Z_CVKMD.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122458709391Z_CWENE.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122501006102Z_DARDL.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122503330886Z_DERIM.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122505611910Z_DESA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122507902161Z_DEVA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122510184021Z_DGNMO.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122512466068Z_DITAS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122514747212Z_DMRGD.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122517041270Z_DMSAS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122519343087Z_DNISI.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122521643867Z_DOAS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122523947561Z_DOFER.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122526225933Z_DOGUB.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122528550699Z_DOHOL.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122530828974Z_DOKTA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122533123048Z_DURDO.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122535394649Z_DURKN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122537851607Z_DYOBY.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122540171879Z_ECILC.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122542493993Z_ECZYT.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122544777036Z_EFOR.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122547055631Z_EGEEN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122549493724Z_EGGUB.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122551794713Z_EGPRO.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122554116790Z_EGSER.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122556456037Z_EKDMR.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122558771136Z_EKGYO.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122601079097Z_EKOS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122603343992Z_EKSUN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122605634431Z_ELITE.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122607922324Z_EMKEL.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122610212308Z_ENERY.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122612516301Z_ENJSA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122614898763Z_ENKAI.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122617173861Z_ENSRI.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122619458901Z_ENTRA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122621745734Z_EPLAS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122624024405Z_ERBOS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122626307376Z_ERCB.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122628605997Z_EREGL.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122631054876Z_ERSU.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122633332634Z_EUPWR.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122635609141Z_EUREN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122637895114Z_FADE.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122640079002Z_FENER.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122642368272Z_FMIZP.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122644648243Z_FORMT.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122646947363Z_FRIGO.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122649220835Z_FRMPL.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122651535136Z_FROTO.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122653894320Z_GARAN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122656270841Z_GEDIK.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122658551008Z_GEDZA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122700815933Z_GENKM.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122703136206Z_GENTS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122705431614Z_GEREL.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122707706617Z_GIPTA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122710017984Z_GLBMD.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122712309776Z_GLRMK.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122714639450Z_GLYHO.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122716929709Z_GOKNR.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122719253256Z_GOLDA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122721571114Z_GOLTS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122723872920Z_GOODY.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122726162399Z_GRSEL.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122728443718Z_GUBRF.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122730710581Z_GUNDG.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122733072191Z_GWIND.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122735391054Z_HALKB.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122737681867Z_HATEK.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122739966758Z_HATSN.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122742276963Z_HEKTS.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122744543005Z_HKTM.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122746856899Z_ICBCT.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122749141418Z_IHEVA.parquet",
+        "data/parquet/capital/capital_zzrefresh_20261018T122751415212Z_IMASM.parquet"
       ],
       "circuit_reason": "HTTP_429",
       "scheduling": "oldest_successful_check_first",
@@ -987,7 +984,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:49.869566+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.086684+00:00",
         "yahoo_chart": "2026-10-16 20:03:30.927348"
       },
       "price_provider_errors": {},
@@ -1121,7 +1118,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:49.907948+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.125269+00:00",
         "yahoo_chart": "2026-10-16 20:03:31.186080"
       },
       "price_provider_errors": {},
@@ -1285,7 +1282,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:49.946488+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.163303+00:00",
         "yahoo_chart": "2026-10-16 20:03:31.449259"
       },
       "price_provider_errors": {},
@@ -1451,7 +1448,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:49.983060+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.200540+00:00",
         "yahoo_chart": "2026-10-16 20:03:31.713933"
       },
       "price_provider_errors": {},
@@ -1615,7 +1612,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.019325+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.237108+00:00",
         "yahoo_chart": "2026-10-16 20:03:31.978160"
       },
       "price_provider_errors": {},
@@ -1779,7 +1776,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.056571+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.273675+00:00",
         "yahoo_chart": "2026-10-16 20:03:32.234544"
       },
       "price_provider_errors": {},
@@ -1943,7 +1940,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.093178+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.310102+00:00",
         "yahoo_chart": "2026-10-16 20:03:32.503911"
       },
       "price_provider_errors": {},
@@ -2107,7 +2104,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.129077+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.346362+00:00",
         "yahoo_chart": "2026-10-16 20:03:32.761933"
       },
       "price_provider_errors": {},
@@ -2271,7 +2268,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.164364+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.381558+00:00",
         "yahoo_chart": "2026-10-16 20:03:33.014408"
       },
       "price_provider_errors": {},
@@ -2437,7 +2434,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.202920+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.416848+00:00",
         "yahoo_chart": "2026-10-16 20:03:33.286030"
       },
       "price_provider_errors": {},
@@ -2602,7 +2599,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.240107+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.452201+00:00",
         "yahoo_chart": "2026-10-16 20:03:33.552643"
       },
       "price_provider_errors": {},
@@ -2766,7 +2763,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.276770+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.487948+00:00",
         "yahoo_chart": "2026-10-16 20:03:33.807724"
       },
       "price_provider_errors": {},
@@ -2930,7 +2927,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.312407+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.523058+00:00",
         "yahoo_chart": "2026-10-16 20:03:34.105882"
       },
       "price_provider_errors": {},
@@ -3094,7 +3091,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.349364+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.558446+00:00",
         "yahoo_chart": "2026-10-16 20:03:34.358528"
       },
       "price_provider_errors": {},
@@ -3254,7 +3251,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.383037+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.591690+00:00",
         "yahoo_chart": "2026-10-16 20:03:34.623614"
       },
       "price_provider_errors": {},
@@ -3432,7 +3429,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.418935+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.627194+00:00",
         "yahoo_chart": "2026-10-16 20:03:34.874448"
       },
       "price_provider_errors": {},
@@ -3596,7 +3593,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.455034+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.663273+00:00",
         "yahoo_chart": "2026-10-16 20:03:35.137652"
       },
       "price_provider_errors": {},
@@ -3761,7 +3758,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.491662+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.698889+00:00",
         "yahoo_chart": "2026-10-16 20:03:35.398627"
       },
       "price_provider_errors": {},
@@ -3895,7 +3892,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.531777+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.733563+00:00",
         "yahoo_chart": "2026-10-16 20:03:35.655986"
       },
       "price_provider_errors": {},
@@ -4054,7 +4051,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.565162+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.767222+00:00",
         "yahoo_chart": "2026-10-16 20:03:35.918930"
       },
       "price_provider_errors": {},
@@ -4218,7 +4215,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.602462+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.804043+00:00",
         "yahoo_chart": "2026-10-16 20:03:36.177955"
       },
       "price_provider_errors": {},
@@ -4382,7 +4379,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.641268+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.840066+00:00",
         "yahoo_chart": "2026-10-16 20:03:36.440155"
       },
       "price_provider_errors": {},
@@ -4546,7 +4543,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.678245+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.876188+00:00",
         "yahoo_chart": "2026-10-16 20:03:36.697199"
       },
       "price_provider_errors": {},
@@ -4710,7 +4707,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.717983+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.911935+00:00",
         "yahoo_chart": "2026-10-16 20:03:36.945321"
       },
       "price_provider_errors": {},
@@ -4874,7 +4871,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.757998+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.947755+00:00",
         "yahoo_chart": "2026-10-16 20:03:37.197415"
       },
       "price_provider_errors": {},
@@ -5039,7 +5036,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.794559+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:27:59.985417+00:00",
         "yahoo_chart": "2026-10-16 20:03:37.459532"
       },
       "price_provider_errors": {},
@@ -5204,7 +5201,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.831421+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.022583+00:00",
         "yahoo_chart": "2026-10-16 20:03:37.727256"
       },
       "price_provider_errors": {},
@@ -5369,7 +5366,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.868000+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.061657+00:00",
         "yahoo_chart": "2026-10-16 20:03:38.006440"
       },
       "price_provider_errors": {},
@@ -5533,7 +5530,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.903736+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.099777+00:00",
         "yahoo_chart": "2026-10-16 20:03:38.257600"
       },
       "price_provider_errors": {},
@@ -5697,7 +5694,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.938912+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.134451+00:00",
         "yahoo_chart": "2026-10-16 20:03:38.508916"
       },
       "price_provider_errors": {},
@@ -5862,7 +5859,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:50.973876+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.170196+00:00",
         "yahoo_chart": "2026-10-16 20:03:38.775488"
       },
       "price_provider_errors": {},
@@ -6028,7 +6025,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.010676+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.207227+00:00",
         "yahoo_chart": "2026-10-16 20:03:39.049824"
       },
       "price_provider_errors": {},
@@ -6206,7 +6203,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.046655+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.242525+00:00",
         "yahoo_chart": "2026-10-16 20:03:39.313890"
       },
       "price_provider_errors": {},
@@ -6370,7 +6367,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.084267+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.279119+00:00",
         "yahoo_chart": "2026-10-16 20:03:39.568320"
       },
       "price_provider_errors": {},
@@ -6534,7 +6531,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.120130+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.315315+00:00",
         "yahoo_chart": "2026-10-16 20:03:39.818964"
       },
       "price_provider_errors": {},
@@ -6699,7 +6696,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.156777+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.351453+00:00",
         "yahoo_chart": "2026-10-16 20:03:40.084705"
       },
       "price_provider_errors": {},
@@ -6863,7 +6860,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.193849+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.388065+00:00",
         "yahoo_chart": "2026-10-16 20:03:40.351351"
       },
       "price_provider_errors": {},
@@ -7027,7 +7024,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.230047+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.424510+00:00",
         "yahoo_chart": "2026-10-16 20:03:40.599945"
       },
       "price_provider_errors": {},
@@ -7191,7 +7188,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.266520+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.458897+00:00",
         "yahoo_chart": "2026-10-16 20:03:40.852684"
       },
       "price_provider_errors": {},
@@ -7355,7 +7352,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.304011+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.494042+00:00",
         "yahoo_chart": "2026-10-16 20:03:41.103230"
       },
       "price_provider_errors": {},
@@ -7519,7 +7516,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.340058+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.528512+00:00",
         "yahoo_chart": "2026-10-16 20:03:41.361014"
       },
       "price_provider_errors": {},
@@ -7683,7 +7680,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.376760+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.564297+00:00",
         "yahoo_chart": "2026-10-16 20:03:41.614255"
       },
       "price_provider_errors": {},
@@ -7847,7 +7844,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.413133+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.600410+00:00",
         "yahoo_chart": "2026-10-16 20:03:41.865321"
       },
       "price_provider_errors": {},
@@ -8011,7 +8008,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.449402+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.636254+00:00",
         "yahoo_chart": "2026-10-16 20:03:42.117474"
       },
       "price_provider_errors": {},
@@ -8175,7 +8172,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.486335+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.671577+00:00",
         "yahoo_chart": "2026-10-16 20:03:42.366272"
       },
       "price_provider_errors": {},
@@ -8334,7 +8331,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.519599+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.703482+00:00",
         "yahoo_chart": "2026-10-16 20:03:42.627231"
       },
       "price_provider_errors": {},
@@ -8498,7 +8495,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.555573+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.738960+00:00",
         "yahoo_chart": "2026-10-16 20:03:42.878661"
       },
       "price_provider_errors": {},
@@ -8663,7 +8660,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.591478+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.773590+00:00",
         "yahoo_chart": "2026-10-16 20:03:43.142302"
       },
       "price_provider_errors": {},
@@ -8827,7 +8824,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.629255+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.810397+00:00",
         "yahoo_chart": "2026-10-16 20:03:43.393182"
       },
       "price_provider_errors": {},
@@ -8991,7 +8988,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.664436+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.845609+00:00",
         "yahoo_chart": "2026-10-16 20:03:43.648969"
       },
       "price_provider_errors": {},
@@ -9155,7 +9152,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.701281+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.880613+00:00",
         "yahoo_chart": "2026-10-16 20:03:43.924546"
       },
       "price_provider_errors": {},
@@ -9319,7 +9316,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.738448+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.916595+00:00",
         "yahoo_chart": "2026-10-16 20:03:44.178892"
       },
       "price_provider_errors": {},
@@ -9483,7 +9480,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.774951+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.952060+00:00",
         "yahoo_chart": "2026-10-16 20:03:44.431619"
       },
       "price_provider_errors": {},
@@ -9647,7 +9644,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.812276+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:00.987844+00:00",
         "yahoo_chart": "2026-10-16 20:03:44.682260"
       },
       "price_provider_errors": {},
@@ -9811,7 +9808,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.848306+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.024718+00:00",
         "yahoo_chart": "2026-10-16 20:03:44.944546"
       },
       "price_provider_errors": {},
@@ -9882,7 +9879,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:15:40.071106+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:03.267322+00:00",
       "roe": -0.17926119534841645,
       "roa": -0.07653143097305161,
       "gross_margin": -0.03726965645238373,
@@ -9975,7 +9972,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.884469+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.063042+00:00",
         "yahoo_chart": "2026-10-16 20:03:45.196008"
       },
       "price_provider_errors": {},
@@ -10030,7 +10027,7 @@
       "technical_history_rows": 670,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:15:42.364529+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:05.590644+00:00",
       "roe": -0.05645421377466274,
       "roa": -0.04681157008309923,
       "gross_margin": 0.10334542963779596,
@@ -10123,7 +10120,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.920780+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.099579+00:00",
         "yahoo_chart": "2026-10-16 20:03:45.450953"
       },
       "price_provider_errors": {},
@@ -10194,7 +10191,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:15:44.670427+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:07.890944+00:00",
       "roe": 0.00582408671087241,
       "roa": 0.004344414204701153,
       "gross_margin": 0.15162972045499257,
@@ -10287,7 +10284,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.957476+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.136664+00:00",
         "yahoo_chart": "2026-10-16 20:03:45.713891"
       },
       "price_provider_errors": {},
@@ -10358,7 +10355,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:15:46.868243+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:10.201516+00:00",
       "roe": -0.009272731799621552,
       "roa": -0.004337553905172817,
       "gross_margin": 0.23541106961125174,
@@ -10451,7 +10448,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:51.993496+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.173849+00:00",
         "yahoo_chart": "2026-10-16 20:03:45.967272"
       },
       "price_provider_errors": {},
@@ -10522,7 +10519,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:15:49.184892+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:12.641512+00:00",
       "roe": 0.01124232471193416,
       "roa": 0.008544709198674671,
       "gross_margin": 0.3705001073854723,
@@ -10616,7 +10613,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.029381+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.210763+00:00",
         "yahoo_chart": "2026-10-16 20:03:46.227972"
       },
       "price_provider_errors": {},
@@ -10687,7 +10684,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:15:51.438964+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:15.106048+00:00",
       "roe": 0.05036928168086151,
       "roa": 0.022395342012918627,
       "gross_margin": 0.0900606952890541,
@@ -10780,7 +10777,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.066900+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.247821+00:00",
         "yahoo_chart": "2026-10-16 20:03:46.490334"
       },
       "price_provider_errors": {},
@@ -10851,7 +10848,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:15:53.825881+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:17.378026+00:00",
       "roe": 0.14189742610442804,
       "roa": 0.1331180561543352,
       "gross_margin": 1.0,
@@ -10944,7 +10941,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.103401+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.284835+00:00",
         "yahoo_chart": "2026-10-16 20:03:46.747189"
       },
       "price_provider_errors": {},
@@ -11015,7 +11012,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:15:56.128407+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:19.667470+00:00",
       "roe": -0.006978259417147086,
       "roa": -0.0049704735393487735,
       "gross_margin": 0.1322112448196558,
@@ -11109,7 +11106,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.139139+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.321629+00:00",
         "yahoo_chart": "2026-10-16 20:03:47.017347"
       },
       "price_provider_errors": {},
@@ -11180,7 +11177,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:15:58.438708+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:21.885562+00:00",
       "roe": -0.009224860760345087,
       "roa": -0.006234644761554781,
       "gross_margin": 0.1388580486849452,
@@ -11273,7 +11270,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.174480+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.359614+00:00",
         "yahoo_chart": "2026-10-16 20:03:47.283029"
       },
       "price_provider_errors": {},
@@ -11344,7 +11341,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:00.629639+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:24.191147+00:00",
       "roe": -0.0376646064831684,
       "roa": -0.026109374907162138,
       "gross_margin": 0.16125389574132368,
@@ -11437,7 +11434,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.209538+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.397966+00:00",
         "yahoo_chart": "2026-10-16 20:03:47.532789"
       },
       "price_provider_errors": {},
@@ -11508,7 +11505,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:02.941483+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:26.474789+00:00",
       "roe": 0.1070479641575347,
       "roa": 0.07663897995831483,
       "gross_margin": 0.07933016115022659,
@@ -11601,7 +11598,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.245003+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.436782+00:00",
         "yahoo_chart": "2026-10-16 20:03:47.782852"
       },
       "price_provider_errors": {},
@@ -11672,7 +11669,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:05.151862+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:28.747097+00:00",
       "roe": -0.4185471485724674,
       "roa": -0.15381887797606078,
       "gross_margin": 0.09760515618039751,
@@ -11765,7 +11762,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.283911+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.475332+00:00",
         "yahoo_chart": "2026-10-16 20:03:48.033408"
       },
       "price_provider_errors": {},
@@ -11836,7 +11833,7 @@
       "technical_history_rows": 924,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:07.568362+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:31.064876+00:00",
       "roe": 0.008365664343262361,
       "roa": 0.003766951307228247,
       "gross_margin": 0.23668261594280918,
@@ -11929,7 +11926,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.318154+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.511983+00:00",
         "yahoo_chart": "2026-10-16 20:03:48.288809"
       },
       "price_provider_errors": {},
@@ -12000,7 +11997,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:10.076297+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:33.353124+00:00",
       "roe": -0.08841756048475931,
       "roa": -0.08230885548845289,
       "gross_margin": 0.018741204709868134,
@@ -12094,7 +12091,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.353135+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.549980+00:00",
         "yahoo_chart": "2026-10-16 20:03:48.555660"
       },
       "price_provider_errors": {},
@@ -12165,7 +12162,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:12.269605+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:35.668786+00:00",
       "roe": 0.222281147317878,
       "roa": 0.09681085162405416,
       "gross_margin": 0.3644457955247096,
@@ -12258,7 +12255,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.389737+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.587876+00:00",
         "yahoo_chart": "2026-10-16 20:03:48.810213"
       },
       "price_provider_errors": {},
@@ -12329,7 +12326,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:14.591412+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:37.971747+00:00",
       "roe": -0.20293968320423977,
       "roa": -0.14743469669766063,
       "gross_margin": 0.017251334298303722,
@@ -12422,7 +12419,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.425545+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.624706+00:00",
         "yahoo_chart": "2026-10-16 20:03:49.061504"
       },
       "price_provider_errors": {},
@@ -12493,7 +12490,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:17.017259+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:40.330335+00:00",
       "roe": -0.3418704930625727,
       "roa": -0.2658479643678791,
       "gross_margin": -0.3239079644546157,
@@ -12586,7 +12583,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.461100+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.661426+00:00",
         "yahoo_chart": "2026-10-16 20:03:49.322065"
       },
       "price_provider_errors": {},
@@ -12657,7 +12654,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:19.343243+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:42.624240+00:00",
       "roe": -0.06364739334747907,
       "roa": -0.047587752444127294,
       "gross_margin": 0.1471679234314919,
@@ -12750,7 +12747,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.498721+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.698350+00:00",
         "yahoo_chart": "2026-10-16 20:03:49.572538"
       },
       "price_provider_errors": {},
@@ -12821,7 +12818,7 @@
       "technical_history_rows": 533,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:21.518592+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:45.110027+00:00",
       "roe": -0.15322824646054622,
       "roa": -0.12069049512509412,
       "gross_margin": 0.24422533690124132,
@@ -12914,7 +12911,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.532582+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.734458+00:00",
         "yahoo_chart": "2026-10-16 20:03:49.821016"
       },
       "price_provider_errors": {},
@@ -12985,7 +12982,7 @@
       "technical_history_rows": 459,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:23.813939+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:47.375354+00:00",
       "roe": 0.04004920454094832,
       "roa": 0.030157298956051518,
       "gross_margin": 0.24124805187627102,
@@ -13079,7 +13076,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.566500+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.770071+00:00",
         "yahoo_chart": "2026-10-16 20:03:50.083884"
       },
       "price_provider_errors": {},
@@ -13150,7 +13147,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:26.037524+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:49.668369+00:00",
       "roe": 0.11188424427922519,
       "roa": 0.053466626992730255,
       "gross_margin": 0.18463666491363165,
@@ -13243,7 +13240,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.602237+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.807596+00:00",
         "yahoo_chart": "2026-10-16 20:03:50.339078"
       },
       "price_provider_errors": {},
@@ -13314,7 +13311,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:28.273178+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:51.948603+00:00",
       "roe": -1.6346823721115333,
       "roa": -0.1266799187223526,
       "gross_margin": -0.027423621256355567,
@@ -13407,7 +13404,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.638270+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.844130+00:00",
         "yahoo_chart": "2026-10-16 20:03:50.603586"
       },
       "price_provider_errors": {},
@@ -13478,7 +13475,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-14T13:16:30.586588+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:54.233390+00:00",
       "roe": -1.209365579235404,
       "roa": -0.12144896921000028,
       "gross_margin": 0.054307514981293006,
@@ -13572,7 +13569,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.673917+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.880109+00:00",
         "yahoo_chart": "2026-10-16 20:03:50.853838"
       },
       "price_provider_errors": {},
@@ -13643,7 +13640,7 @@
       "technical_history_rows": 882,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:54:46.240425+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:56.428670+00:00",
       "roe": 0.038857652472073366,
       "roa": 0.01878197139497674,
       "gross_margin": 0.32205258185737945,
@@ -13736,7 +13733,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.708663+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.915592+00:00",
         "yahoo_chart": "2026-10-16 20:03:51.108165"
       },
       "price_provider_errors": {},
@@ -13807,7 +13804,7 @@
       "technical_history_rows": 865,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:54:48.415473+00:00",
+      "capital_retrieved_at": "2026-10-18T12:24:58.709391+00:00",
       "roe": 0.1856126083843933,
       "roa": 0.07958342184939778,
       "gross_margin": 0.2648252299349961,
@@ -13900,7 +13897,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.743588+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.953362+00:00",
         "yahoo_chart": "2026-10-16 20:03:51.359125"
       },
       "price_provider_errors": {},
@@ -13971,7 +13968,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:54:50.701518+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:01.006102+00:00",
       "roe": -0.264119020582268,
       "roa": -0.11916724500800274,
       "gross_margin": 0.3084180936870087,
@@ -14064,7 +14061,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.781106+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:01.991865+00:00",
         "yahoo_chart": "2026-10-16 20:03:51.609347"
       },
       "price_provider_errors": {},
@@ -14135,7 +14132,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:54:52.873159+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:03.330886+00:00",
       "roe": 0.17303071696749237,
       "roa": 0.06804457431956167,
       "gross_margin": 0.14888427371569507,
@@ -14228,7 +14225,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.817628+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.028693+00:00",
         "yahoo_chart": "2026-10-16 20:03:51.873979"
       },
       "price_provider_errors": {},
@@ -14299,7 +14296,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:54:55.372941+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:05.611910+00:00",
       "roe": 0.1412137151739387,
       "roa": 0.10562456522448158,
       "gross_margin": 0.5859691051561777,
@@ -14392,7 +14389,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.853760+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.065927+00:00",
         "yahoo_chart": "2026-10-16 20:03:52.134696"
       },
       "price_provider_errors": {},
@@ -14463,7 +14460,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:54:57.544695+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:07.902161+00:00",
       "roe": -0.025042942882507406,
       "roa": -0.0179933816831786,
       "gross_margin": 0.37912886631858644,
@@ -14556,7 +14553,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.889002+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.102953+00:00",
         "yahoo_chart": "2026-10-16 20:03:52.384621"
       },
       "price_provider_errors": {},
@@ -14627,7 +14624,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:54:59.885268+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:10.184021+00:00",
       "roe": -1.0027232569990627,
       "roa": -0.11647439091334413,
       "gross_margin": 0.24360579733982804,
@@ -14720,7 +14717,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.924538+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.141374+00:00",
         "yahoo_chart": "2026-10-16 20:03:52.638597"
       },
       "price_provider_errors": {},
@@ -14791,7 +14788,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:02.207072+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:12.466068+00:00",
       "roe": -0.2481965036742638,
       "roa": -0.09035189045719734,
       "gross_margin": 0.08952917988294257,
@@ -14884,7 +14881,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.959591+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.181558+00:00",
         "yahoo_chart": "2026-10-16 20:03:52.889271"
       },
       "price_provider_errors": {},
@@ -14955,7 +14952,7 @@
       "technical_history_rows": 645,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:04.507422+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:14.747212+00:00",
       "roe": 0.11410377436040686,
       "roa": 0.08154771780440581,
       "gross_margin": 0.4876140591248631,
@@ -15048,7 +15045,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:52.993087+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.217638+00:00",
         "yahoo_chart": "2026-10-16 20:03:53.154856"
       },
       "price_provider_errors": {},
@@ -15119,7 +15116,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:06.703778+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:17.041270+00:00",
       "roe": -0.08392764684279967,
       "roa": -0.0403339019947612,
       "gross_margin": 0.07948386930551922,
@@ -15212,7 +15209,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.028437+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.254678+00:00",
         "yahoo_chart": "2026-10-16 20:03:53.404126"
       },
       "price_provider_errors": {},
@@ -15283,7 +15280,7 @@
       "technical_history_rows": 1275,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:09.016972+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:19.343087+00:00",
       "roe": 0.004500049899582882,
       "roa": 0.0037446216958813877,
       "gross_margin": 0.10973944096042412,
@@ -15376,7 +15373,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.064443+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.292019+00:00",
         "yahoo_chart": "2026-10-16 20:03:53.666524"
       },
       "price_provider_errors": {},
@@ -15447,7 +15444,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:11.322480+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:21.643867+00:00",
       "roe": 0.043715499367261434,
       "roa": 0.021511204394664744,
       "gross_margin": 0.12744571356473022,
@@ -15540,7 +15537,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.101587+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.329787+00:00",
         "yahoo_chart": "2026-10-16 20:03:53.918696"
       },
       "price_provider_errors": {},
@@ -15611,7 +15608,7 @@
       "technical_history_rows": 756,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:13.608772+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:23.947561+00:00",
       "roe": -0.030924541850383323,
       "roa": -0.014907187779682024,
       "gross_margin": 0.041762930547591975,
@@ -15704,7 +15701,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.136549+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.366829+00:00",
         "yahoo_chart": "2026-10-16 20:03:54.167297"
       },
       "price_provider_errors": {},
@@ -15775,7 +15772,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:15.778297+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:26.225933+00:00",
       "roe": -0.7240466757402967,
       "roa": -0.2048152226735088,
       "gross_margin": -0.10904670859742736,
@@ -15868,7 +15865,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.171817+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.403211+00:00",
         "yahoo_chart": "2026-10-16 20:03:54.436527"
       },
       "price_provider_errors": {},
@@ -15939,7 +15936,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:17.957561+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:28.550699+00:00",
       "roe": 0.05720362952059108,
       "roa": 0.029159186508826894,
       "gross_margin": 0.34481582140874867,
@@ -16046,7 +16043,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.207333+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.440007+00:00",
         "yahoo_chart": "2026-10-16 20:03:54.690562"
       },
       "price_provider_errors": {},
@@ -16117,7 +16114,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:20.290648+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:30.828974+00:00",
       "roe": -0.06349727421760987,
       "roa": -0.02202607857069003,
       "gross_margin": 0.14826004469927412,
@@ -16210,7 +16207,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.242319+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.477051+00:00",
         "yahoo_chart": "2026-10-16 20:03:54.940956"
       },
       "price_provider_errors": {},
@@ -16281,7 +16278,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:22.614907+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:33.123048+00:00",
       "roe": -0.14508523591461414,
       "roa": -0.06857069157726968,
       "gross_margin": 0.18724677818081129,
@@ -16374,7 +16371,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.277396+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.514391+00:00",
         "yahoo_chart": "2026-10-16 20:03:55.191059"
       },
       "price_provider_errors": {},
@@ -16445,7 +16442,7 @@
       "technical_history_rows": 526,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:24.896777+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:35.394649+00:00",
       "roe": 0.014870685729156811,
       "roa": 0.008903337833790895,
       "gross_margin": 0.4535426203583842,
@@ -16538,7 +16535,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.311819+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.549108+00:00",
         "yahoo_chart": "2026-10-16 20:03:55.441096"
       },
       "price_provider_errors": {},
@@ -16609,7 +16606,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:27.207600+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:37.851607+00:00",
       "roe": 0.013269694524881793,
       "roa": 0.005502904815908091,
       "gross_margin": 0.32898290078915704,
@@ -16702,7 +16699,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.347127+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.586086+00:00",
         "yahoo_chart": "2026-10-16 20:03:55.710848"
       },
       "price_provider_errors": {},
@@ -16773,7 +16770,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:29.384487+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:40.171879+00:00",
       "roe": -0.0009640090313816973,
       "roa": -0.0007816544299650073,
       "gross_margin": 0.3676788792666473,
@@ -16866,7 +16863,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.382442+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.622969+00:00",
         "yahoo_chart": "2026-10-16 20:03:55.971940"
       },
       "price_provider_errors": {},
@@ -16937,7 +16934,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:31.685172+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:42.493993+00:00",
       "roe": 0.0010349173238428653,
       "roa": 0.0010095699182099442,
       "gross_margin": null,
@@ -17030,7 +17027,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.417988+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.659470+00:00",
         "yahoo_chart": "2026-10-16 20:03:56.223435"
       },
       "price_provider_errors": {},
@@ -17101,7 +17098,7 @@
       "technical_history_rows": 577,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:33.855775+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:44.777036+00:00",
       "roe": 0.014440181072593964,
       "roa": 0.005608825416398607,
       "gross_margin": 0.16997331946708144,
@@ -17195,7 +17192,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.453302+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.693862+00:00",
         "yahoo_chart": "2026-10-16 20:03:56.480689"
       },
       "price_provider_errors": {},
@@ -17266,7 +17263,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:36.234795+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:47.055631+00:00",
       "roe": -0.023417331860598915,
       "roa": -0.018781881304310154,
       "gross_margin": 0.1742073845502241,
@@ -17360,7 +17357,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.490605+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.729693+00:00",
         "yahoo_chart": "2026-10-16 20:03:56.737423"
       },
       "price_provider_errors": {},
@@ -17431,7 +17428,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:38.532409+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:49.493724+00:00",
       "roe": 0.08032596617625452,
       "roa": 0.06460432187158469,
       "gross_margin": 0.535309055973434,
@@ -17524,7 +17521,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.526264+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.765602+00:00",
         "yahoo_chart": "2026-10-16 20:03:56.999971"
       },
       "price_provider_errors": {},
@@ -17595,7 +17592,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:40.830698+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:51.794713+00:00",
       "roe": 0.16572634535626465,
       "roa": 0.09432087981535833,
       "gross_margin": 0.36954582507665584,
@@ -17688,7 +17685,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.560854+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.800996+00:00",
         "yahoo_chart": "2026-10-16 20:03:57.253994"
       },
       "price_provider_errors": {},
@@ -17759,7 +17756,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:43.142715+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:54.116790+00:00",
       "roe": -0.5264001808754593,
       "roa": -0.1438899218814379,
       "gross_margin": 0.13462402357209372,
@@ -17852,7 +17849,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.597487+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.837246+00:00",
         "yahoo_chart": "2026-10-16 20:03:57.502707"
       },
       "price_provider_errors": {},
@@ -17918,7 +17915,7 @@
       "technical_history_rows": 105,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:45.312791+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:56.456037+00:00",
       "roe": null,
       "roa": null,
       "gross_margin": null,
@@ -18012,7 +18009,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.630416+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.869658+00:00",
         "yahoo_chart": "2026-10-16 20:03:57.765413"
       },
       "price_provider_errors": {},
@@ -18083,7 +18080,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:47.491829+00:00",
+      "capital_retrieved_at": "2026-10-18T12:25:58.771136+00:00",
       "roe": 0.01943016804257409,
       "roa": 0.007078662296888953,
       "gross_margin": 0.27030561825079225,
@@ -18176,7 +18173,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.665891+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.904685+00:00",
         "yahoo_chart": "2026-10-16 20:03:58.020252"
       },
       "price_provider_errors": {},
@@ -18247,7 +18244,7 @@
       "technical_history_rows": 645,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:49.668254+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:01.079097+00:00",
       "roe": -0.1856292607916917,
       "roa": -0.10840490926631388,
       "gross_margin": 0.10480232211746943,
@@ -18340,7 +18337,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.702061+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.938204+00:00",
         "yahoo_chart": "2026-10-16 20:03:58.270022"
       },
       "price_provider_errors": {},
@@ -18411,7 +18408,7 @@
       "technical_history_rows": 896,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:51.838259+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:03.343992+00:00",
       "roe": -0.09025279896300921,
       "roa": -0.03985186194796999,
       "gross_margin": 0.11636623143111,
@@ -18504,7 +18501,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.736273+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:02.973020+00:00",
         "yahoo_chart": "2026-10-16 20:03:58.524638"
       },
       "price_provider_errors": {},
@@ -18575,7 +18572,7 @@
       "technical_history_rows": 1237,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:54.012699+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:05.634431+00:00",
       "roe": 0.07250232780190313,
       "roa": 0.055106686846435445,
       "gross_margin": 0.39736584147843784,
@@ -18668,7 +18665,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.771240+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.008515+00:00",
         "yahoo_chart": "2026-10-16 20:03:58.778434"
       },
       "price_provider_errors": {},
@@ -18739,7 +18736,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:56.184887+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:07.922324+00:00",
       "roe": -0.3526060414922212,
       "roa": -0.13287766794443856,
       "gross_margin": 0.3062286564103671,
@@ -18832,7 +18829,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.805716+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.044007+00:00",
         "yahoo_chart": "2026-10-16 20:03:59.030317"
       },
       "price_provider_errors": {},
@@ -18903,7 +18900,7 @@
       "technical_history_rows": 794,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:55:58.359481+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:10.212308+00:00",
       "roe": 0.10347257639474426,
       "roa": 0.06825855504319163,
       "gross_margin": 0.14134134439965337,
@@ -18996,7 +18993,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.838992+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.078064+00:00",
         "yahoo_chart": "2026-10-16 20:03:59.285795"
       },
       "price_provider_errors": {},
@@ -19067,7 +19064,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:00.530917+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:12.516301+00:00",
       "roe": 0.04960376551570634,
       "roa": 0.019506862474336733,
       "gross_margin": 0.2735610303372999,
@@ -19161,7 +19158,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.873012+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.113357+00:00",
         "yahoo_chart": "2026-10-16 20:03:59.548347"
       },
       "price_provider_errors": {},
@@ -19232,7 +19229,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:02.718154+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:14.898763+00:00",
       "roe": 0.11268678052880522,
       "roa": 0.08651827331528017,
       "gross_margin": 0.2189725974485993,
@@ -19325,7 +19322,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.906671+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.148876+00:00",
         "yahoo_chart": "2026-10-16 20:03:59.800099"
       },
       "price_provider_errors": {},
@@ -19396,7 +19393,7 @@
       "technical_history_rows": 1147,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:04.889343+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:17.173861+00:00",
       "roe": -0.07647324818708948,
       "roa": -0.046394037993196836,
       "gross_margin": 0.13555331760382344,
@@ -19489,7 +19486,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.940146+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.185032+00:00",
         "yahoo_chart": "2026-10-16 20:04:00.050553"
       },
       "price_provider_errors": {},
@@ -19560,7 +19557,7 @@
       "technical_history_rows": 638,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:07.064204+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:19.458901+00:00",
       "roe": -0.05432271466744782,
       "roa": -0.0404309914658891,
       "gross_margin": 0.18797956555538806,
@@ -19653,7 +19650,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:53.972671+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.218473+00:00",
         "yahoo_chart": "2026-10-16 20:04:00.300233"
       },
       "price_provider_errors": {},
@@ -19724,7 +19721,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:09.359142+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:21.745734+00:00",
       "roe": -0.05035961461572849,
       "roa": -0.033110996149400364,
       "gross_margin": 0.1868792013137254,
@@ -19817,7 +19814,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.006982+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.253557+00:00",
         "yahoo_chart": "2026-10-16 20:04:00.572499"
       },
       "price_provider_errors": {},
@@ -19888,7 +19885,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:11.530632+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:24.024405+00:00",
       "roe": -0.07535495621305738,
       "roa": -0.050470934044452555,
       "gross_margin": 0.12976563779216557,
@@ -19981,7 +19978,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.041605+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.289034+00:00",
         "yahoo_chart": "2026-10-16 20:04:00.820232"
       },
       "price_provider_errors": {},
@@ -20052,7 +20049,7 @@
       "technical_history_rows": 1194,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:13.703350+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:26.307376+00:00",
       "roe": -0.12297846001794852,
       "roa": -0.03483151440110573,
       "gross_margin": 0.20488676000209372,
@@ -20147,7 +20144,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.075768+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.324395+00:00",
         "yahoo_chart": "2026-10-16 20:04:01.089893"
       },
       "price_provider_errors": {},
@@ -20218,7 +20215,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:15.976539+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:28.605997+00:00",
       "roe": 0.025985220176207784,
       "roa": 0.014260486297143255,
       "gross_margin": 0.08690760652011532,
@@ -20311,7 +20308,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.111186+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.360210+00:00",
         "yahoo_chart": "2026-10-16 20:04:01.341692"
       },
       "price_provider_errors": {},
@@ -20382,7 +20379,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:18.298977+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:31.054876+00:00",
       "roe": null,
       "roa": null,
       "gross_margin": null,
@@ -20475,7 +20472,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.146837+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.395552+00:00",
         "yahoo_chart": "2026-10-16 20:04:01.591592"
       },
       "price_provider_errors": {},
@@ -20546,7 +20543,7 @@
       "technical_history_rows": 877,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:21.081249+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:33.332634+00:00",
       "roe": 0.10397986002996236,
       "roa": 0.05638793223991499,
       "gross_margin": 0.2850392911110292,
@@ -20640,7 +20637,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.180285+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.430522+00:00",
         "yahoo_chart": "2026-10-16 20:04:01.841994"
       },
       "price_provider_errors": {},
@@ -20711,7 +20708,7 @@
       "technical_history_rows": 1095,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:23.252678+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:35.609141+00:00",
       "roe": 0.04669513693909539,
       "roa": 0.034231550480947635,
       "gross_margin": 0.14636393634821526,
@@ -20804,7 +20801,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.215074+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.466751+00:00",
         "yahoo_chart": "2026-10-16 20:04:02.089078"
       },
       "price_provider_errors": {},
@@ -20875,7 +20872,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:25.425205+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:37.895114+00:00",
       "roe": 0.03986185197949525,
       "roa": 0.031869132963244805,
       "gross_margin": 0.16604169110310313,
@@ -20968,7 +20965,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.248774+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.502791+00:00",
         "yahoo_chart": "2026-10-16 20:04:02.366460"
       },
       "price_provider_errors": {},
@@ -21039,7 +21036,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:27.603994+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:40.079002+00:00",
       "roe": -0.5936453187999152,
       "roa": -0.13432377578922813,
       "gross_margin": -0.4083317503127341,
@@ -21132,7 +21129,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.283986+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.538936+00:00",
         "yahoo_chart": "2026-10-16 20:04:02.634444"
       },
       "price_provider_errors": {},
@@ -21203,7 +21200,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:29.777497+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:42.368272+00:00",
       "roe": 0.21993418486672817,
       "roa": 0.1841346849657257,
       "gross_margin": 0.20417227662122509,
@@ -21296,7 +21293,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.319245+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.575229+00:00",
         "yahoo_chart": "2026-10-16 20:04:02.885117"
       },
       "price_provider_errors": {},
@@ -21367,7 +21364,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:32.047781+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:44.648243+00:00",
       "roe": -0.006152841462163447,
       "roa": -0.004789008230545961,
       "gross_margin": 0.12527735850545102,
@@ -21460,7 +21457,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.354481+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.611439+00:00",
         "yahoo_chart": "2026-10-16 20:04:03.134435"
       },
       "price_provider_errors": {},
@@ -21531,7 +21528,7 @@
       "technical_history_rows": 1274,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:34.224505+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:46.947363+00:00",
       "roe": -0.17453413553697683,
       "roa": -0.09816121910652756,
       "gross_margin": -0.03701004157117643,
@@ -21624,7 +21621,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.388608+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.647481+00:00",
         "yahoo_chart": "2026-10-16 20:04:03.383953"
       },
       "price_provider_errors": {},
@@ -21690,7 +21687,7 @@
       "technical_history_rows": 192,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:36.496714+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:49.220835+00:00",
       "roe": null,
       "roa": null,
       "gross_margin": null,
@@ -21785,7 +21782,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.420929+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.681225+00:00",
         "yahoo_chart": "2026-10-16 20:04:03.645867"
       },
       "price_provider_errors": {},
@@ -21856,7 +21853,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:38.778054+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:51.535136+00:00",
       "roe": 0.21324742078731282,
       "roa": 0.0781054231518141,
       "gross_margin": 0.07773997024636953,
@@ -21951,7 +21948,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.455367+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.717257+00:00",
         "yahoo_chart": "2026-10-16 20:04:03.908964"
       },
       "price_provider_errors": {},
@@ -22000,7 +21997,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:41.128572+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:53.894320+00:00",
       "revenue_quarter_yoy": null,
       "net_income_quarter_yoy": null,
       "revenue_ttm_growth": null,
@@ -22099,7 +22096,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.490141+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.753961+00:00",
         "yahoo_chart": "2026-10-16 20:04:04.170588"
       },
       "price_provider_errors": {},
@@ -22170,7 +22167,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:43.479096+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:56.270841+00:00",
       "roe": 0.23690492915839315,
       "roa": 0.038082176763492126,
       "gross_margin": 0.009418011390558298,
@@ -22263,7 +22260,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.525032+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.789528+00:00",
         "yahoo_chart": "2026-10-16 20:04:04.424467"
       },
       "price_provider_errors": {},
@@ -22334,7 +22331,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:45.771722+00:00",
+      "capital_retrieved_at": "2026-10-18T12:26:58.551008+00:00",
       "roe": 0.01682161630894103,
       "roa": 0.012776732655970801,
       "gross_margin": 0.3242646151415975,
@@ -22427,7 +22424,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.558974+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.825152+00:00",
         "yahoo_chart": "2026-10-16 20:04:04.710672"
       },
       "price_provider_errors": {},
@@ -22493,7 +22490,7 @@
       "technical_history_rows": 155,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:48.048427+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:00.815933+00:00",
       "roe": null,
       "roa": null,
       "gross_margin": null,
@@ -22586,7 +22583,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.592491+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.858494+00:00",
         "yahoo_chart": "2026-10-16 20:04:04.980228"
       },
       "price_provider_errors": {},
@@ -22657,7 +22654,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:50.356525+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:03.136206+00:00",
       "roe": 0.09231251399569894,
       "roa": 0.06153662817048782,
       "gross_margin": 0.2504008664863013,
@@ -22750,7 +22747,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.626685+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.894940+00:00",
         "yahoo_chart": "2026-10-16 20:04:05.234072"
       },
       "price_provider_errors": {},
@@ -22821,7 +22818,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:52.666846+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:05.431614+00:00",
       "roe": 0.09946964538369368,
       "roa": 0.055333026971682645,
       "gross_margin": 0.35650013220632104,
@@ -22914,7 +22911,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.661052+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.929999+00:00",
         "yahoo_chart": "2026-10-16 20:04:05.484093"
       },
       "price_provider_errors": {},
@@ -22985,7 +22982,7 @@
       "technical_history_rows": 644,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:54.998576+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:07.706617+00:00",
       "roe": -0.08383672675940619,
       "roa": -0.06895338299883969,
       "gross_margin": 0.2754563804269617,
@@ -23078,7 +23075,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.696769+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.964446+00:00",
         "yahoo_chart": "2026-10-16 20:04:05.736027"
       },
       "price_provider_errors": {},
@@ -23149,7 +23146,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:57.333015+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:10.017984+00:00",
       "roe": -0.1479687396389567,
       "roa": -0.014995141265171758,
       "gross_margin": 0.024911864529070078,
@@ -23242,7 +23239,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.730996+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:03.999799+00:00",
         "yahoo_chart": "2026-10-16 20:04:05.988371"
       },
       "price_provider_errors": {},
@@ -23313,7 +23310,7 @@
       "technical_history_rows": 441,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:56:59.509156+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:12.309776+00:00",
       "roe": 0.17953348490374704,
       "roa": 0.06369767932390134,
       "gross_margin": 0.1252212620564573,
@@ -23406,7 +23403,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.763921+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.033665+00:00",
         "yahoo_chart": "2026-10-16 20:04:06.249156"
       },
       "price_provider_errors": {},
@@ -23477,7 +23474,7 @@
       "technical_history_rows": 1272,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:01.693038+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:14.639450+00:00",
       "roe": 0.3351279253857018,
       "roa": 0.07253646582194781,
       "gross_margin": 0.46172979646314577,
@@ -23570,7 +23567,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.798719+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.071057+00:00",
         "yahoo_chart": "2026-10-16 20:04:06.498168"
       },
       "price_provider_errors": {},
@@ -23641,7 +23638,7 @@
       "technical_history_rows": 906,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:04.006028+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:16.929709+00:00",
       "roe": null,
       "roa": null,
       "gross_margin": null,
@@ -23734,7 +23731,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.833223+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.106196+00:00",
         "yahoo_chart": "2026-10-16 20:04:06.751273"
       },
       "price_provider_errors": {},
@@ -23800,7 +23797,7 @@
       "technical_history_rows": 72,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:06.313142+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:19.253256+00:00",
       "roe": null,
       "roa": null,
       "gross_margin": null,
@@ -23893,7 +23890,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.866721+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.138718+00:00",
         "yahoo_chart": "2026-10-16 20:04:07.016127"
       },
       "price_provider_errors": {},
@@ -23964,7 +23961,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:08.487697+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:21.571114+00:00",
       "roe": 0.04896582549604476,
       "roa": 0.035262042590260716,
       "gross_margin": 0.2638077433086804,
@@ -24057,7 +24054,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.902246+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.176090+00:00",
         "yahoo_chart": "2026-10-16 20:04:07.277231"
       },
       "price_provider_errors": {},
@@ -24128,7 +24125,7 @@
       "technical_history_rows": 1275,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:11.035504+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:23.872920+00:00",
       "roe": -1.929963468051325,
       "roa": -0.172434150649574,
       "gross_margin": 0.07821572531174834,
@@ -24221,7 +24218,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.937307+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.212250+00:00",
         "yahoo_chart": "2026-10-16 20:04:07.528024"
       },
       "price_provider_errors": {},
@@ -24292,7 +24289,7 @@
       "technical_history_rows": 1156,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:13.208121+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:26.162399+00:00",
       "roe": 0.30247861056286757,
       "roa": 0.24512261955113904,
       "gross_margin": 0.33878472965882744,
@@ -24387,7 +24384,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:54.971724+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.247739+00:00",
         "yahoo_chart": "2026-10-16 20:04:07.789309"
       },
       "price_provider_errors": {},
@@ -24458,7 +24455,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:15.379963+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:28.443718+00:00",
       "roe": 0.18505860268952434,
       "roa": 0.10825893750635267,
       "gross_margin": 0.24977054488770195,
@@ -24551,7 +24548,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.005295+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.283849+00:00",
         "yahoo_chart": "2026-10-16 20:04:08.041227"
       },
       "price_provider_errors": {},
@@ -24622,7 +24619,7 @@
       "technical_history_rows": 517,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:17.647782+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:30.710581+00:00",
       "roe": -0.22564699765791213,
       "roa": -0.2119133629206503,
       "gross_margin": 0.04772720608631852,
@@ -24715,7 +24712,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.038147+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.321942+00:00",
         "yahoo_chart": "2026-10-16 20:04:08.293642"
       },
       "price_provider_errors": {},
@@ -24786,7 +24783,7 @@
       "technical_history_rows": 1270,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:19.823265+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:33.072191+00:00",
       "roe": 0.13087900957319606,
       "roa": 0.09958826645784988,
       "gross_margin": 0.4164492931380103,
@@ -24880,7 +24877,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.072690+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.358500+00:00",
         "yahoo_chart": "2026-10-16 20:04:08.554199"
       },
       "price_provider_errors": {},
@@ -24929,7 +24926,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:22.154340+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:35.391054+00:00",
       "revenue_quarter_yoy": null,
       "net_income_quarter_yoy": null,
       "revenue_ttm_growth": null,
@@ -25014,7 +25011,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.106700+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.393809+00:00",
         "yahoo_chart": "2026-10-16 20:04:08.810130"
       },
       "price_provider_errors": {},
@@ -25085,7 +25082,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:24.327144+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:37.681867+00:00",
       "roe": 0.06398427673748987,
       "roa": 0.027838737072239994,
       "gross_margin": -0.020172107119655804,
@@ -25178,7 +25175,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.140845+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.430098+00:00",
         "yahoo_chart": "2026-10-16 20:04:09.062820"
       },
       "price_provider_errors": {},
@@ -25249,7 +25246,7 @@
       "technical_history_rows": 644,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:26.628566+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:39.966758+00:00",
       "roe": -0.10661065025761299,
       "roa": -0.0763691578830638,
       "gross_margin": -0.10338695807755113,
@@ -25343,7 +25340,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.173160+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.465070+00:00",
         "yahoo_chart": "2026-10-16 20:04:09.316640"
       },
       "price_provider_errors": {},
@@ -25414,7 +25411,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:28.915478+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:42.276963+00:00",
       "roe": -0.3161522351481051,
       "roa": -0.16049447799136501,
       "gross_margin": 0.03150387077693598,
@@ -25507,7 +25504,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.206534+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.500909+00:00",
         "yahoo_chart": "2026-10-16 20:04:09.582075"
       },
       "price_provider_errors": {},
@@ -25578,7 +25575,7 @@
       "technical_history_rows": 1047,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:31.245201+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:44.543005+00:00",
       "roe": -0.20097539138080586,
       "roa": -0.09776213733296146,
       "gross_margin": 0.3782570241875682,
@@ -25671,7 +25668,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.240178+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.536413+00:00",
         "yahoo_chart": "2026-10-16 20:04:09.832330"
       },
       "price_provider_errors": {},
@@ -25742,7 +25739,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:33.424253+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:46.856899+00:00",
       "roe": 0.3682797974317236,
       "roa": 0.018816421013722683,
       "gross_margin": null,
@@ -25835,7 +25832,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.273679+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.573206+00:00",
         "yahoo_chart": "2026-10-16 20:04:10.083258"
       },
       "price_provider_errors": {},
@@ -25906,7 +25903,7 @@
       "technical_history_rows": 1271,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:35.695852+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:49.141418+00:00",
       "roe": 0.020792690870195536,
       "roa": 0.014865267270266705,
       "gross_margin": 0.14018405927206323,
@@ -25999,7 +25996,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.307228+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.609662+00:00",
         "yahoo_chart": "2026-10-16 20:04:10.336099"
       },
       "price_provider_errors": {},
@@ -26070,7 +26067,7 @@
       "technical_history_rows": 1119,
       "technical_data_date": "2026-10-16",
       "technical_freshness": "FRESH",
-      "capital_retrieved_at": "2026-10-15T12:57:37.966141+00:00",
+      "capital_retrieved_at": "2026-10-18T12:27:51.415212+00:00",
       "roe": -0.19099171416034488,
       "roa": -0.10523778920308484,
       "gross_margin": 0.3643363442431175,
@@ -26163,7 +26160,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.340969+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.645511+00:00",
         "yahoo_chart": "2026-10-16 20:04:10.595988"
       },
       "price_provider_errors": {},
@@ -26429,7 +26426,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.407433+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.715610+00:00",
         "yahoo_chart": "2026-10-16 20:04:11.114583"
       },
       "price_provider_errors": {},
@@ -26565,7 +26562,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.442064+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.751854+00:00",
         "yahoo_chart": "2026-10-16 20:04:11.380056"
       },
       "price_provider_errors": {},
@@ -26700,7 +26697,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.476716+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.787531+00:00",
         "yahoo_chart": "2026-10-16 20:04:11.636823"
       },
       "price_provider_errors": {},
@@ -26864,7 +26861,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.512642+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.824737+00:00",
         "yahoo_chart": "2026-10-16 20:04:11.893491"
       },
       "price_provider_errors": {},
@@ -27029,7 +27026,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.548188+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.861411+00:00",
         "yahoo_chart": "2026-10-16 20:04:12.150503"
       },
       "price_provider_errors": {},
@@ -27163,7 +27160,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.582514+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.897305+00:00",
         "yahoo_chart": "2026-10-16 20:04:12.400730"
       },
       "price_provider_errors": {},
@@ -27327,7 +27324,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.617754+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.933681+00:00",
         "yahoo_chart": "2026-10-16 20:04:12.649291"
       },
       "price_provider_errors": {},
@@ -27486,7 +27483,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.649749+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:04.967692+00:00",
         "yahoo_chart": "2026-10-16 20:04:12.902863"
       },
       "price_provider_errors": {},
@@ -27650,7 +27647,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.683944+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.003605+00:00",
         "yahoo_chart": "2026-10-16 20:04:13.154307"
       },
       "price_provider_errors": {},
@@ -27814,7 +27811,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.718167+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.040047+00:00",
         "yahoo_chart": "2026-10-16 20:04:13.404350"
       },
       "price_provider_errors": {},
@@ -27978,7 +27975,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.753593+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.075942+00:00",
         "yahoo_chart": "2026-10-16 20:04:13.663786"
       },
       "price_provider_errors": {},
@@ -28142,7 +28139,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.789844+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.112053+00:00",
         "yahoo_chart": "2026-10-16 20:04:13.912866"
       },
       "price_provider_errors": {},
@@ -28306,7 +28303,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.827072+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.147770+00:00",
         "yahoo_chart": "2026-10-16 20:04:14.160852"
       },
       "price_provider_errors": {},
@@ -28466,7 +28463,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.858921+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.180740+00:00",
         "yahoo_chart": "2026-10-16 20:04:14.411526"
       },
       "price_provider_errors": {},
@@ -28630,7 +28627,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.893837+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.217634+00:00",
         "yahoo_chart": "2026-10-16 20:04:14.673934"
       },
       "price_provider_errors": {},
@@ -28795,7 +28792,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.928810+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.254452+00:00",
         "yahoo_chart": "2026-10-16 20:04:14.922925"
       },
       "price_provider_errors": {},
@@ -28959,7 +28956,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.963593+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.290049+00:00",
         "yahoo_chart": "2026-10-16 20:04:15.172523"
       },
       "price_provider_errors": {},
@@ -29107,7 +29104,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:55.997681+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.325048+00:00",
         "yahoo_chart": "2026-10-16 20:04:15.423425"
       },
       "price_provider_errors": {},
@@ -29272,7 +29269,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.031878+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.359842+00:00",
         "yahoo_chart": "2026-10-16 20:04:15.677961"
       },
       "price_provider_errors": {},
@@ -29437,7 +29434,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.066514+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.394719+00:00",
         "yahoo_chart": "2026-10-16 20:04:15.947846"
       },
       "price_provider_errors": {},
@@ -29601,7 +29598,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.102029+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.429489+00:00",
         "yahoo_chart": "2026-10-16 20:04:16.202562"
       },
       "price_provider_errors": {},
@@ -29765,7 +29762,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.136898+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.464845+00:00",
         "yahoo_chart": "2026-10-16 20:04:16.460829"
       },
       "price_provider_errors": {},
@@ -29929,7 +29926,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.171322+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.500751+00:00",
         "yahoo_chart": "2026-10-16 20:04:16.710312"
       },
       "price_provider_errors": {},
@@ -30093,7 +30090,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.205600+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.535153+00:00",
         "yahoo_chart": "2026-10-16 20:04:16.962416"
       },
       "price_provider_errors": {},
@@ -30257,7 +30254,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.244326+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.569797+00:00",
         "yahoo_chart": "2026-10-16 20:04:17.213769"
       },
       "price_provider_errors": {},
@@ -30421,7 +30418,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.279688+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.604637+00:00",
         "yahoo_chart": "2026-10-16 20:04:17.463409"
       },
       "price_provider_errors": {},
@@ -30585,7 +30582,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.314743+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.639589+00:00",
         "yahoo_chart": "2026-10-16 20:04:17.716580"
       },
       "price_provider_errors": {},
@@ -30749,7 +30746,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.350084+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.674030+00:00",
         "yahoo_chart": "2026-10-16 20:04:17.966962"
       },
       "price_provider_errors": {},
@@ -30913,7 +30910,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.385815+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.710083+00:00",
         "yahoo_chart": "2026-10-16 20:04:18.225723"
       },
       "price_provider_errors": {},
@@ -31077,7 +31074,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.420016+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.745974+00:00",
         "yahoo_chart": "2026-10-16 20:04:18.474822"
       },
       "price_provider_errors": {},
@@ -31242,7 +31239,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.454507+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.781162+00:00",
         "yahoo_chart": "2026-10-16 20:04:18.738384"
       },
       "price_provider_errors": {},
@@ -31406,7 +31403,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.490039+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.817146+00:00",
         "yahoo_chart": "2026-10-16 20:04:18.990678"
       },
       "price_provider_errors": {},
@@ -31565,7 +31562,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.521109+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.850423+00:00",
         "yahoo_chart": "2026-10-16 20:04:19.247306"
       },
       "price_provider_errors": {},
@@ -31699,7 +31696,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.555608+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.886214+00:00",
         "yahoo_chart": "2026-10-16 20:04:19.507855"
       },
       "price_provider_errors": {},
@@ -31835,7 +31832,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.590465+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.922546+00:00",
         "yahoo_chart": "2026-10-16 20:04:19.769651"
       },
       "price_provider_errors": {},
@@ -31999,7 +31996,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.624928+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.960316+00:00",
         "yahoo_chart": "2026-10-16 20:04:20.031375"
       },
       "price_provider_errors": {},
@@ -32163,7 +32160,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.659101+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:05.996232+00:00",
         "yahoo_chart": "2026-10-16 20:04:20.282912"
       },
       "price_provider_errors": {},
@@ -32327,7 +32324,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.693484+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.032356+00:00",
         "yahoo_chart": "2026-10-16 20:04:20.538823"
       },
       "price_provider_errors": {},
@@ -32491,7 +32488,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.727810+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.069398+00:00",
         "yahoo_chart": "2026-10-16 20:04:20.791704"
       },
       "price_provider_errors": {},
@@ -32655,7 +32652,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.763061+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.106215+00:00",
         "yahoo_chart": "2026-10-16 20:04:21.050455"
       },
       "price_provider_errors": {},
@@ -32819,7 +32816,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.799340+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.143401+00:00",
         "yahoo_chart": "2026-10-16 20:04:21.303509"
       },
       "price_provider_errors": {},
@@ -32983,7 +32980,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.835231+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.182693+00:00",
         "yahoo_chart": "2026-10-16 20:04:21.556449"
       },
       "price_provider_errors": {},
@@ -33148,7 +33145,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.869073+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.217413+00:00",
         "yahoo_chart": "2026-10-16 20:04:21.808291"
       },
       "price_provider_errors": {},
@@ -33312,7 +33309,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.902652+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.252512+00:00",
         "yahoo_chart": "2026-10-16 20:04:22.073537"
       },
       "price_provider_errors": {},
@@ -33476,7 +33473,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.937152+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.296636+00:00",
         "yahoo_chart": "2026-10-16 20:04:22.325477"
       },
       "price_provider_errors": {},
@@ -33640,7 +33637,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:56.972566+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.331107+00:00",
         "yahoo_chart": "2026-10-16 20:04:22.582176"
       },
       "price_provider_errors": {},
@@ -33804,7 +33801,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.011134+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.367277+00:00",
         "yahoo_chart": "2026-10-16 20:04:22.839386"
       },
       "price_provider_errors": {},
@@ -33968,7 +33965,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.046076+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.405765+00:00",
         "yahoo_chart": "2026-10-16 20:04:23.089286"
       },
       "price_provider_errors": {},
@@ -34132,7 +34129,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.080155+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.441048+00:00",
         "yahoo_chart": "2026-10-16 20:04:23.345113"
       },
       "price_provider_errors": {},
@@ -34296,7 +34293,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.118548+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.477674+00:00",
         "yahoo_chart": "2026-10-16 20:04:23.601948"
       },
       "price_provider_errors": {},
@@ -34460,7 +34457,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.152722+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.515723+00:00",
         "yahoo_chart": "2026-10-16 20:04:23.856621"
       },
       "price_provider_errors": {},
@@ -34624,7 +34621,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.186621+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.549701+00:00",
         "yahoo_chart": "2026-10-16 20:04:24.106126"
       },
       "price_provider_errors": {},
@@ -34788,7 +34785,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.220470+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.582954+00:00",
         "yahoo_chart": "2026-10-16 20:04:24.360329"
       },
       "price_provider_errors": {},
@@ -34952,7 +34949,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.255286+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.617932+00:00",
         "yahoo_chart": "2026-10-16 20:04:24.615823"
       },
       "price_provider_errors": {},
@@ -35116,7 +35113,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.291395+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.652512+00:00",
         "yahoo_chart": "2026-10-16 20:04:24.865088"
       },
       "price_provider_errors": {},
@@ -35276,7 +35273,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.323430+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.685643+00:00",
         "yahoo_chart": "2026-10-16 20:04:25.130953"
       },
       "price_provider_errors": {},
@@ -35440,7 +35437,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.358982+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.719536+00:00",
         "yahoo_chart": "2026-10-16 20:04:25.380377"
       },
       "price_provider_errors": {},
@@ -35604,7 +35601,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.394286+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.753374+00:00",
         "yahoo_chart": "2026-10-16 20:04:25.635608"
       },
       "price_provider_errors": {},
@@ -35768,7 +35765,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.429822+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.787273+00:00",
         "yahoo_chart": "2026-10-16 20:04:25.890686"
       },
       "price_provider_errors": {},
@@ -35946,7 +35943,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.464941+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.821160+00:00",
         "yahoo_chart": "2026-10-16 20:04:26.148884"
       },
       "price_provider_errors": {},
@@ -36110,7 +36107,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.500267+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.855724+00:00",
         "yahoo_chart": "2026-10-16 20:04:26.401411"
       },
       "price_provider_errors": {},
@@ -36244,7 +36241,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.533152+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.887436+00:00",
         "yahoo_chart": "2026-10-16 20:04:26.662000"
       },
       "price_provider_errors": {},
@@ -36408,7 +36405,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.569173+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.922064+00:00",
         "yahoo_chart": "2026-10-16 20:04:26.926189"
       },
       "price_provider_errors": {},
@@ -36573,7 +36570,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.605060+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.957285+00:00",
         "yahoo_chart": "2026-10-16 20:04:27.185063"
       },
       "price_provider_errors": {},
@@ -36737,7 +36734,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.639614+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:06.990025+00:00",
         "yahoo_chart": "2026-10-16 20:04:27.438197"
       },
       "price_provider_errors": {},
@@ -36901,7 +36898,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.675811+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.024994+00:00",
         "yahoo_chart": "2026-10-16 20:04:27.690952"
       },
       "price_provider_errors": {},
@@ -37065,7 +37062,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.710413+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.059594+00:00",
         "yahoo_chart": "2026-10-16 20:04:27.946318"
       },
       "price_provider_errors": {},
@@ -37229,7 +37226,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.745482+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.093844+00:00",
         "yahoo_chart": "2026-10-16 20:04:28.194598"
       },
       "price_provider_errors": {},
@@ -37393,7 +37390,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.782993+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.127587+00:00",
         "yahoo_chart": "2026-10-16 20:04:28.445017"
       },
       "price_provider_errors": {},
@@ -37552,7 +37549,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.818677+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.160334+00:00",
         "yahoo_chart": "2026-10-16 20:04:28.697905"
       },
       "price_provider_errors": {},
@@ -37717,7 +37714,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.854048+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.195395+00:00",
         "yahoo_chart": "2026-10-16 20:04:28.960979"
       },
       "price_provider_errors": {},
@@ -37882,7 +37879,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.891276+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.231045+00:00",
         "yahoo_chart": "2026-10-16 20:04:29.233434"
       },
       "price_provider_errors": {},
@@ -38046,7 +38043,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.925367+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.265881+00:00",
         "yahoo_chart": "2026-10-16 20:04:29.485393"
       },
       "price_provider_errors": {},
@@ -38210,7 +38207,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.959999+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.301631+00:00",
         "yahoo_chart": "2026-10-16 20:04:29.748826"
       },
       "price_provider_errors": {},
@@ -38374,7 +38371,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:57.999157+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.336739+00:00",
         "yahoo_chart": "2026-10-16 20:04:30.000603"
       },
       "price_provider_errors": {},
@@ -38538,7 +38535,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.033719+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.370481+00:00",
         "yahoo_chart": "2026-10-16 20:04:30.249204"
       },
       "price_provider_errors": {},
@@ -38702,7 +38699,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.069574+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.406300+00:00",
         "yahoo_chart": "2026-10-16 20:04:30.499246"
       },
       "price_provider_errors": {},
@@ -38866,7 +38863,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.106244+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.439974+00:00",
         "yahoo_chart": "2026-10-16 20:04:30.749825"
       },
       "price_provider_errors": {},
@@ -39030,7 +39027,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.140137+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.473378+00:00",
         "yahoo_chart": "2026-10-16 20:04:31.000851"
       },
       "price_provider_errors": {},
@@ -39194,7 +39191,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.172113+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.506048+00:00",
         "yahoo_chart": "2026-10-16 20:04:31.257499"
       },
       "price_provider_errors": {},
@@ -39358,7 +39355,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.205903+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.540933+00:00",
         "yahoo_chart": "2026-10-16 20:04:31.517661"
       },
       "price_provider_errors": {},
@@ -39524,7 +39521,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.239983+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.575268+00:00",
         "yahoo_chart": "2026-10-16 20:04:31.771289"
       },
       "price_provider_errors": {},
@@ -39688,7 +39685,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.274289+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.608813+00:00",
         "yahoo_chart": "2026-10-16 20:04:32.035256"
       },
       "price_provider_errors": {},
@@ -39853,7 +39850,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.308303+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.643534+00:00",
         "yahoo_chart": "2026-10-16 20:04:32.287261"
       },
       "price_provider_errors": {},
@@ -40017,7 +40014,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.342306+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.678513+00:00",
         "yahoo_chart": "2026-10-16 20:04:32.540551"
       },
       "price_provider_errors": {},
@@ -40181,7 +40178,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.376382+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.712997+00:00",
         "yahoo_chart": "2026-10-16 20:04:32.793471"
       },
       "price_provider_errors": {},
@@ -40345,7 +40342,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.410532+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.747009+00:00",
         "yahoo_chart": "2026-10-16 20:04:33.059105"
       },
       "price_provider_errors": {},
@@ -40509,7 +40506,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.444521+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.781817+00:00",
         "yahoo_chart": "2026-10-16 20:04:33.325661"
       },
       "price_provider_errors": {},
@@ -40673,7 +40670,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.478603+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.816368+00:00",
         "yahoo_chart": "2026-10-16 20:04:33.593979"
       },
       "price_provider_errors": {},
@@ -40837,7 +40834,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.513347+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.851886+00:00",
         "yahoo_chart": "2026-10-16 20:04:33.853742"
       },
       "price_provider_errors": {},
@@ -41001,7 +40998,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.549408+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.885671+00:00",
         "yahoo_chart": "2026-10-17 11:57:52.643956"
       },
       "price_provider_errors": {},
@@ -41165,7 +41162,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.584091+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.919739+00:00",
         "yahoo_chart": "2026-10-16 20:04:34.348804"
       },
       "price_provider_errors": {},
@@ -41329,7 +41326,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.618954+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.956514+00:00",
         "yahoo_chart": "2026-10-16 20:04:34.602788"
       },
       "price_provider_errors": {},
@@ -41488,7 +41485,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.651411+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:07.988309+00:00",
         "yahoo_chart": "2026-10-16 20:04:34.856540"
       },
       "price_provider_errors": {},
@@ -41652,7 +41649,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.686589+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.023239+00:00",
         "yahoo_chart": "2026-10-16 20:04:35.113682"
       },
       "price_provider_errors": {},
@@ -41830,7 +41827,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.720059+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.057597+00:00",
         "yahoo_chart": "2026-10-16 20:04:35.372401"
       },
       "price_provider_errors": {},
@@ -41994,7 +41991,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.754193+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.092129+00:00",
         "yahoo_chart": "2026-10-16 20:04:35.627822"
       },
       "price_provider_errors": {},
@@ -42153,7 +42150,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.788355+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.128347+00:00",
         "yahoo_chart": "2026-10-16 20:04:35.879871"
       },
       "price_provider_errors": {},
@@ -42317,7 +42314,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.823056+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.164202+00:00",
         "yahoo_chart": "2026-10-16 20:04:36.128663"
       },
       "price_provider_errors": {},
@@ -42481,7 +42478,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.858342+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.199989+00:00",
         "yahoo_chart": "2026-10-16 20:04:36.375808"
       },
       "price_provider_errors": {},
@@ -42645,7 +42642,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.894512+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.237615+00:00",
         "yahoo_chart": "2026-10-16 20:04:36.633328"
       },
       "price_provider_errors": {},
@@ -42809,7 +42806,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.930586+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.274420+00:00",
         "yahoo_chart": "2026-10-16 20:04:36.881141"
       },
       "price_provider_errors": {},
@@ -42974,7 +42971,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:58.965560+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.310544+00:00",
         "yahoo_chart": "2026-10-16 20:04:37.144211"
       },
       "price_provider_errors": {},
@@ -43152,7 +43149,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.000600+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.346423+00:00",
         "yahoo_chart": "2026-10-16 20:04:37.395001"
       },
       "price_provider_errors": {},
@@ -43316,7 +43313,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.035667+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.382270+00:00",
         "yahoo_chart": "2026-10-16 20:04:37.648390"
       },
       "price_provider_errors": {},
@@ -43480,7 +43477,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.070720+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.417250+00:00",
         "yahoo_chart": "2026-10-16 20:04:37.898925"
       },
       "price_provider_errors": {},
@@ -43639,7 +43636,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.103833+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.450502+00:00",
         "yahoo_chart": "2026-10-16 20:04:38.164513"
       },
       "price_provider_errors": {},
@@ -43805,7 +43802,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.140644+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.486436+00:00",
         "yahoo_chart": "2026-10-16 20:04:38.417910"
       },
       "price_provider_errors": {},
@@ -43969,7 +43966,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.177999+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.522576+00:00",
         "yahoo_chart": "2026-10-16 20:04:38.668672"
       },
       "price_provider_errors": {},
@@ -44133,7 +44130,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.214240+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.557687+00:00",
         "yahoo_chart": "2026-10-16 20:04:38.917329"
       },
       "price_provider_errors": {},
@@ -44297,7 +44294,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.248836+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.593000+00:00",
         "yahoo_chart": "2026-10-16 20:04:39.172038"
       },
       "price_provider_errors": {},
@@ -44461,7 +44458,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.284236+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.628365+00:00",
         "yahoo_chart": "2026-10-16 20:04:39.422125"
       },
       "price_provider_errors": {},
@@ -44625,7 +44622,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.323283+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.663537+00:00",
         "yahoo_chart": "2026-10-16 20:04:39.673134"
       },
       "price_provider_errors": {},
@@ -44789,7 +44786,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.356136+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.697075+00:00",
         "yahoo_chart": "2026-10-16 20:04:39.925264"
       },
       "price_provider_errors": {},
@@ -44953,7 +44950,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.391125+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.733876+00:00",
         "yahoo_chart": "2026-10-16 20:04:40.179092"
       },
       "price_provider_errors": {},
@@ -45118,7 +45115,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.432720+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.768523+00:00",
         "yahoo_chart": "2026-10-16 20:04:40.441693"
       },
       "price_provider_errors": {},
@@ -45282,7 +45279,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.468250+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.803466+00:00",
         "yahoo_chart": "2026-10-16 20:04:40.710317"
       },
       "price_provider_errors": {},
@@ -45446,7 +45443,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.504357+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.838964+00:00",
         "yahoo_chart": "2026-10-16 20:04:40.964833"
       },
       "price_provider_errors": {},
@@ -45610,7 +45607,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.543038+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.874635+00:00",
         "yahoo_chart": "2026-10-16 20:04:41.216246"
       },
       "price_provider_errors": {},
@@ -45774,7 +45771,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.577815+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.908702+00:00",
         "yahoo_chart": "2026-10-16 20:04:41.471041"
       },
       "price_provider_errors": {},
@@ -45938,7 +45935,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.613228+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.944454+00:00",
         "yahoo_chart": "2026-10-16 20:04:41.722304"
       },
       "price_provider_errors": {},
@@ -46102,7 +46099,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.649687+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:08.979197+00:00",
         "yahoo_chart": "2026-10-16 20:04:41.976506"
       },
       "price_provider_errors": {},
@@ -46261,7 +46258,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.683203+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.011340+00:00",
         "yahoo_chart": "2026-10-16 20:04:42.226423"
       },
       "price_provider_errors": {},
@@ -46425,7 +46422,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.717527+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.046600+00:00",
         "yahoo_chart": "2026-10-16 20:04:42.479335"
       },
       "price_provider_errors": {},
@@ -46589,7 +46586,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.752391+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.081603+00:00",
         "yahoo_chart": "2026-10-16 20:04:42.732488"
       },
       "price_provider_errors": {},
@@ -46753,7 +46750,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.786730+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.117250+00:00",
         "yahoo_chart": "2026-10-16 20:04:42.983638"
       },
       "price_provider_errors": {},
@@ -46931,7 +46928,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.821954+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.151900+00:00",
         "yahoo_chart": "2026-10-16 20:04:43.233417"
       },
       "price_provider_errors": {},
@@ -47095,7 +47092,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.857092+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.187713+00:00",
         "yahoo_chart": "2026-10-16 20:04:43.493724"
       },
       "price_provider_errors": {},
@@ -47260,7 +47257,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.893135+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.223611+00:00",
         "yahoo_chart": "2026-10-16 20:04:43.751363"
       },
       "price_provider_errors": {},
@@ -47424,7 +47421,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.928407+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.259538+00:00",
         "yahoo_chart": "2026-10-16 20:04:44.018544"
       },
       "price_provider_errors": {},
@@ -47589,7 +47586,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.962820+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.295333+00:00",
         "yahoo_chart": "2026-10-16 20:04:44.280977"
       },
       "price_provider_errors": {},
@@ -47754,7 +47751,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:01:59.997839+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.330775+00:00",
         "yahoo_chart": "2026-10-16 20:04:44.529682"
       },
       "price_provider_errors": {},
@@ -47918,7 +47915,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.031956+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.365428+00:00",
         "yahoo_chart": "2026-10-16 20:04:44.781942"
       },
       "price_provider_errors": {},
@@ -48083,7 +48080,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.068128+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.401452+00:00",
         "yahoo_chart": "2026-10-16 20:04:45.042488"
       },
       "price_provider_errors": {},
@@ -48261,7 +48258,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.103555+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.436843+00:00",
         "yahoo_chart": "2026-10-16 20:04:45.304900"
       },
       "price_provider_errors": {},
@@ -48425,7 +48422,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.138588+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.472064+00:00",
         "yahoo_chart": "2026-10-16 20:04:45.556701"
       },
       "price_provider_errors": {},
@@ -48584,7 +48581,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.170410+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.504478+00:00",
         "yahoo_chart": "2026-10-16 20:04:45.808775"
       },
       "price_provider_errors": {},
@@ -48748,7 +48745,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.208194+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.539973+00:00",
         "yahoo_chart": "2026-10-16 20:04:46.059204"
       },
       "price_provider_errors": {},
@@ -48914,7 +48911,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.242325+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.575740+00:00",
         "yahoo_chart": "2026-10-16 20:04:46.325190"
       },
       "price_provider_errors": {},
@@ -49080,7 +49077,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.277646+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.612955+00:00",
         "yahoo_chart": "2026-10-16 20:04:46.593220"
       },
       "price_provider_errors": {},
@@ -49245,7 +49242,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.315154+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.648580+00:00",
         "yahoo_chart": "2026-10-16 20:04:46.842402"
       },
       "price_provider_errors": {},
@@ -49409,7 +49406,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.351371+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.683898+00:00",
         "yahoo_chart": "2026-10-16 20:04:47.101307"
       },
       "price_provider_errors": {},
@@ -49575,7 +49572,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.385824+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.721520+00:00",
         "yahoo_chart": "2026-10-16 20:04:47.353975"
       },
       "price_provider_errors": {},
@@ -49740,7 +49737,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.424191+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.756676+00:00",
         "yahoo_chart": "2026-10-16 20:04:47.622407"
       },
       "price_provider_errors": {},
@@ -49905,7 +49902,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.459060+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.791479+00:00",
         "yahoo_chart": "2026-10-16 20:04:47.879469"
       },
       "price_provider_errors": {},
@@ -50070,7 +50067,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.494479+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.826110+00:00",
         "yahoo_chart": "2026-10-16 20:04:48.143912"
       },
       "price_provider_errors": {},
@@ -50234,7 +50231,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.529631+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.861769+00:00",
         "yahoo_chart": "2026-10-16 20:04:48.392332"
       },
       "price_provider_errors": {},
@@ -50399,7 +50396,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.564861+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.897449+00:00",
         "yahoo_chart": "2026-10-16 20:04:48.648530"
       },
       "price_provider_errors": {},
@@ -50565,7 +50562,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.599519+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.933956+00:00",
         "yahoo_chart": "2026-10-16 20:04:48.911981"
       },
       "price_provider_errors": {},
@@ -50730,7 +50727,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.634423+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:09.970293+00:00",
         "yahoo_chart": "2026-10-16 20:04:49.172662"
       },
       "price_provider_errors": {},
@@ -50895,7 +50892,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.668148+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.005046+00:00",
         "yahoo_chart": "2026-10-16 20:04:49.438191"
       },
       "price_provider_errors": {},
@@ -51059,7 +51056,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.702129+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.041125+00:00",
         "yahoo_chart": "2026-10-16 20:04:49.691310"
       },
       "price_provider_errors": {},
@@ -51223,7 +51220,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.735510+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.075737+00:00",
         "yahoo_chart": "2026-10-16 20:04:49.948423"
       },
       "price_provider_errors": {},
@@ -51389,7 +51386,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.769825+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.110229+00:00",
         "yahoo_chart": "2026-10-16 20:04:50.207288"
       },
       "price_provider_errors": {},
@@ -51553,7 +51550,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.803139+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.143960+00:00",
         "yahoo_chart": "2026-10-16 20:04:50.459893"
       },
       "price_provider_errors": {},
@@ -51717,7 +51714,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.836873+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.177608+00:00",
         "yahoo_chart": "2026-10-16 20:04:50.725440"
       },
       "price_provider_errors": {},
@@ -51882,7 +51879,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.870686+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.211184+00:00",
         "yahoo_chart": "2026-10-16 20:04:50.976578"
       },
       "price_provider_errors": {},
@@ -52046,7 +52043,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.905466+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.245248+00:00",
         "yahoo_chart": "2026-10-16 20:04:51.267772"
       },
       "price_provider_errors": {},
@@ -52210,7 +52207,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.940318+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.280638+00:00",
         "yahoo_chart": "2026-10-16 20:04:51.517461"
       },
       "price_provider_errors": {},
@@ -52374,7 +52371,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:00.973302+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.314060+00:00",
         "yahoo_chart": "2026-10-16 20:04:51.777942"
       },
       "price_provider_errors": {},
@@ -52538,7 +52535,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:01.006627+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.348680+00:00",
         "yahoo_chart": "2026-10-16 20:04:52.033251"
       },
       "price_provider_errors": {},
@@ -52702,7 +52699,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:01.041164+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.383620+00:00",
         "yahoo_chart": "2026-10-16 20:04:52.281872"
       },
       "price_provider_errors": {},
@@ -52868,7 +52865,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:01.073979+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.416807+00:00",
         "yahoo_chart": "2026-10-16 20:04:52.536974"
       },
       "price_provider_errors": {},
@@ -53046,7 +53043,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:01.108864+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.451719+00:00",
         "yahoo_chart": "2026-10-16 20:04:52.791800"
       },
       "price_provider_errors": {},
@@ -53210,7 +53207,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:01.142371+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.486322+00:00",
         "yahoo_chart": "2026-10-16 20:04:53.053612"
       },
       "price_provider_errors": {},
@@ -53374,7 +53371,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:01.176341+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.520824+00:00",
         "yahoo_chart": "2026-10-16 20:04:53.305875"
       },
       "price_provider_errors": {},
@@ -53538,7 +53535,7 @@
         "yahoo_chart": "2026-10-16"
       },
       "price_observation_retrieved_at": {
-        "bist_daily_bulletin": "2026-10-17T12:02:01.210486+00:00",
+        "bist_daily_bulletin": "2026-10-18T12:28:10.554604+00:00",
         "yahoo_chart": "2026-10-16 20:04:53.556675"
       },
       "price_provider_errors": {},
@@ -53874,5 +53871,5 @@
       "XUSIN": 248
     }
   },
-  "generated_at": "2026-10-17T12:02:01.530649+00:00"
+  "generated_at": "2026-10-18T12:28:10.881666+00:00"
 }

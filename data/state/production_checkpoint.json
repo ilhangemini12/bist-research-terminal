@@ -1,18 +1,38 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-19T15:13:12.350189+00:00",
-  "market_date": "2026-10-16",
+  "generated_at": "2026-10-19T21:45:40.072434+00:00",
+  "market_date": "2026-10-19",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-10-16",
+    "expected_market_date": "2026-10-19",
     "tracked": 323,
-    "verified_prices": 322,
-    "fresh_history": 323,
+    "verified_prices": 313,
+    "fresh_history": 313,
     "unverified_tickers": [
-      "ISATR"
+      "ALKLC",
+      "ARMGD",
+      "CGCAM",
+      "ISATR",
+      "KARTN",
+      "SKTAS",
+      "TKFEN",
+      "TMPOL",
+      "YAPRK",
+      "YYLGD"
     ],
-    "stale_history_tickers": [],
-    "history_refresh_status": "ACTIVE",
+    "stale_history_tickers": [
+      "ALKLC",
+      "ARMGD",
+      "CGCAM",
+      "ISATR",
+      "KARTN",
+      "SKTAS",
+      "TKFEN",
+      "TMPOL",
+      "YAPRK",
+      "YYLGD"
+    ],
+    "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

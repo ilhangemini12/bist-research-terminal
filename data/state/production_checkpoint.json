@@ -1,18 +1,36 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-21T13:21:01.699879+00:00",
-  "market_date": "2026-10-20",
+  "generated_at": "2026-10-21T20:55:09.043006+00:00",
+  "market_date": "2026-10-21",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-10-20",
+    "expected_market_date": "2026-10-21",
     "tracked": 323,
-    "verified_prices": 322,
-    "fresh_history": 323,
+    "verified_prices": 314,
+    "fresh_history": 314,
     "unverified_tickers": [
-      "ISATR"
+      "BINHO",
+      "CGCAM",
+      "DEVA",
+      "EMKEL",
+      "GRSEL",
+      "ISATR",
+      "KAPLM",
+      "TKFEN",
+      "TMPOL"
     ],
-    "stale_history_tickers": [],
-    "history_refresh_status": "ACTIVE",
+    "stale_history_tickers": [
+      "BINHO",
+      "CGCAM",
+      "DEVA",
+      "EMKEL",
+      "GRSEL",
+      "ISATR",
+      "KAPLM",
+      "TKFEN",
+      "TMPOL"
+    ],
+    "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

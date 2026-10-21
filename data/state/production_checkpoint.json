@@ -1,34 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-20T20:52:05.740599+00:00",
+  "generated_at": "2026-10-21T13:21:01.699879+00:00",
   "market_date": "2026-10-20",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-10-20",
     "tracked": 323,
-    "verified_prices": 315,
-    "fresh_history": 315,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "AFYON",
-      "BOSSA",
-      "CGCAM",
-      "DGNMO",
-      "ISATR",
-      "IZFAS",
-      "ORZAX",
-      "TMPOL"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "AFYON",
-      "BOSSA",
-      "CGCAM",
-      "DGNMO",
-      "ISATR",
-      "IZFAS",
-      "ORZAX",
-      "TMPOL"
-    ],
-    "history_refresh_status": "PARTIAL",
+    "stale_history_tickers": [],
+    "history_refresh_status": "ACTIVE",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

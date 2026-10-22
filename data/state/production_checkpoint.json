@@ -1,18 +1,30 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-22T13:26:44.943878+00:00",
-  "market_date": "2026-10-21",
+  "generated_at": "2026-10-22T20:47:37.150926+00:00",
+  "market_date": "2026-10-22",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-10-21",
+    "expected_market_date": "2026-10-22",
     "tracked": 323,
-    "verified_prices": 322,
-    "fresh_history": 323,
+    "verified_prices": 317,
+    "fresh_history": 317,
     "unverified_tickers": [
-      "ISATR"
+      "GIPTA",
+      "ISATR",
+      "IZINV",
+      "KAPLM",
+      "OFSYM",
+      "TMSN"
     ],
-    "stale_history_tickers": [],
-    "history_refresh_status": "ACTIVE",
+    "stale_history_tickers": [
+      "GIPTA",
+      "ISATR",
+      "IZINV",
+      "KAPLM",
+      "OFSYM",
+      "TMSN"
+    ],
+    "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

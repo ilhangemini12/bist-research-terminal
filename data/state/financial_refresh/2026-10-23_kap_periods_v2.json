@@ -795,5 +795,8 @@
       }
     }
   },
-  "host_circuit": null
+  "host_circuit": {
+    "stage": "capital_refresh",
+    "reason": "HTTP_429"
+  }
 }

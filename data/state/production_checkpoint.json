@@ -1,32 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T20:40:19.188630+00:00",
+  "generated_at": "2026-10-24T12:24:41.493333+00:00",
   "market_date": "2026-10-23",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-10-23",
     "tracked": 323,
-    "verified_prices": 316,
-    "fresh_history": 316,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "ALBTN",
-      "BLUME",
-      "BVSAN",
-      "GEREL",
-      "ISATR",
-      "KLSYN",
-      "SAFKR"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "ALBTN",
-      "BLUME",
-      "BVSAN",
-      "GEREL",
-      "ISATR",
-      "KLSYN",
-      "SAFKR"
-    ],
-    "history_refresh_status": "PARTIAL",
+    "stale_history_tickers": [],
+    "history_refresh_status": "ACTIVE",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

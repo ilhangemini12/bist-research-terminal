@@ -1,32 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-26T21:52:06.695262+00:00",
+  "generated_at": "2026-10-27T13:46:04.303082+00:00",
   "market_date": "2026-10-26",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-10-26",
     "tracked": 323,
-    "verified_prices": 316,
-    "fresh_history": 316,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "BLUME",
-      "DERIM",
-      "DOKTA",
-      "EUPWR",
-      "ISATR",
-      "ISVEA",
-      "PRZMA"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "BLUME",
-      "DERIM",
-      "DOKTA",
-      "EUPWR",
-      "ISATR",
-      "ISVEA",
-      "PRZMA"
-    ],
-    "history_refresh_status": "PARTIAL",
+    "stale_history_tickers": [],
+    "history_refresh_status": "ACTIVE",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

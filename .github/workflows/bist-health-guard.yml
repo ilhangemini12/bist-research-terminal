@@ -1,0 +1,23 @@
+name: BIST Verified-2X daily health gate
+on:
+  schedule:
+    # After nightly terminal update (03:20 UTC = 07:20 Batumi)
+    - cron: '20 3 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/bist_health_guard.py"
+      - "tests/test_bist_health_guard.py"
+      - ".github/workflows/bist-health-guard.yml"
+permissions:
+  contents: read
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test read-only quality gate
+        run: |
+          python -m unittest discover -s tests -p 'test_bist_health_guard.py' -v
+          python -m scripts.bist_health_guard

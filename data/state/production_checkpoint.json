@@ -1,26 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-28T21:55:26.429312+00:00",
+  "generated_at": "2026-10-29T14:55:25.370085+00:00",
   "market_date": "2026-10-28",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-10-28",
     "tracked": 323,
-    "verified_prices": 319,
-    "fresh_history": 319,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "BURCE",
-      "ISATR",
-      "KARCL",
-      "MEYSU"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "BURCE",
-      "ISATR",
-      "KARCL",
-      "MEYSU"
-    ],
-    "history_refresh_status": "PARTIAL",
+    "stale_history_tickers": [],
+    "history_refresh_status": "ACTIVE",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

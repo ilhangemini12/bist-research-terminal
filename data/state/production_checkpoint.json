@@ -1,26 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-30T21:44:16.173535+00:00",
+  "generated_at": "2026-10-31T14:06:52.262766+00:00",
   "market_date": "2026-10-30",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-10-30",
     "tracked": 323,
-    "verified_prices": 319,
-    "fresh_history": 319,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "AKSEN",
-      "ISATR",
-      "ISVEA",
-      "TMPOL"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "AKSEN",
-      "ISATR",
-      "ISVEA",
-      "TMPOL"
-    ],
-    "history_refresh_status": "PARTIAL",
+    "stale_history_tickers": [],
+    "history_refresh_status": "ACTIVE",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."

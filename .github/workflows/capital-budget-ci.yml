@@ -1,7 +1,7 @@
 name: Capital refresh safe offline CI
 on:
   push:
-    branches: [repair/kap-daily-request-budget-20261102]
+    branches: [main, repair/kap-daily-request-budget-20261102]
     paths:
       - 'src/bist_terminal/pipeline/capital_refresh.py'
       - 'tests/test_capital_refresh.py'

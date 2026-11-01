@@ -33,6 +33,40 @@ def refresh(root, tickers, provider):
     return module.refresh_capital(root, tickers, provider, pause_seconds=0)
 
 
+def test_capital_request_budget_is_persisted_and_rolls_to_next_day(tmp_path, monkeypatch):
+    clock = [datetime(2026, 11, 2, 10, tzinfo=timezone.utc)]
+    monkeypatch.setattr(module, '_utc_now', lambda: clock[0])
+    p = Provider()
+    first = module.refresh_capital(tmp_path, ['AAA', 'BBB', 'CCC'], p,
+                                   pause_seconds=0, max_attempts_per_day=2)
+    assert first['status'] == 'PARTIAL'
+    assert first['attempted'] == 2
+    assert first['budget_deferred'] == 1
+    assert first['stale'] == 1
+    assert len(p.calls) == 2
+    again = module.refresh_capital(tmp_path, ['AAA', 'BBB', 'CCC'], p,
+                                   pause_seconds=0, max_attempts_per_day=2)
+    assert again['status'] == 'PARTIAL'
+    assert again['attempted'] == 0
+    assert again['requests_already_used'] == 2
+    assert len(p.calls) == 2
+    clock[0] = datetime(2026, 11, 3, 10, tzinfo=timezone.utc)
+    rolled = module.refresh_capital(tmp_path, ['AAA', 'BBB', 'CCC'], p,
+                                    pause_seconds=0, max_attempts_per_day=2)
+    assert rolled['attempted'] == 2
+    assert p.calls[2] == 'CCC'
+    assert rolled['status'] == 'PARTIAL'
+
+
+def test_budget_cannot_be_disabled_to_bypass_provider_quota(tmp_path):
+    p = Provider()
+    for value in (0, -1, 101, True, 1.5):
+        with pytest.raises(ValueError, match='max_attempts_per_day'):
+            module.refresh_capital(tmp_path, ['AAA'], p, pause_seconds=0,
+                                   max_attempts_per_day=value)
+    assert p.calls == []
+
+
 def test_daily_refresh_resume_and_next_day(tmp_path, monkeypatch):
     clock = [datetime(2026, 10, 9, 12, tzinfo=timezone.utc)]
     monkeypatch.setattr(module, '_utc_now', lambda: clock[0])

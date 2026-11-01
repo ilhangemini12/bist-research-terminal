@@ -57,7 +57,7 @@ def _acceptable(record, ticker):
             and math.isfinite(shares) and shares > 0)
 
 
-def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0) -> dict:
+def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0, max_attempts_per_day=80) -> dict:
     """Fetch mapping once and check each ticker at most once per UTC day.
 
     Successful receipts are reusable only while their shard exists. Access/rate
@@ -71,6 +71,8 @@ def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0) -> dict:
         raise ValueError('Invalid capital ticker')
     if not math.isfinite(pause_seconds) or pause_seconds < 0:
         raise ValueError('pause_seconds must be finite and non-negative')
+    if type(max_attempts_per_day) is not int or not (1 <= max_attempts_per_day <= 100):
+        raise ValueError('max_attempts_per_day must be an integer from 1 to 100')
     now = _utc_now()
     day = now.date().isoformat()
     state = root / 'data/state/capital_refresh' / day
@@ -78,7 +80,8 @@ def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0) -> dict:
     report = dict(status='PARTIAL', provider_id='kap_capital', upstream_vendor='KAP',
                   checked_at=now.isoformat(), check_date=day, requested=len(tickers),
                   refreshed=0, skipped=0, stale=0, attempted=0, errors=[], shards=[],
-                  circuit_reason=None)
+                  circuit_reason=None, request_budget=max_attempts_per_day,
+                  budget_deferred=0, requests_already_used=0)
     if not tickers:
         report['status'] = 'NOT CONFIGURED'
         return report
@@ -125,6 +128,26 @@ def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0) -> dict:
         except (TypeError, ValueError, OverflowError):
             return float('-inf'), ticker
     pending.sort(key=last_checked)
+    # Today's successful/failed receipts consume budget even on reruns.
+    # Budget is deliberately below observed ~100 KAP requests before HTTP 429;
+    # unavailable issuers remain PARTIAL, never fabricated or marked complete.
+    used = 0
+    for receipt_path in state.glob('*.json'):
+        if receipt_path.name.startswith('_'):
+            continue
+        receipt = _read(receipt_path)
+        if receipt.get('status') in ('ACTIVE/TESTED', 'STALE'):
+            used += 1
+    report['requests_already_used'] = used
+    remaining = max(0, max_attempts_per_day - used)
+    deferred = max(0, len(pending) - remaining)
+    report['budget_deferred'] = deferred
+    if remaining == 0:
+        report['stale'] += len(pending)
+        report['status'] = 'PARTIAL'
+        report['errors'].append({'stage': 'daily_budget', 'reason': 'KAP_REQUEST_BUDGET_EXHAUSTED'})
+        return report
+    pending = pending[:remaining]
     report['scheduling'] = 'oldest_successful_check_first'
     report['pause_seconds'] = pause_seconds
 
@@ -194,6 +217,10 @@ def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0) -> dict:
         if report['circuit_reason']:
             report['stale'] += len(pending) - i - 1
             break
+    if deferred:
+        report['stale'] += deferred
+        if not report['circuit_reason']:
+            report['errors'].append({'stage': 'daily_budget', 'reason': 'KAP_REQUEST_BUDGET_EXHAUSTED'})
     report['status'] = ('BLOCKED' if report['circuit_reason'] else
                         'PARTIAL' if report['stale'] else 'ACTIVE/TESTED')
     return report

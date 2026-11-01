@@ -217,9 +217,10 @@ def refresh_capital(root, tickers, provider=None, *, pause_seconds=2.0, max_atte
         if report['circuit_reason']:
             report['stale'] += len(pending) - i - 1
             break
-    if deferred and not report['circuit_reason']:
+    if deferred:
         report['stale'] += deferred
-        report['errors'].append({'stage': 'daily_budget', 'reason': 'KAP_REQUEST_BUDGET_EXHAUSTED'})
+        if not report['circuit_reason']:
+            report['errors'].append({'stage': 'daily_budget', 'reason': 'KAP_REQUEST_BUDGET_EXHAUSTED'})
     report['status'] = ('BLOCKED' if report['circuit_reason'] else
                         'PARTIAL' if report['stale'] else 'ACTIVE/TESTED')
     return report

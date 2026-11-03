@@ -1,25 +1,17 @@
 {
   "project": "bist-research-terminal",
-  "generated_at": "2026-11-03T00:03:18.622229+00:00",
+  "generated_at": "2026-11-03T15:27:16.392592+00:00",
   "mode": "LIVE_PIPELINE",
   "production_health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-11-02",
     "tracked": 323,
-    "verified_prices": 319,
-    "fresh_history": 319,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "AKFYE",
-      "EMKEL",
-      "ISATR",
-      "KARCL"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "AKFYE",
-      "EMKEL",
-      "ISATR",
-      "KARCL"
-    ],
+    "stale_history_tickers": [],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "BLOCKED",
     "capital_refresh_status": "BLOCKED",
@@ -30,40 +22,18 @@
       "status": "PARTIAL",
       "expected_date": "2026-11-02",
       "requested": 323,
-      "updated": 1,
-      "already_current": 318,
-      "current": 319,
-      "stale": 4,
-      "rows_added": 1,
+      "updated": 4,
+      "already_current": 319,
+      "current": 323,
+      "stale": 0,
+      "rows_added": 4,
       "actions_added": 0,
-      "errors": [
-        {
-          "ticker": "AKFYE",
-          "type": "ValueError",
-          "message": "inconsistent OHLC at 2026-11-02"
-        },
-        {
-          "ticker": "EMKEL",
-          "type": "ValueError",
-          "message": "inconsistent OHLC at 2026-11-02"
-        },
-        {
-          "ticker": "ISATR",
-          "type": "NoData",
-          "message": "Yahoo empty trading series for ISATR"
-        },
-        {
-          "ticker": "KARCL",
-          "type": "ValueError",
-          "message": "inconsistent OHLC at 2026-11-02"
-        }
-      ],
+      "errors": [],
       "circuit_open": false,
       "circuit_reason": null,
       "attempted": [
         "AKFYE",
         "EMKEL",
-        "HATSN",
         "ISATR",
         "KARCL"
       ],
@@ -74,31 +44,16 @@
     "financials": {
       "status": "BLOCKED",
       "expected_market_date": "2026-11-02",
-      "checked_at": "2026-11-03T00:02:50.049613+00:00",
+      "checked_at": "2026-11-03T15:26:48.447627+00:00",
       "requested": 323,
-      "errors": [
-        {
-          "year": 2026,
-          "period": "3",
-          "stage": "download",
-          "error": "HTTPError",
-          "http_status": 500,
-          "request_stage": "archive"
-        },
-        {
-          "year": 2026,
-          "period": "2",
-          "stage": "download",
-          "error": "HTTPError",
-          "http_status": 500,
-          "request_stage": "archive"
-        }
-      ],
+      "errors": [],
       "shards": [],
-      "cached": false,
+      "cached": true,
       "periods": {
         "2026Q3": {
           "status": "BLOCKED",
+          "reason": "host_circuit",
+          "cached": true,
           "last_error": {
             "year": 2026,
             "period": "3",
@@ -106,11 +61,12 @@
             "error": "HTTPError",
             "http_status": 500,
             "request_stage": "archive"
-          },
-          "cached": false
+          }
         },
         "2026Q2": {
           "status": "BLOCKED",
+          "reason": "host_circuit",
+          "cached": true,
           "last_error": {
             "year": 2026,
             "period": "2",
@@ -118,11 +74,10 @@
             "error": "HTTPError",
             "http_status": 500,
             "request_stage": "archive"
-          },
-          "cached": false
+          }
         }
       },
-      "downloads_attempted": 2,
+      "downloads_attempted": 0,
       "provider_id": "kap_bulk_financials",
       "upstream_vendor": "KAP / MKK",
       "archives_checked": 0,
@@ -135,33 +90,28 @@
       "extended_financials_changed": 0,
       "roic_inputs_changed": 0,
       "attempts": 2,
-      "host_circuit": null
+      "host_circuit": {
+        "stage": "capital_refresh",
+        "reason": "mapping_unavailable"
+      }
     },
     "capital": {
       "status": "BLOCKED",
       "provider_id": "kap_capital",
       "upstream_vendor": "KAP",
-      "checked_at": "2026-11-03T00:02:55.685386+00:00",
+      "checked_at": "2026-11-03T15:26:52.263029+00:00",
       "check_date": "2026-11-03",
       "requested": 323,
       "refreshed": 0,
       "skipped": 0,
-      "stale": 80,
+      "stale": 323,
       "attempted": 0,
-      "errors": [
-        {
-          "stage": "mapping",
-          "reason": "mapping_unavailable",
-          "error": "RuntimeError"
-        }
-      ],
+      "errors": [],
       "shards": [],
-      "circuit_reason": "mapping_unavailable",
+      "circuit_reason": "kap_financial_host_circuit",
       "request_budget": 80,
-      "budget_deferred": 243,
-      "requests_already_used": 0,
-      "scheduling": "oldest_successful_check_first",
-      "pause_seconds": 2.0
+      "budget_deferred": 0,
+      "requests_already_used": 0
     }
   },
   "repository_url": "https://github.com/ilhangemini12/bist-research-terminal",
@@ -171,8 +121,8 @@
     "expected_market_date": "2026-11-02",
     "last_verified_market_date": "2026-11-02",
     "tracked_live_tickers": 323,
-    "verified_price_count": 319,
-    "unverified_price_count": 4,
+    "verified_price_count": 322,
+    "unverified_price_count": 1,
     "reason": "Live pipeline has VERIFIED_2X prices."
   },
   "demo_fixture": null,
@@ -195,17 +145,17 @@
     "ttm_4q_ready_count": 294,
     "ttm_4q_ready_pct": 91.0
   },
-  "technical_coverage_percent_live": 98.5,
-  "technical_rsi14_count": 318,
+  "technical_coverage_percent_live": 99.7,
+  "technical_rsi14_count": 322,
   "capital_coverage_percent_live": 100.0,
   "capital_explicit_count": 323,
-  "valuation_active_count": 314,
-  "pe_count": 151,
-  "pb_count": 307,
+  "valuation_active_count": 317,
+  "pe_count": 152,
+  "pb_count": 310,
   "extended_valuation_active_count": 297,
-  "ev_ebitda_count": 161,
+  "ev_ebitda_count": 163,
   "net_debt_ebitda_count": 164,
-  "fcf_yield_count": 181,
+  "fcf_yield_count": 182,
   "roic_active_count": 83,
   "high_roic_gt_15_count": 36,
   "dividend_positive_count": 106,
@@ -247,11 +197,10 @@
   "verification_evidence": {
     "basis": "CURRENT_CANONICAL_DATASET",
     "data_date": "2026-11-02",
-    "dataset_generated_at": "2026-11-03T00:03:15.058647+00:00",
+    "dataset_generated_at": "2026-11-03T15:27:11.531674+00:00",
     "status_counts": {
-      "VERIFIED_2X": 319,
-      "SINGLE_SOURCE": 3,
-      "UNVERIFIED": 1
+      "VERIFIED_2X": 322,
+      "SINGLE_SOURCE": 1
     },
     "verified_tickers": [
       "A1CAP",
@@ -265,6 +214,7 @@
       "AHGAZ",
       "AKBNK",
       "AKCNS",
+      "AKFYE",
       "AKGRT",
       "AKHAN",
       "AKSA",
@@ -361,6 +311,7 @@
       "EKOS",
       "EKSUN",
       "ELITE",
+      "EMKEL",
       "ENERY",
       "ENJSA",
       "ENKAI",
@@ -419,6 +370,7 @@
       "IZMDC",
       "JANTS",
       "KAPLM",
+      "KARCL",
       "KARSN",
       "KARTN",
       "KATMR",

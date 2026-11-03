@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "utc_day": "2026-11-03",
+  "periods": {
+    "2026Q3": {
+      "attempts": 1,
+      "failures": 1,
+      "checks": {},
+      "last_error": {
+        "year": 2026,
+        "period": "3",
+        "stage": "download",
+        "error": "HTTPError",
+        "http_status": 500,
+        "request_stage": "archive"
+      }
+    },
+    "2026Q2": {
+      "attempts": 1,
+      "failures": 1,
+      "checks": {},
+      "last_error": {
+        "year": 2026,
+        "period": "2",
+        "stage": "download",
+        "error": "HTTPError",
+        "http_status": 500,
+        "request_stage": "archive"
+      }
+    }
+  },
+  "host_circuit": null
+}

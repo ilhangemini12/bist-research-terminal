@@ -1,30 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-04T22:53:10.898899+00:00",
+  "generated_at": "2026-11-05T15:50:46.533921+00:00",
   "market_date": "2026-11-04",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-11-04",
     "tracked": 323,
-    "verified_prices": 318,
-    "fresh_history": 318,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "EGEEN",
-      "HKTM",
-      "ISATR",
-      "KARCL",
-      "SEKUR"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "EGEEN",
-      "HKTM",
-      "ISATR",
-      "KARCL",
-      "SEKUR"
-    ],
+    "stale_history_tickers": [],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
-    "capital_refresh_status": "PARTIAL",
+    "capital_refresh_status": "BLOCKED",
     "policy": "Missing or stale inputs remain unavailable; no relaxed verification."
   },
   "next_action": "Resolve explicit gaps; never rescan committed history or lower verification.",

@@ -1,17 +1,23 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-06T15:37:34.422941+00:00",
-  "market_date": "2026-11-05",
+  "generated_at": "2026-11-06T22:22:35.909122+00:00",
+  "market_date": "2026-11-06",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-11-05",
+    "expected_market_date": "2026-11-06",
     "tracked": 323,
-    "verified_prices": 322,
-    "fresh_history": 323,
+    "verified_prices": 320,
+    "fresh_history": 320,
     "unverified_tickers": [
-      "ISATR"
+      "BSOKE",
+      "ISATR",
+      "ISVEA"
     ],
-    "stale_history_tickers": [],
+    "stale_history_tickers": [
+      "BSOKE",
+      "ISATR",
+      "ISVEA"
+    ],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "PARTIAL",

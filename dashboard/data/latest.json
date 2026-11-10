@@ -1394,7 +1394,7 @@
   "data_as_of": {
     "prices": "2026-11-09",
     "financials": "2026-09-30",
-    "targets": "2026-11-06",
+    "targets": "2026-11-10",
     "targets_basis": "BROKER_UPDATE_DATE_OR_OBSERVED_CURRENT_PUBLIC_PAGE",
     "news": "2026-11-09"
   },
@@ -6591,7 +6591,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 1.9742101284553901,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -6603,7 +6603,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 461.3,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -16431,7 +16431,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 0.9624723607347585,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -16443,7 +16443,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 35.56,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -19559,7 +19559,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 0.6782753008326903,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -19571,7 +19571,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 202.4,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -22503,7 +22503,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 0.2523840377402171,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -22515,7 +22515,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 191.74,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -36113,7 +36113,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 0.6357466063348416,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -36125,7 +36125,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 723.0,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -42022,7 +42022,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 0.8258903650207756,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -42034,7 +42034,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 323.0,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -43349,7 +43349,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 0.5633484027970566,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -43361,7 +43361,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 138.2,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -47128,7 +47128,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 0.7357743429135928,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -47140,7 +47140,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 350.8,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -48458,7 +48458,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 0.5580645161290323,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -48470,7 +48470,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 483.0,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -53204,7 +53204,7 @@
       "target_sources": [
         "Gedik Yatırım"
       ],
-      "target_latest_date": "2026-11-06",
+      "target_latest_date": "2026-11-10",
       "target_upside": 0.30046460786284634,
       "model_portfolio_active": true,
       "model_portfolio_brokers": [
@@ -53216,7 +53216,7 @@
           "broker_name": "Gedik Yatırım",
           "target_price": 50.38,
           "portfolio_date": null,
-          "observed_date": "2026-11-06",
+          "observed_date": "2026-11-10",
           "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
           "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
         }
@@ -54079,21 +54079,6 @@
       "message": "Recent 7-day official disclosure metadata: 10; exact current-universe title matches: 0"
     },
     {
-      "provider": "gedik_model_portfolio",
-      "status": "ACTIVE",
-      "upstream": "Gedik Yatirim",
-      "successes": 10,
-      "failures": 0,
-      "skipped_after_circuit": 0,
-      "latest_data_date": "2026-11-06",
-      "fields": [
-        "ticker",
-        "target_price",
-        "model_portfolio_membership"
-      ],
-      "message": "Facts-only current public broker model portfolio: 10 tickers; consensus_2plus=0"
-    },
-    {
       "provider": "kap_bulk_financials",
       "status": "PARTIAL",
       "upstream": "KAP / MKK",
@@ -54101,6 +54086,22 @@
       "failures": 11,
       "skipped_after_circuit": 0,
       "message": "Latest normalized high-confidence financial coverage: 312/323"
+    },
+    {
+      "provider": "gedik_model_portfolio",
+      "status": "ACTIVE",
+      "upstream": "Gedik Yatirim",
+      "successes": 10,
+      "failures": 0,
+      "skipped_after_circuit": 0,
+      "latest_data_date": "2026-11-10",
+      "freshness": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "fields": [
+        "ticker",
+        "target_price",
+        "model_portfolio_membership"
+      ],
+      "message": "Facts-only public model portfolio: 10 rows; single broker is not labeled consensus; BIST page market data not republished"
     }
   ],
   "summary": {
@@ -54153,5 +54154,107 @@
       "XUSIN": 248
     }
   },
-  "generated_at": "2026-11-09T18:10:27.377185+00:00"
+  "generated_at": "2026-11-09T18:10:27.377185+00:00",
+  "broker_model_portfolios": [
+    {
+      "ticker": "ASTOR",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 461.3,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    },
+    {
+      "ticker": "DOHOL",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 35.56,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    },
+    {
+      "ticker": "ENJSA",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 202.4,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    },
+    {
+      "ticker": "GARAN",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 191.74,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    },
+    {
+      "ticker": "MPARK",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 723.0,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    },
+    {
+      "ticker": "RGYAS",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 323.0,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    },
+    {
+      "ticker": "SAHOL",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 138.2,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    },
+    {
+      "ticker": "TABGD",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 350.8,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    },
+    {
+      "ticker": "THYAO",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 483.0,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    },
+    {
+      "ticker": "YKBNK",
+      "broker_id": "gedik_model_portfolio",
+      "broker_name": "Gedik Yatırım",
+      "target_price": 50.38,
+      "portfolio_date": null,
+      "observed_date": "2026-11-10",
+      "date_basis": "OBSERVED_CURRENT_PUBLIC_PAGE",
+      "source_url": "https://gedik.com/analiz/model-portfoy/hisse-model-portfoy"
+    }
+  ]
 }

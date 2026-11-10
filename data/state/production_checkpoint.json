@@ -1,28 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-09T18:10:27.377185+00:00",
+  "generated_at": "2026-11-10T01:13:29.412164+00:00",
   "market_date": "2026-11-09",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-11-09",
     "tracked": 323,
-    "verified_prices": 317,
-    "fresh_history": 317,
+    "verified_prices": 322,
+    "fresh_history": 322,
     "unverified_tickers": [
-      "GUNDG",
-      "ISATR",
-      "ISVEA",
-      "IZINV",
-      "KARCL",
-      "TKNKA"
+      "ISATR"
     ],
     "stale_history_tickers": [
-      "GUNDG",
-      "ISATR",
-      "ISVEA",
-      "IZINV",
-      "KARCL",
-      "TKNKA"
+      "ISATR"
     ],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",

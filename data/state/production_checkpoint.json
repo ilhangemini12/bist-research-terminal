@@ -1,17 +1,23 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-11T15:56:48.975562+00:00",
-  "market_date": "2026-11-10",
+  "generated_at": "2026-11-11T23:43:14.513278+00:00",
+  "market_date": "2026-11-11",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-11-10",
+    "expected_market_date": "2026-11-11",
     "tracked": 323,
-    "verified_prices": 322,
-    "fresh_history": 323,
+    "verified_prices": 320,
+    "fresh_history": 320,
     "unverified_tickers": [
-      "ISATR"
+      "EGSER",
+      "ISATR",
+      "RUZYE"
     ],
-    "stale_history_tickers": [],
+    "stale_history_tickers": [
+      "EGSER",
+      "ISATR",
+      "RUZYE"
+    ],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "PARTIAL",

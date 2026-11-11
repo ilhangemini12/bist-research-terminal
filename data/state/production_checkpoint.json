@@ -1,31 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T22:33:10.085180+00:00",
+  "generated_at": "2026-11-11T15:56:48.975562+00:00",
   "market_date": "2026-11-10",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-11-10",
     "tracked": 323,
-    "verified_prices": 316,
-    "fresh_history": 316,
+    "verified_prices": 322,
+    "fresh_history": 323,
     "unverified_tickers": [
-      "ALKLC",
-      "BAGFS",
-      "GENTS",
-      "GUNDG",
-      "ISATR",
-      "KARCL",
-      "TMPOL"
+      "ISATR"
     ],
-    "stale_history_tickers": [
-      "ALKLC",
-      "BAGFS",
-      "GENTS",
-      "GUNDG",
-      "ISATR",
-      "KARCL",
-      "TMPOL"
-    ],
+    "stale_history_tickers": [],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "PARTIAL",

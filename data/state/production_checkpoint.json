@@ -1,17 +1,27 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T15:58:05.931530+00:00",
-  "market_date": "2026-11-12",
+  "generated_at": "2026-11-13T22:53:13.701202+00:00",
+  "market_date": "2026-11-13",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-11-12",
+    "expected_market_date": "2026-11-13",
     "tracked": 323,
-    "verified_prices": 322,
-    "fresh_history": 323,
+    "verified_prices": 318,
+    "fresh_history": 318,
     "unverified_tickers": [
-      "ISATR"
+      "ALKLC",
+      "CMBTN",
+      "GOLTS",
+      "ISATR",
+      "TMPOL"
     ],
-    "stale_history_tickers": [],
+    "stale_history_tickers": [
+      "ALKLC",
+      "CMBTN",
+      "GOLTS",
+      "ISATR",
+      "TMPOL"
+    ],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "PARTIAL",

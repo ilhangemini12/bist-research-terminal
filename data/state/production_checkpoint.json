@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-17T01:36:25.403808+00:00",
-  "market_date": "2026-11-16",
+  "generated_at": "2026-11-17T17:03:27.179853+00:00",
+  "market_date": "2026-11-17",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-11-16",
+    "expected_market_date": "2026-11-17",
     "tracked": 323,
     "verified_prices": 321,
     "fresh_history": 321,
     "unverified_tickers": [
-      "GUNDG",
+      "CGCAM",
       "ISATR"
     ],
     "stale_history_tickers": [
-      "GUNDG",
+      "CGCAM",
       "ISATR"
     ],
     "history_refresh_status": "PARTIAL",

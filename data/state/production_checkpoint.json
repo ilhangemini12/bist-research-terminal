@@ -1,29 +1,25 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-18T17:05:08.153257+00:00",
+  "generated_at": "2026-11-18T23:34:38.893347+00:00",
   "market_date": "2026-11-18",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-11-18",
     "tracked": 323,
-    "verified_prices": 316,
-    "fresh_history": 316,
+    "verified_prices": 318,
+    "fresh_history": 318,
     "unverified_tickers": [
-      "ALKLC",
       "BAKAB",
       "CGCAM",
       "DURDO",
       "ISATR",
-      "MRSHL",
       "VSNMD"
     ],
     "stale_history_tickers": [
-      "ALKLC",
       "BAKAB",
       "CGCAM",
       "DURDO",
       "ISATR",
-      "MRSHL",
       "VSNMD"
     ],
     "history_refresh_status": "PARTIAL",

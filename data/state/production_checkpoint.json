@@ -1,29 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-19T17:09:58.244424+00:00",
+  "generated_at": "2026-11-19T23:48:27.208616+00:00",
   "market_date": "2026-11-19",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-11-19",
     "tracked": 323,
-    "verified_prices": 316,
-    "fresh_history": 316,
+    "verified_prices": 321,
+    "fresh_history": 321,
     "unverified_tickers": [
-      "ALKLC",
-      "ARMGD",
       "ISATR",
-      "ISVEA",
-      "NIBAS",
-      "OZATD",
       "PRZMA"
     ],
     "stale_history_tickers": [
-      "ALKLC",
-      "ARMGD",
       "ISATR",
-      "ISVEA",
-      "NIBAS",
-      "OZATD",
       "PRZMA"
     ],
     "history_refresh_status": "PARTIAL",

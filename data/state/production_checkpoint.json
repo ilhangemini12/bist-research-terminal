@@ -1,29 +1,23 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T16:50:45.564821+00:00",
+  "generated_at": "2026-11-20T23:20:46.106594+00:00",
   "market_date": "2026-11-20",
   "health": {
     "status": "PARTIAL",
     "expected_market_date": "2026-11-20",
     "tracked": 323,
-    "verified_prices": 316,
-    "fresh_history": 316,
+    "verified_prices": 319,
+    "fresh_history": 319,
     "unverified_tickers": [
       "AGHOL",
-      "BANVT",
-      "BURVA",
       "ISATR",
       "IZFAS",
-      "LILAK",
       "TUCLK"
     ],
     "stale_history_tickers": [
       "AGHOL",
-      "BANVT",
-      "BURVA",
       "ISATR",
       "IZFAS",
-      "LILAK",
       "TUCLK"
     ],
     "history_refresh_status": "PARTIAL",

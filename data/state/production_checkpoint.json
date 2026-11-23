@@ -1,17 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T15:52:36.106365+00:00",
-  "market_date": "2026-11-20",
+  "generated_at": "2026-11-23T19:57:48.524165+00:00",
+  "market_date": "2026-11-23",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-11-20",
-    "tracked": 323,
-    "verified_prices": 322,
-    "fresh_history": 323,
+    "expected_market_date": "2026-11-23",
+    "tracked": 322,
+    "verified_prices": 320,
+    "fresh_history": 320,
     "unverified_tickers": [
-      "ISATR"
+      "ISATR",
+      "SOHOE"
     ],
-    "stale_history_tickers": [],
+    "stale_history_tickers": [
+      "ISATR",
+      "SOHOE"
+    ],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",
     "capital_refresh_status": "PARTIAL",

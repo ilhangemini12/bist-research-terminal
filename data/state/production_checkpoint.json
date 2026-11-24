@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-24T03:45:18.317883+00:00",
-  "market_date": "2026-11-23",
+  "generated_at": "2026-11-24T19:05:07.988457+00:00",
+  "market_date": "2026-11-24",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-11-23",
+    "expected_market_date": "2026-11-24",
     "tracked": 322,
     "verified_prices": 320,
     "fresh_history": 320,
     "unverified_tickers": [
-      "ISATR",
-      "SOHOE"
+      "ARCLK",
+      "ISATR"
     ],
     "stale_history_tickers": [
-      "ISATR",
-      "SOHOE"
+      "ARCLK",
+      "ISATR"
     ],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",

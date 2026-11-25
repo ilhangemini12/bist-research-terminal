@@ -1,20 +1,24 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-25T02:07:08.311162+00:00",
-  "market_date": "2026-11-24",
+  "generated_at": "2026-11-25T18:11:51.132045+00:00",
+  "market_date": "2026-11-25",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-11-24",
+    "expected_market_date": "2026-11-25",
     "tracked": 322,
-    "verified_prices": 320,
-    "fresh_history": 320,
+    "verified_prices": 318,
+    "fresh_history": 318,
     "unverified_tickers": [
       "ARCLK",
-      "ISATR"
+      "CEMTS",
+      "ISATR",
+      "KARCL"
     ],
     "stale_history_tickers": [
       "ARCLK",
-      "ISATR"
+      "CEMTS",
+      "ISATR",
+      "KARCL"
     ],
     "history_refresh_status": "PARTIAL",
     "financial_refresh_status": "PARTIAL",

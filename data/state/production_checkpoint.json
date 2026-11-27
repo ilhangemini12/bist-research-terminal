@@ -1,25 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-27T01:31:42.784644+00:00",
-  "market_date": "2026-11-26",
+  "generated_at": "2026-11-27T17:40:16.287285+00:00",
+  "market_date": "2026-11-27",
   "health": {
     "status": "PARTIAL",
-    "expected_market_date": "2026-11-26",
+    "expected_market_date": "2026-11-27",
     "tracked": 322,
-    "verified_prices": 317,
-    "fresh_history": 317,
+    "verified_prices": 319,
+    "fresh_history": 319,
     "unverified_tickers": [
+      "AKHAN",
       "ISATR",
-      "KLSER",
-      "KRDMB",
-      "PENGD",
       "SOHOE"
     ],
     "stale_history_tickers": [
+      "AKHAN",
       "ISATR",
-      "KLSER",
-      "KRDMB",
-      "PENGD",
       "SOHOE"
     ],
     "history_refresh_status": "PARTIAL",
